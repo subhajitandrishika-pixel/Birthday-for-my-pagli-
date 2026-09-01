@@ -6,277 +6,421 @@
 <title>A Little World Made For Chiku 🦋</title>
 
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   font-family:Georgia,serif;
-  color:#fff;
-  background:#07051a;
+  background:#070511;
+  color:white;
   overflow-x:hidden;
 }
 
-.page{
-  min-height:100vh;
+/* ===== BACKGROUND ===== */
+
+.background{
+  position:fixed;
+  inset:0;
+  z-index:-5;
   background:
-    radial-gradient(circle at 20% 20%,#8a2be255,transparent 30%),
-    radial-gradient(circle at 80% 30%,#4169e155,transparent 30%),
-    radial-gradient(circle at 50% 90%,#ff69b455,transparent 35%),
-    linear-gradient(135deg,#05030d,#16082d,#07152c,#09040e);
-  position:relative;
-  overflow:hidden;
+    radial-gradient(circle at 15% 20%,#ff4fa344,transparent 28%),
+    radial-gradient(circle at 85% 25%,#9b4dff44,transparent 30%),
+    radial-gradient(circle at 50% 80%,#367cff33,transparent 35%),
+    linear-gradient(135deg,#05030b,#16072c,#07152d,#09040d);
 }
 
 .stars{
   position:fixed;
   inset:0;
-  pointer-events:none;
+  z-index:-4;
   background-image:
-    radial-gradient(#fff 1px,transparent 1px),
-    radial-gradient(#ffb6d9 1px,transparent 1px);
+    radial-gradient(#ffffff 1px,transparent 1px),
+    radial-gradient(#ffb6dc 1px,transparent 1px);
   background-size:90px 90px,130px 130px;
-  opacity:.35;
+  opacity:.3;
 }
+
+/* ===== BUTTERFLIES ===== */
 
 .butterfly{
   position:fixed;
-  font-size:30px;
-  animation:float 7s ease-in-out infinite;
+  z-index:5;
   pointer-events:none;
-  z-index:2;
+  font-size:30px;
   filter:drop-shadow(0 0 12px #c084fc);
+  animation:butterflyFloat 6s ease-in-out infinite;
 }
 
-.b1{left:7%;top:18%}
-.b2{right:8%;top:32%;animation-delay:2s}
-.b3{left:12%;bottom:20%;animation-delay:1s}
-.b4{right:15%;bottom:12%;animation-delay:3s}
-.b5{left:45%;top:10%;font-size:22px;animation-delay:4s}
+.b1{left:5%;top:15%}
+.b2{right:7%;top:25%;animation-delay:1.5s}
+.b3{left:9%;bottom:20%;animation-delay:3s}
+.b4{right:10%;bottom:15%;animation-delay:4s}
+.b5{left:47%;top:8%;font-size:22px;animation-delay:2s}
 
-@keyframes float{
-  0%,100%{transform:translateY(0) rotate(-5deg)}
-  50%{transform:translateY(-25px) rotate(8deg)}
+@keyframes butterflyFloat{
+  0%,100%{
+    transform:translateY(0) rotate(-5deg);
+  }
+  50%{
+    transform:translateY(-25px) rotate(8deg);
+  }
 }
 
-section{
+/* ===== SECTIONS ===== */
+
+.screen{
+  display:none;
   min-height:100vh;
-  padding:70px 22px;
-  display:flex;
+  width:100%;
+  padding:35px 20px;
   align-items:center;
   justify-content:center;
   text-align:center;
   position:relative;
-  z-index:3;
+}
+
+.screen.active{
+  display:flex;
 }
 
 .card{
-  width:min(520px,100%);
+  width:100%;
+  max-width:550px;
   padding:35px 22px;
-  border:1px solid #d8b4fe66;
-  border-radius:28px;
-  background:#0d0924aa;
-  backdrop-filter:blur(12px);
-  box-shadow:0 0 35px #8a2be244;
+  border-radius:30px;
+  background:#100a25dd;
+  border:1px solid #d9a7ff55;
+  box-shadow:
+    0 0 35px #9b4dff44,
+    inset 0 0 30px #ff4fa311;
+  backdrop-filter:blur(15px);
 }
 
 h1{
-  font-size:clamp(38px,10vw,65px);
-  color:#ffd6ee;
-  text-shadow:0 0 18px #ff69b4,0 0 35px #8a2be2;
-  margin-bottom:20px;
+  font-size:clamp(40px,10vw,68px);
+  line-height:1.05;
+  color:#ffd6eb;
+  text-shadow:
+    0 0 15px #ff4fa3,
+    0 0 35px #9b4dff;
+  margin-bottom:22px;
 }
 
 h2{
-  color:#d8b4fe;
   font-size:32px;
+  color:#ddb9ff;
+  text-shadow:0 0 15px #9b4dff;
   margin-bottom:18px;
 }
 
 p{
   font-family:Arial,sans-serif;
+  font-size:18px;
   line-height:1.7;
-  color:#eee;
+  color:#f4edf9;
 }
 
-.subtitle{
-  font-size:19px;
-  margin-bottom:28px;
+.small{
+  font-size:15px;
+  opacity:.8;
 }
 
 button{
   border:none;
-  border-radius:30px;
-  padding:15px 27px;
-  margin:8px;
+  border-radius:50px;
+  padding:15px 25px;
+  margin:9px 5px;
   font-size:16px;
   font-weight:bold;
   color:white;
-  background:linear-gradient(90deg,#ff4fa3,#8a2be2,#4169e1);
-  box-shadow:0 0 20px #a855f766;
+  background:
+    linear-gradient(90deg,#ff4fa3,#974cff,#367cff);
+  box-shadow:0 0 22px #974cff66;
   cursor:pointer;
   transition:.25s;
 }
 
+button:active{
+  transform:scale(.92);
+}
+
 button:hover{
-  transform:scale(1.06);
-  box-shadow:0 0 30px #ff69b4;
+  box-shadow:0 0 30px #ff4fa3aa;
+  transform:translateY(-2px);
 }
 
-.hidden{
-  display:none;
+.secondary{
+  background:#ffffff14;
+  border:1px solid #ffffff33;
 }
 
-/* CAKE */
-.cake-area{
-  margin:25px auto;
+/* ===== INTRO ===== */
+
+.intro-symbol{
+  font-size:35px;
+  margin-bottom:15px;
+  animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+  from{filter:drop-shadow(0 0 3px #ff4fa3)}
+  to{filter:drop-shadow(0 0 18px #9b4dff)}
+}
+
+/* ===== CAKE ===== */
+
+.cake-wrap{
+  width:300px;
+  height:260px;
   position:relative;
-  width:280px;
-  height:210px;
+  margin:20px auto;
 }
 
-.cake{
+.cake-body{
   position:absolute;
-  bottom:20px;
-  left:25px;
-  width:230px;
-  height:105px;
-  border-radius:18px 18px 25px 25px;
-  background:linear-gradient(#ffb6d5,#d98cff,#9b5de5);
-  box-shadow:0 10px 35px #ff69b477;
+  width:260px;
+  height:110px;
+  left:20px;
+  bottom:25px;
+  border-radius:18px 18px 30px 30px;
+  background:
+    linear-gradient(
+      #ffafd1,
+      #dc8eea 55%,
+      #8757d8
+    );
+  box-shadow:0 15px 40px #ff4fa355;
 }
 
-.cake:before{
-  content:"";
+.icing{
   position:absolute;
-  top:-25px;
+  width:260px;
+  height:48px;
   left:0;
-  width:230px;
-  height:42px;
+  top:-22px;
   border-radius:50%;
-  background:#ffc1df;
-  box-shadow:inset 0 -8px #d884d8;
+  background:#ffc5df;
+  box-shadow:inset 0 -8px #d984d5;
 }
 
-.berry{
+.drip{
   position:absolute;
-  font-size:27px;
+  width:24px;
+  height:35px;
+  background:#ffc5df;
+  border-radius:0 0 15px 15px;
   top:10px;
 }
 
-.berry:nth-child(1){left:35px}
-.berry:nth-child(2){left:100px}
-.berry:nth-child(3){right:35px}
+.d1{left:45px}
+.d2{left:115px}
+.d3{right:45px}
+
+.strawberry{
+  position:absolute;
+  font-size:31px;
+  top:0;
+  z-index:2;
+}
+
+.s1{left:35px}
+.s2{left:112px}
+.s3{right:35px}
 
 .candle{
   position:absolute;
-  width:12px;
-  height:55px;
-  bottom:125px;
-  background:linear-gradient(#fff,#ff8fc8);
-  border-radius:5px;
+  width:14px;
+  height:65px;
+  bottom:135px;
+  border-radius:7px;
+  background:linear-gradient(#ffffff,#ff8fc7);
+  z-index:4;
 }
 
-.candle:nth-of-type(1){left:65px}
-.candle:nth-of-type(2){left:105px}
-.candle:nth-of-type(3){left:145px}
-.candle:nth-of-type(4){left:185px}
+.c1{left:62px}
+.c2{left:112px}
+.c3{left:162px}
+.c4{left:212px}
 
 .flame{
   position:absolute;
-  width:17px;
-  height:25px;
+  width:18px;
+  height:27px;
+  top:-29px;
+  left:-2px;
   background:#ffd166;
   border-radius:50% 50% 50% 0;
   transform:rotate(-45deg);
-  top:-28px;
-  left:-2px;
-  box-shadow:0 0 18px #ffb703;
-  animation:flicker .5s infinite alternate;
+  box-shadow:
+    0 0 10px #ffd166,
+    0 0 25px #ff9d00;
+  animation:flicker .45s infinite alternate;
 }
 
 @keyframes flicker{
-  from{transform:rotate(-45deg) scale(1)}
-  to{transform:rotate(-42deg) scale(1.12)}
+  from{
+    transform:rotate(-45deg) scale(1);
+  }
+  to{
+    transform:rotate(-42deg) scale(1.15);
+  }
 }
 
-.cake-note{
-  margin-top:12px;
-  color:#ffb6d9;
+.flame.off{
+  display:none;
 }
 
-/* QUESTIONS */
-.question{
-  font-size:22px;
-  margin:25px 0;
-  color:#fff;
+.cake-message{
+  min-height:55px;
+  margin-top:15px;
+  color:#ffb7dc;
+}
+
+/* ===== QUESTIONS ===== */
+
+.question-number{
+  font-size:14px;
+  color:#aebfff;
+  font-family:Arial,sans-serif;
+}
+
+.question-text{
+  font-size:23px;
+  margin:22px 0;
 }
 
 .no-message{
-  min-height:45px;
-  color:#ffb6d9;
+  min-height:70px;
+  color:#ffafd4;
+  font-family:Arial,sans-serif;
   font-weight:bold;
-  margin-top:12px;
 }
 
-/* MEMORY BOXES */
-.memory-grid{
+/* ===== PHOTOS ===== */
+
+.photo-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:14px;
+  gap:12px;
   margin-top:25px;
 }
 
-.memory{
-  min-height:130px;
-  border-radius:20px;
-  border:1px solid #a855f755;
-  background:linear-gradient(145deg,#ff69b422,#8a2be233,#4169e122);
+.photo-slot{
+  min-height:220px;
+  border-radius:22px;
+  border:1px solid #c084fc55;
+  background:
+    linear-gradient(145deg,#ff4fa322,#974cff22,#367cff22);
   display:flex;
   align-items:center;
   justify-content:center;
   padding:15px;
   font-family:Arial,sans-serif;
+  color:#f0dfff;
+  box-shadow:0 0 20px #974cff22;
 }
 
-/* LETTER */
+/* ===== MEMORIES ===== */
+
+.memory{
+  margin-top:15px;
+  padding:20px;
+  border-radius:20px;
+  background:linear-gradient(145deg,#ff4fa318,#974cff22,#367cff18);
+  border:1px solid #ffffff18;
+}
+
+.memory-icon{
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+/* ===== LETTER ===== */
+
+.envelope{
+  font-size:70px;
+  margin:15px;
+  filter:drop-shadow(0 0 15px #ff4fa3);
+}
+
 .letter{
   background:#fff1fa;
   color:#32143f;
-  padding:28px;
-  border-radius:12px;
+  padding:27px;
+  border-radius:15px;
   text-align:left;
-  box-shadow:0 0 30px #ff69b455;
-  transform:rotate(-1deg);
+  box-shadow:0 0 30px #ff4fa344;
 }
 
 .letter p{
   color:#32143f;
+  font-family:Georgia,serif;
+  font-size:17px;
+  line-height:1.8;
 }
 
-/* FINAL */
-.final{
-  background:radial-gradient(circle,#8a2be233,transparent 55%);
+/* ===== FINAL ===== */
+
+.final-butterfly{
+  font-size:80px;
+  animation:finalFloat 4s ease-in-out infinite;
 }
 
-.big-butterfly{
-  font-size:70px;
-  animation:float 4s infinite;
-  margin:20px;
+@keyframes finalFloat{
+  50%{
+    transform:translateY(-18px) rotate(8deg);
+  }
 }
 
-@media(max-width:450px){
-  .memory-grid{grid-template-columns:1fr}
-  .cake-area{transform:scale(.9)}
+/* ===== HEARTS ===== */
+
+.heart{
+  position:fixed;
+  bottom:-30px;
+  z-index:20;
+  pointer-events:none;
+  animation:heartRise 5s linear forwards;
 }
+
+@keyframes heartRise{
+  to{
+    transform:translateY(-110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+@media(max-width:430px){
+
+  .card{
+    padding:30px 17px;
+  }
+
+  .cake-wrap{
+    transform:scale(.88);
+    margin-left:-10px;
+  }
+
+  .photo-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
 </style>
 </head>
 
+
 <body>
 
-<div class="page">
+<div class="background"></div>
 <div class="stars"></div>
 
 <div class="butterfly b1">🦋</div>
@@ -285,116 +429,310 @@ button:hover{
 <div class="butterfly b4">🦋</div>
 <div class="butterfly b5">🦋</div>
 
-<!-- INTRO -->
-<section>
-<div class="card">
-<h1>A Little World<br>Made For Chiku</h1>
 
-<p class="subtitle">
-🩷 Welcome to your little birthday world 🦋✨
+<!-- ================= INTRO ================= -->
+
+<div class="screen active" id="home">
+
+<div class="card">
+
+<div class="intro-symbol">
+🦋 ✨ 🩷 ✨ 🦋
+</div>
+
+<h1>
+A Little World<br>
+Made For Chiku
+</h1>
+
+<p>
+A tiny birthday world created especially for you.
+</p>
+
+<br>
+
+<p>
+Chiku... I could have simply said
+<br>
+<strong>“Happy Birthday”</strong>
+<br>
+but you deserve a little more than that. 💗
+</p>
+
+<button onclick="showScreen('cake')">
+Enter Your Little World 🦋
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ================= CAKE ================= -->
+
+<div class="screen" id="cake">
+
+<div class="card">
+
+<h2>🎂 A Cake For Chiku</h2>
+
+<p>
+A giant strawberry cake with a little purple magic. 🍓💜
+</p>
+
+<div class="cake-wrap">
+
+<div class="candle c1">
+<div class="flame"></div>
+</div>
+
+<div class="candle c2">
+<div class="flame"></div>
+</div>
+
+<div class="candle c3">
+<div class="flame"></div>
+</div>
+
+<div class="candle c4">
+<div class="flame"></div>
+</div>
+
+<div class="cake-body">
+
+<div class="icing"></div>
+
+<div class="drip d1"></div>
+<div class="drip d2"></div>
+<div class="drip d3"></div>
+
+<div class="strawberry s1">🍓</div>
+<div class="strawberry s2">🍓</div>
+<div class="strawberry s3">🍓</div>
+
+</div>
+
+</div>
+
+<p>
+Make a wish... 🕯️✨
+</p>
+
+<button onclick="blowCandles()">
+💨 Blow Out The Candles
+</button>
+
+<div class="cake-message" id="cakeMessage"></div>
+
+</div>
+
+</div>
+
+
+<!-- ================= QUESTIONS ================= -->
+
+<div class="screen" id="questions">
+
+<div class="card">
+
+<h2>🤭 Before We Continue...</h2>
+
+<div class="question-number" id="questionNumber">
+QUESTION 1 OF 4
+</div>
+
+<p class="question-text" id="questionText">
+Are you ready for your birthday surprise? 🦋
+</p>
+
+<button onclick="yesAnswer()">
+YES 🩷
+</button>
+
+<button onclick="noAnswer()">
+NO 🙃
+</button>
+
+<div class="no-message" id="noMessage"></div>
+
+</div>
+
+</div>
+
+
+<!-- ================= BIRTHDAY REVEAL ================= -->
+
+<div class="screen" id="reveal">
+
+<div class="card">
+
+<div style="font-size:65px">
+🎉🎂🦋
+</div>
+
+<h1>
+HAPPY BIRTHDAY<br>
+CHIKU!
+</h1>
+
+<p>
+The little birthday world is officially open. 🩷💜💙
 </p>
 
 <p>
-Chiku... this tiny corner of the internet was made especially
-for your birthday. There are surprises waiting for you.
+And there's still more waiting for you...
 </p>
 
-<button onclick="go('cake')">Enter Your Little World 🦋</button>
+<button onclick="showScreen('photos')">
+Continue ✨
+</button>
+
 </div>
-</section>
+
+</div>
 
 
-<!-- CAKE -->
-<section id="cake">
+<!-- ================= PHOTO GALLERY ================= -->
+
+<div class="screen" id="photos">
+
 <div class="card">
-<h2>🎂 A Birthday Cake For Chiku</h2>
 
-<p>But wait... the candles are still burning. 🕯️✨</p>
-
-<div class="cake-area">
-
-<div class="candle" id="c1"><div class="flame"></div></div>
-<div class="candle" id="c2"><div class="flame"></div></div>
-<div class="candle" id="c3"><div class="flame"></div></div>
-<div class="candle" id="c4"><div class="flame"></div></div>
-
-<div class="cake">
-<span class="berry">🍓</span>
-<span class="berry">🍓</span>
-<span class="berry">🍓</span>
-</div>
-
-</div>
-
-<p class="cake-note">
-💨 Tap the candles to blow them out!
-</p>
-
-<button onclick="blowCandles()">Blow Out Candles 🕯️</button>
-
-<div id="cakeMessage" class="hidden">
-<h2>🎉 HAPPY BIRTHDAY CHIKU! 🎉</h2>
-<p>
-You did it! 🦋💗<br>
-Now the little journey can begin...
-</p>
-<button onclick="go('questions')">Continue ✨</button>
-</div>
-
-</div>
-</section>
-
-
-<!-- QUESTIONS -->
-<section id="questions">
-<div class="card">
-<h2>A Few Little Questions 🤭</h2>
-
-<p>Answer honestly... maybe. 😂🦋</p>
-
-<div id="questionBox">
-
-<p class="question" id="questionText">
-Are you ready for your birthday surprise?
-</p>
-
-<button onclick="yesAnswer()">YES 🩷</button>
-<button onclick="noAnswer()">NO 😭</button>
-
-<p class="no-message" id="noMessage"></p>
-
-</div>
-</div>
-</section>
-
-
-<!-- MEMORIES -->
-<section id="memories">
-<div class="card">
-<h2>🦋 Little Memories</h2>
+<h2>🌸 Just You 🦋</h2>
 
 <p>
-Some memories deserve their own little corner.
+A little gallery for someone very special.
 </p>
 
-<div class="memory-grid">
-<div class="memory">📸 Your Photo<br><small>Add later</small></div>
-<div class="memory">📸 Another Memory<br><small>Add later</small></div>
-<div class="memory">💬 A Conversation<br><small>Add later</small></div>
-<div class="memory">🦋 An AI Memory<br><small>Add later</small></div>
+<div class="photo-grid">
+
+<div class="photo-slot">
+📸<br>
+Chiku's Photo 1
 </div>
 
-<button onclick="go('letter')">Open Something Special 💌</button>
+<div class="photo-slot">
+📸<br>
+Chiku's Photo 2
 </div>
-</section>
+
+<div class="photo-slot">
+📸<br>
+Chiku's Photo 3
+</div>
+
+<div class="photo-slot">
+📸<br>
+Chiku's Photo 4
+</div>
+
+<div class="photo-slot">
+📸<br>
+Chiku's Photo 5
+</div>
+
+<div class="photo-slot">
+📸<br>
+Chiku's Photo 6
+</div>
+
+</div>
+
+<br>
+
+<p class="small">
+✨ These spaces will become your real photos later.
+</p>
+
+<button onclick="showScreen('memories')">
+Our Memories 💞
+</button>
+
+</div>
+
+</div>
 
 
-<!-- LETTER -->
-<section id="letter">
+<!-- ================= MEMORIES ================= -->
+
+<div class="screen" id="memories">
+
 <div class="card">
-<h2>💌 A Little Letter</h2>
+
+<h2>💬 Our Little Memories</h2>
+
+<p>
+Some conversations may look ordinary...
+until they become memories. 🥹
+</p>
+
+<div class="memory">
+
+<div class="memory-icon">
+📱
+</div>
+
+<strong>Old Conversations</strong>
+
+<p class="small">
+Your favourite old chats will live here.
+</p>
+
+</div>
+
+<div class="memory">
+
+<div class="memory-icon">
+💬
+</div>
+
+<strong>New Conversations</strong>
+
+<p class="small">
+Little moments that made you smile.
+</p>
+
+</div>
+
+<div class="memory">
+
+<div class="memory-icon">
+🦋
+</div>
+
+<strong>Our Little Moments</strong>
+
+<p class="small">
+The memories that don't need a special reason.
+</p>
+
+</div>
+
+<button onclick="showScreen('letter')">
+There's Something For You 💌
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ================= LETTER ================= -->
+
+<div class="screen" id="letter">
+
+<div class="card">
+
+<div class="envelope">
+💌
+</div>
+
+<h2>
+A Letter For Chiku
+</h2>
 
 <div class="letter">
+
 <p>
 Dear Chiku,
 </p>
@@ -402,26 +740,274 @@ Dear Chiku,
 <br>
 
 <p>
-Happy Birthday! 🩷
-This little world was created to make your special day
-a little more memorable.
+Happy Birthday. 🩷
 </p>
 
 <br>
 
 <p>
-You deserve happiness, peaceful moments, lots of laughter,
-and plenty of reasons to smile. 🦋✨
+I didn't want to give you just another ordinary birthday wish.
+I wanted to make something that could hold a few memories,
+a few smiles, and a little piece of my heart.
 </p>
 
 <br>
 
 <p>
-Keep being the sweet, caring and wonderful person you are.
-Never forget how special you are to the people who care about you.
+You are such a sweet, calm and caring person,
+and I hope you never forget how special you are.
 </p>
 
 <br>
 
 <p>
-— Chinu 🩷
+I hope this birthday brings you beautiful moments,
+lots of laughter, peaceful days,
+and countless reasons to smile.
+</p>
+
+<br>
+
+<p>
+Whenever you look at this little world,
+I hope it reminds you that someone took the time
+to make something especially for you.
+</p>
+
+<br>
+
+<p>
+Happy Birthday, Chiku. 🎂🦋✨
+</p>
+
+<br>
+
+<p>
+— Chinu 💞
+</p>
+
+</div>
+
+<br>
+
+<button onclick="showScreen('final')">
+One Last Surprise 🌙
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ================= FINAL ================= -->
+
+<div class="screen" id="final">
+
+<div class="card">
+
+<div class="final-butterfly">
+🦋
+</div>
+
+<h1>
+Happy Birthday,<br>
+Chiku! 🎂
+</h1>
+
+<p>
+Pink dreams. 🩷
+<br>
+Purple magic. 💜
+<br>
+Blue skies. 💙
+<br>
+And butterflies everywhere. 🦋
+</p>
+
+<br>
+
+<p>
+This little world ends here...
+<br>
+but the memories inside it don't. ✨
+</p>
+
+<br>
+
+<h2>
+Made especially for Chiku
+</h2>
+
+<p>
+— Chinu 🫂💞
+</p>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* ================= SCREEN SYSTEM ================= */
+
+function showScreen(id){
+
+  document.querySelectorAll(".screen").forEach(function(screen){
+
+    screen.classList.remove("active");
+
+  });
+
+  const target=document.getElementById(id);
+
+  if(target){
+
+    target.classList.add("active");
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }
+
+}
+
+
+/* ================= CAKE ================= */
+
+function blowCandles(){
+
+  const flames=document.querySelectorAll(".flame");
+
+  flames.forEach(function(flame){
+
+    flame.classList.add("off");
+
+  });
+
+  document.getElementById("cakeMessage").innerHTML=
+  "🎉 You blew out the candles! 🩷🦋<br>Make your wish, Chiku... ✨";
+
+  hearts();
+
+  setTimeout(function(){
+
+    showScreen("questions");
+
+  },2200);
+
+}
+
+
+/* ================= QUESTIONS ================= */
+
+let currentQuestion=0;
+
+const questionList=[
+
+  "Are you ready for your birthday surprise? 🦋",
+
+  "Do you think you deserve a giant birthday cake? 🎂",
+
+  "Will you stay until the very end? ✨",
+
+  "Do you want to see what Chinu made for you? 💗"
+
+];
+
+const noReplies=[
+
+  "Hmm... that answer looks suspicious. 🤨🦋 Try again!",
+
+  "NO?! The birthday cake committee has filed a complaint. 😂🎂",
+
+  "The butterflies are staring at you like... 👀🦋 Try again!",
+
+  "That NO mysteriously disappeared into the purple clouds. ☁️💜"
+
+];
+
+
+function yesAnswer(){
+
+  currentQuestion++;
+
+  if(currentQuestion>=questionList.length){
+
+    showScreen("reveal");
+
+    hearts();
+
+    return;
+
+  }
+
+  document.getElementById("questionText").innerText=
+  questionList[currentQuestion];
+
+  document.getElementById("questionNumber").innerText=
+  "QUESTION "+(currentQuestion+1)+" OF 4";
+
+  document.getElementById("noMessage").innerText="";
+
+}
+
+
+function noAnswer(){
+
+  document.getElementById("noMessage").innerText=
+  noReplies[currentQuestion];
+
+}
+
+
+/* ================= HEART ANIMATION ================= */
+
+function hearts(){
+
+  for(let i=0;i<18;i++){
+
+    setTimeout(function(){
+
+      const heart=document.createElement("div");
+
+      heart.className="heart";
+
+      const symbols=[
+        "🩷",
+        "💗",
+        "💜",
+        "💙",
+        "🦋",
+        "✨"
+      ];
+
+      heart.innerText=
+      symbols[Math.floor(Math.random()*symbols.length)];
+
+      heart.style.left=
+      Math.random()*100+"vw";
+
+      heart.style.fontSize=
+      (16+Math.random()*22)+"px";
+
+      document.body.appendChild(heart);
+
+      setTimeout(function(){
+
+        heart.remove();
+
+      },5000);
+
+    },i*120);
+
+  }
+
+}
+
+</script>
+
+</body>
+  </html>
