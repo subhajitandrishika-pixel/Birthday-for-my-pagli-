@@ -1,21 +1,249 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>A Little World Made For Chiku</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>A Little World Made For Chiku</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;font-family:Georgia,serif;color:#fff;
+ background:linear-gradient(135deg,#ffb6d5,#d9b8ff,#ffc9df);
+ min-height:100vh;text-align:center;overflow-x:hidden
+}
+.page{min-height:100vh;padding:35px 20px;display:flex;align-items:center;justify-content:center}
+.card{
+ max-width:700px;width:100%;padding:40px 25px;border-radius:30px;
+ background:rgba(255,255,255,.20);backdrop-filter:blur(15px);
+ box-shadow:0 10px 50px rgba(100,30,80,.2)
+}
+h1{font-size:clamp(40px,10vw,72px);margin:15px 0}
+h2{font-size:30px}
+p{font-size:19px;line-height:1.7}
+button{
+ border:0;border-radius:50px;padding:15px 25px;margin:10px;
+ font-size:17px;background:#fff;color:#e84f91;
+ box-shadow:0 6px 20px #0002;cursor:pointer
+}
+button:active{transform:scale(.95)}
+.hidden{display:none}
+.heart{position:fixed;bottom:-30px;animation:up 5s linear forwards;z-index:5}
+.cake{font-size:100px;animation:bounce 1.5s infinite alternate}
+.gallery img{
+ width:100%;max-width:280px;border-radius:22px;margin:10px;
+ box-shadow:0 8px 25px #0003
+}
+.letter{
+ text-align:left;background:#fff;color:#8d4262;
+ padding:25px;border-radius:20px;line-height:1.8
+}
+@keyframes up{
+ to{transform:translateY(-110vh) rotate(360deg);opacity:0}
+}
+@keyframes bounce{to{transform:translateY(-12px)}}
+</style>
 </head>
-<body style="background:#ffd6e7; text-align:center; font-family:Arial; padding-top:100px;">
 
-    <h1 style="color:#ff4f8b;">
-        🌸 A Little World Made For Chiku 🌸
-    </h1>
+<body>
 
-    <h2 style="color:#ff6fa5;">
-        Happy Birthday Chiku 🎂🩷
-    </h2>
+<section class="page" id="home">
+<div class="card">
+<div>🌸 ✨ 🦋 ✨ 🌸</div>
+<h1>A Little World<br>Made For Chiku</h1>
+<p>
+I could have simply wished you Happy Birthday...
+<br>but you deserve something a little more special. 🩷
+</p>
+<button onclick="start()">Enter Your Little World 💗</button>
+</div>
+</section>
 
-    <p style="font-size:20px;">
-        Chiku... I made this little world just for you. 💞
-    </p>
+<section class="page hidden" id="questions">
+<div class="card">
+<h2 id="question"></h2>
+<p id="reply"></p>
+<button onclick="yes()">YES 🩷</button>
+<button onclick="no()">NO 🙃</button>
+</div>
+</section>
+
+<section class="page hidden" id="birthday">
+<div class="card">
+<div class="cake">🎂</div>
+<h1>Happy Birthday, Chiku! 🩷</h1>
+<p>
+Today is all about celebrating the sweet, calm and caring person you are. 🌸
+</p>
+<button onclick="showGallery()">Continue ✨</button>
+</div>
+</section>
+
+<section class="page hidden" id="gallery">
+<div class="card">
+<h2>🌸 Just You 🌸</h2>
+<p>A little collection of someone very special. 🩷</p>
+
+<div class="gallery">
+<img src="https://placehold.co/600x700/ffc1dc/ffffff?text=Chiku+Photo+1">
+<img src="https://placehold.co/600x700/f4c2ff/ffffff?text=Chiku+Photo+2">
+<img src="https://placehold.co/600x700/ffd0e5/ffffff?text=Chiku+Photo+3">
+</div>
+
+<p>More beautiful memories coming soon... 🦋</p>
+<button onclick="showMemories()">Our Memories 💞</button>
+</div>
+</section>
+
+<section class="page hidden" id="memories">
+<div class="card">
+<h2>💬 Little Memories</h2>
+<p>
+Some conversations become memories without us even realizing it. 🥹
+</p>
+
+<div class="letter">
+<p>📱 Old conversations</p>
+<p>
+This is where we'll add your favourite old and new conversation screenshots.
+</p>
+
+<p>📱 New conversations</p>
+<p>
+And all those little moments that make you smile. 💞
+</p>
+</div>
+
+<button onclick="showLetter()">There's something I wrote... 💌</button>
+</div>
+</section>
+
+<section class="page hidden" id="letterPage">
+<div class="card">
+<h2>💌 For Chiku</h2>
+
+<div class="letter">
+<p>Dear Chiku,</p>
+
+<p>
+I didn't want to give you just another birthday wish.
+I wanted to make a little place that reminds you how special you are.
+</p>
+
+<p>
+You are sweet, caring and wonderfully yourself.
+I hope this new year of your life brings you countless reasons
+to smile and many beautiful memories.
+</p>
+
+<p>
+Thank you for being someone who makes ordinary moments feel special.
+I hope whenever you see this little world, you remember that it was
+made especially for you. 🩷
+</p>
+
+<p>
+Happy Birthday, Chiku. 🎂🌸
+</p>
+
+<p style="text-align:right">
+— Chinu 💞
+</p>
+</div>
+
+<button onclick="finish()">One Last Surprise ✨</button>
+</div>
+</section>
+
+<section class="page hidden" id="final">
+<div class="card">
+<h1>🌙✨</h1>
+<h2>And that's my little world for you.</h2>
+
+<p>
+The website may end here...
+<br>
+but I hope the smiles and memories don't. 🩷
+</p>
+
+<h2>Happy Birthday, Chiku! 🎂💞</h2>
+
+<p>With love and lots of wishes,</p>
+<h2>— Chinu 🫂</h2>
+</div>
+</section>
+
+<script>
+let q=0;
+
+const questions=[
+"Are you ready to enter your little birthday world? 🌸",
+"Do you think you deserve a beautiful birthday surprise? 🎁",
+"Will you stay until the very end? 👀",
+"Are you ready for one last little surprise? 💞"
+];
+
+function hideAll(){
+document.querySelectorAll(".page").forEach(x=>x.classList.add("hidden"))
+}
+
+function start(){
+hideAll();
+document.getElementById("questions").classList.remove("hidden");
+question.innerText=questions[q];
+}
+
+function yes(){
+q++;
+if(q>=questions.length){
+hideAll();
+document.getElementById("birthday").classList.remove("hidden");
+hearts();
+}else{
+question.innerText=questions[q];
+reply.innerText="";
+}
+}
+
+function no(){
+reply.innerText="Hmmmm... I think you pressed the wrong button, Chiku. 🤭🩷 Try again!";
+}
+
+function showGallery(){
+hideAll();
+document.getElementById("gallery").classList.remove("hidden");
+}
+
+function showMemories(){
+hideAll();
+document.getElementById("memories").classList.remove("hidden");
+}
+
+function showLetter(){
+hideAll();
+document.getElementById("letterPage").classList.remove("hidden");
+}
+
+function finish(){
+hideAll();
+document.getElementById("final").classList.remove("hidden");
+hearts();
+}
+
+function hearts(){
+for(let i=0;i<25;i++){
+setTimeout(()=>{
+let h=document.createElement("div");
+h.className="heart";
+h.innerText=["🩷","💗","💕","🌸","✨","🦋"][Math.floor(Math.random()*6)];
+h.style.left=Math.random()*100+"vw";
+h.style.fontSize=(15+Math.random()*20)+"px";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),5000);
+},i*100);
+}
+}
+</script>
 
 </body>
-</html>
+    </html>
