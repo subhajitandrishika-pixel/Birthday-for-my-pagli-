@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>A Little World Made For Chiku 🦋</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little World Made For Chiku 💗</title>
 
 <style>
 *{
@@ -16,16 +16,20 @@ html,body{
     width:100%;
     height:100%;
     overflow:hidden;
+    font-family:Georgia,serif;
+    background:#05030b;
+    color:white;
 }
 
 body{
-    font-family:Georgia,serif;
-    color:white;
     background:
-        radial-gradient(circle at 18% 18%,#51166f 0%,transparent 34%),
-        radial-gradient(circle at 82% 75%,#183578 0%,transparent 38%),
-        linear-gradient(135deg,#05030b,#110719,#050817);
+        radial-gradient(circle at 20% 20%,rgba(255,70,190,.18),transparent 30%),
+        radial-gradient(circle at 80% 30%,rgba(100,70,255,.20),transparent 30%),
+        radial-gradient(circle at 50% 100%,rgba(255,30,130,.12),transparent 40%),
+        #05030b;
 }
+
+/* STARS */
 
 body::before{
     content:"";
@@ -33,340 +37,372 @@ body::before{
     inset:0;
     pointer-events:none;
     background-image:
-        radial-gradient(circle,#fff 1px,transparent 1px),
-        radial-gradient(circle,#d99cff 1px,transparent 1px);
+        radial-gradient(circle,rgba(255,255,255,.8) 1px,transparent 1px),
+        radial-gradient(circle,rgba(255,170,240,.6) 1px,transparent 1px);
     background-size:90px 90px,140px 140px;
-    opacity:.32;
+    background-position:20px 30px,60px 80px;
+    opacity:.35;
 }
 
-#app{
-    width:100vw;
-    height:100vh;
-    position:relative;
-}
-
-.scene{
-    position:absolute;
-    inset:0;
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:30px;
-}
-
-.scene.active{
-    display:flex;
-}
-
-.card{
-    width:min(850px,92vw);
-    padding:42px;
-    text-align:center;
-    border:1px solid rgba(255,130,235,.45);
-    border-radius:28px;
-    background:rgba(15,8,30,.72);
-    box-shadow:
-        0 0 30px rgba(221,77,235,.2),
-        inset 0 0 40px rgba(108,75,255,.08);
-    backdrop-filter:blur(12px);
-}
-
-h1{
-    font-size:clamp(32px,7vw,68px);
-    margin-bottom:20px;
-    text-shadow:
-        0 0 12px #ff72df,
-        0 0 35px #874cff;
-}
-
-h2{
-    font-size:clamp(26px,5vw,45px);
-    margin-bottom:18px;
-}
-
-p{
-    font-size:18px;
-    line-height:1.7;
-    color:#eadcf2;
-}
+/* BUTTERFLIES */
 
 .butterfly{
     position:fixed;
-    font-size:38px;
-    animation:float 5s ease-in-out infinite;
-    filter:drop-shadow(0 0 12px #ff68d8);
-    z-index:2;
+    font-size:26px;
+    opacity:.65;
+    animation:float 7s ease-in-out infinite;
     pointer-events:none;
+    z-index:2;
 }
 
-.b1{top:12%;left:8%}
-.b2{top:70%;right:9%;animation-delay:1s}
-.b3{bottom:12%;left:18%;animation-delay:2s}
+.b1{left:12%;top:16%}
+.b2{right:10%;top:25%;animation-delay:2s}
+.b3{left:18%;bottom:18%;animation-delay:4s}
+.b4{right:18%;bottom:12%;animation-delay:1s}
 
 @keyframes float{
-    0%,100%{
-        transform:translateY(0) rotate(-5deg);
-    }
-    50%{
-        transform:translateY(-22px) rotate(8deg);
-    }
+    0%,100%{transform:translateY(0) rotate(-5deg)}
+    50%{transform:translateY(-22px) rotate(8deg)}
 }
+
+/* NAVIGATION */
 
 .nav{
     position:fixed;
-    left:18px;
+    left:15px;
     top:50%;
     transform:translateY(-50%);
-    z-index:20;
+    z-index:100;
     display:flex;
     flex-direction:column;
     gap:12px;
 }
 
 .nav button{
-    width:42px;
-    height:42px;
+    width:43px;
+    height:43px;
     border-radius:50%;
-    border:1px solid #df77db;
-    background:rgba(30,12,50,.8);
+    border:1px solid rgba(255,160,240,.5);
+    background:rgba(255,255,255,.06);
     color:white;
     cursor:pointer;
-    box-shadow:0 0 12px rgba(230,90,220,.25);
+    backdrop-filter:blur(10px);
+    transition:.3s;
 }
 
 .nav button:hover{
-    background:#733c91;
+    transform:scale(1.12);
+    box-shadow:0 0 20px rgba(255,80,200,.7);
 }
 
-.next{
-    margin-top:30px;
-    padding:13px 28px;
+/* SCENES */
+
+.scene{
+    position:absolute;
+    inset:0;
+    width:100vw;
+    height:100vh;
+    display:none;
+    align-items:center;
+    justify-content:center;
+}
+
+.scene.active{
+    display:flex;
+}
+
+/* GENERAL CARD */
+
+.card{
+    width:min(900px,90vw);
+    max-height:88vh;
+    padding:40px;
     border-radius:30px;
-    border:1px solid #ef82e3;
-    background:linear-gradient(135deg,#7d3f9d,#40338c);
+    border:1px solid rgba(255,140,230,.35);
+    background:rgba(12,7,25,.72);
+    box-shadow:
+        0 0 50px rgba(255,60,190,.12),
+        inset 0 0 30px rgba(150,70,255,.05);
+    backdrop-filter:blur(15px);
+    text-align:center;
+}
+
+h1{
+    font-size:clamp(34px,6vw,65px);
+    color:#ffd6f5;
+    text-shadow:
+        0 0 15px #ff65d5,
+        0 0 40px rgba(255,40,180,.5);
+}
+
+h2{
+    font-size:clamp(27px,4vw,45px);
+    color:#ffd8f7;
+    margin-bottom:12px;
+}
+
+p{
+    color:#e9cde7;
+    line-height:1.6;
+}
+
+.subtitle{
+    margin:20px auto 30px;
+    max-width:600px;
+    font-size:18px;
+}
+
+/* BUTTONS */
+
+.next{
+    margin-top:25px;
+    padding:13px 25px;
+    border-radius:30px;
+    border:1px solid rgba(255,150,235,.7);
+    background:linear-gradient(135deg,#9d3cff,#ff45ae);
     color:white;
     font-size:16px;
     cursor:pointer;
-    box-shadow:0 0 18px rgba(225,83,220,.35);
+    box-shadow:0 0 20px rgba(255,50,190,.35);
+    transition:.3s;
 }
 
-.next:active{
-    transform:scale(.96);
+.next:hover{
+    transform:translateY(-3px) scale(1.03);
+    box-shadow:0 0 30px rgba(255,50,190,.65);
 }
 
-/* =========================
-   QUESTIONS
-========================= */
+/* QUESTIONS */
 
-.answerArea{
-    margin-top:30px;
+.question{
+    margin-top:25px;
+}
+
+.question p{
+    font-size:20px;
+    margin-bottom:15px;
+}
+
+.answer{
     display:flex;
     justify-content:center;
-    gap:18px;
-    flex-wrap:wrap;
+    gap:15px;
 }
 
-.answerArea .next{
-    margin-top:0;
+.answer button{
+    padding:10px 25px;
+    border-radius:25px;
+    border:1px solid #ff9ee8;
+    background:rgba(255,255,255,.07);
+    color:white;
+    cursor:pointer;
+    transition:.25s;
 }
 
-#questionReply{
-    margin-top:25px;
-    min-height:55px;
-    color:#f5c9ef;
+.answer button:hover{
+    background:#d63a9f;
+    transform:scale(1.05);
 }
-
 
 /* =========================
-   CAKE
+   CAKE SECTION
 ========================= */
 
-.cakeCard{
-    width:min(900px,94vw);
-    height:min(720px,94vh);
+.cakeScene{
+    position:relative;
+    overflow:hidden;
+}
+
+/* Cake title sits above the cake */
+
+.cakeContent{
+    position:relative;
+    z-index:20;
+    width:100%;
+    height:100%;
     display:flex;
     flex-direction:column;
     align-items:center;
-    justify-content:center;
-    padding:20px;
+    justify-content:flex-start;
+    padding-top:7vh;
+    pointer-events:none;
+}
+
+.cakeContent h2,
+.cakeContent p,
+.cakeContent button{
+    pointer-events:auto;
 }
 
 .cakeTitle{
-    margin-bottom:5px;
+    margin-bottom:3px;
 }
 
 .cakeSubtitle{
-    font-size:15px;
-    color:#dcb9ed;
-    margin-bottom:0;
+    font-size:16px;
 }
+
+/* THIS IS THE IMPORTANT FIX */
 
 .cakeStage{
+    position:absolute;
     width:470px;
     height:360px;
-    max-width:95vw;
-    position:relative;
-    margin:-15px auto -5px;
-    transform:translateY(-18px);
-    display:block;
+
+    left:50%;
+    top:53%;
+
+    transform:translate(-50%,-50%);
+
+    z-index:10;
 }
 
-.cakeGlow{
-    position:absolute;
-    width:400px;
-    height:100px;
-    left:35px;
-    bottom:10px;
-    background:#ff55d7;
-    filter:blur(55px);
-    opacity:.25;
-}
+/* PLATE */
 
-.cakePlate{
+.plate{
     position:absolute;
     width:420px;
     height:38px;
     left:25px;
     bottom:28px;
     border-radius:50%;
-    background:linear-gradient(#c77be4,#613b9b);
+    background:linear-gradient(#e9b9ff,#8d55d8);
     box-shadow:
-        0 0 20px #b85de2,
-        inset 0 4px 8px rgba(255,255,255,.35);
+        0 0 30px rgba(210,120,255,.6),
+        inset 0 -8px 12px rgba(0,0,0,.3);
+}
+
+/* CAKE LAYERS */
+
+.cakeLayer{
+    position:absolute;
+    border-radius:18px 18px 13px 13px;
+    border:2px solid rgba(255,220,255,.55);
+    box-shadow:
+        0 0 20px rgba(255,80,200,.4),
+        inset 0 -10px 15px rgba(0,0,0,.15);
 }
 
 .cakeBottom{
-    position:absolute;
     width:360px;
-    height:100px;
+    height:105px;
     left:55px;
     bottom:50px;
-    border-radius:18px 18px 35px 35px;
-    background:
-        linear-gradient(90deg,#d55a9f,#ff8dcc,#d95da8);
-    border:2px solid #ffb0df;
-    box-shadow:
-        0 0 18px rgba(255,99,211,.45),
-        inset 0 -20px 25px rgba(112,27,91,.18);
+    background:linear-gradient(180deg,#ffb8e9,#b946bd);
 }
 
 .cakeMiddle{
-    position:absolute;
     width:320px;
     height:80px;
     left:75px;
     bottom:130px;
-    border-radius:17px 17px 30px 30px;
-    background:
-        linear-gradient(90deg,#a84d9d,#f184c9,#a94fa1);
-    border:2px solid #ffc1eb;
-    box-shadow:0 0 18px rgba(229,99,218,.4);
+    background:linear-gradient(180deg,#ffd0f1,#b55ce0);
 }
 
 .cakeTop{
-    position:absolute;
     width:300px;
-    height:90px;
+    height:65px;
     left:85px;
     bottom:190px;
-    border-radius:50%;
-    background:
-        radial-gradient(ellipse at center,#ffb7e4 0%,#ed70bf 58%,#ae4e9f 100%);
-    border:2px solid #ffd1ef;
-    box-shadow:
-        0 0 25px rgba(255,108,221,.5),
-        inset 0 8px 15px rgba(255,255,255,.25);
+    border-radius:50% 50% 18px 18px;
+    background:linear-gradient(180deg,#ffe4f7,#d85de7);
 }
 
-/* frosting drips */
+/* FROSTING */
 
-.drip{
+.frost{
     position:absolute;
-    width:32px;
-    height:43px;
-    border-radius:0 0 18px 18px;
-    background:#ffd0ec;
-    top:42px;
+    height:20px;
+    border-radius:50%;
+    background:#fff0fb;
+    box-shadow:0 0 12px rgba(255,255,255,.6);
 }
 
-.d1{left:45px}
-.d2{left:105px;height:32px}
-.d3{left:170px;height:46px}
-.d4{left:230px;height:31px}
+.f1{
+    width:70px;
+    left:110px;
+    bottom:168px;
+}
 
+.f2{
+    width:65px;
+    left:205px;
+    bottom:168px;
+}
 
-/* candles */
+.f3{
+    width:65px;
+    left:285px;
+    bottom:168px;
+}
+
+/* CANDLES */
 
 .candle{
     position:absolute;
-    width:23px;
-    height:72px;
+    width:20px;
+    height:65px;
     bottom:255px;
-    border-radius:7px;
-    background:
-        repeating-linear-gradient(
-            135deg,
-            #fff,
-            #fff 7px,
-            #ff75bf 7px,
-            #ff75bf 14px
-        );
-    border:1px solid #ffd3ef;
-    box-shadow:0 0 12px rgba(255,117,218,.5);
+    border-radius:6px;
+    background:repeating-linear-gradient(
+        45deg,
+        #ff8fdc 0 8px,
+        #fff0fa 8px 16px
+    );
+    box-shadow:0 0 12px rgba(255,150,230,.5);
 }
 
-.candle1{
+.c1{
     left:142px;
 }
 
-.candle2{
+.c2{
     left:223px;
-    height:82px;
 }
 
-.candle3{
+.c3{
     left:295px;
 }
 
+/* FLAMES */
+
 .flame{
     position:absolute;
-    width:23px;
-    height:32px;
-    left:0;
-    top:-32px;
-    border-radius:50% 50% 45% 45%;
-    background:radial-gradient(circle at 50% 70%,#fff 0 18%,#ffd15c 35%,#ff6bbf 70%);
+    width:18px;
+    height:28px;
+    left:1px;
+    top:-29px;
+    border-radius:50% 50% 50% 50%;
+    background:linear-gradient(#fff,#ffe36d,#ff6b00);
     box-shadow:
-        0 0 10px #ffd15c,
-        0 0 25px #ff65d2;
-    animation:flicker .7s ease-in-out infinite alternate;
+        0 0 12px #ffae00,
+        0 0 25px rgba(255,120,0,.8);
+    animation:flicker .45s infinite alternate;
 }
 
 @keyframes flicker{
-    from{
-        transform:scale(1) rotate(-3deg);
-    }
-    to{
-        transform:scale(1.12,.9) rotate(3deg);
-    }
+    from{transform:scale(1) rotate(-3deg)}
+    to{transform:scale(.88) rotate(4deg)}
 }
 
 .flame.out{
-    opacity:0;
-    transform:scale(.2);
     animation:none;
+    opacity:0;
+    transform:scale(.2) translateY(10px);
+    transition:.45s;
 }
+
+/* SMOKE */
 
 .smoke{
     position:absolute;
-    width:15px;
-    height:55px;
-    left:4px;
-    top:-55px;
-    opacity:0;
+    width:14px;
+    height:14px;
+    left:3px;
+    top:-25px;
     border-radius:50%;
-    border-left:3px solid rgba(230,220,255,.5);
-    filter:blur(1px);
+    background:rgba(220,220,255,.35);
+    opacity:0;
 }
 
 .smoke.show{
@@ -375,155 +411,190 @@ p{
 
 @keyframes smokeUp{
     0%{
-        opacity:.5;
-        transform:translateY(0);
+        opacity:0;
+        transform:translate(0,0) scale(.5);
+    }
+    30%{
+        opacity:.6;
     }
     100%{
         opacity:0;
-        transform:translate(-8px,-55px) scale(1.5);
+        transform:translate(15px,-70px) scale(2.3);
     }
 }
 
-
-/* strawberries */
+/* STRAWBERRIES */
 
 .strawberry{
     position:absolute;
-    width:28px;
-    height:34px;
+    width:27px;
+    height:32px;
     border-radius:50% 50% 55% 55%;
-    background:linear-gradient(135deg,#ff476f,#b51e55);
-    z-index:5;
+    background:linear-gradient(135deg,#ff4f91,#d90052);
+    box-shadow:0 0 12px rgba(255,50,100,.5);
 }
 
-.strawberry:before{
-    content:"";
+.strawberry::before{
+    content:"✦";
     position:absolute;
-    width:20px;
-    height:10px;
-    left:4px;
-    top:-5px;
-    background:#72c96e;
-    clip-path:polygon(50% 0,100% 100%,50% 65%,0 100%);
-}
-
-.strawberry:after{
-    content:"••••";
-    position:absolute;
-    color:#ffd1df;
-    font-size:7px;
-    letter-spacing:4px;
-    left:4px;
-    top:11px;
+    top:-13px;
+    left:6px;
+    color:#75e77a;
+    font-size:17px;
 }
 
 .s1{
-    left:120px;
-    bottom:208px;
+    left:92px;
+    bottom:205px;
     transform:rotate(-15deg);
 }
 
 .s2{
-    right:112px;
+    right:92px;
     bottom:205px;
     transform:rotate(15deg);
 }
 
 .s3{
-    left:205px;
-    bottom:92px;
-    transform:rotate(-8deg) scale(.8);
+    left:170px;
+    bottom:72px;
+    transform:scale(.85);
 }
 
+.s4{
+    right:165px;
+    bottom:72px;
+    transform:scale(.85);
+}
 
-/* flowers */
+/* FLOWERS */
 
 .flower{
     position:absolute;
-    font-size:31px;
-    filter:drop-shadow(0 0 7px #ff8bdd);
-    z-index:6;
+    font-size:25px;
+    filter:drop-shadow(0 0 8px rgba(255,170,240,.7));
 }
 
-.f1{
-    left:108px;
-    bottom:116px;
+.flower1{
+    left:65px;
+    bottom:105px;
 }
 
-.f2{
-    right:105px;
-    bottom:118px;
+.flower2{
+    right:65px;
+    bottom:110px;
 }
 
-
-/* Cake interaction */
+/* CAKE TEXT */
 
 .blowText{
-    color:#ffc7ee;
-    font-size:15px;
-    margin-top:-5px;
-    transition:.3s;
+    position:absolute;
+    z-index:30;
+    left:50%;
+    bottom:10vh;
+    transform:translateX(-50%);
+    width:100%;
+    text-align:center;
+    font-size:16px;
 }
 
-.blowButton{
-    margin-top:12px;
-}
+/* NEXT BUTTON AFTER BLOW */
 
-.cakeComplete{
+#cakeContinue{
+    position:absolute;
+    z-index:40;
+    left:50%;
+    bottom:4vh;
+    transform:translateX(-50%) translateY(15px);
     opacity:0;
-    transform:translateY(8px);
-    transition:.7s;
-    color:#ffb8e9;
-    min-height:28px;
+    pointer-events:none;
+    transition:.5s;
+    margin:0;
 }
 
-.cakeComplete.show{
+#cakeContinue.show{
     opacity:1;
-    transform:translateY(0);
+    pointer-events:auto;
+    transform:translateX(-50%) translateY(0);
 }
 
+/* PLACEHOLDERS */
 
-/* =========================
-   MOBILE
-========================= */
+.placeholder{
+    font-size:70px;
+    margin:20px;
+}
+
+.smallText{
+    margin-top:10px;
+    opacity:.7;
+}
+
+/* MOBILE */
 
 @media(max-width:600px){
-
-    .card{
-        padding:30px 20px;
-    }
 
     .nav{
         left:50%;
         top:auto;
-        bottom:15px;
+        bottom:12px;
         transform:translateX(-50%);
         flex-direction:row;
+        gap:7px;
     }
 
     .nav button{
-        width:36px;
-        height:36px;
-        font-size:12px;
+        width:37px;
+        height:37px;
+        font-size:14px;
     }
 
-    p{
+    .card{
+        width:92vw;
+        padding:25px 18px;
+    }
+
+    .subtitle{
         font-size:16px;
     }
 
-    .cakeCard{
-        padding:10px;
+    .cakeContent{
+        padding-top:5vh;
     }
 
     .cakeTitle{
-        font-size:30px;
+        font-size:28px;
     }
 
+    .cakeSubtitle{
+        font-size:14px;
+    }
+
+    /*
+       Keep the stage centered in the viewport.
+       Scaling happens AFTER centering.
+    */
+
     .cakeStage{
-        transform:scale(.72) translateY(-28px);
+        left:50%;
+        top:52%;
+        transform:translate(-50%,-50%) scale(.70);
         transform-origin:center center;
-        margin-top:-20px;
-        margin-bottom:-55px;
+    }
+
+    .blowText{
+        bottom:13vh;
+        font-size:14px;
+    }
+
+    #cakeContinue{
+        bottom:8vh;
+        font-size:14px;
+        white-space:nowrap;
+    }
+
+    .butterfly{
+        font-size:20px;
     }
 }
 </style>
@@ -531,454 +602,403 @@ p{
 
 <body>
 
-<div id="app">
+<!-- FLOATING BUTTERFLIES -->
 
 <div class="butterfly b1">🦋</div>
 <div class="butterfly b2">🦋</div>
 <div class="butterfly b3">🦋</div>
-
+<div class="butterfly b4">🦋</div>
 
 <!-- NAVIGATION -->
 
 <div class="nav">
-    <button onclick="showScene(0)">✦</button>
-    <button onclick="showScene(1)">♡</button>
+    <button onclick="showScene(0)">⌂</button>
+    <button onclick="showScene(1)">💗</button>
     <button onclick="showScene(2)">🎂</button>
     <button onclick="showScene(3)">🎡</button>
-    <button onclick="showScene(4)">✧</button>
+    <button onclick="showScene(4)">🎟️</button>
     <button onclick="showScene(5)">📸</button>
     <button onclick="showScene(6)">💌</button>
     <button onclick="showScene(7)">✨</button>
 </div>
 
-
-<!-- CHAPTER 1 -->
+<!-- =====================
+     CHAPTER 1
+===================== -->
 
 <section class="scene active">
 
-<div class="card">
+    <div class="card">
 
-<h1>
-A Little World<br>
-Made For Chiku 🦋
-</h1>
+        <div class="placeholder">🦋</div>
 
-<p>
-A tiny universe of memories,
-surprises, butterflies and
-birthday magic...
-</p>
+        <h1>A Little World<br>Made For Chiku</h1>
 
-<button class="next"
-onclick="showScene(1)">
-Enter My Little World ✨
-</button>
+        <p class="subtitle">
+            A tiny universe of memories, surprises,
+            smiles and little things made especially for you.
+        </p>
 
-</div>
+        <button class="next" onclick="showScene(1)">
+            Enter Your Little World ✨
+        </button>
+
+    </div>
 
 </section>
 
-
-<!-- CHAPTER 2 : QUESTIONS -->
+<!-- =====================
+     CHAPTER 2
+===================== -->
 
 <section class="scene">
 
-<div class="card">
+    <div class="card">
 
-<p style="
-color:#ff9be8;
-letter-spacing:2px;
-font-size:13px;
-margin-bottom:15px;
-">
-A LITTLE QUESTION FOR YOU
-</p>
+        <div class="placeholder">💗</div>
 
-<h2 id="questionText">
-Do you know how special
-you are to me? 💗
-</h2>
+        <h2>Before We Begin...</h2>
 
-<div class="answerArea">
+        <p>There are a few very important questions.</p>
 
-<button class="next"
-onclick="answerYes()">
-Yes 💗
-</button>
+        <div class="question">
 
-<button class="next"
-onclick="answerNo()">
-No 🥺
-</button>
+            <p>Do you think today is going to be special?</p>
 
-</div>
+            <div class="answer">
+                <button onclick="yesAnswer()">Yes 💕</button>
+                <button onclick="noAnswer(0)">No 🙃</button>
+            </div>
 
-<p id="questionReply"></p>
+        </div>
 
-</div>
+        <div class="question">
+
+            <p>Do you deserve a whole surprise universe?</p>
+
+            <div class="answer">
+                <button onclick="yesAnswer()">Yes 🦋</button>
+                <button onclick="noAnswer(1)">No 😭</button>
+            </div>
+
+        </div>
+
+        <div class="question">
+
+            <p>Ready for the first surprise?</p>
+
+            <div class="answer">
+                <button onclick="yesAnswer()">YES! 🎉</button>
+                <button onclick="noAnswer(2)">No 👀</button>
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
+<!-- =====================
+     CHAPTER 3 — CAKE
+===================== -->
 
-<!-- CHAPTER 3 : CAKE -->
+<section class="scene cakeScene">
+
+    <div class="cakeContent">
+
+        <h2 class="cakeTitle">
+            Make A Birthday Wish 🎂
+        </h2>
+
+        <p class="cakeSubtitle">
+            Three little flames are waiting for you...
+        </p>
+
+    </div>
+
+    <!-- CAKE -->
+
+    <div class="cakeStage">
+
+        <div class="plate"></div>
+
+        <div class="cakeLayer cakeBottom"></div>
+
+        <div class="cakeLayer cakeMiddle"></div>
+
+        <div class="cakeLayer cakeTop"></div>
+
+        <div class="frost f1"></div>
+        <div class="frost f2"></div>
+        <div class="frost f3"></div>
+
+        <div class="strawberry s1"></div>
+        <div class="strawberry s2"></div>
+        <div class="strawberry s3"></div>
+        <div class="strawberry s4"></div>
+
+        <div class="flower flower1">🌸</div>
+        <div class="flower flower2">🌸</div>
+
+        <div class="candle c1">
+            <div class="flame"></div>
+            <div class="smoke"></div>
+        </div>
+
+        <div class="candle c2">
+            <div class="flame"></div>
+            <div class="smoke"></div>
+        </div>
+
+        <div class="candle c3">
+            <div class="flame"></div>
+            <div class="smoke"></div>
+        </div>
+
+    </div>
+
+    <p class="blowText" id="blowText">
+        Tap the button to blow out the candles 💨
+    </p>
+
+    <button
+        class="next"
+        id="blowButton"
+        onclick="blowCandles()"
+        style="position:absolute;z-index:35;bottom:4vh;left:50%;transform:translateX(-50%);margin:0;"
+    >
+        💨 Blow The Candles
+    </button>
+
+    <button
+        class="next"
+        id="cakeContinue"
+        onclick="showScene(3)"
+    >
+        Continue to the next surprise 🎡
+    </button>
+
+</section>
+
+<!-- =====================
+     CHAPTER 4
+===================== -->
 
 <section class="scene">
 
-<div class="card cakeCard">
+    <div class="card">
 
-<h2 class="cakeTitle">
-Make A Birthday Wish 🎂
-</h2>
+        <div class="placeholder">🎡</div>
 
-<p class="cakeSubtitle">
-Three little flames are waiting for you...
-</p>
+        <h2>The Surprise Wheel</h2>
 
+        <p>
+            The wheel will decide your next little surprise...
+        </p>
 
-<div class="cakeStage">
+        <p class="smallText">
+            Coming next ✨
+        </p>
 
-<div class="cakeGlow"></div>
-
-<div class="cakePlate"></div>
-
-<div class="cakeBottom"></div>
-
-<div class="cakeMiddle"></div>
-
-<div class="cakeTop">
-
-<div class="drip d1"></div>
-<div class="drip d2"></div>
-<div class="drip d3"></div>
-<div class="drip d4"></div>
-
-</div>
-
-
-<!-- candles -->
-
-<div class="candle candle1">
-
-<div class="flame"></div>
-<div class="smoke"></div>
-
-</div>
-
-<div class="candle candle2">
-
-<div class="flame"></div>
-<div class="smoke"></div>
-
-</div>
-
-<div class="candle candle3">
-
-<div class="flame"></div>
-<div class="smoke"></div>
-
-</div>
-
-
-<!-- strawberries -->
-
-<div class="strawberry s1"></div>
-<div class="strawberry s2"></div>
-<div class="strawberry s3"></div>
-
-
-<!-- flowers -->
-
-<div class="flower f1">🌸</div>
-<div class="flower f2">🌸</div>
-
-</div>
-
-
-<p class="blowText"
-id="blowText">
-Tap the button to blow out the candles 💨
-</p>
-
-<button class="next blowButton"
-onclick="blowCandles()">
-💨 Blow The Candles
-</button>
-
-<p class="cakeComplete"
-id="cakeComplete">
-Wish made. Birthday magic unlocked. ✨🦋
-</p>
-
-<button class="next"
-onclick="showScene(3)">
-Continue to the next surprise 🎡
-</button>
-
-</div>
+    </div>
 
 </section>
 
-
-<!-- CHAPTER 4 -->
+<!-- =====================
+     CHAPTER 5
+===================== -->
 
 <section class="scene">
 
-<div class="card">
+    <div class="card">
 
-<h2>
-A Little Game 🎡
-</h2>
+        <div class="placeholder">🎟️</div>
 
-<p>
-Spin the wheel and discover
-your surprise.
-</p>
+        <h2>A Secret Is Waiting...</h2>
 
-<button class="next"
-onclick="showScene(4)">
-Spin ✦
-</button>
+        <p>
+            Scratch the hidden card to discover
+            what is underneath.
+        </p>
 
-</div>
+        <p class="smallText">
+            Scratch-card interaction coming next ✨
+        </p>
+
+    </div>
 
 </section>
 
-
-<!-- CHAPTER 5 -->
+<!-- =====================
+     CHAPTER 6
+===================== -->
 
 <section class="scene">
 
-<div class="card">
+    <div class="card">
 
-<h2>
-A Hidden Secret ✧
-</h2>
+        <div class="placeholder">📸</div>
 
-<p>
-Something is hiding
-beneath the surface...
-</p>
+        <h2>Our Little Memories</h2>
 
-<button class="next"
-onclick="showScene(5)">
-Reveal More 🦋
-</button>
+        <p>
+            Photos, old conversations,
+            new memories and moments worth keeping.
+        </p>
 
-</div>
+        <p class="smallText">
+            Your photos will go here.
+        </p>
+
+    </div>
 
 </section>
 
-
-<!-- CHAPTER 6 -->
+<!-- =====================
+     CHAPTER 7
+===================== -->
 
 <section class="scene">
 
-<div class="card">
+    <div class="card">
 
-<h2>
-Our Little Memories 📸
-</h2>
+        <div class="placeholder">💌</div>
 
-<p>
-The moments that deserve
-their own little corner
-of this universe.
-</p>
+        <h2>A Letter For You</h2>
 
-<button class="next"
-onclick="showScene(6)">
-Next 💌
-</button>
+        <p>
+            A butterfly envelope will open
+            and reveal a letter written just for Chiku.
+        </p>
 
-</div>
+        <p class="smallText">
+            Letter-writing animation coming next ✨
+        </p>
+
+    </div>
 
 </section>
 
-
-<!-- CHAPTER 7 -->
+<!-- =====================
+     CHAPTER 8
+===================== -->
 
 <section class="scene">
 
-<div class="card">
+    <div class="card">
 
-<h2>
-A Letter For You 💌
-</h2>
+        <div class="placeholder">✨</div>
 
-<p>
-Some things are better
-written than said.
-</p>
+        <h2>One Last Little Surprise</h2>
 
-<button class="next"
-onclick="showScene(7)">
-Open ✨
-</button>
+        <p class="subtitle">
+            And when everything else is finished,
+            there will still be one final thing waiting...
+        </p>
 
-</div>
+        <div class="placeholder">🦋💗🦋</div>
+
+    </div>
 
 </section>
-
-
-<!-- CHAPTER 8 -->
-
-<section class="scene">
-
-<div class="card">
-
-<h1>
-Happy Birthday,
-Chiku 🦋
-</h1>
-
-<p>
-This little world was
-made especially for you.
-</p>
-
-</div>
-
-</section>
-
-</div>
-
 
 <script>
 
-/* =========================
-   NAVIGATION
-========================= */
+/* =====================
+   SCENE NAVIGATION
+===================== */
 
-const scenes =
-document.querySelectorAll(".scene");
+const scenes = document.querySelectorAll(".scene");
 
 function showScene(number){
 
-    scenes.forEach(scene=>{
-        scene.classList.remove("active");
+    scenes.forEach((scene,index)=>{
+
+        scene.classList.toggle(
+            "active",
+            index === number
+        );
+
     });
 
-    scenes[number].classList.add("active");
+    window.scrollTo(0,0);
 }
 
 
-/* =========================
+/* =====================
    QUESTIONS
-========================= */
+===================== */
 
-const questions = [
+let yesCount = 0;
 
-{
-question:
-"Do you know how special you are to me? 💗",
+function yesAnswer(){
 
-no:
-"Then I'll keep reminding you until you believe it. 🥺💗"
-},
+    yesCount++;
 
-{
-question:
-"Do you know that you make my world a little brighter? ✨",
+    if(yesCount >= 3){
 
-no:
-"Then this little birthday world has one job: prove it to you. 🦋💜"
-},
+        setTimeout(()=>{
+            showScene(2);
+        },250);
 
-{
-question:
-"Will you keep smiling on your birthday? 🌸",
-
-no:
-"Okay... then I'll have to bring out the next surprise. 😌🦋"
-}
-
-];
-
-let questionIndex=0;
-
-
-function answerYes(){
-
-const reply =
-document.getElementById("questionReply");
-
-if(questionIndex < questions.length-1){
-
-reply.textContent=
-"I knew you'd say that. 💗";
-
-questionIndex++;
-
-setTimeout(()=>{
-
-document.getElementById("questionText")
-.textContent=
-questions[questionIndex].question;
-
-reply.textContent="";
-
-},900);
-
-}else{
-
-reply.textContent=
-"Then let's continue your little birthday adventure... 🦋✨";
-
-setTimeout(()=>{
-
-showScene(2);
-
-},1200);
+    }
 
 }
+
+function noAnswer(number){
+
+    const responses = [
+
+        "Hmm... suspicious answer detected 👀💗",
+
+        "Nice try 😭 The universe disagrees with you 🦋",
+
+        "Nope! The surprise is coming anyway 😌✨"
+
+    ];
+
+    alert(responses[number]);
 
 }
 
 
-function answerNo(){
-
-const reply =
-document.getElementById("questionReply");
-
-reply.textContent=
-questions[questionIndex].no;
-
-}
-
-
-/* =========================
+/* =====================
    CAKE
-========================= */
+===================== */
 
-let candlesBlown=false;
+let candlesBlown = false;
 
 function blowCandles(){
 
-if(candlesBlown)return;
+    if(candlesBlown){
+        return;
+    }
 
-candlesBlown=true;
+    candlesBlown = true;
 
-const flames =
-document.querySelectorAll(".flame");
+    const flames =
+        document.querySelectorAll(".flame");
 
-const smoke =
-document.querySelectorAll(".smoke");
+    flames.forEach(flame=>{
+        flame.classList.add("out");
+    });
 
-flames.forEach(flame=>{
-    flame.classList.add("out");
-});
+    const smoke =
+        document.querySelectorAll(".smoke");
 
-smoke.forEach(item=>{
-    item.classList.add("show");
-});
+    smoke.forEach(item=>{
+        item.classList.add("show");
+    });
 
-document.getElementById("blowText")
-.textContent=
-"The candles are out... make your wish. ✨";
+    document.getElementById("blowText").textContent =
+        "The candles are out... make your wish. ✨";
 
-document.getElementById("cakeComplete")
-.classList.add("show");
+    document.getElementById("blowButton").style.display =
+        "none";
 
+    document
+        .getElementById("cakeContinue")
+        .classList.add("show");
 }
 
 </script>
