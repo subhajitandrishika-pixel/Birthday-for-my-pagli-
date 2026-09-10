@@ -2,1004 +2,2221 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Little World Made For Chiku 💗</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>A Little World Made For Chiku 🦋</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  -webkit-tap-highlight-color:transparent;
 }
 
 html,body{
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    font-family:Georgia,serif;
-    background:#05030b;
-    color:white;
+  width:100%;
+  height:100%;
+  overflow:hidden;
 }
 
 body{
-    background:
-        radial-gradient(circle at 20% 20%,rgba(255,70,190,.18),transparent 30%),
-        radial-gradient(circle at 80% 30%,rgba(100,70,255,.20),transparent 30%),
-        radial-gradient(circle at 50% 100%,rgba(255,30,130,.12),transparent 40%),
-        #05030b;
+  font-family:'Nunito',sans-serif;
+  color:#fff;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(126,55,190,.30),transparent 30%),
+    radial-gradient(circle at 80% 30%,rgba(255,70,170,.18),transparent 28%),
+    radial-gradient(circle at 50% 90%,rgba(30,100,190,.18),transparent 35%),
+    #030207;
 }
 
-/* STARS */
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    background-image:
-        radial-gradient(circle,rgba(255,255,255,.8) 1px,transparent 1px),
-        radial-gradient(circle,rgba(255,170,240,.6) 1px,transparent 1px);
-    background-size:90px 90px,140px 140px;
-    background-position:20px 30px,60px 80px;
-    opacity:.35;
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    radial-gradient(#fff 1px,transparent 1px),
+    radial-gradient(#b8c9ff 1px,transparent 1px);
+  background-size:90px 90px,140px 140px;
+  background-position:10px 20px,40px 60px;
+  opacity:.35;
 }
-
-/* BUTTERFLIES */
 
 .butterfly{
-    position:fixed;
-    font-size:26px;
-    opacity:.65;
-    animation:float 7s ease-in-out infinite;
-    pointer-events:none;
-    z-index:2;
+  position:fixed;
+  z-index:1;
+  font-size:24px;
+  pointer-events:none;
+  animation:floatButterfly 7s ease-in-out infinite;
+  filter:drop-shadow(0 0 10px #d66cff);
 }
 
-.b1{left:12%;top:16%}
+.b1{left:8%;top:15%;animation-delay:0s}
 .b2{right:10%;top:25%;animation-delay:2s}
-.b3{left:18%;bottom:18%;animation-delay:4s}
-.b4{right:18%;bottom:12%;animation-delay:1s}
+.b3{left:15%;bottom:25%;animation-delay:4s}
+.b4{right:18%;bottom:15%;animation-delay:1s}
 
-@keyframes float{
-    0%,100%{transform:translateY(0) rotate(-5deg)}
-    50%{transform:translateY(-22px) rotate(8deg)}
+@keyframes floatButterfly{
+  0%,100%{transform:translate(0,0) rotate(-5deg)}
+  50%{transform:translate(18px,-25px) rotate(8deg)}
 }
+
+.scene{
+  position:fixed;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:24px 18px 90px;
+  overflow:hidden;
+}
+
+.scene.active{
+  display:flex;
+  animation:sceneIn .6s ease;
+}
+
+@keyframes sceneIn{
+  from{opacity:0;transform:scale(.97)}
+  to{opacity:1;transform:scale(1)}
+}
+
+.card{
+  width:min(92vw,720px);
+  max-height:calc(100vh - 130px);
+  padding:30px 22px;
+  border:1px solid rgba(255,130,230,.35);
+  border-radius:28px;
+  background:
+    linear-gradient(145deg,rgba(25,10,40,.90),rgba(3,3,12,.94));
+  box-shadow:
+    0 0 25px rgba(190,70,255,.18),
+    inset 0 0 30px rgba(70,80,255,.05);
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.card:before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:30px;
+  pointer-events:none;
+  background:linear-gradient(120deg,
+    transparent,
+    rgba(255,90,210,.12),
+    transparent,
+    rgba(70,130,255,.10),
+    transparent);
+}
+
+.kicker{
+  color:#b9a8ff;
+  font-size:12px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  margin-bottom:12px;
+}
+
+h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(40px,10vw,72px);
+  line-height:.95;
+  background:linear-gradient(90deg,#fff,#ff9de9,#b8a5ff,#83c9ff);
+  -webkit-background-clip:text;
+  color:transparent;
+  margin-bottom:18px;
+}
+
+h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(32px,8vw,52px);
+  color:#fff;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  color:#d8d0e8;
+  line-height:1.7;
+  font-size:15px;
+}
+
+.next{
+  border:1px solid rgba(255,140,230,.55);
+  color:#fff;
+  background:
+    linear-gradient(135deg,rgba(255,80,190,.20),rgba(80,90,255,.18));
+  border-radius:999px;
+  padding:13px 22px;
+  font-family:'Nunito',sans-serif;
+  font-weight:800;
+  letter-spacing:.5px;
+  cursor:pointer;
+  box-shadow:0 0 18px rgba(210,80,255,.16);
+  transition:.2s;
+}
+
+.next:active{
+  transform:scale(.95);
+}
+
+.next:disabled{
+  cursor:not-allowed;
+}
+
+.introButterfly{
+  font-size:65px;
+  margin:8px 0 18px;
+  animation:wing 2s ease-in-out infinite;
+  filter:drop-shadow(0 0 18px #cf64ff);
+}
+
+@keyframes wing{
+  0%,100%{transform:scale(1) rotate(-4deg)}
+  50%{transform:scale(1.08) rotate(4deg)}
+}
+
+.from{
+  margin-top:18px;
+  color:#b9b1cb;
+  font-family:'Dancing Script',cursive;
+  font-size:24px;
+}
+
+.questionNumber{
+  color:#8fc7ff;
+  font-size:13px;
+  letter-spacing:2px;
+  margin-bottom:12px;
+}
+
+.question{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(28px,7vw,43px);
+  line-height:1.15;
+  margin:20px 0 30px;
+}
+
+.answerButtons{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+}
+
+.answerButtons button{
+  min-width:105px;
+}
+
+.noResponse{
+  min-height:45px;
+  margin-top:18px;
+  color:#ffb5eb;
+  font-size:14px;
+}
+
+.cakeArea{
+  position:relative;
+  width:300px;
+  max-width:90vw;
+  height:320px;
+  margin:5px auto 0;
+}
+
+.cakeGlow{
+  position:absolute;
+  width:230px;
+  height:230px;
+  left:50%;
+  top:55px;
+  transform:translateX(-50%);
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,100,220,.18),transparent 70%);
+}
+
+.cake{
+  position:absolute;
+  left:50%;
+  top:115px;
+  transform:translateX(-50%);
+  width:220px;
+}
+
+.plate{
+  height:20px;
+  width:260px;
+  background:linear-gradient(#9e79d9,#4b3277);
+  border-radius:50%;
+  margin:auto;
+  box-shadow:0 0 20px rgba(180,100,255,.4);
+}
+
+.cakeBase{
+  height:100px;
+  background:linear-gradient(90deg,#6b267d,#c75ac7,#7b378e);
+  border-radius:18px 18px 25px 25px;
+  position:relative;
+  overflow:hidden;
+  border:2px solid rgba(255,170,245,.4);
+}
+
+.cakeBase:before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  height:27px;
+  background:#ffb3dc;
+  border-radius:50%;
+  box-shadow:0 8px 0 #e780bf;
+}
+
+.cream{
+  position:absolute;
+  top:17px;
+  width:100%;
+  height:30px;
+  z-index:2;
+  display:flex;
+  justify-content:space-around;
+}
+
+.cream span{
+  width:25px;
+  height:35px;
+  background:#ffe1f2;
+  border-radius:50%;
+}
+
+.strawberry{
+  position:absolute;
+  font-size:26px;
+  z-index:3;
+}
+
+.s1{left:25px;top:40px}
+.s2{right:25px;top:42px}
+.s3{left:95px;top:50px}
+
+.candle{
+  position:absolute;
+  bottom:88px;
+  width:13px;
+  height:62px;
+  border-radius:5px;
+  background:repeating-linear-gradient(
+    -45deg,
+    #fff 0 7px,
+    #ff70bb 7px 14px
+  );
+  z-index:5;
+}
+
+.c1{left:70px}
+.c2{left:105px}
+.c3{left:140px}
+
+.flame{
+  position:absolute;
+  width:16px;
+  height:23px;
+  left:-1.5px;
+  top:-23px;
+  background:radial-gradient(circle at 50% 70%,#fff 0 20%,#ffe26d 21% 50%,#ff7b31 51%);
+  border-radius:50%;
+  animation:flicker .6s infinite alternate;
+}
+
+@keyframes flicker{
+  from{transform:scale(1) rotate(-3deg)}
+  to{transform:scale(.82) rotate(5deg)}
+}
+
+.flame.off{
+  display:none;
+}
+
+.smoke{
+  position:absolute;
+  top:-35px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:20px;
+  opacity:0;
+}
+
+.smoke.show{
+  animation:smoke 2s ease forwards;
+}
+
+@keyframes smoke{
+  from{opacity:0;transform:translate(-50%,0)}
+  30%{opacity:.7}
+  to{opacity:0;transform:translate(-50%,-50px)}
+}
+
+.blowText{
+  color:#cfc4df;
+  font-size:13px;
+  margin:-15px 0 12px;
+}
+
+.cakeButtons{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+
+/* =========================
+   FIXED WHEEL SECTION
+========================= */
+
+.wheelCard{
+  max-height:calc(100vh - 125px);
+}
+
+.wheelTitle{
+  font-size:34px;
+}
+
+.wheelSubtitle{
+  color:#c8bed7;
+  font-size:13px;
+  margin-bottom:8px;
+}
+
+.wheelArea{
+  position:relative;
+  width:310px;
+  max-width:84vw;
+  margin:10px auto 10px;
+}
+
+.wheel{
+  width:285px;
+  height:285px;
+  max-width:84vw;
+  max-height:84vw;
+  margin:auto;
+  border-radius:50%;
+  position:relative;
+  border:8px solid #171020;
+  box-shadow:
+    0 0 0 2px #b768ff,
+    0 0 35px rgba(191,80,255,.35);
+  overflow:hidden;
+  transition:transform 4.2s cubic-bezier(.12,.72,.12,1);
+
+  background:conic-gradient(
+    #ff4fb3 0deg 45deg,
+    #754bff 45deg 90deg,
+    #2d8cff 90deg 135deg,
+    #c449c9 135deg 180deg,
+    #ff68a8 180deg 225deg,
+    #5948d9 225deg 270deg,
+    #3688d8 270deg 315deg,
+    #9a45b7 315deg 360deg
+  );
+}
+
+
+/*
+   IMPORTANT:
+   Each label is now placed at the
+   CENTER of its own 45° slice.
+
+   They are NOT allowed to overlap.
+*/
+
+.wheelText{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+
+.wheelText span{
+  position:absolute;
+  left:50%;
+  top:50%;
+
+  width:72px;
+
+  transform-origin:0 0;
+
+  text-align:center;
+
+  font-size:10px;
+  font-weight:800;
+  line-height:1.08;
+
+  color:#fff;
+
+  text-shadow:
+    0 2px 5px rgba(0,0,0,.9),
+    0 0 5px rgba(0,0,0,.6);
+
+  /*
+    The translate moves the label
+    outward from the centre.
+    Rotate values put each label
+    in a separate slice.
+  */
+}
+
+/* 8 individual positions */
+
+.wt1{
+  transform:
+    rotate(0deg)
+    translate(45px,-50%);
+}
+
+.wt2{
+  transform:
+    rotate(45deg)
+    translate(45px,-50%);
+}
+
+.wt3{
+  transform:
+    rotate(90deg)
+    translate(45px,-50%);
+}
+
+.wt4{
+  transform:
+    rotate(135deg)
+    translate(45px,-50%);
+}
+
+.wt5{
+  transform:
+    rotate(180deg)
+    translate(45px,-50%);
+}
+
+.wt6{
+  transform:
+    rotate(225deg)
+    translate(45px,-50%);
+}
+
+.wt7{
+  transform:
+    rotate(270deg)
+    translate(45px,-50%);
+}
+
+.wt8{
+  transform:
+    rotate(315deg)
+    translate(45px,-50%);
+}
+
+
+/*
+   Counter-rotate the actual text so
+   every word remains upright.
+*/
+
+.wt1::after,
+.wt2::after,
+.wt3::after,
+.wt4::after,
+.wt5::after,
+.wt6::after,
+.wt7::after,
+.wt8::after{
+  display:block;
+}
+
+
+/* Individual text positioning using flex-like centering */
+
+.wt1{margin-left:-36px;margin-top:-105px;}
+.wt2{margin-left:25px;margin-top:-85px;}
+.wt3{margin-left:68px;margin-top:-36px;}
+.wt4{margin-left:45px;margin-top:30px;}
+.wt5{margin-left:-36px;margin-top:55px;}
+.wt6{margin-left:-100px;margin-top:30px;}
+.wt7{margin-left:-120px;margin-top:-36px;}
+.wt8{margin-left:-100px;margin-top:-85px;}
+
+
+/* Pointer */
+
+.pointer{
+  position:absolute;
+  z-index:10;
+  left:50%;
+  top:-7px;
+  transform:translateX(-50%);
+  width:0;
+  height:0;
+  border-left:13px solid transparent;
+  border-right:13px solid transparent;
+  border-top:30px solid #fff;
+  filter:drop-shadow(0 0 8px #ff63d3);
+}
+
+.wheelCenter{
+  position:absolute;
+  width:48px;
+  height:48px;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:#08050c;
+  border:3px solid #f6a4e7;
+  box-shadow:0 0 18px #b764ff;
+  z-index:5;
+}
+
+.wheelResult{
+  min-height:42px;
+  color:#ffb8e9;
+  font-size:14px;
+  line-height:1.5;
+  margin:8px auto;
+  max-width:340px;
+  padding:0 8px;
+}
+
+.wheelContinue{
+  display:none;
+}
+
+.wheelContinue.show{
+  display:inline-block;
+}
+
+
+/* SCRATCH */
+
+.scratchCard{
+  width:min(330px,85vw);
+  height:190px;
+  margin:20px auto 15px;
+  position:relative;
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 0 25px rgba(160,80,255,.25);
+  border:1px solid rgba(255,150,240,.45);
+}
+
+.scratchMessage{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:25px;
+  text-align:center;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(255,100,210,.3),transparent 30%),
+    linear-gradient(135deg,#160b25,#071326);
+  color:#fff;
+  font-family:'Dancing Script',cursive;
+  font-size:25px;
+}
+
+#scratchCanvas{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  touch-action:none;
+  cursor:crosshair;
+}
+
+.scratchHint{
+  color:#aaa0ba;
+  font-size:13px;
+}
+
+.scratchContinue{
+  display:none;
+  margin-top:12px;
+}
+
+.scratchContinue.show{
+  display:inline-block;
+}
+
+
+/* MEMORIES */
+
+.memoryCard{
+  width:min(92vw,700px);
+}
+
+.memoryFrame{
+  height:min(55vh,400px);
+  border-radius:20px;
+  border:1px solid rgba(255,130,220,.35);
+  background:
+    linear-gradient(135deg,rgba(255,90,200,.08),rgba(60,90,255,.10)),
+    #08070d;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  padding:20px;
+  margin:18px 0;
+}
+
+.memoryIcon{
+  font-size:55px;
+  margin-bottom:15px;
+}
+
+.memoryText{
+  font-family:'Dancing Script',cursive;
+  font-size:28px;
+  color:#ffb9ea;
+}
+
+.memorySmall{
+  margin-top:8px;
+  color:#aaa2b8;
+  font-size:13px;
+}
+
+
+/* LETTER */
+
+.letterCard{
+  width:min(92vw,700px);
+  height:calc(100vh - 125px);
+  max-height:calc(100vh - 125px);
+  padding:20px 15px;
+}
+
+.envelope{
+  height:210px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  transition:.7s;
+}
+
+.envelope.hide{
+  opacity:0;
+  transform:translateY(-20px) scale(.9);
+  pointer-events:none;
+  position:absolute;
+}
+
+.envelopeButterfly{
+  font-size:70px;
+  filter:drop-shadow(0 0 18px #ff66d3);
+  animation:floatButterfly 3s infinite;
+}
+
+.envelopeText{
+  margin-top:8px;
+  color:#cfc3dc;
+}
+
+.paper{
+  position:absolute;
+  inset:20px 15px;
+  background:
+    linear-gradient(rgba(255,255,255,.97),rgba(245,239,250,.97));
+  border-radius:20px;
+  color:#30253a;
+  padding:25px 20px;
+  text-align:left;
+  overflow-y:auto;
+  opacity:0;
+  transform:translateY(25px) scale(.97);
+  pointer-events:none;
+  transition:.7s;
+  box-shadow:0 15px 45px rgba(0,0,0,.55);
+}
+
+.paper.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  pointer-events:auto;
+}
+
+.letterTitle{
+  text-align:center;
+  font-family:'Dancing Script',cursive;
+  color:#8c3d91;
+  font-size:32px;
+  margin-bottom:18px;
+}
+
+#letterText{
+  white-space:pre-wrap;
+  font-family:'Dancing Script',cursive;
+  font-size:20px;
+  line-height:1.65;
+}
+
+.cursor{
+  display:inline-block;
+  width:2px;
+  height:21px;
+  background:#8d3c8e;
+  margin-left:2px;
+  vertical-align:middle;
+  animation:blink .7s infinite;
+}
+
+@keyframes blink{
+  50%{opacity:0}
+}
+
+.letterBottom{
+  text-align:center;
+  margin-top:20px;
+}
+
+.letterClose{
+  position:sticky;
+  bottom:0;
+  margin-top:20px;
+}
+
+
+/* FINAL */
+
+.finalHeart{
+  font-size:85px;
+  animation:heart 1.4s infinite;
+  filter:drop-shadow(0 0 25px #ff4fba);
+}
+
+@keyframes heart{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.12)}
+}
+
+.finalText{
+  font-family:'Dancing Script',cursive;
+  font-size:28px;
+  color:#ffb5e9;
+  margin:15px 0;
+}
+
+.finalSmall{
+  color:#bcb3ca;
+  line-height:1.7;
+}
+
 
 /* NAVIGATION */
 
 .nav{
-    position:fixed;
-    left:15px;
-    top:50%;
-    transform:translateY(-50%);
-    z-index:100;
-    display:flex;
-    flex-direction:column;
-    gap:12px;
+  position:fixed;
+  z-index:100;
+  left:50%;
+  bottom:14px;
+  transform:translateX(-50%);
+  display:flex;
+  gap:5px;
+  padding:6px;
+  border-radius:999px;
+  background:rgba(5,3,10,.88);
+  border:1px solid rgba(255,130,225,.25);
+  backdrop-filter:blur(12px);
+  box-shadow:0 0 20px rgba(130,70,255,.15);
 }
 
 .nav button{
-    width:43px;
-    height:43px;
-    border-radius:50%;
-    border:1px solid rgba(255,160,240,.5);
-    background:rgba(255,255,255,.06);
-    color:white;
-    cursor:pointer;
-    backdrop-filter:blur(10px);
-    transition:.3s;
+  width:34px;
+  height:34px;
+  border:0;
+  border-radius:50%;
+  background:transparent;
+  color:#827b91;
+  cursor:pointer;
 }
 
-.nav button:hover{
-    transform:scale(1.12);
-    box-shadow:0 0 20px rgba(255,80,200,.7);
+.nav button.active{
+  color:#fff;
+  background:linear-gradient(135deg,#a74bca,#4b68db);
+  box-shadow:0 0 12px rgba(190,90,255,.45);
 }
 
-/* SCENES */
 
-.scene{
-    position:absolute;
-    inset:0;
-    width:100vw;
-    height:100vh;
-    display:none;
-    align-items:center;
-    justify-content:center;
-}
+@media(max-width:500px){
 
-.scene.active{
-    display:flex;
-}
+  .card{
+    padding:25px 17px;
+  }
 
-/* GENERAL CARD */
+  .scene{
+    padding:15px 12px 78px;
+  }
 
-.card{
-    width:min(900px,90vw);
-    max-height:88vh;
-    padding:40px;
-    border-radius:30px;
-    border:1px solid rgba(255,140,230,.35);
-    background:rgba(12,7,25,.72);
-    box-shadow:
-        0 0 50px rgba(255,60,190,.12),
-        inset 0 0 30px rgba(150,70,255,.05);
-    backdrop-filter:blur(15px);
-    text-align:center;
-}
+  .cakeArea{
+    transform:scale(.9);
+    margin-top:-5px;
+    margin-bottom:-15px;
+  }
 
-h1{
-    font-size:clamp(34px,6vw,65px);
-    color:#ffd6f5;
-    text-shadow:
-        0 0 15px #ff65d5,
-        0 0 40px rgba(255,40,180,.5);
-}
+  .wheel{
+    width:265px;
+    height:265px;
+  }
 
-h2{
-    font-size:clamp(27px,4vw,45px);
-    color:#ffd8f7;
-    margin-bottom:12px;
-}
+  .letterCard{
+    padding:14px 10px;
+  }
 
-p{
-    color:#e9cde7;
-    line-height:1.6;
-}
+  .paper{
+    inset:14px 10px;
+    padding:22px 17px;
+  }
 
-.subtitle{
-    margin:20px auto 30px;
-    max-width:600px;
-    font-size:18px;
-}
+  #letterText{
+    font-size:19px;
+  }
 
-/* BUTTONS */
-
-.next{
-    margin-top:25px;
-    padding:13px 25px;
-    border-radius:30px;
-    border:1px solid rgba(255,150,235,.7);
-    background:linear-gradient(135deg,#9d3cff,#ff45ae);
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-    box-shadow:0 0 20px rgba(255,50,190,.35);
-    transition:.3s;
-}
-
-.next:hover{
-    transform:translateY(-3px) scale(1.03);
-    box-shadow:0 0 30px rgba(255,50,190,.65);
-}
-
-/* QUESTIONS */
-
-.question{
-    margin-top:25px;
-}
-
-.question p{
-    font-size:20px;
-    margin-bottom:15px;
-}
-
-.answer{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-}
-
-.answer button{
-    padding:10px 25px;
-    border-radius:25px;
-    border:1px solid #ff9ee8;
-    background:rgba(255,255,255,.07);
-    color:white;
-    cursor:pointer;
-    transition:.25s;
-}
-
-.answer button:hover{
-    background:#d63a9f;
-    transform:scale(1.05);
-}
-
-/* =========================
-   CAKE SECTION
-========================= */
-
-.cakeScene{
-    position:relative;
-    overflow:hidden;
-}
-
-/* Cake title sits above the cake */
-
-.cakeContent{
-    position:relative;
-    z-index:20;
-    width:100%;
-    height:100%;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:flex-start;
-    padding-top:7vh;
-    pointer-events:none;
-}
-
-.cakeContent h2,
-.cakeContent p,
-.cakeContent button{
-    pointer-events:auto;
-}
-
-.cakeTitle{
-    margin-bottom:3px;
-}
-
-.cakeSubtitle{
-    font-size:16px;
-}
-
-/* THIS IS THE IMPORTANT FIX */
-
-.cakeStage{
-    position:absolute;
-    width:470px;
-    height:360px;
-
-    left:50%;
-    top:53%;
-
-    transform:translate(-50%,-50%);
-
-    z-index:10;
-}
-
-/* PLATE */
-
-.plate{
-    position:absolute;
-    width:420px;
-    height:38px;
-    left:25px;
-    bottom:28px;
-    border-radius:50%;
-    background:linear-gradient(#e9b9ff,#8d55d8);
-    box-shadow:
-        0 0 30px rgba(210,120,255,.6),
-        inset 0 -8px 12px rgba(0,0,0,.3);
-}
-
-/* CAKE LAYERS */
-
-.cakeLayer{
-    position:absolute;
-    border-radius:18px 18px 13px 13px;
-    border:2px solid rgba(255,220,255,.55);
-    box-shadow:
-        0 0 20px rgba(255,80,200,.4),
-        inset 0 -10px 15px rgba(0,0,0,.15);
-}
-
-.cakeBottom{
-    width:360px;
-    height:105px;
-    left:55px;
-    bottom:50px;
-    background:linear-gradient(180deg,#ffb8e9,#b946bd);
-}
-
-.cakeMiddle{
-    width:320px;
-    height:80px;
-    left:75px;
-    bottom:130px;
-    background:linear-gradient(180deg,#ffd0f1,#b55ce0);
-}
-
-.cakeTop{
-    width:300px;
-    height:65px;
-    left:85px;
-    bottom:190px;
-    border-radius:50% 50% 18px 18px;
-    background:linear-gradient(180deg,#ffe4f7,#d85de7);
-}
-
-/* FROSTING */
-
-.frost{
-    position:absolute;
-    height:20px;
-    border-radius:50%;
-    background:#fff0fb;
-    box-shadow:0 0 12px rgba(255,255,255,.6);
-}
-
-.f1{
-    width:70px;
-    left:110px;
-    bottom:168px;
-}
-
-.f2{
-    width:65px;
-    left:205px;
-    bottom:168px;
-}
-
-.f3{
-    width:65px;
-    left:285px;
-    bottom:168px;
-}
-
-/* CANDLES */
-
-.candle{
-    position:absolute;
-    width:20px;
-    height:65px;
-    bottom:255px;
-    border-radius:6px;
-    background:repeating-linear-gradient(
-        45deg,
-        #ff8fdc 0 8px,
-        #fff0fa 8px 16px
-    );
-    box-shadow:0 0 12px rgba(255,150,230,.5);
-}
-
-.c1{
-    left:142px;
-}
-
-.c2{
-    left:223px;
-}
-
-.c3{
-    left:295px;
-}
-
-/* FLAMES */
-
-.flame{
-    position:absolute;
-    width:18px;
-    height:28px;
-    left:1px;
-    top:-29px;
-    border-radius:50% 50% 50% 50%;
-    background:linear-gradient(#fff,#ffe36d,#ff6b00);
-    box-shadow:
-        0 0 12px #ffae00,
-        0 0 25px rgba(255,120,0,.8);
-    animation:flicker .45s infinite alternate;
-}
-
-@keyframes flicker{
-    from{transform:scale(1) rotate(-3deg)}
-    to{transform:scale(.88) rotate(4deg)}
-}
-
-.flame.out{
-    animation:none;
-    opacity:0;
-    transform:scale(.2) translateY(10px);
-    transition:.45s;
-}
-
-/* SMOKE */
-
-.smoke{
-    position:absolute;
-    width:14px;
-    height:14px;
-    left:3px;
-    top:-25px;
-    border-radius:50%;
-    background:rgba(220,220,255,.35);
-    opacity:0;
-}
-
-.smoke.show{
-    animation:smokeUp 2s ease-out forwards;
-}
-
-@keyframes smokeUp{
-    0%{
-        opacity:0;
-        transform:translate(0,0) scale(.5);
-    }
-    30%{
-        opacity:.6;
-    }
-    100%{
-        opacity:0;
-        transform:translate(15px,-70px) scale(2.3);
-    }
-}
-
-/* STRAWBERRIES */
-
-.strawberry{
-    position:absolute;
-    width:27px;
-    height:32px;
-    border-radius:50% 50% 55% 55%;
-    background:linear-gradient(135deg,#ff4f91,#d90052);
-    box-shadow:0 0 12px rgba(255,50,100,.5);
-}
-
-.strawberry::before{
-    content:"✦";
-    position:absolute;
-    top:-13px;
-    left:6px;
-    color:#75e77a;
-    font-size:17px;
-}
-
-.s1{
-    left:92px;
-    bottom:205px;
-    transform:rotate(-15deg);
-}
-
-.s2{
-    right:92px;
-    bottom:205px;
-    transform:rotate(15deg);
-}
-
-.s3{
-    left:170px;
-    bottom:72px;
-    transform:scale(.85);
-}
-
-.s4{
-    right:165px;
-    bottom:72px;
-    transform:scale(.85);
-}
-
-/* FLOWERS */
-
-.flower{
-    position:absolute;
-    font-size:25px;
-    filter:drop-shadow(0 0 8px rgba(255,170,240,.7));
-}
-
-.flower1{
-    left:65px;
-    bottom:105px;
-}
-
-.flower2{
-    right:65px;
-    bottom:110px;
-}
-
-/* CAKE TEXT */
-
-.blowText{
-    position:absolute;
-    z-index:30;
-    left:50%;
-    bottom:10vh;
-    transform:translateX(-50%);
-    width:100%;
-    text-align:center;
-    font-size:16px;
-}
-
-/* NEXT BUTTON AFTER BLOW */
-
-#cakeContinue{
-    position:absolute;
-    z-index:40;
-    left:50%;
-    bottom:4vh;
-    transform:translateX(-50%) translateY(15px);
-    opacity:0;
-    pointer-events:none;
-    transition:.5s;
-    margin:0;
-}
-
-#cakeContinue.show{
-    opacity:1;
-    pointer-events:auto;
-    transform:translateX(-50%) translateY(0);
-}
-
-/* PLACEHOLDERS */
-
-.placeholder{
-    font-size:70px;
-    margin:20px;
-}
-
-.smallText{
-    margin-top:10px;
-    opacity:.7;
-}
-
-/* MOBILE */
-
-@media(max-width:600px){
-
-    .nav{
-        left:50%;
-        top:auto;
-        bottom:12px;
-        transform:translateX(-50%);
-        flex-direction:row;
-        gap:7px;
-    }
-
-    .nav button{
-        width:37px;
-        height:37px;
-        font-size:14px;
-    }
-
-    .card{
-        width:92vw;
-        padding:25px 18px;
-    }
-
-    .subtitle{
-        font-size:16px;
-    }
-
-    .cakeContent{
-        padding-top:5vh;
-    }
-
-    .cakeTitle{
-        font-size:28px;
-    }
-
-    .cakeSubtitle{
-        font-size:14px;
-    }
-
-    /*
-       Keep the stage centered in the viewport.
-       Scaling happens AFTER centering.
-    */
-
-    .cakeStage{
-        left:50%;
-        top:52%;
-        transform:translate(-50%,-50%) scale(.70);
-        transform-origin:center center;
-    }
-
-    .blowText{
-        bottom:13vh;
-        font-size:14px;
-    }
-
-    #cakeContinue{
-        bottom:8vh;
-        font-size:14px;
-        white-space:nowrap;
-    }
-
-    .butterfly{
-        font-size:20px;
-    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- FLOATING BUTTERFLIES -->
-
 <div class="butterfly b1">🦋</div>
 <div class="butterfly b2">🦋</div>
 <div class="butterfly b3">🦋</div>
 <div class="butterfly b4">🦋</div>
 
-<!-- NAVIGATION -->
 
-<div class="nav">
-    <button onclick="showScene(0)">⌂</button>
-    <button onclick="showScene(1)">💗</button>
-    <button onclick="showScene(2)">🎂</button>
-    <button onclick="showScene(3)">🎡</button>
-    <button onclick="showScene(4)">🎟️</button>
-    <button onclick="showScene(5)">📸</button>
-    <button onclick="showScene(6)">💌</button>
-    <button onclick="showScene(7)">✨</button>
-</div>
+<!-- SCENE 0 -->
 
-<!-- =====================
-     CHAPTER 1
-===================== -->
+<section class="scene active" id="scene0">
 
-<section class="scene active">
+  <div class="card">
 
-    <div class="card">
-
-        <div class="placeholder">🦋</div>
-
-        <h1>A Little World<br>Made For Chiku</h1>
-
-        <p class="subtitle">
-            A tiny universe of memories, surprises,
-            smiles and little things made especially for you.
-        </p>
-
-        <button class="next" onclick="showScene(1)">
-            Enter Your Little World ✨
-        </button>
-
+    <div class="kicker">
+      A tiny universe made with care
     </div>
+
+    <div class="introButterfly">
+      🦋
+    </div>
+
+    <h1>
+      A Little World<br>
+      Made For Chiku
+    </h1>
+
+    <p class="subtitle">
+      Happy Birthday, Chiku. 💗<br>
+      I made this little world just for you.
+    </p>
+
+    <div class="from">
+      — Your Chinu 🦋
+    </div>
+
+    <br>
+
+    <button class="next" onclick="showScene(1)">
+      Enter Your Little World ✨
+    </button>
+
+  </div>
 
 </section>
 
-<!-- =====================
-     CHAPTER 2
-===================== -->
 
-<section class="scene">
+<!-- SCENE 1 -->
 
-    <div class="card">
+<section class="scene" id="scene1">
 
-        <div class="placeholder">💗</div>
+  <div class="card">
 
-        <h2>Before We Begin...</h2>
+    <div class="kicker">
+      Chapter 01
+    </div>
 
-        <p>There are a few very important questions.</p>
+    <div class="questionNumber" id="questionNumber">
+      QUESTION 1 OF 4
+    </div>
 
-        <div class="question">
+    <div class="question" id="questionText">
+      Are you ready for your little birthday surprise? 🦋
+    </div>
 
-            <p>Do you think today is going to be special?</p>
+    <div class="answerButtons">
 
-            <div class="answer">
-                <button onclick="yesAnswer()">Yes 💕</button>
-                <button onclick="noAnswer(0)">No 🙃</button>
-            </div>
+      <button class="next" onclick="answerYes()">
+        YES 💗
+      </button>
 
-        </div>
-
-        <div class="question">
-
-            <p>Do you deserve a whole surprise universe?</p>
-
-            <div class="answer">
-                <button onclick="yesAnswer()">Yes 🦋</button>
-                <button onclick="noAnswer(1)">No 😭</button>
-            </div>
-
-        </div>
-
-        <div class="question">
-
-            <p>Ready for the first surprise?</p>
-
-            <div class="answer">
-                <button onclick="yesAnswer()">YES! 🎉</button>
-                <button onclick="noAnswer(2)">No 👀</button>
-            </div>
-
-        </div>
+      <button class="next" onclick="answerNo()">
+        NO 🙈
+      </button>
 
     </div>
+
+    <div class="noResponse" id="noResponse"></div>
+
+  </div>
 
 </section>
 
-<!-- =====================
-     CHAPTER 3 — CAKE
-===================== -->
 
-<section class="scene cakeScene">
+<!-- SCENE 2 -->
 
-    <div class="cakeContent">
+<section class="scene" id="scene2">
 
-        <h2 class="cakeTitle">
-            Make A Birthday Wish 🎂
-        </h2>
+  <div class="card">
 
-        <p class="cakeSubtitle">
-            Three little flames are waiting for you...
-        </p>
-
+    <div class="kicker">
+      Chapter 02
     </div>
 
-    <!-- CAKE -->
+    <h2>Your Birthday Cake 🎂</h2>
 
-    <div class="cakeStage">
+    <p class="subtitle">
+      Close your eyes... make a little wish...<br>
+      and blow the candles. 🦋✨
+    </p>
 
-        <div class="plate"></div>
+    <div class="cakeArea">
 
-        <div class="cakeLayer cakeBottom"></div>
+      <div class="cakeGlow"></div>
 
-        <div class="cakeLayer cakeMiddle"></div>
-
-        <div class="cakeLayer cakeTop"></div>
-
-        <div class="frost f1"></div>
-        <div class="frost f2"></div>
-        <div class="frost f3"></div>
-
-        <div class="strawberry s1"></div>
-        <div class="strawberry s2"></div>
-        <div class="strawberry s3"></div>
-        <div class="strawberry s4"></div>
-
-        <div class="flower flower1">🌸</div>
-        <div class="flower flower2">🌸</div>
+      <div class="cake">
 
         <div class="candle c1">
-            <div class="flame"></div>
-            <div class="smoke"></div>
+          <div class="flame"></div>
+          <div class="smoke">☁️</div>
         </div>
 
         <div class="candle c2">
-            <div class="flame"></div>
-            <div class="smoke"></div>
+          <div class="flame"></div>
+          <div class="smoke">☁️</div>
         </div>
 
         <div class="candle c3">
-            <div class="flame"></div>
-            <div class="smoke"></div>
+          <div class="flame"></div>
+          <div class="smoke">☁️</div>
         </div>
+
+        <div class="cakeBase">
+
+          <div class="cream">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="strawberry s1">🍓</div>
+          <div class="strawberry s2">🍓</div>
+          <div class="strawberry s3">🍓</div>
+
+        </div>
+
+        <div class="plate"></div>
+
+      </div>
 
     </div>
 
     <p class="blowText" id="blowText">
-        Tap the button to blow out the candles 💨
+      Tap the button to blow the candles 🕯️
     </p>
 
-    <button
-        class="next"
-        id="blowButton"
-        onclick="blowCandles()"
-        style="position:absolute;z-index:35;bottom:4vh;left:50%;transform:translateX(-50%);margin:0;"
-    >
-        💨 Blow The Candles
+    <div class="cakeButtons">
+
+      <button class="next"
+              id="blowButton"
+              onclick="blowCandles()">
+        🌬️ Blow The Candles
+      </button>
+
+      <button class="next"
+              id="cakeContinue"
+              style="display:none"
+              onclick="showScene(3)">
+        Continue ✨
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SCENE 3 WHEEL -->
+
+<section class="scene" id="scene3">
+
+  <div class="card wheelCard">
+
+    <div class="kicker">
+      Chapter 03
+    </div>
+
+    <h2 class="wheelTitle">
+      Spin For A Surprise 🎡
+    </h2>
+
+    <p class="wheelSubtitle">
+      Let's see what the little universe chooses...
+    </p>
+
+    <div class="wheelArea">
+
+      <div class="pointer"></div>
+
+      <div class="wheel" id="wheel">
+
+        <div class="wheelText">
+
+          <span class="wt1">
+            Sweet<br>Moment
+          </span>
+
+          <span class="wt2">
+            Memory
+          </span>
+
+          <span class="wt3">
+            Little<br>Secret
+          </span>
+
+          <span class="wt4">
+            Cute<br>Message
+          </span>
+
+          <span class="wt5">
+            Photo<br>Time
+          </span>
+
+          <span class="wt6">
+            Lucky<br>Star
+          </span>
+
+          <span class="wt7">
+            Surprise
+          </span>
+
+          <span class="wt8">
+            Butterfly<br>Wish
+          </span>
+
+        </div>
+
+        <div class="wheelCenter"></div>
+
+      </div>
+
+    </div>
+
+    <button class="next"
+            id="spinButton"
+            onclick="spinWheel()">
+      🎡 SPIN THE WHEEL
     </button>
 
-    <button
-        class="next"
-        id="cakeContinue"
-        onclick="showScene(3)"
-    >
-        Continue to the next surprise 🎡
+    <div class="wheelResult"
+         id="wheelResult"></div>
+
+    <button class="next wheelContinue"
+            id="wheelContinue"
+            onclick="showScene(4)">
+      Continue To The Secret 🎟️
     </button>
 
+  </div>
+
 </section>
 
-<!-- =====================
-     CHAPTER 4
-===================== -->
 
-<section class="scene">
+<!-- SCENE 4 -->
 
-    <div class="card">
+<section class="scene" id="scene4">
 
-        <div class="placeholder">🎡</div>
+  <div class="card">
 
-        <h2>The Surprise Wheel</h2>
+    <div class="kicker">
+      Chapter 04
+    </div>
 
-        <p>
-            The wheel will decide your next little surprise...
-        </p>
+    <h2>
+      Scratch The Secret ✨
+    </h2>
 
-        <p class="smallText">
-            Coming next ✨
-        </p>
+    <p class="subtitle">
+      Something is hiding underneath...<br>
+      Scratch gently to reveal it. 🦋
+    </p>
+
+    <div class="scratchCard"
+         id="scratchBox">
+
+      <div class="scratchMessage">
+
+        You are one of the most precious parts
+        of my little world. 💗🦋✨
+
+      </div>
+
+      <canvas id="scratchCanvas"></canvas>
 
     </div>
 
+    <p class="scratchHint"
+       id="scratchHint">
+      Scratch the card with your finger ✨
+    </p>
+
+    <button class="next scratchContinue"
+            id="scratchContinue"
+            onclick="showScene(5)">
+      Open The Memories 📸
+    </button>
+
+  </div>
+
 </section>
 
-<!-- =====================
-     CHAPTER 5
-===================== -->
 
-<section class="scene">
+<!-- SCENE 5 -->
 
-    <div class="card">
+<section class="scene" id="scene5">
 
-        <div class="placeholder">🎟️</div>
+  <div class="card memoryCard">
 
-        <h2>A Secret Is Waiting...</h2>
+    <div class="kicker">
+      Chapter 05
+    </div>
 
-        <p>
-            Scratch the hidden card to discover
-            what is underneath.
-        </p>
+    <h2>
+      Our Little Memories 📸
+    </h2>
 
-        <p class="smallText">
-            Scratch-card interaction coming next ✨
-        </p>
+    <p class="subtitle">
+      A few moments that deserve their own little corner
+      in this universe. 💗
+    </p>
+
+    <div class="memoryFrame">
+
+      <div class="memoryIcon">
+        📸🦋
+      </div>
+
+      <div class="memoryText">
+        Our memories live here...
+      </div>
+
+      <div class="memorySmall">
+        Your photos will be added here.
+      </div>
 
     </div>
 
+    <button class="next"
+            onclick="showScene(6)">
+      Continue To My Letter 💌
+    </button>
+
+  </div>
+
 </section>
 
-<!-- =====================
-     CHAPTER 6
-===================== -->
 
-<section class="scene">
+<!-- SCENE 6 -->
 
-    <div class="card">
+<section class="scene" id="scene6">
 
-        <div class="placeholder">📸</div>
+  <div class="card letterCard">
 
-        <h2>Our Little Memories</h2>
+    <div class="envelope" id="envelope">
 
-        <p>
-            Photos, old conversations,
-            new memories and moments worth keeping.
-        </p>
+      <div class="envelopeButterfly">
+        🦋
+      </div>
 
-        <p class="smallText">
-            Your photos will go here.
-        </p>
+      <div class="envelopeText">
+        A letter written especially for Chiku...
+      </div>
+
+      <br>
+
+      <button class="next"
+              onclick="openLetter()">
+        Open My Letter 💌
+      </button>
 
     </div>
 
-</section>
+    <div class="paper" id="paper">
 
-<!-- =====================
-     CHAPTER 7
-===================== -->
+      <div class="letterTitle">
+        For My Chiku 🦋
+      </div>
 
-<section class="scene">
+      <div id="letterText"></div>
 
-    <div class="card">
+      <div class="letterBottom">
 
-        <div class="placeholder">💌</div>
+        <button class="next"
+                onclick="showScene(7)">
+          One Last Surprise ✨
+        </button>
 
-        <h2>A Letter For You</h2>
-
-        <p>
-            A butterfly envelope will open
-            and reveal a letter written just for Chiku.
-        </p>
-
-        <p class="smallText">
-            Letter-writing animation coming next ✨
-        </p>
+      </div>
 
     </div>
 
+  </div>
+
 </section>
 
-<!-- =====================
-     CHAPTER 8
-===================== -->
 
-<section class="scene">
+<!-- SCENE 7 -->
 
-    <div class="card">
+<section class="scene" id="scene7">
 
-        <div class="placeholder">✨</div>
+  <div class="card">
 
-        <h2>One Last Little Surprise</h2>
-
-        <p class="subtitle">
-            And when everything else is finished,
-            there will still be one final thing waiting...
-        </p>
-
-        <div class="placeholder">🦋💗🦋</div>
-
+    <div class="kicker">
+      The End... or maybe the beginning 💗
     </div>
 
+    <div class="finalHeart">
+      💗
+    </div>
+
+    <h2>
+      Happy Birthday, Chiku
+    </h2>
+
+    <div class="finalText">
+      Keep smiling, little butterfly. 🦋
+    </div>
+
+    <p class="finalSmall">
+      This tiny universe may end here,<br>
+      but the memories, laughs, conversations<br>
+      and little moments are still being written. ✨
+    </p>
+
+    <br>
+
+    <div class="from">
+      Always cheering for you,<br>
+      Chinu 🦋
+    </div>
+
+  </div>
+
 </section>
+
+
+<!-- NAVIGATION -->
+
+<div class="nav">
+
+  <button id="nav0"
+          class="active"
+          onclick="showScene(0)">
+    🏠
+  </button>
+
+  <button id="nav1"
+          onclick="showScene(1)">
+    💗
+  </button>
+
+  <button id="nav2"
+          onclick="showScene(2)">
+    🎂
+  </button>
+
+  <button id="nav3"
+          onclick="showScene(3)">
+    🎡
+  </button>
+
+  <button id="nav4"
+          onclick="showScene(4)">
+    ✨
+  </button>
+
+  <button id="nav5"
+          onclick="showScene(5)">
+    📸
+  </button>
+
+  <button id="nav6"
+          onclick="showScene(6)">
+    💌
+  </button>
+
+  <button id="nav7"
+          onclick="showScene(7)">
+    🦋
+  </button>
+
+</div>
+
 
 <script>
 
-/* =====================
-   SCENE NAVIGATION
-===================== */
+/* =========================
+   SCENE SYSTEM
+========================= */
 
-const scenes = document.querySelectorAll(".scene");
+let currentScene = 0;
 
 function showScene(number){
 
-    scenes.forEach((scene,index)=>{
+  document.querySelectorAll(".scene").forEach(scene=>{
+    scene.classList.remove("active");
+  });
 
-        scene.classList.toggle(
-            "active",
-            index === number
-        );
+  const target =
+    document.getElementById("scene" + number);
 
-    });
+  if(target){
+    target.classList.add("active");
+  }
 
-    window.scrollTo(0,0);
+  document.querySelectorAll(".nav button").forEach(btn=>{
+    btn.classList.remove("active");
+  });
+
+  const nav =
+    document.getElementById("nav" + number);
+
+  if(nav){
+    nav.classList.add("active");
+  }
+
+  currentScene = number;
+
+  if(number === 4){
+    resetScratchCard();
+  }
+
 }
 
 
-/* =====================
+/* =========================
    QUESTIONS
-===================== */
+========================= */
 
-let yesCount = 0;
+const questions = [
 
-function yesAnswer(){
+  "Are you ready for your little birthday surprise? 🦋",
 
-    yesCount++;
+  "Do you think this tiny universe was made especially for you? 🌌",
 
-    if(yesCount >= 3){
+  "Do you promise to smile at least once while exploring it? 😌💗",
 
-        setTimeout(()=>{
-            showScene(2);
-        },250);
+  "Okay... are you finally ready for the last part? 👀🦋"
 
-    }
+];
+
+const noResponses = [
+
+  "Nope 😭 Nice try... the surprise is still waiting for you. Tap YES 💗",
+
+  "Hmmmm... that answer has been rejected by the butterfly committee. 🦋😂 Try YES.",
+
+  "The little universe says: absolutely not! 😭✨ You have to try again.",
+
+  "I'll pretend I didn't see that NO. 👀 Now tap YES and continue. 💗"
+
+];
+
+let questionIndex = 0;
+
+function updateQuestion(){
+
+  document.getElementById("questionNumber").textContent =
+    "QUESTION " + (questionIndex + 1) + " OF " + questions.length;
+
+  document.getElementById("questionText").textContent =
+    questions[questionIndex];
+
+  document.getElementById("noResponse").textContent =
+    "";
 
 }
 
-function noAnswer(number){
+function answerNo(){
 
-    const responses = [
-
-        "Hmm... suspicious answer detected 👀💗",
-
-        "Nice try 😭 The universe disagrees with you 🦋",
-
-        "Nope! The surprise is coming anyway 😌✨"
-
-    ];
-
-    alert(responses[number]);
+  document.getElementById("noResponse").textContent =
+    noResponses[questionIndex];
 
 }
 
+function answerYes(){
 
-/* =====================
+  questionIndex++;
+
+  if(questionIndex >= questions.length){
+
+    showScene(2);
+
+    return;
+
+  }
+
+  updateQuestion();
+
+}
+
+updateQuestion();
+
+
+/* =========================
    CAKE
-===================== */
+========================= */
 
 let candlesBlown = false;
 
 function blowCandles(){
 
-    if(candlesBlown){
-        return;
+  if(candlesBlown) return;
+
+  candlesBlown = true;
+
+  document.querySelectorAll(".flame").forEach(flame=>{
+    flame.classList.add("off");
+  });
+
+  document.querySelectorAll(".smoke").forEach(smoke=>{
+    smoke.classList.add("show");
+  });
+
+  document.getElementById("blowText").textContent =
+    "Wish made! ✨ May this year bring you beautiful moments. 🦋💗";
+
+  document.getElementById("blowButton").style.display =
+    "none";
+
+  document.getElementById("cakeContinue").style.display =
+    "inline-block";
+
+}
+
+
+/* =================================================
+   WHEEL — FIXED
+================================================= */
+
+let wheelRotation = 0;
+let wheelSpun = false;
+
+
+/*
+   IMPORTANT:
+
+   Array position exactly matches the visual
+   wheel section:
+
+   0 = Sweet Moment
+   1 = Memory
+   2 = Little Secret
+   3 = Cute Message
+   4 = Photo Time
+   5 = Lucky Star
+   6 = Surprise
+   7 = Butterfly Wish
+*/
+
+const wheelMessages = [
+
+  "💗 Sweet Moment — A tiny sweet moment is waiting for you. Keep smiling, birthday girl. 🦋",
+
+  "📸 Memory — One precious memory is waiting to remind you of all the little moments worth keeping. 💗",
+
+  "✨ Little Secret — You discovered a tiny secret... someone put a lot of care into making this little world for you. 🦋",
+
+  "💌 Cute Message — You deserve a birthday filled with smiles, laughter, and people who genuinely care about you. 💗",
+
+  "📸 Photo Time — Some memories are too beautiful to stay hidden. A little photo journey is waiting for you. ✨",
+
+  "🌟 Lucky Star — Today you're the lucky star. May this year bring you countless beautiful moments. 💙",
+
+  "🎁 Surprise — Something special is waiting just ahead... so don't stop exploring your little universe. 💗✨",
+
+  "🦋 Butterfly Wish — Make a little wish and let it fly. May something beautiful find its way to you. 🦋💜"
+
+];
+
+
+function spinWheel(){
+
+  if(wheelSpun) return;
+
+  wheelSpun = true;
+
+  const wheel =
+    document.getElementById("wheel");
+
+  const spinButton =
+    document.getElementById("spinButton");
+
+  const result =
+    document.getElementById("wheelResult");
+
+  const continueButton =
+    document.getElementById("wheelContinue");
+
+
+  /*
+     Pick ONE section.
+
+     The result is saved as targetIndex.
+
+     We do NOT randomly choose another result
+     after the wheel stops.
+  */
+
+  const targetIndex =
+    Math.floor(Math.random() * 8);
+
+
+  const sectionSize = 45;
+
+
+  /*
+     Each section has a 45° size.
+
+     Its center is:
+
+     22.5°
+     67.5°
+     112.5°
+     etc.
+  */
+
+  const targetCenter =
+    targetIndex * sectionSize + sectionSize / 2;
+
+
+  /*
+     The pointer is at 12 o'clock.
+
+     Therefore we rotate the wheel until
+     the selected section's CENTER reaches
+     the pointer.
+
+     + 360 - targetCenter
+  */
+
+  const neededRotation =
+    360 - targetCenter;
+
+
+  /*
+     5 complete turns gives a nice animation.
+  */
+
+  const fullSpins = 1800;
+
+
+  wheelRotation +=
+    fullSpins + neededRotation;
+
+
+  wheel.style.transform =
+    "rotate(" + wheelRotation + "deg)";
+
+
+  spinButton.disabled = true;
+
+  spinButton.style.opacity = ".5";
+
+
+  /*
+     Wait until the exact same animation
+     finishes before displaying the message.
+  */
+
+  setTimeout(()=>{
+
+    result.textContent =
+      wheelMessages[targetIndex];
+
+    continueButton.classList.add("show");
+
+  },4300);
+
+}
+
+
+/* =========================
+   SCRATCH CARD
+========================= */
+
+const scratchCanvas =
+  document.getElementById("scratchCanvas");
+
+const scratchBox =
+  document.getElementById("scratchBox");
+
+const scratchCtx =
+  scratchCanvas.getContext("2d");
+
+let scratchFinished = false;
+let scratchStarted = false;
+let lastX = 0;
+let lastY = 0;
+let scratchCheckCounter = 0;
+
+let coverWidth = 0;
+let coverHeight = 0;
+
+
+function drawScratchCover(){
+
+  scratchCtx.globalCompositeOperation =
+    "source-over";
+
+  scratchCtx.clearRect(
+    0,
+    0,
+    coverWidth,
+    coverHeight
+  );
+
+  const gradient =
+    scratchCtx.createLinearGradient(
+      0,
+      0,
+      coverWidth,
+      coverHeight
+    );
+
+  gradient.addColorStop(0,"#24202d");
+  gradient.addColorStop(.5,"#665477");
+  gradient.addColorStop(1,"#211b2c");
+
+  scratchCtx.fillStyle = gradient;
+
+  scratchCtx.fillRect(
+    0,
+    0,
+    coverWidth,
+    coverHeight
+  );
+
+  scratchCtx.fillStyle =
+    "rgba(255,255,255,.45)";
+
+  for(let i=0;i<35;i++){
+
+    const x =
+      Math.random()*coverWidth;
+
+    const y =
+      Math.random()*coverHeight;
+
+    scratchCtx.beginPath();
+
+    scratchCtx.arc(
+      x,
+      y,
+      1.5,
+      0,
+      Math.PI*2
+    );
+
+    scratchCtx.fill();
+
+  }
+
+  scratchCtx.fillStyle = "#fff";
+
+  scratchCtx.font =
+    "700 18px Nunito";
+
+  scratchCtx.textAlign =
+    "center";
+
+  scratchCtx.fillText(
+    "SCRATCH ME ✨",
+    coverWidth/2,
+    coverHeight/2
+  );
+
+  scratchCtx.globalCompositeOperation =
+    "destination-out";
+
+}
+
+
+function resizeScratchCanvas(){
+
+  const rect =
+    scratchBox.getBoundingClientRect();
+
+  const dpr =
+    Math.min(window.devicePixelRatio || 1,2);
+
+  coverWidth = rect.width;
+  coverHeight = rect.height;
+
+  scratchCanvas.width =
+    Math.round(coverWidth*dpr);
+
+  scratchCanvas.height =
+    Math.round(coverHeight*dpr);
+
+  scratchCanvas.style.width =
+    coverWidth + "px";
+
+  scratchCanvas.style.height =
+    coverHeight + "px";
+
+  scratchCtx.setTransform(
+    dpr,
+    0,
+    0,
+    dpr,
+    0,
+    0
+  );
+
+  drawScratchCover();
+
+}
+
+
+function resetScratchCard(){
+
+  scratchFinished = false;
+  scratchStarted = false;
+  scratchCheckCounter = 0;
+
+  document
+    .getElementById("scratchContinue")
+    .classList.remove("show");
+
+  document
+    .getElementById("scratchHint")
+    .textContent =
+      "Scratch the card with your finger ✨";
+
+  requestAnimationFrame(()=>{
+    resizeScratchCanvas();
+  });
+
+}
+
+
+function getScratchPosition(event){
+
+  const rect =
+    scratchCanvas.getBoundingClientRect();
+
+  return {
+
+    x:event.clientX - rect.left,
+
+    y:event.clientY - rect.top
+
+  };
+
+}
+
+
+function scratchAt(x,y){
+
+  if(scratchFinished) return;
+
+  scratchStarted = true;
+
+  scratchCtx.globalCompositeOperation =
+    "destination-out";
+
+  scratchCtx.beginPath();
+
+  scratchCtx.arc(
+    x,
+    y,
+    27,
+    0,
+    Math.PI*2
+  );
+
+  scratchCtx.fill();
+
+  scratchCheckCounter++;
+
+  if(scratchCheckCounter >= 8){
+
+    scratchCheckCounter = 0;
+
+    checkScratchProgress();
+
+  }
+
+}
+
+
+function scratchLine(x1,y1,x2,y2){
+
+  if(scratchFinished) return;
+
+  scratchCtx.globalCompositeOperation =
+    "destination-out";
+
+  scratchCtx.lineWidth = 54;
+
+  scratchCtx.lineCap = "round";
+
+  scratchCtx.beginPath();
+
+  scratchCtx.moveTo(x1,y1);
+
+  scratchCtx.lineTo(x2,y2);
+
+  scratchCtx.stroke();
+
+}
+
+
+scratchCanvas.addEventListener(
+  "pointerdown",
+  event=>{
+
+    event.preventDefault();
+
+    scratchCanvas.setPointerCapture(
+      event.pointerId
+    );
+
+    const pos =
+      getScratchPosition(event);
+
+    lastX = pos.x;
+    lastY = pos.y;
+
+    scratchAt(
+      pos.x,
+      pos.y
+    );
+
+  }
+);
+
+
+scratchCanvas.addEventListener(
+  "pointermove",
+  event=>{
+
+    if(!scratchCanvas.hasPointerCapture(
+      event.pointerId
+    )) return;
+
+    event.preventDefault();
+
+    const pos =
+      getScratchPosition(event);
+
+    scratchLine(
+      lastX,
+      lastY,
+      pos.x,
+      pos.y
+    );
+
+    scratchAt(
+      pos.x,
+      pos.y
+    );
+
+    lastX = pos.x;
+    lastY = pos.y;
+
+  }
+);
+
+
+scratchCanvas.addEventListener(
+  "pointerup",
+  event=>{
+
+    if(
+      scratchCanvas.hasPointerCapture(
+        event.pointerId
+      )
+    ){
+
+      scratchCanvas.releasePointerCapture(
+        event.pointerId
+      );
+
     }
 
-    candlesBlown = true;
+  }
+);
 
-    const flames =
-        document.querySelectorAll(".flame");
 
-    flames.forEach(flame=>{
-        flame.classList.add("out");
-    });
+scratchCanvas.addEventListener(
+  "pointercancel",
+  event=>{
 
-    const smoke =
-        document.querySelectorAll(".smoke");
+    if(
+      scratchCanvas.hasPointerCapture(
+        event.pointerId
+      )
+    ){
 
-    smoke.forEach(item=>{
-        item.classList.add("show");
-    });
+      scratchCanvas.releasePointerCapture(
+        event.pointerId
+      );
 
-    document.getElementById("blowText").textContent =
-        "The candles are out... make your wish. ✨";
+    }
 
-    document.getElementById("blowButton").style.display =
-        "none";
+  }
+);
 
-    document
-        .getElementById("cakeContinue")
-        .classList.add("show");
+
+function checkScratchProgress(){
+
+  if(!scratchStarted || scratchFinished)
+    return;
+
+  try{
+
+    const pixels =
+      scratchCtx.getImageData(
+        0,
+        0,
+        scratchCanvas.width,
+        scratchCanvas.height
+      ).data;
+
+    let transparent = 0;
+
+    for(
+      let i=3;
+      i<pixels.length;
+      i+=64
+    ){
+
+      if(pixels[i] < 80){
+        transparent++;
+      }
+
+    }
+
+    const total =
+      Math.floor(pixels.length/64);
+
+    const percent =
+      transparent/total;
+
+    if(percent >= .43){
+
+      finishScratch();
+
+    }
+
+  }catch(error){}
+
 }
+
+
+function finishScratch(){
+
+  if(scratchFinished) return;
+
+  scratchFinished = true;
+
+  scratchCtx.clearRect(
+    0,
+    0,
+    coverWidth,
+    coverHeight
+  );
+
+  document
+    .getElementById("scratchHint")
+    .textContent =
+      "You found it! 💗🦋";
+
+  document
+    .getElementById("scratchContinue")
+    .classList.add("show");
+
+}
+
+
+window.addEventListener(
+  "resize",
+  ()=>{
+
+    if(currentScene === 4){
+
+      resizeScratchCanvas();
+
+    }
+
+  }
+);
+
+
+/* =========================
+   LETTER
+========================= */
+
+const letterContent =
+`Dear Chiku, 💗🦋
+
+Happy Birthday to my favourite person. 🎂💕
+
+You know, sometimes I wonder how we can talk so much and still somehow have something new to talk about every day. 😌💗🫂 From the most random conversations to the things that actually matter, I love all those little moments we share. 😹💖💗🫂
+
+You're not just someone I wish a happy birthday today. 🧸💗
+
+You're someone I genuinely care about. 💖🫂
+
+I want to see you happy. I want to see you achieve the things you dream about. I want to be there when you're excited about something, when you're proud of yourself, and even when you're having one of those days when everything feels a little too much. 🫂💖
+
+If you're happy, I'll be happy seeing you happy. 😁💕
+
+And if you're having a difficult day, you don't have to pretend everything is okay. Take your time, tell me what's bothering you, complain about everything if you want 😌💗🫂—I'll listen.
+
+Because caring about someone isn't only about being there for the good moments. 💗🧸
+
+It's also about staying beside them when things aren't so easy. 💗
+
+We've already given each other those funny little titles—
+you calling me your husband, piyari, Chinu 💗✨ and me calling you my wife, pagli, piyari, Chiku 🤭🫂💗
+
+And honestly, it's one of those silly things between us that makes me smile. 😌💕🫂
+
+But beyond all the teasing and all our endless conversations, what matters to me most is that we care about each other. 😌💗✨
+
+So on your birthday, I want to make one simple wish for you:
+
+May you always have reasons to smile. 🦋💗
+May you have the courage to chase your dreams. 😌
+May you never feel alone when life gets difficult. 💕💐
+And may you always remember that someone is cheering for you. 🦋✨
+
+Please take care of yourself, Chiku. 💕🫂
+
+Eat properly, drink water, and rest when you're tired. Don't overthink everything 😌💗💐, and most importantly, don't forget to be proud of yourself. ✨
+
+You've got someone here who's going to keep annoying you, listening to your endless stories, laughing at your random jokes, and caring about you. 😹🫂💗💐
+
+And yes...
+
+Someday, I want to marry you and make you my real wife. 😌💗
+
+Happy Birthday, Chiku. 🎂🦋
+
+I hope this year brings you beautiful moments, peaceful days, lots of laughter, and memories that we'll look back on and smile about. ✨🫂
+
+Stay happy. Stay yourself.
+And keep talking to me like there's no tomorrow. ✨🦋
+
+With love, care, and a million little wishes,
+
+Your Chinu 💗🦋`;
+
+
+let letterTimer = null;
+
+
+function openLetter(){
+
+  document
+    .getElementById("envelope")
+    .classList.add("hide");
+
+  const paper =
+    document.getElementById("paper");
+
+  setTimeout(()=>{
+
+    paper.classList.add("show");
+
+    startLetter();
+
+  },650);
+
+}
+
+
+function startLetter(){
+
+  clearInterval(letterTimer);
+
+  const textBox =
+    document.getElementById("letterText");
+
+  textBox.innerHTML = "";
+
+  const paper =
+    document.getElementById("paper");
+
+  paper.scrollTop = 0;
+
+  let index = 0;
+
+  letterTimer =
+    setInterval(()=>{
+
+      if(index >= letterContent.length){
+
+        clearInterval(letterTimer);
+
+        return;
+
+      }
+
+      textBox.textContent =
+        letterContent.slice(
+          0,
+          index + 1
+        );
+
+      paper.scrollTop =
+        paper.scrollHeight;
+
+      index++;
+
+    },22);
+
+}
+
+
+/* INITIAL */
+
+window.addEventListener(
+  "load",
+  ()=>{
+
+    setTimeout(()=>{
+      resizeScratchCanvas();
+    },300);
+
+  }
+);
 
 </script>
 
