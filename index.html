@@ -2,301 +2,393 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<meta name="viewport"
+      content="width=device-width,initial-scale=1.0,
+      maximum-scale=1.0,user-scalable=no">
+
 <title>A Little World Made For Chiku 🦋</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Dancing+Script:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&family=Kalam:wght@400;700&display=swap"
+rel="stylesheet">
 
 <style>
+
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  -webkit-tap-highlight-color:transparent;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    -webkit-tap-highlight-color:transparent;
 }
 
 html,body{
-  width:100%;
-  height:100%;
-  overflow:hidden;
+    width:100%;
+    height:100%;
+    overflow:hidden;
 }
 
 body{
-  font-family:'Nunito',sans-serif;
-  color:#fff;
-  background:
-    radial-gradient(circle at 20% 20%,rgba(126,55,190,.30),transparent 30%),
-    radial-gradient(circle at 80% 30%,rgba(255,70,170,.18),transparent 28%),
-    radial-gradient(circle at 50% 90%,rgba(30,100,190,.18),transparent 35%),
-    #030207;
+    font-family:'Nunito',sans-serif;
+    color:white;
+    background:
+        radial-gradient(circle at 20% 20%,rgba(126,55,190,.30),transparent 30%),
+        radial-gradient(circle at 80% 30%,rgba(255,70,170,.18),transparent 28%),
+        radial-gradient(circle at 50% 90%,rgba(30,100,190,.18),transparent 35%),
+        #030207;
 }
 
 body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background-image:
-    radial-gradient(#fff 1px,transparent 1px),
-    radial-gradient(#b8c9ff 1px,transparent 1px);
-  background-size:90px 90px,140px 140px;
-  background-position:10px 20px,40px 60px;
-  opacity:.35;
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background-image:
+        radial-gradient(#fff 1px,transparent 1px),
+        radial-gradient(#b8c9ff 1px,transparent 1px);
+    background-size:90px 90px,140px 140px;
+    background-position:10px 20px,40px 60px;
+    opacity:.35;
 }
 
 .butterfly{
-  position:fixed;
-  z-index:1;
-  font-size:24px;
-  pointer-events:none;
-  animation:floatButterfly 7s ease-in-out infinite;
-  filter:drop-shadow(0 0 10px #d66cff);
+    position:fixed;
+    z-index:1;
+    font-size:24px;
+    pointer-events:none;
+    animation:floatButterfly 7s ease-in-out infinite;
+    filter:drop-shadow(0 0 10px #d66cff);
 }
 
-.b1{left:8%;top:15%;animation-delay:0s}
+.b1{left:8%;top:15%}
 .b2{right:10%;top:25%;animation-delay:2s}
 .b3{left:15%;bottom:25%;animation-delay:4s}
 .b4{right:18%;bottom:15%;animation-delay:1s}
 
 @keyframes floatButterfly{
-  0%,100%{transform:translate(0,0) rotate(-5deg)}
-  50%{transform:translate(18px,-25px) rotate(8deg)}
+    0%,100%{
+        transform:translate(0,0) rotate(-5deg);
+    }
+
+    50%{
+        transform:translate(18px,-25px) rotate(8deg);
+    }
 }
 
+
+/* ================= SCENES ================= */
+
 .scene{
-  position:fixed;
-  inset:0;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:24px 18px 90px;
-  overflow:hidden;
+    position:fixed;
+    inset:0;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:24px 18px 90px;
+    overflow:hidden;
 }
 
 .scene.active{
-  display:flex;
-  animation:sceneIn .6s ease;
+    display:flex;
+    animation:sceneIn .6s ease;
 }
 
 @keyframes sceneIn{
-  from{opacity:0;transform:scale(.97)}
-  to{opacity:1;transform:scale(1)}
+    from{
+        opacity:0;
+        transform:scale(.97);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
 }
 
 .card{
-  width:min(92vw,720px);
-  max-height:calc(100vh - 130px);
-  padding:30px 22px;
-  border:1px solid rgba(255,130,230,.35);
-  border-radius:28px;
-  background:
-    linear-gradient(145deg,rgba(25,10,40,.90),rgba(3,3,12,.94));
-  box-shadow:
-    0 0 25px rgba(190,70,255,.18),
-    inset 0 0 30px rgba(70,80,255,.05);
-  text-align:center;
-  position:relative;
-  overflow:hidden;
+    width:min(92vw,720px);
+    max-height:calc(100vh - 130px);
+    padding:30px 22px;
+
+    border:1px solid rgba(255,130,230,.35);
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25,10,40,.90),
+            rgba(3,3,12,.94)
+        );
+
+    box-shadow:
+        0 0 25px rgba(190,70,255,.18),
+        inset 0 0 30px rgba(70,80,255,.05);
+
+    text-align:center;
+    position:relative;
+    overflow:auto;
 }
 
 .card:before{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  border-radius:30px;
-  pointer-events:none;
-  background:linear-gradient(120deg,
-    transparent,
-    rgba(255,90,210,.12),
-    transparent,
-    rgba(70,130,255,.10),
-    transparent);
+    content:"";
+    position:absolute;
+    inset:-2px;
+    border-radius:30px;
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,90,210,.12),
+            transparent,
+            rgba(70,130,255,.10),
+            transparent
+        );
 }
 
 .kicker{
-  color:#b9a8ff;
-  font-size:12px;
-  letter-spacing:4px;
-  text-transform:uppercase;
-  margin-bottom:12px;
+    color:#b9a8ff;
+    font-size:12px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin-bottom:12px;
 }
 
 h1{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(40px,10vw,72px);
-  line-height:.95;
-  background:linear-gradient(90deg,#fff,#ff9de9,#b8a5ff,#83c9ff);
-  -webkit-background-clip:text;
-  color:transparent;
-  margin-bottom:18px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(40px,10vw,72px);
+    line-height:.95;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #ff9de9,
+            #b8a5ff,
+            #83c9ff
+        );
+
+    -webkit-background-clip:text;
+    color:transparent;
+
+    margin-bottom:18px;
 }
 
 h2{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(32px,8vw,52px);
-  color:#fff;
-  margin-bottom:10px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(32px,8vw,52px);
+    color:#fff;
+    margin-bottom:10px;
 }
 
 .subtitle{
-  color:#d8d0e8;
-  line-height:1.7;
-  font-size:15px;
+    color:#d8d0e8;
+    line-height:1.7;
+    font-size:15px;
 }
 
 .next{
-  border:1px solid rgba(255,140,230,.55);
-  color:#fff;
-  background:
-    linear-gradient(135deg,rgba(255,80,190,.20),rgba(80,90,255,.18));
-  border-radius:999px;
-  padding:13px 22px;
-  font-family:'Nunito',sans-serif;
-  font-weight:800;
-  letter-spacing:.5px;
-  cursor:pointer;
-  box-shadow:0 0 18px rgba(210,80,255,.16);
-  transition:.2s;
+    border:1px solid rgba(255,140,230,.55);
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,80,190,.20),
+            rgba(80,90,255,.18)
+        );
+
+    border-radius:999px;
+    padding:13px 22px;
+
+    font-family:'Nunito',sans-serif;
+    font-weight:800;
+    letter-spacing:.5px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 0 18px rgba(210,80,255,.16);
+
+    transition:.2s;
 }
 
 .next:active{
-  transform:scale(.95);
-}
-
-.next:disabled{
-  cursor:not-allowed;
+    transform:scale(.95);
 }
 
 .introButterfly{
-  font-size:65px;
-  margin:8px 0 18px;
-  animation:wing 2s ease-in-out infinite;
-  filter:drop-shadow(0 0 18px #cf64ff);
+    font-size:65px;
+    margin:8px 0 18px;
+
+    animation:wing 2s ease-in-out infinite;
+
+    filter:
+        drop-shadow(0 0 18px #cf64ff);
 }
 
 @keyframes wing{
-  0%,100%{transform:scale(1) rotate(-4deg)}
-  50%{transform:scale(1.08) rotate(4deg)}
+    0%,100%{
+        transform:scale(1) rotate(-4deg);
+    }
+
+    50%{
+        transform:scale(1.08) rotate(4deg);
+    }
 }
 
 .from{
-  margin-top:18px;
-  color:#b9b1cb;
-  font-family:'Dancing Script',cursive;
-  font-size:24px;
+    margin-top:18px;
+    color:#b9b1cb;
+    font-family:'Dancing Script',cursive;
+    font-size:24px;
 }
 
+
+/* ================= QUESTIONS ================= */
+
 .questionNumber{
-  color:#8fc7ff;
-  font-size:13px;
-  letter-spacing:2px;
-  margin-bottom:12px;
+    color:#8fc7ff;
+    font-size:13px;
+    letter-spacing:2px;
+    margin-bottom:12px;
 }
 
 .question{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(28px,7vw,43px);
-  line-height:1.15;
-  margin:20px 0 30px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(28px,7vw,43px);
+    line-height:1.15;
+    margin:20px 0 30px;
 }
 
 .answerButtons{
-  display:flex;
-  justify-content:center;
-  gap:14px;
+    display:flex;
+    justify-content:center;
+    gap:14px;
 }
 
 .answerButtons button{
-  min-width:105px;
+    min-width:105px;
 }
 
 .noResponse{
-  min-height:45px;
-  margin-top:18px;
-  color:#ffb5eb;
-  font-size:14px;
+    min-height:45px;
+    margin-top:18px;
+    color:#ffb5eb;
+    font-size:14px;
 }
 
+
+/* ================= CAKE ================= */
+
 .cakeArea{
-  position:relative;
-  width:300px;
-  max-width:90vw;
-  height:320px;
-  margin:5px auto 0;
+    position:relative;
+    width:300px;
+    max-width:90vw;
+    height:320px;
+    margin:5px auto 0;
 }
 
 .cakeGlow{
-  position:absolute;
-  width:230px;
-  height:230px;
-  left:50%;
-  top:55px;
-  transform:translateX(-50%);
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(255,100,220,.18),transparent 70%);
+    position:absolute;
+    width:230px;
+    height:230px;
+    left:50%;
+    top:55px;
+    transform:translateX(-50%);
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,100,220,.18),
+            transparent 70%
+        );
 }
 
 .cake{
-  position:absolute;
-  left:50%;
-  top:115px;
-  transform:translateX(-50%);
-  width:220px;
+    position:absolute;
+    left:50%;
+    top:115px;
+    transform:translateX(-50%);
+    width:220px;
 }
 
 .plate{
-  height:20px;
-  width:260px;
-  background:linear-gradient(#9e79d9,#4b3277);
-  border-radius:50%;
-  margin:auto;
-  box-shadow:0 0 20px rgba(180,100,255,.4);
+    height:20px;
+    width:260px;
+
+    background:
+        linear-gradient(#9e79d9,#4b3277);
+
+    border-radius:50%;
+    margin:auto;
+
+    box-shadow:
+        0 0 20px rgba(180,100,255,.4);
 }
 
 .cakeBase{
-  height:100px;
-  background:linear-gradient(90deg,#6b267d,#c75ac7,#7b378e);
-  border-radius:18px 18px 25px 25px;
-  position:relative;
-  overflow:hidden;
-  border:2px solid rgba(255,170,245,.4);
+    height:100px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #6b267d,
+            #c75ac7,
+            #7b378e
+        );
+
+    border-radius:18px 18px 25px 25px;
+
+    position:relative;
+    overflow:hidden;
+
+    border:2px solid rgba(255,170,245,.4);
 }
 
 .cakeBase:before{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  top:0;
-  height:27px;
-  background:#ffb3dc;
-  border-radius:50%;
-  box-shadow:0 8px 0 #e780bf;
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    height:27px;
+
+    background:#ffb3dc;
+
+    border-radius:50%;
+
+    box-shadow:
+        0 8px 0 #e780bf;
 }
 
 .cream{
-  position:absolute;
-  top:17px;
-  width:100%;
-  height:30px;
-  z-index:2;
-  display:flex;
-  justify-content:space-around;
+    position:absolute;
+    top:17px;
+    width:100%;
+    height:30px;
+
+    z-index:2;
+
+    display:flex;
+    justify-content:space-around;
 }
 
 .cream span{
-  width:25px;
-  height:35px;
-  background:#ffe1f2;
-  border-radius:50%;
+    width:25px;
+    height:35px;
+    background:#ffe1f2;
+    border-radius:50%;
 }
 
 .strawberry{
-  position:absolute;
-  font-size:26px;
-  z-index:3;
+    position:absolute;
+    font-size:26px;
+    z-index:3;
 }
 
 .s1{left:25px;top:40px}
@@ -304,17 +396,22 @@ h2{
 .s3{left:95px;top:50px}
 
 .candle{
-  position:absolute;
-  bottom:88px;
-  width:13px;
-  height:62px;
-  border-radius:5px;
-  background:repeating-linear-gradient(
-    -45deg,
-    #fff 0 7px,
-    #ff70bb 7px 14px
-  );
-  z-index:5;
+    position:absolute;
+    bottom:88px;
+
+    width:13px;
+    height:62px;
+
+    border-radius:5px;
+
+    background:
+        repeating-linear-gradient(
+            -45deg,
+            #fff 0 7px,
+            #ff70bb 7px 14px
+        );
+
+    z-index:5;
 }
 
 .c1{left:70px}
@@ -322,575 +419,1002 @@ h2{
 .c3{left:140px}
 
 .flame{
-  position:absolute;
-  width:16px;
-  height:23px;
-  left:-1.5px;
-  top:-23px;
-  background:radial-gradient(circle at 50% 70%,#fff 0 20%,#ffe26d 21% 50%,#ff7b31 51%);
-  border-radius:50%;
-  animation:flicker .6s infinite alternate;
+    position:absolute;
+    width:16px;
+    height:23px;
+    left:-1.5px;
+    top:-23px;
+
+    background:
+        radial-gradient(
+            circle at 50% 70%,
+            #fff 0 20%,
+            #ffe26d 21% 50%,
+            #ff7b31 51%
+        );
+
+    border-radius:50%;
+
+    animation:flicker .6s infinite alternate;
 }
 
 @keyframes flicker{
-  from{transform:scale(1) rotate(-3deg)}
-  to{transform:scale(.82) rotate(5deg)}
+    from{
+        transform:scale(1) rotate(-3deg);
+    }
+
+    to{
+        transform:scale(.82) rotate(5deg);
+    }
 }
 
 .flame.off{
-  display:none;
+    display:none;
 }
 
 .smoke{
-  position:absolute;
-  top:-35px;
-  left:50%;
-  transform:translateX(-50%);
-  font-size:20px;
-  opacity:0;
+    position:absolute;
+    top:-35px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-size:20px;
+    opacity:0;
 }
 
 .smoke.show{
-  animation:smoke 2s ease forwards;
+    animation:smoke 2s ease forwards;
 }
 
 @keyframes smoke{
-  from{opacity:0;transform:translate(-50%,0)}
-  30%{opacity:.7}
-  to{opacity:0;transform:translate(-50%,-50px)}
+    from{
+        opacity:0;
+        transform:translate(-50%,0);
+    }
+
+    30%{
+        opacity:.7;
+    }
+
+    to{
+        opacity:0;
+        transform:translate(-50%,-50px);
+    }
 }
 
 .blowText{
-  color:#cfc4df;
-  font-size:13px;
-  margin:-15px 0 12px;
+    color:#cfc4df;
+    font-size:13px;
+    margin:-15px 0 12px;
 }
 
 .cakeButtons{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  flex-wrap:wrap;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
 }
 
 
-/* =========================
-   FIXED WHEEL SECTION
-========================= */
-
-.wheelCard{
-  max-height:calc(100vh - 125px);
-}
+/* ================= WHEEL ================= */
 
 .wheelTitle{
-  font-size:34px;
+    font-size:34px;
 }
 
 .wheelSubtitle{
-  color:#c8bed7;
-  font-size:13px;
-  margin-bottom:8px;
+    color:#c8bed7;
+    font-size:13px;
+    margin-bottom:8px;
 }
 
 .wheelArea{
-  position:relative;
-  width:310px;
-  max-width:84vw;
-  margin:10px auto 10px;
+    position:relative;
+    width:310px;
+    max-width:86vw;
+    margin:10px auto;
 }
 
 .wheel{
-  width:285px;
-  height:285px;
-  max-width:84vw;
-  max-height:84vw;
-  margin:auto;
-  border-radius:50%;
-  position:relative;
-  border:8px solid #171020;
-  box-shadow:
-    0 0 0 2px #b768ff,
-    0 0 35px rgba(191,80,255,.35);
-  overflow:hidden;
-  transition:transform 4.2s cubic-bezier(.12,.72,.12,1);
+    width:285px;
+    height:285px;
+    max-width:84vw;
+    max-height:84vw;
 
-  background:conic-gradient(
-    #ff4fb3 0deg 45deg,
-    #754bff 45deg 90deg,
-    #2d8cff 90deg 135deg,
-    #c449c9 135deg 180deg,
-    #ff68a8 180deg 225deg,
-    #5948d9 225deg 270deg,
-    #3688d8 270deg 315deg,
-    #9a45b7 315deg 360deg
-  );
+    margin:auto;
+
+    border-radius:50%;
+
+    position:relative;
+
+    border:8px solid #171020;
+
+    box-shadow:
+        0 0 0 2px #b768ff,
+        0 0 35px rgba(191,80,255,.35);
+
+    overflow:hidden;
+
+    transition:
+        transform 4.2s cubic-bezier(.12,.72,.12,1);
+
+    background:
+        conic-gradient(
+            #ff4fb3 0deg 45deg,
+            #754bff 45deg 90deg,
+            #2d8cff 90deg 135deg,
+            #c449c9 135deg 180deg,
+            #ff68a8 180deg 225deg,
+            #5948d9 225deg 270deg,
+            #3688d8 270deg 315deg,
+            #9a45b7 315deg 360deg
+        );
 }
 
-
-/*
-   IMPORTANT:
-   Each label is now placed at the
-   CENTER of its own 45° slice.
-
-   They are NOT allowed to overlap.
-*/
-
 .wheelText{
-  position:absolute;
-  inset:0;
-  pointer-events:none;
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    z-index:2;
 }
 
 .wheelText span{
-  position:absolute;
-  left:50%;
-  top:50%;
+    position:absolute;
 
-  width:72px;
+    left:50%;
+    top:50%;
 
-  transform-origin:0 0;
+    width:78px;
+    height:38px;
 
-  text-align:center;
+    margin-left:-39px;
+    margin-top:-19px;
 
-  font-size:10px;
-  font-weight:800;
-  line-height:1.08;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-  color:#fff;
+    text-align:center;
 
-  text-shadow:
-    0 2px 5px rgba(0,0,0,.9),
-    0 0 5px rgba(0,0,0,.6);
+    font-size:10px;
+    font-weight:800;
+    line-height:1.05;
 
-  /*
-    The translate moves the label
-    outward from the centre.
-    Rotate values put each label
-    in a separate slice.
-  */
+    color:white;
+
+    text-shadow:
+        0 2px 5px rgba(0,0,0,.95),
+        0 0 6px rgba(0,0,0,.8);
 }
 
-/* 8 individual positions */
+.wt1{--angle:22.5deg}
+.wt2{--angle:67.5deg}
+.wt3{--angle:112.5deg}
+.wt4{--angle:157.5deg}
+.wt5{--angle:202.5deg}
+.wt6{--angle:247.5deg}
+.wt7{--angle:292.5deg}
+.wt8{--angle:337.5deg}
 
-.wt1{
-  transform:
-    rotate(0deg)
-    translate(45px,-50%);
+.wheelText span{
+    transform:
+        rotate(var(--angle))
+        translateY(-88px)
+        rotate(calc(var(--angle) * -1));
 }
 
-.wt2{
-  transform:
-    rotate(45deg)
-    translate(45px,-50%);
+.pointer{
+    position:absolute;
+    z-index:10;
+
+    left:50%;
+    top:-7px;
+
+    transform:translateX(-50%);
+
+    width:0;
+    height:0;
+
+    border-left:13px solid transparent;
+    border-right:13px solid transparent;
+    border-top:30px solid white;
+
+    filter:
+        drop-shadow(0 0 8px #ff63d3);
 }
 
-.wt3{
-  transform:
-    rotate(90deg)
-    translate(45px,-50%);
+.wheelCenter{
+    position:absolute;
+
+    width:48px;
+    height:48px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:#08050c;
+
+    border:3px solid #f6a4e7;
+
+    box-shadow:
+        0 0 18px #b764ff;
+
+    z-index:5;
 }
 
-.wt4{
-  transform:
-    rotate(135deg)
-    translate(45px,-50%);
+.wheelResult{
+    min-height:42px;
+
+    color:#ffb8e9;
+
+    font-size:14px;
+    line-height:1.5;
+
+    margin:8px auto;
+
+    max-width:340px;
+
+    padding:0 8px;
 }
 
-.wt5{
-  transform:
-    rotate(180deg)
-    translate(45px,-50%);
+.wheelContinue{
+    display:none;
 }
 
-.wt6{
-  transform:
-    rotate(225deg)
-    translate(45px,-50%);
+.wheelContinue.show{
+    display:inline-block;
 }
 
-.wt7{
-  transform:
-    rotate(270deg)
-    translate(45px,-50%);
+
+/* ================= SCRATCH CARD ================= */
+
+.scratchCard{
+    width:min(330px,85vw);
+    height:190px;
+
+    margin:20px auto 15px;
+
+    position:relative;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 0 25px rgba(160,80,255,.25);
+
+    border:
+        1px solid rgba(255,150,240,.45);
 }
 
-.wt8{
-  transform:
-    rotate(315deg)
-    translate(45px,-50%);
+.scratchMessage{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:25px;
+
+    text-align:center;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,100,210,.3),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #160b25,
+            #071326
+        );
+
+    color:white;
+
+    font-family:'Dancing Script',cursive;
+    font-size:25px;
+}
+
+#scratchCanvas{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    touch-action:none;
+    cursor:crosshair;
+
+    z-index:5;
+}
+
+.scratchHint{
+    color:#aaa0ba;
+    font-size:13px;
+}
+
+.scratchContinue{
+    display:none;
+    margin-top:12px;
+}
+
+.scratchContinue.show{
+    display:inline-block;
+}
+
+
+/* ================= MEMORIES ================= */
+
+.memoryCard{
+    width:min(92vw,700px);
+}
+
+.memoryFrame{
+    height:min(55vh,400px);
+
+    border-radius:20px;
+
+    border:
+        1px solid rgba(255,130,220,.35);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,90,200,.08),
+            rgba(60,90,255,.10)
+        ),
+        #08070d;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    flex-direction:column;
+
+    padding:20px;
+
+    margin:18px 0;
+}
+
+.memoryIcon{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.memoryText{
+    font-family:'Dancing Script',cursive;
+    font-size:28px;
+    color:#ffb9ea;
+}
+
+.memorySmall{
+    margin-top:8px;
+    color:#aaa2b8;
+    font-size:13px;
+}
+
+
+/* ================= LETTER ================= */
+
+.letterCard{
+    width:min(92vw,700px);
+
+    height:calc(100vh - 125px);
+    max-height:calc(100vh - 125px);
+
+    padding:20px 15px;
+}
+
+
+/* ENVELOPE */
+
+.envelope{
+    height:100%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    flex-direction:column;
+
+    position:relative;
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.envelope.hide{
+    opacity:0;
+    transform:scale(.92) translateY(-25px);
+    pointer-events:none;
+}
+
+.envelope:before{
+    content:"";
+
+    position:absolute;
+
+    width:230px;
+    height:230px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,91,208,.24),
+            rgba(126,65,255,.10),
+            transparent 70%
+        );
+
+    filter:blur(5px);
+
+    animation:envelopeGlow 3s ease-in-out infinite;
+}
+
+@keyframes envelopeGlow{
+
+    0%,100%{
+        transform:scale(.9);
+        opacity:.65;
+    }
+
+    50%{
+        transform:scale(1.12);
+        opacity:1;
+    }
+}
+
+.envelopeButterfly{
+    position:relative;
+    z-index:2;
+
+    font-size:82px;
+
+    margin-bottom:12px;
+
+    filter:
+        drop-shadow(0 0 12px #ff62d4)
+        drop-shadow(0 0 25px #8d55ff);
+
+    animation:
+        letterButterfly 3s ease-in-out infinite;
+}
+
+@keyframes letterButterfly{
+
+    0%,100%{
+        transform:
+            translateY(0)
+            rotate(-4deg);
+    }
+
+    50%{
+        transform:
+            translateY(-12px)
+            rotate(5deg);
+    }
+}
+
+.envelopeBox{
+
+    position:relative;
+    z-index:3;
+
+    width:min(310px,78vw);
+    height:190px;
+
+    margin-top:5px;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,91,196,.23),
+            rgba(87,64,190,.24)
+        );
+
+    border:
+        1px solid rgba(255,157,235,.65);
+
+    box-shadow:
+        0 0 25px rgba(221,78,255,.28),
+        inset 0 0 30px rgba(255,255,255,.04);
+
+    cursor:pointer;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.envelopeBox:active{
+    transform:scale(.96);
+
+    box-shadow:
+        0 0 38px rgba(232,91,255,.45);
+}
+
+.envelopeFlap{
+    position:absolute;
+
+    left:50%;
+    top:0;
+
+    transform:translateX(-50%);
+
+    width:0;
+    height:0;
+
+    border-left:154px solid transparent;
+    border-right:154px solid transparent;
+    border-top:105px solid rgba(255,112,207,.42);
+
+    filter:
+        drop-shadow(0 2px 4px rgba(0,0,0,.2));
+}
+
+.envelopeFoldLeft{
+    position:absolute;
+
+    left:0;
+    bottom:0;
+
+    width:0;
+    height:0;
+
+    border-top:92px solid transparent;
+    border-bottom:0 solid transparent;
+    border-left:150px solid rgba(112,91,215,.24);
+}
+
+.envelopeFoldRight{
+    position:absolute;
+
+    right:0;
+    bottom:0;
+
+    width:0;
+    height:0;
+
+    border-top:92px solid transparent;
+    border-right:150px solid rgba(255,90,190,.20);
+}
+
+.envelopeSeal{
+    position:absolute;
+
+    left:50%;
+    top:91px;
+
+    transform:translateX(-50%);
+
+    width:52px;
+    height:52px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #ffb9eb,
+            #c855b7 55%,
+            #693e9f
+        );
+
+    border:
+        3px solid rgba(255,220,250,.7);
+
+    box-shadow:
+        0 0 16px rgba(255,102,211,.65);
+
+    font-size:24px;
+
+    z-index:5;
+}
+
+.envelopeText{
+    position:relative;
+    z-index:3;
+
+    margin-top:22px;
+
+    color:#ded4e8;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:23px;
+
+    letter-spacing:.3px;
+}
+
+.envelopeSmall{
+    position:relative;
+    z-index:3;
+
+    margin-top:6px;
+
+    color:#9f94ad;
+
+    font-size:12px;
+
+    letter-spacing:1px;
+}
+
+.openLetterHint{
+    position:relative;
+    z-index:3;
+
+    margin-top:18px;
+
+    font-size:12px;
+
+    color:#ffb6e9;
+
+    animation:
+        hintPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes hintPulse{
+
+    0%,100%{
+        opacity:.55;
+    }
+
+    50%{
+        opacity:1;
+    }
+}
+
+
+/* PAPER */
+
+.paper{
+    position:absolute;
+
+    inset:20px 15px;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,.97),
+            rgba(245,239,250,.97)
+        );
+
+    border-radius:20px;
+
+    color:#30253a;
+
+    padding:25px 20px;
+
+    text-align:left;
+
+    overflow-y:auto;
+
+    -webkit-overflow-scrolling:touch;
+
+    opacity:0;
+
+    transform:
+        translateY(25px)
+        scale(.97);
+
+    pointer-events:none;
+
+    transition:.7s;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.55);
+
+    z-index:10;
+}
+
+.paper.show{
+    opacity:1;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    pointer-events:auto;
+}
+
+.letterTitle{
+    text-align:center;
+
+    font-family:'Dancing Script',cursive;
+
+    color:#8c3d91;
+
+    font-size:32px;
+
+    margin-bottom:18px;
 }
 
 
 /*
-   Counter-rotate the actual text so
-   every word remains upright.
+   SIMPLE HANDWRITING FONT
+   Used ONLY for the actual letter.
 */
 
-.wt1::after,
-.wt2::after,
-.wt3::after,
-.wt4::after,
-.wt5::after,
-.wt6::after,
-.wt7::after,
-.wt8::after{
-  display:block;
-}
-
-
-/* Individual text positioning using flex-like centering */
-
-.wt1{margin-left:-36px;margin-top:-105px;}
-.wt2{margin-left:25px;margin-top:-85px;}
-.wt3{margin-left:68px;margin-top:-36px;}
-.wt4{margin-left:45px;margin-top:30px;}
-.wt5{margin-left:-36px;margin-top:55px;}
-.wt6{margin-left:-100px;margin-top:30px;}
-.wt7{margin-left:-120px;margin-top:-36px;}
-.wt8{margin-left:-100px;margin-top:-85px;}
-
-
-/* Pointer */
-
-.pointer{
-  position:absolute;
-  z-index:10;
-  left:50%;
-  top:-7px;
-  transform:translateX(-50%);
-  width:0;
-  height:0;
-  border-left:13px solid transparent;
-  border-right:13px solid transparent;
-  border-top:30px solid #fff;
-  filter:drop-shadow(0 0 8px #ff63d3);
-}
-
-.wheelCenter{
-  position:absolute;
-  width:48px;
-  height:48px;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
-  border-radius:50%;
-  background:#08050c;
-  border:3px solid #f6a4e7;
-  box-shadow:0 0 18px #b764ff;
-  z-index:5;
-}
-
-.wheelResult{
-  min-height:42px;
-  color:#ffb8e9;
-  font-size:14px;
-  line-height:1.5;
-  margin:8px auto;
-  max-width:340px;
-  padding:0 8px;
-}
-
-.wheelContinue{
-  display:none;
-}
-
-.wheelContinue.show{
-  display:inline-block;
-}
-
-
-/* SCRATCH */
-
-.scratchCard{
-  width:min(330px,85vw);
-  height:190px;
-  margin:20px auto 15px;
-  position:relative;
-  border-radius:22px;
-  overflow:hidden;
-  box-shadow:0 0 25px rgba(160,80,255,.25);
-  border:1px solid rgba(255,150,240,.45);
-}
-
-.scratchMessage{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:25px;
-  text-align:center;
-  background:
-    radial-gradient(circle at 20% 20%,rgba(255,100,210,.3),transparent 30%),
-    linear-gradient(135deg,#160b25,#071326);
-  color:#fff;
-  font-family:'Dancing Script',cursive;
-  font-size:25px;
-}
-
-#scratchCanvas{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  touch-action:none;
-  cursor:crosshair;
-}
-
-.scratchHint{
-  color:#aaa0ba;
-  font-size:13px;
-}
-
-.scratchContinue{
-  display:none;
-  margin-top:12px;
-}
-
-.scratchContinue.show{
-  display:inline-block;
-}
-
-
-/* MEMORIES */
-
-.memoryCard{
-  width:min(92vw,700px);
-}
-
-.memoryFrame{
-  height:min(55vh,400px);
-  border-radius:20px;
-  border:1px solid rgba(255,130,220,.35);
-  background:
-    linear-gradient(135deg,rgba(255,90,200,.08),rgba(60,90,255,.10)),
-    #08070d;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  padding:20px;
-  margin:18px 0;
-}
-
-.memoryIcon{
-  font-size:55px;
-  margin-bottom:15px;
-}
-
-.memoryText{
-  font-family:'Dancing Script',cursive;
-  font-size:28px;
-  color:#ffb9ea;
-}
-
-.memorySmall{
-  margin-top:8px;
-  color:#aaa2b8;
-  font-size:13px;
-}
-
-
-/* LETTER */
-
-.letterCard{
-  width:min(92vw,700px);
-  height:calc(100vh - 125px);
-  max-height:calc(100vh - 125px);
-  padding:20px 15px;
-}
-
-.envelope{
-  height:210px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  transition:.7s;
-}
-
-.envelope.hide{
-  opacity:0;
-  transform:translateY(-20px) scale(.9);
-  pointer-events:none;
-  position:absolute;
-}
-
-.envelopeButterfly{
-  font-size:70px;
-  filter:drop-shadow(0 0 18px #ff66d3);
-  animation:floatButterfly 3s infinite;
-}
-
-.envelopeText{
-  margin-top:8px;
-  color:#cfc3dc;
-}
-
-.paper{
-  position:absolute;
-  inset:20px 15px;
-  background:
-    linear-gradient(rgba(255,255,255,.97),rgba(245,239,250,.97));
-  border-radius:20px;
-  color:#30253a;
-  padding:25px 20px;
-  text-align:left;
-  overflow-y:auto;
-  opacity:0;
-  transform:translateY(25px) scale(.97);
-  pointer-events:none;
-  transition:.7s;
-  box-shadow:0 15px 45px rgba(0,0,0,.55);
-}
-
-.paper.show{
-  opacity:1;
-  transform:translateY(0) scale(1);
-  pointer-events:auto;
-}
-
-.letterTitle{
-  text-align:center;
-  font-family:'Dancing Script',cursive;
-  color:#8c3d91;
-  font-size:32px;
-  margin-bottom:18px;
-}
-
 #letterText{
-  white-space:pre-wrap;
-  font-family:'Dancing Script',cursive;
-  font-size:20px;
-  line-height:1.65;
+    white-space:pre-wrap;
+
+    font-family:'Kalam',cursive;
+
+    font-size:20px;
+
+    line-height:1.75;
+
+    color:#30253a;
 }
 
-.cursor{
-  display:inline-block;
-  width:2px;
-  height:21px;
-  background:#8d3c8e;
-  margin-left:2px;
-  vertical-align:middle;
-  animation:blink .7s infinite;
-}
 
-@keyframes blink{
-  50%{opacity:0}
-}
+/* LETTER BUTTON */
 
 .letterBottom{
-  text-align:center;
-  margin-top:20px;
+    text-align:center;
+
+    margin-top:24px;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transform:translateY(12px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
 }
 
-.letterClose{
-  position:sticky;
-  bottom:0;
-  margin-top:20px;
+.letterBottom.ready{
+    opacity:1;
+
+    pointer-events:auto;
+
+    transform:translateY(0);
+}
+
+#lastSurpriseButton{
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    cursor:not-allowed;
+
+    box-shadow:none;
+
+    transform:scale(.92);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease,
+        box-shadow .8s ease;
+}
+
+.letterBottom.ready #lastSurpriseButton{
+    opacity:1;
+
+    visibility:visible;
+
+    pointer-events:auto;
+
+    cursor:pointer;
+
+    transform:scale(1);
+
+    animation:
+        lastSurpriseGlow 1.8s ease-in-out infinite;
+}
+
+@keyframes lastSurpriseGlow{
+
+    0%,100%{
+
+        box-shadow:
+            0 0 10px rgba(255,100,210,.25),
+            0 0 20px rgba(130,90,255,.12);
+
+    }
+
+    50%{
+
+        box-shadow:
+            0 0 22px rgba(255,100,210,.70),
+            0 0 42px rgba(130,90,255,.40),
+            0 0 65px rgba(255,90,210,.18);
+
+    }
 }
 
 
-/* FINAL */
+/* ================= FINAL ================= */
 
 .finalHeart{
-  font-size:85px;
-  animation:heart 1.4s infinite;
-  filter:drop-shadow(0 0 25px #ff4fba);
+    font-size:85px;
+
+    animation:
+        heart 1.4s infinite;
+
+    filter:
+        drop-shadow(0 0 25px #ff4fba);
 }
 
 @keyframes heart{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.12)}
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.12);
+    }
 }
 
 .finalText{
-  font-family:'Dancing Script',cursive;
-  font-size:28px;
-  color:#ffb5e9;
-  margin:15px 0;
+    font-family:'Dancing Script',cursive;
+
+    font-size:28px;
+
+    color:#ffb5e9;
+
+    margin:15px 0;
 }
 
 .finalSmall{
-  color:#bcb3ca;
-  line-height:1.7;
+    color:#bcb3ca;
+    line-height:1.7;
 }
 
 
-/* NAVIGATION */
+/* ================= NAV ================= */
 
 .nav{
-  position:fixed;
-  z-index:100;
-  left:50%;
-  bottom:14px;
-  transform:translateX(-50%);
-  display:flex;
-  gap:5px;
-  padding:6px;
-  border-radius:999px;
-  background:rgba(5,3,10,.88);
-  border:1px solid rgba(255,130,225,.25);
-  backdrop-filter:blur(12px);
-  box-shadow:0 0 20px rgba(130,70,255,.15);
+    position:fixed;
+
+    z-index:100;
+
+    left:50%;
+    bottom:14px;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    gap:5px;
+
+    padding:6px;
+
+    border-radius:999px;
+
+    background:rgba(5,3,10,.88);
+
+    border:
+        1px solid rgba(255,130,225,.25);
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+        0 0 20px rgba(130,70,255,.15);
 }
 
 .nav button{
-  width:34px;
-  height:34px;
-  border:0;
-  border-radius:50%;
-  background:transparent;
-  color:#827b91;
-  cursor:pointer;
+    width:34px;
+    height:34px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:transparent;
+
+    color:#827b91;
+
+    cursor:pointer;
 }
 
 .nav button.active{
-  color:#fff;
-  background:linear-gradient(135deg,#a74bca,#4b68db);
-  box-shadow:0 0 12px rgba(190,90,255,.45);
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #a74bca,
+            #4b68db
+        );
+
+    box-shadow:
+        0 0 12px rgba(190,90,255,.45);
 }
 
+
+/* ================= MOBILE ================= */
 
 @media(max-width:500px){
 
-  .card{
-    padding:25px 17px;
-  }
+    .card{
+        padding:25px 17px;
+    }
 
-  .scene{
-    padding:15px 12px 78px;
-  }
+    .scene{
+        padding:15px 12px 78px;
+    }
 
-  .cakeArea{
-    transform:scale(.9);
-    margin-top:-5px;
-    margin-bottom:-15px;
-  }
+    .cakeArea{
+        transform:scale(.9);
+        margin-top:-5px;
+        margin-bottom:-15px;
+    }
 
-  .wheel{
-    width:265px;
-    height:265px;
-  }
+    .wheel{
+        width:265px;
+        height:265px;
+    }
 
-  .letterCard{
-    padding:14px 10px;
-  }
+    .wheelText span{
+        width:72px;
+        height:36px;
 
-  .paper{
-    inset:14px 10px;
-    padding:22px 17px;
-  }
+        margin-left:-36px;
+        margin-top:-18px;
 
-  #letterText{
-    font-size:19px;
-  }
+        font-size:9px;
+    }
 
+    .wheelText span{
+        transform:
+            rotate(var(--angle))
+            translateY(-81px)
+            rotate(calc(var(--angle) * -1));
+    }
+
+    .envelopeBox{
+        width:min(290px,76vw);
+        height:180px;
+    }
+
+    .envelopeFlap{
+        border-left-width:145px;
+        border-right-width:145px;
+    }
+
+    .paper{
+        inset:15px 10px;
+        padding:22px 17px;
+    }
+
+    #letterText{
+        font-size:19px;
+        line-height:1.72;
+    }
+
+    .letterTitle{
+        font-size:29px;
+    }
 }
+
 </style>
 </head>
 
+
 <body>
+
+<!-- FLOATING BUTTERFLIES -->
 
 <div class="butterfly b1">🦋</div>
 <div class="butterfly b2">🦋</div>
@@ -898,1325 +1422,1208 @@ h2{
 <div class="butterfly b4">🦋</div>
 
 
-<!-- SCENE 0 -->
+<!-- ================= SCENE 0 ================= -->
 
 <section class="scene active" id="scene0">
 
-  <div class="card">
+<div class="card">
 
-    <div class="kicker">
-      A tiny universe made with care
-    </div>
+<div class="kicker">A little surprise</div>
 
-    <div class="introButterfly">
-      🦋
-    </div>
+<div class="introButterfly">🦋</div>
 
-    <h1>
-      A Little World<br>
-      Made For Chiku
-    </h1>
+<h1>A Little World<br>Made For Chiku</h1>
 
-    <p class="subtitle">
-      Happy Birthday, Chiku. 💗<br>
-      I made this little world just for you.
-    </p>
+<p class="subtitle">
+Happy Birthday Chiku 🎂💗
+<br><br>
+Chiku.... I made this little world just for you. 🦋
+</p>
 
-    <div class="from">
-      — Your Chinu 🦋
-    </div>
+<div class="from">
+— Your Chinu 💗
+</div>
 
-    <br>
+<br>
 
-    <button class="next" onclick="showScene(1)">
-      Enter Your Little World ✨
-    </button>
+<button class="next" onclick="goTo(1)">
+Enter Your Little World 🦋
+</button>
 
-  </div>
+</div>
 
 </section>
 
 
-<!-- SCENE 1 -->
+<!-- ================= SCENE 1 : WISHES ================= -->
 
 <section class="scene" id="scene1">
 
-  <div class="card">
+<div class="card">
 
-    <div class="kicker">
-      Chapter 01
-    </div>
+<div class="kicker">For You</div>
 
-    <div class="questionNumber" id="questionNumber">
-      QUESTION 1 OF 4
-    </div>
+<h2>Happy Birthday, Chiku 💗</h2>
 
-    <div class="question" id="questionText">
-      Are you ready for your little birthday surprise? 🦋
-    </div>
+<p class="subtitle">
 
-    <div class="answerButtons">
+Today isn't just another day. 🎂
 
-      <button class="next" onclick="answerYes()">
-        YES 💗
-      </button>
+<br><br>
 
-      <button class="next" onclick="answerNo()">
-        NO 🙈
-      </button>
+It's the day someone very special came into this world.
 
-    </div>
+🦋💗
 
-    <div class="noResponse" id="noResponse"></div>
+<br><br>
 
-  </div>
+So I made a tiny little journey for you...
+
+<br>
+
+Just tap the button and keep going. ✨
+
+</p>
+
+<br>
+
+<button class="next" onclick="goTo(2)">
+Continue 💕
+</button>
+
+</div>
 
 </section>
 
 
-<!-- SCENE 2 -->
+<!-- ================= SCENE 2 : CAKE ================= -->
 
 <section class="scene" id="scene2">
 
-  <div class="card">
+<div class="card">
 
-    <div class="kicker">
-      Chapter 02
-    </div>
+<div class="kicker">Make a wish</div>
 
-    <h2>Your Birthday Cake 🎂</h2>
+<h2>Your Birthday Cake 🎂</h2>
 
-    <p class="subtitle">
-      Close your eyes... make a little wish...<br>
-      and blow the candles. 🦋✨
-    </p>
+<p class="subtitle">
+Okay Chiku... now it's your turn. 🥹💗
+</p>
 
-    <div class="cakeArea">
 
-      <div class="cakeGlow"></div>
+<div class="cakeArea">
 
-      <div class="cake">
+<div class="cakeGlow"></div>
 
-        <div class="candle c1">
-          <div class="flame"></div>
-          <div class="smoke">☁️</div>
-        </div>
+<div class="cake">
 
-        <div class="candle c2">
-          <div class="flame"></div>
-          <div class="smoke">☁️</div>
-        </div>
+<div class="candle c1">
+<div class="flame"></div>
+<div class="smoke">☁️</div>
+</div>
 
-        <div class="candle c3">
-          <div class="flame"></div>
-          <div class="smoke">☁️</div>
-        </div>
+<div class="candle c2">
+<div class="flame"></div>
+<div class="smoke">☁️</div>
+</div>
 
-        <div class="cakeBase">
+<div class="candle c3">
+<div class="flame"></div>
+<div class="smoke">☁️</div>
+</div>
 
-          <div class="cream">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+<div class="cakeBase">
 
-          <div class="strawberry s1">🍓</div>
-          <div class="strawberry s2">🍓</div>
-          <div class="strawberry s3">🍓</div>
+<div class="cream">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</div>
 
-        </div>
+<div class="strawberry s1">🍓</div>
+<div class="strawberry s2">🍓</div>
+<div class="strawberry s3">🍓</div>
 
-        <div class="plate"></div>
+</div>
 
-      </div>
+<div class="plate"></div>
 
-    </div>
+</div>
 
-    <p class="blowText" id="blowText">
-      Tap the button to blow the candles 🕯️
-    </p>
+</div>
 
-    <div class="cakeButtons">
 
-      <button class="next"
-              id="blowButton"
-              onclick="blowCandles()">
-        🌬️ Blow The Candles
-      </button>
+<p class="blowText" id="blowText">
+Close your eyes... make a wish... then blow the candles. 🕯️✨
+</p>
 
-      <button class="next"
-              id="cakeContinue"
-              style="display:none"
-              onclick="showScene(3)">
-        Continue ✨
-      </button>
+<div class="cakeButtons">
 
-    </div>
+<button class="next" id="blowButton" onclick="blowCandles()">
+Blow Candles 🕯️
+</button>
 
-  </div>
+<button class="next" id="cakeNext" style="display:none"
+onclick="goTo(3)">
+Wish Made ✨
+</button>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- SCENE 3 WHEEL -->
+<!-- ================= SCENE 3 : QUESTIONS ================= -->
 
 <section class="scene" id="scene3">
 
-  <div class="card wheelCard">
+<div class="card">
 
-    <div class="kicker">
-      Chapter 03
-    </div>
+<div class="kicker" id="questionNumber">
+Question 1 of 4
+</div>
 
-    <h2 class="wheelTitle">
-      Spin For A Surprise 🎡
-    </h2>
+<div class="question" id="questionText">
+Do you know how special you are to me? 💗
+</div>
 
-    <p class="wheelSubtitle">
-      Let's see what the little universe chooses...
-    </p>
+<div class="answerButtons">
 
-    <div class="wheelArea">
+<button class="next" onclick="answerYes()">
+Yes 💗
+</button>
 
-      <div class="pointer"></div>
+<button class="next" onclick="answerNo()">
+No 🙈
+</button>
 
-      <div class="wheel" id="wheel">
+</div>
 
-        <div class="wheelText">
+<div class="noResponse" id="noResponse"></div>
 
-          <span class="wt1">
-            Sweet<br>Moment
-          </span>
-
-          <span class="wt2">
-            Memory
-          </span>
-
-          <span class="wt3">
-            Little<br>Secret
-          </span>
-
-          <span class="wt4">
-            Cute<br>Message
-          </span>
-
-          <span class="wt5">
-            Photo<br>Time
-          </span>
-
-          <span class="wt6">
-            Lucky<br>Star
-          </span>
-
-          <span class="wt7">
-            Surprise
-          </span>
-
-          <span class="wt8">
-            Butterfly<br>Wish
-          </span>
-
-        </div>
-
-        <div class="wheelCenter"></div>
-
-      </div>
-
-    </div>
-
-    <button class="next"
-            id="spinButton"
-            onclick="spinWheel()">
-      🎡 SPIN THE WHEEL
-    </button>
-
-    <div class="wheelResult"
-         id="wheelResult"></div>
-
-    <button class="next wheelContinue"
-            id="wheelContinue"
-            onclick="showScene(4)">
-      Continue To The Secret 🎟️
-    </button>
-
-  </div>
+</div>
 
 </section>
 
 
-<!-- SCENE 4 -->
+<!-- ================= SCENE 4 : WHEEL ================= -->
 
 <section class="scene" id="scene4">
 
-  <div class="card">
+<div class="card">
 
-    <div class="kicker">
-      Chapter 04
-    </div>
+<div class="kicker">A tiny game</div>
 
-    <h2>
-      Scratch The Secret ✨
-    </h2>
+<h2 class="wheelTitle">Spin The Wheel 🎡</h2>
 
-    <p class="subtitle">
-      Something is hiding underneath...<br>
-      Scratch gently to reveal it. 🦋
-    </p>
+<p class="wheelSubtitle">
+Let's see what Chiku gets... 🦋
+</p>
 
-    <div class="scratchCard"
-         id="scratchBox">
 
-      <div class="scratchMessage">
+<div class="wheelArea">
 
-        You are one of the most precious parts
-        of my little world. 💗🦋✨
+<div class="pointer"></div>
 
-      </div>
+<div class="wheel" id="wheel">
 
-      <canvas id="scratchCanvas"></canvas>
+<div class="wheelText">
 
-    </div>
+<span class="wt1">Pretty<br>Chiku 💗</span>
 
-    <p class="scratchHint"
-       id="scratchHint">
-      Scratch the card with your finger ✨
-    </p>
+<span class="wt2">Sweet<br>Chiku 🧸</span>
 
-    <button class="next scratchContinue"
-            id="scratchContinue"
-            onclick="showScene(5)">
-      Open The Memories 📸
-    </button>
+<span class="wt3">Butterfly<br>Queen 🦋</span>
 
-  </div>
+<span class="wt4">My<br>Favourite 💕</span>
+
+<span class="wt5">Cutie<br>Pagli 🤭</span>
+
+<span class="wt6">Piyari<br>Chiku ✨</span>
+
+<span class="wt7">My<br>Everything 💗</span>
+
+<span class="wt8">Birthday<br>Girl 🎂</span>
+
+</div>
+
+<div class="wheelCenter"></div>
+
+</div>
+
+</div>
+
+
+<button class="next" id="spinButton" onclick="spinWheel()">
+SPIN 🎡
+</button>
+
+<div class="wheelResult" id="wheelResult">
+Your result will appear here...
+</div>
+
+<button class="next wheelContinue" id="wheelContinue"
+onclick="goTo(5)">
+Continue 🦋
+</button>
+
+</div>
 
 </section>
 
 
-<!-- SCENE 5 -->
+<!-- ================= SCENE 5 : SCRATCH ================= -->
 
 <section class="scene" id="scene5">
 
-  <div class="card memoryCard">
+<div class="card">
 
-    <div class="kicker">
-      Chapter 05
-    </div>
+<div class="kicker">A secret message</div>
 
-    <h2>
-      Our Little Memories 📸
-    </h2>
+<h2>Scratch Me 🎟️</h2>
 
-    <p class="subtitle">
-      A few moments that deserve their own little corner
-      in this universe. 💗
-    </p>
+<p class="subtitle">
+There is something hidden underneath... 👀💗
+</p>
 
-    <div class="memoryFrame">
 
-      <div class="memoryIcon">
-        📸🦋
-      </div>
+<div class="scratchCard">
 
-      <div class="memoryText">
-        Our memories live here...
-      </div>
+<div class="scratchMessage">
 
-      <div class="memorySmall">
-        Your photos will be added here.
-      </div>
+Chiku, you are one of the sweetest
+parts of my world. 🦋💗
 
-    </div>
+</div>
 
-    <button class="next"
-            onclick="showScene(6)">
-      Continue To My Letter 💌
-    </button>
+<canvas id="scratchCanvas"></canvas>
 
-  </div>
+</div>
+
+
+<p class="scratchHint" id="scratchHint">
+Scratch the card with your finger ✨
+</p>
+
+
+<button class="next scratchContinue"
+id="scratchContinue"
+onclick="goTo(6)">
+I Found It 💗
+</button>
+
+</div>
 
 </section>
 
 
-<!-- SCENE 6 -->
+<!-- ================= SCENE 6 : MEMORIES ================= -->
 
 <section class="scene" id="scene6">
 
-  <div class="card letterCard">
+<div class="card memoryCard">
 
-    <div class="envelope" id="envelope">
+<div class="kicker">Our little memories</div>
 
-      <div class="envelopeButterfly">
-        🦋
-      </div>
+<h2>Memories 📸🦋</h2>
 
-      <div class="envelopeText">
-        A letter written especially for Chiku...
-      </div>
+<div class="memoryFrame">
 
-      <br>
+<div class="memoryIcon">📸💗</div>
 
-      <button class="next"
-              onclick="openLetter()">
-        Open My Letter 💌
-      </button>
+<div class="memoryText">
+Our little world
+</div>
 
-    </div>
+<div class="memorySmall">
+The pictures, conversations, laughs and little moments
+that make our story special. 🫂
+</div>
 
-    <div class="paper" id="paper">
+</div>
 
-      <div class="letterTitle">
-        For My Chiku 🦋
-      </div>
+<p class="subtitle">
+More memories are waiting for you in our little world. 💗
+</p>
 
-      <div id="letterText"></div>
+<br>
 
-      <div class="letterBottom">
+<button class="next" onclick="goTo(7)">
+One Last Thing 💌
+</button>
 
-        <button class="next"
-                onclick="showScene(7)">
-          One Last Surprise ✨
-        </button>
-
-      </div>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
 
-<!-- SCENE 7 -->
+<!-- ================= SCENE 7 : LETTER ================= -->
 
 <section class="scene" id="scene7">
 
-  <div class="card">
+<div class="card letterCard">
 
-    <div class="kicker">
-      The End... or maybe the beginning 💗
-    </div>
 
-    <div class="finalHeart">
-      💗
-    </div>
+<!-- ENVELOPE -->
 
-    <h2>
-      Happy Birthday, Chiku
-    </h2>
+<div class="envelope" id="envelope">
 
-    <div class="finalText">
-      Keep smiling, little butterfly. 🦋
-    </div>
+<div class="envelopeButterfly">
+🦋
+</div>
 
-    <p class="finalSmall">
-      This tiny universe may end here,<br>
-      but the memories, laughs, conversations<br>
-      and little moments are still being written. ✨
-    </p>
+<div class="envelopeBox" onclick="openLetter()">
 
-    <br>
+<div class="envelopeFlap"></div>
 
-    <div class="from">
-      Always cheering for you,<br>
-      Chinu 🦋
-    </div>
+<div class="envelopeFoldLeft"></div>
 
-  </div>
+<div class="envelopeFoldRight"></div>
+
+<div class="envelopeSeal">
+💗
+</div>
+
+</div>
+
+<div class="envelopeText">
+A Birthday Letter From Chinu
+</div>
+
+<div class="envelopeSmall">
+Something written just for you
+</div>
+
+<div class="openLetterHint">
+Tap the envelope to open 💌
+</div>
+
+</div>
+
+
+<!-- LETTER PAPER -->
+
+<div class="paper" id="paper">
+
+<div class="letterTitle">
+💌 A Birthday Letter From Chinu
+</div>
+
+<div id="letterText"></div>
+
+
+<div class="letterBottom" id="letterBottom">
+
+<button class="next" id="lastSurpriseButton"
+onclick="goTo(8)">
+One Last Surprise ✨
+</button>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- NAVIGATION -->
+<!-- ================= SCENE 8 : FINAL ================= -->
+
+<section class="scene" id="scene8">
+
+<div class="card">
+
+<div class="kicker">For Chiku</div>
+
+<div class="finalHeart">
+💗
+</div>
+
+<h2>Happy Birthday, Chiku 🦋</h2>
+
+<div class="finalText">
+Stay happy. Stay yourself. ✨
+</div>
+
+<p class="finalSmall">
+
+No matter how many birthdays come and go,
+I hope this little world always reminds you
+of how special you are.
+
+<br><br>
+
+Thank you for all the little conversations,
+the laughs, the silly moments,
+and all the memories. 🫂💗
+
+<br><br>
+
+Keep smiling, birthday girl. 🦋
+
+<br><br>
+
+— Chinu 💗
+
+</p>
+
+<br>
+
+<button class="next" onclick="goTo(0)">
+Replay From Beginning 🦋
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ================= NAVIGATION ================= -->
 
 <div class="nav">
 
-  <button id="nav0"
-          class="active"
-          onclick="showScene(0)">
-    🏠
-  </button>
+<button id="nav0" class="active" onclick="goTo(0)">🏠</button>
 
-  <button id="nav1"
-          onclick="showScene(1)">
-    💗
-  </button>
+<button id="nav1" onclick="goTo(1)">💗</button>
 
-  <button id="nav2"
-          onclick="showScene(2)">
-    🎂
-  </button>
+<button id="nav2" onclick="goTo(2)">🎂</button>
 
-  <button id="nav3"
-          onclick="showScene(3)">
-    🎡
-  </button>
+<button id="nav3" onclick="goTo(3)">💭</button>
 
-  <button id="nav4"
-          onclick="showScene(4)">
-    ✨
-  </button>
+<button id="nav4" onclick="goTo(4)">🎡</button>
 
-  <button id="nav5"
-          onclick="showScene(5)">
-    📸
-  </button>
+<button id="nav5" onclick="goTo(5)">🎟️</button>
 
-  <button id="nav6"
-          onclick="showScene(6)">
-    💌
-  </button>
+<button id="nav6" onclick="goTo(6)">📸</button>
 
-  <button id="nav7"
-          onclick="showScene(7)">
-    🦋
-  </button>
+<button id="nav7" onclick="goTo(7)">💌</button>
 
 </div>
 
 
 <script>
 
-/* =========================
+/* =====================================================
    SCENE SYSTEM
-========================= */
+===================================================== */
 
 let currentScene = 0;
 
-function showScene(number){
+function goTo(number){
 
-  document.querySelectorAll(".scene").forEach(scene=>{
-    scene.classList.remove("active");
-  });
+    const scenes =
+        document.querySelectorAll(".scene");
 
-  const target =
-    document.getElementById("scene" + number);
+    if(number < 0 || number >= scenes.length){
+        return;
+    }
 
-  if(target){
-    target.classList.add("active");
-  }
+    scenes.forEach(function(scene){
+        scene.classList.remove("active");
+    });
 
-  document.querySelectorAll(".nav button").forEach(btn=>{
-    btn.classList.remove("active");
-  });
+    scenes[number].classList.add("active");
 
-  const nav =
-    document.getElementById("nav" + number);
+    currentScene = number;
 
-  if(nav){
-    nav.classList.add("active");
-  }
+    document.querySelectorAll(".nav button")
+        .forEach(function(button){
+            button.classList.remove("active");
+        });
 
-  currentScene = number;
+    const navButton =
+        document.getElementById("nav" + number);
 
-  if(number === 4){
-    resetScratchCard();
-  }
+    if(navButton){
+        navButton.classList.add("active");
+    }
 
+    if(number === 5){
+        setTimeout(function(){
+            setupScratch();
+        },100);
+    }
+
+    if(number === 7){
+        resetLetter();
+    }
+
+    window.scrollTo(0,0);
 }
 
 
-/* =========================
-   QUESTIONS
-========================= */
-
-const questions = [
-
-  "Are you ready for your little birthday surprise? 🦋",
-
-  "Do you think this tiny universe was made especially for you? 🌌",
-
-  "Do you promise to smile at least once while exploring it? 😌💗",
-
-  "Okay... are you finally ready for the last part? 👀🦋"
-
-];
-
-const noResponses = [
-
-  "Nope 😭 Nice try... the surprise is still waiting for you. Tap YES 💗",
-
-  "Hmmmm... that answer has been rejected by the butterfly committee. 🦋😂 Try YES.",
-
-  "The little universe says: absolutely not! 😭✨ You have to try again.",
-
-  "I'll pretend I didn't see that NO. 👀 Now tap YES and continue. 💗"
-
-];
-
-let questionIndex = 0;
-
-function updateQuestion(){
-
-  document.getElementById("questionNumber").textContent =
-    "QUESTION " + (questionIndex + 1) + " OF " + questions.length;
-
-  document.getElementById("questionText").textContent =
-    questions[questionIndex];
-
-  document.getElementById("noResponse").textContent =
-    "";
-
-}
-
-function answerNo(){
-
-  document.getElementById("noResponse").textContent =
-    noResponses[questionIndex];
-
-}
-
-function answerYes(){
-
-  questionIndex++;
-
-  if(questionIndex >= questions.length){
-
-    showScene(2);
-
-    return;
-
-  }
-
-  updateQuestion();
-
-}
-
-updateQuestion();
-
-
-/* =========================
+/* =====================================================
    CAKE
-========================= */
+===================================================== */
 
 let candlesBlown = false;
 
 function blowCandles(){
 
-  if(candlesBlown) return;
+    if(candlesBlown){
+        return;
+    }
 
-  candlesBlown = true;
+    candlesBlown = true;
 
-  document.querySelectorAll(".flame").forEach(flame=>{
-    flame.classList.add("off");
-  });
+    document.querySelectorAll(".flame")
+        .forEach(function(flame){
+            flame.classList.add("off");
+        });
 
-  document.querySelectorAll(".smoke").forEach(smoke=>{
-    smoke.classList.add("show");
-  });
+    document.querySelectorAll(".smoke")
+        .forEach(function(smoke){
+            smoke.classList.add("show");
+        });
 
-  document.getElementById("blowText").textContent =
-    "Wish made! ✨ May this year bring you beautiful moments. 🦋💗";
+    const text =
+        document.getElementById("blowText");
 
-  document.getElementById("blowButton").style.display =
-    "none";
+    text.innerHTML =
+        "You made your wish. ✨🦋 May it come true. 💗";
 
-  document.getElementById("cakeContinue").style.display =
-    "inline-block";
+    document.getElementById("blowButton")
+        .style.display = "none";
 
+    document.getElementById("cakeNext")
+        .style.display = "inline-block";
 }
 
 
-/* =================================================
-   WHEEL — FIXED
-================================================= */
+/* =====================================================
+   QUESTIONS
+===================================================== */
+
+const questions = [
+
+    "Do you know how special you are to me? 💗",
+
+    "Will you promise to keep smiling even on difficult days? 🦋",
+
+    "Will you let me keep annoying you forever? 😹💗",
+
+    "And finally... will you accept all these birthday wishes from your Chinu? 🎂🫂"
+
+];
+
+const noReplies = [
+
+    "Nope 😌 You have to say Yes. Try again, birthday girl. 💗",
+
+    "Hmm... wrong answer 🙈 Your Chinu disagrees. Try Yes. 🦋",
+
+    "I knew you'd try that 😹💗 But I'm asking again... YES? 🫂",
+
+    "Nice try 🤭 But this question only has one correct answer. 💕"
+
+];
+
+let questionIndex = 0;
+
+function showQuestion(){
+
+    document.getElementById("questionNumber")
+        .textContent =
+        "Question " +
+        (questionIndex + 1) +
+        " of " +
+        questions.length;
+
+    document.getElementById("questionText")
+        .textContent =
+        questions[questionIndex];
+
+    document.getElementById("noResponse")
+        .textContent = "";
+}
+
+function answerYes(){
+
+    questionIndex++;
+
+    if(questionIndex >= questions.length){
+
+        document.getElementById("questionNumber")
+            .textContent =
+            "You passed 💗";
+
+        document.getElementById("questionText")
+            .textContent =
+            "Okayyy Chiku... you really are my favourite person. 🥹🦋💗";
+
+        document.querySelector(".answerButtons")
+            .style.display = "none";
+
+        setTimeout(function(){
+            goTo(4);
+        },1800);
+
+        return;
+    }
+
+    showQuestion();
+}
+
+function answerNo(){
+
+    const response =
+        document.getElementById("noResponse");
+
+    response.textContent =
+        noReplies[questionIndex];
+
+    response.style.animation = "none";
+
+    void response.offsetWidth;
+
+    response.style.animation =
+        "sceneIn .35s ease";
+}
+
+
+/* =====================================================
+   WHEEL
+===================================================== */
 
 let wheelRotation = 0;
 let wheelSpun = false;
 
+const wheelResults = [
 
-/*
-   IMPORTANT:
+    "Pretty Chiku 💗",
 
-   Array position exactly matches the visual
-   wheel section:
+    "Sweet Chiku 🧸",
 
-   0 = Sweet Moment
-   1 = Memory
-   2 = Little Secret
-   3 = Cute Message
-   4 = Photo Time
-   5 = Lucky Star
-   6 = Surprise
-   7 = Butterfly Wish
-*/
+    "Butterfly Queen 🦋",
 
-const wheelMessages = [
+    "My Favourite 💕",
 
-  "💗 Sweet Moment — A tiny sweet moment is waiting for you. Keep smiling, birthday girl. 🦋",
+    "Cutie Pagli 🤭",
 
-  "📸 Memory — One precious memory is waiting to remind you of all the little moments worth keeping. 💗",
+    "Piyari Chiku ✨",
 
-  "✨ Little Secret — You discovered a tiny secret... someone put a lot of care into making this little world for you. 🦋",
+    "My Everything 💗",
 
-  "💌 Cute Message — You deserve a birthday filled with smiles, laughter, and people who genuinely care about you. 💗",
-
-  "📸 Photo Time — Some memories are too beautiful to stay hidden. A little photo journey is waiting for you. ✨",
-
-  "🌟 Lucky Star — Today you're the lucky star. May this year bring you countless beautiful moments. 💙",
-
-  "🎁 Surprise — Something special is waiting just ahead... so don't stop exploring your little universe. 💗✨",
-
-  "🦋 Butterfly Wish — Make a little wish and let it fly. May something beautiful find its way to you. 🦋💜"
+    "Birthday Girl 🎂"
 
 ];
 
-
 function spinWheel(){
 
-  if(wheelSpun) return;
+    if(wheelSpun){
+        return;
+    }
 
-  wheelSpun = true;
+    wheelSpun = true;
 
-  const wheel =
-    document.getElementById("wheel");
+    const wheel =
+        document.getElementById("wheel");
 
-  const spinButton =
-    document.getElementById("spinButton");
+    const extra =
+        1440 +
+        Math.floor(Math.random() * 1440);
 
-  const result =
-    document.getElementById("wheelResult");
+    wheelRotation += extra;
 
-  const continueButton =
-    document.getElementById("wheelContinue");
+    wheel.style.transform =
+        "rotate(" + wheelRotation + "deg)";
 
+    document.getElementById("spinButton")
+        .disabled = true;
 
-  /*
-     Pick ONE section.
+    setTimeout(function(){
 
-     The result is saved as targetIndex.
+        const result =
+            wheelResults[
+                Math.floor(
+                    Math.random() *
+                    wheelResults.length
+                )
+            ];
 
-     We do NOT randomly choose another result
-     after the wheel stops.
-  */
+        document.getElementById("wheelResult")
+            .textContent =
+            "The wheel chose: " + result + " 💗";
 
-  const targetIndex =
-    Math.floor(Math.random() * 8);
+        document.getElementById("wheelContinue")
+            .classList.add("show");
 
-
-  const sectionSize = 45;
-
-
-  /*
-     Each section has a 45° size.
-
-     Its center is:
-
-     22.5°
-     67.5°
-     112.5°
-     etc.
-  */
-
-  const targetCenter =
-    targetIndex * sectionSize + sectionSize / 2;
-
-
-  /*
-     The pointer is at 12 o'clock.
-
-     Therefore we rotate the wheel until
-     the selected section's CENTER reaches
-     the pointer.
-
-     + 360 - targetCenter
-  */
-
-  const neededRotation =
-    360 - targetCenter;
-
-
-  /*
-     5 complete turns gives a nice animation.
-  */
-
-  const fullSpins = 1800;
-
-
-  wheelRotation +=
-    fullSpins + neededRotation;
-
-
-  wheel.style.transform =
-    "rotate(" + wheelRotation + "deg)";
-
-
-  spinButton.disabled = true;
-
-  spinButton.style.opacity = ".5";
-
-
-  /*
-     Wait until the exact same animation
-     finishes before displaying the message.
-  */
-
-  setTimeout(()=>{
-
-    result.textContent =
-      wheelMessages[targetIndex];
-
-    continueButton.classList.add("show");
-
-  },4300);
-
+    },4300);
 }
 
 
-/* =========================
+/* =====================================================
    SCRATCH CARD
-========================= */
+===================================================== */
 
-const scratchCanvas =
-  document.getElementById("scratchCanvas");
+let scratchReady = false;
+let scratchDrawing = false;
+let scratchPercent = 0;
 
-const scratchBox =
-  document.getElementById("scratchBox");
+function setupScratch(){
 
-const scratchCtx =
-  scratchCanvas.getContext("2d");
+    const canvas =
+        document.getElementById("scratchCanvas");
 
-let scratchFinished = false;
-let scratchStarted = false;
-let lastX = 0;
-let lastY = 0;
-let scratchCheckCounter = 0;
+    if(!canvas){
+        return;
+    }
 
-let coverWidth = 0;
-let coverHeight = 0;
+    const rect =
+        canvas.getBoundingClientRect();
 
+    const dpr =
+        window.devicePixelRatio || 1;
 
-function drawScratchCover(){
+    canvas.width =
+        rect.width * dpr;
 
-  scratchCtx.globalCompositeOperation =
-    "source-over";
+    canvas.height =
+        rect.height * dpr;
 
-  scratchCtx.clearRect(
-    0,
-    0,
-    coverWidth,
-    coverHeight
-  );
+    const ctx =
+        canvas.getContext("2d");
 
-  const gradient =
-    scratchCtx.createLinearGradient(
-      0,
-      0,
-      coverWidth,
-      coverHeight
+    ctx.setTransform(
+        dpr,
+        0,
+        0,
+        dpr,
+        0,
+        0
     );
 
-  gradient.addColorStop(0,"#24202d");
-  gradient.addColorStop(.5,"#665477");
-  gradient.addColorStop(1,"#211b2c");
+    /*
+       IMPORTANT:
+       The card is completely covered
+       when it opens.
+    */
 
-  scratchCtx.fillStyle = gradient;
+    const gradient =
+        ctx.createLinearGradient(
+            0,
+            0,
+            rect.width,
+            rect.height
+        );
 
-  scratchCtx.fillRect(
-    0,
-    0,
-    coverWidth,
-    coverHeight
-  );
+    gradient.addColorStop(0,"#8c8c96");
+    gradient.addColorStop(.5,"#c5c5cc");
+    gradient.addColorStop(1,"#777782");
 
-  scratchCtx.fillStyle =
-    "rgba(255,255,255,.45)";
+    ctx.globalCompositeOperation =
+        "source-over";
 
-  for(let i=0;i<35;i++){
+    ctx.fillStyle = gradient;
 
-    const x =
-      Math.random()*coverWidth;
-
-    const y =
-      Math.random()*coverHeight;
-
-    scratchCtx.beginPath();
-
-    scratchCtx.arc(
-      x,
-      y,
-      1.5,
-      0,
-      Math.PI*2
+    ctx.fillRect(
+        0,
+        0,
+        rect.width,
+        rect.height
     );
 
-    scratchCtx.fill();
+    ctx.fillStyle =
+        "rgba(255,255,255,.28)";
 
-  }
+    ctx.font =
+        "700 17px Nunito";
 
-  scratchCtx.fillStyle = "#fff";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
 
-  scratchCtx.font =
-    "700 18px Nunito";
+    ctx.fillText(
+        "SCRATCH HERE ✨",
+        rect.width / 2,
+        rect.height / 2
+    );
 
-  scratchCtx.textAlign =
-    "center";
+    ctx.globalCompositeOperation =
+        "destination-out";
 
-  scratchCtx.fillText(
-    "SCRATCH ME ✨",
-    coverWidth/2,
-    coverHeight/2
-  );
+    scratchReady = true;
+    scratchPercent = 0;
 
-  scratchCtx.globalCompositeOperation =
-    "destination-out";
+    document.getElementById("scratchContinue")
+        .classList.remove("show");
 
+    document.getElementById("scratchHint")
+        .textContent =
+        "Scratch the card with your finger ✨";
 }
 
 
-function resizeScratchCanvas(){
-
-  const rect =
-    scratchBox.getBoundingClientRect();
-
-  const dpr =
-    Math.min(window.devicePixelRatio || 1,2);
-
-  coverWidth = rect.width;
-  coverHeight = rect.height;
-
-  scratchCanvas.width =
-    Math.round(coverWidth*dpr);
-
-  scratchCanvas.height =
-    Math.round(coverHeight*dpr);
-
-  scratchCanvas.style.width =
-    coverWidth + "px";
-
-  scratchCanvas.style.height =
-    coverHeight + "px";
-
-  scratchCtx.setTransform(
-    dpr,
-    0,
-    0,
-    dpr,
-    0,
-    0
-  );
-
-  drawScratchCover();
-
-}
-
-
-function resetScratchCard(){
-
-  scratchFinished = false;
-  scratchStarted = false;
-  scratchCheckCounter = 0;
-
-  document
-    .getElementById("scratchContinue")
-    .classList.remove("show");
-
-  document
-    .getElementById("scratchHint")
-    .textContent =
-      "Scratch the card with your finger ✨";
-
-  requestAnimationFrame(()=>{
-    resizeScratchCanvas();
-  });
-
-}
-
+/* get pointer position */
 
 function getScratchPosition(event){
 
-  const rect =
-    scratchCanvas.getBoundingClientRect();
+    const canvas =
+        document.getElementById("scratchCanvas");
 
-  return {
+    const rect =
+        canvas.getBoundingClientRect();
 
-    x:event.clientX - rect.left,
+    let clientX;
+    let clientY;
 
-    y:event.clientY - rect.top
+    if(event.touches && event.touches.length){
 
-  };
+        clientX =
+            event.touches[0].clientX;
 
+        clientY =
+            event.touches[0].clientY;
+
+    }else{
+
+        clientX =
+            event.clientX;
+
+        clientY =
+            event.clientY;
+    }
+
+    return {
+
+        x:clientX - rect.left,
+
+        y:clientY - rect.top
+    };
 }
 
 
-function scratchAt(x,y){
+function scratchAt(event){
 
-  if(scratchFinished) return;
+    if(!scratchReady){
+        return;
+    }
 
-  scratchStarted = true;
+    event.preventDefault();
 
-  scratchCtx.globalCompositeOperation =
-    "destination-out";
+    const canvas =
+        document.getElementById("scratchCanvas");
 
-  scratchCtx.beginPath();
+    const ctx =
+        canvas.getContext("2d");
 
-  scratchCtx.arc(
-    x,
-    y,
-    27,
-    0,
-    Math.PI*2
-  );
+    const pos =
+        getScratchPosition(event);
 
-  scratchCtx.fill();
+    ctx.beginPath();
 
-  scratchCheckCounter++;
+    ctx.arc(
+        pos.x,
+        pos.y,
+        25,
+        0,
+        Math.PI * 2
+    );
 
-  if(scratchCheckCounter >= 8){
-
-    scratchCheckCounter = 0;
+    ctx.fill();
 
     checkScratchProgress();
-
-  }
-
 }
-
-
-function scratchLine(x1,y1,x2,y2){
-
-  if(scratchFinished) return;
-
-  scratchCtx.globalCompositeOperation =
-    "destination-out";
-
-  scratchCtx.lineWidth = 54;
-
-  scratchCtx.lineCap = "round";
-
-  scratchCtx.beginPath();
-
-  scratchCtx.moveTo(x1,y1);
-
-  scratchCtx.lineTo(x2,y2);
-
-  scratchCtx.stroke();
-
-}
-
-
-scratchCanvas.addEventListener(
-  "pointerdown",
-  event=>{
-
-    event.preventDefault();
-
-    scratchCanvas.setPointerCapture(
-      event.pointerId
-    );
-
-    const pos =
-      getScratchPosition(event);
-
-    lastX = pos.x;
-    lastY = pos.y;
-
-    scratchAt(
-      pos.x,
-      pos.y
-    );
-
-  }
-);
-
-
-scratchCanvas.addEventListener(
-  "pointermove",
-  event=>{
-
-    if(!scratchCanvas.hasPointerCapture(
-      event.pointerId
-    )) return;
-
-    event.preventDefault();
-
-    const pos =
-      getScratchPosition(event);
-
-    scratchLine(
-      lastX,
-      lastY,
-      pos.x,
-      pos.y
-    );
-
-    scratchAt(
-      pos.x,
-      pos.y
-    );
-
-    lastX = pos.x;
-    lastY = pos.y;
-
-  }
-);
-
-
-scratchCanvas.addEventListener(
-  "pointerup",
-  event=>{
-
-    if(
-      scratchCanvas.hasPointerCapture(
-        event.pointerId
-      )
-    ){
-
-      scratchCanvas.releasePointerCapture(
-        event.pointerId
-      );
-
-    }
-
-  }
-);
-
-
-scratchCanvas.addEventListener(
-  "pointercancel",
-  event=>{
-
-    if(
-      scratchCanvas.hasPointerCapture(
-        event.pointerId
-      )
-    ){
-
-      scratchCanvas.releasePointerCapture(
-        event.pointerId
-      );
-
-    }
-
-  }
-);
 
 
 function checkScratchProgress(){
 
-  if(!scratchStarted || scratchFinished)
-    return;
+    const canvas =
+        document.getElementById("scratchCanvas");
 
-  try{
+    const ctx =
+        canvas.getContext("2d");
 
-    const pixels =
-      scratchCtx.getImageData(
-        0,
-        0,
-        scratchCanvas.width,
-        scratchCanvas.height
-      ).data;
+    const imageData =
+        ctx.getImageData(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
 
     let transparent = 0;
 
+    const step = 16;
+
     for(
-      let i=3;
-      i<pixels.length;
-      i+=64
+        let i = 3;
+        i < imageData.data.length;
+        i += step * 4
     ){
 
-      if(pixels[i] < 80){
-        transparent++;
-      }
-
+        if(imageData.data[i] < 80){
+            transparent++;
+        }
     }
 
     const total =
-      Math.floor(pixels.length/64);
+        Math.floor(
+            imageData.data.length /
+            (step * 4)
+        );
 
-    const percent =
-      transparent/total;
+    scratchPercent =
+        (transparent / total) * 100;
 
-    if(percent >= .43){
+    if(scratchPercent > 45){
 
-      finishScratch();
+        document.getElementById("scratchHint")
+            .textContent =
+            "You found the secret! 💗🦋";
+
+        document.getElementById("scratchContinue")
+            .classList.add("show");
 
     }
-
-  }catch(error){}
-
 }
 
 
-function finishScratch(){
+/* Touch events */
 
-  if(scratchFinished) return;
+const scratchCanvas =
+    document.getElementById("scratchCanvas");
 
-  scratchFinished = true;
+scratchCanvas.addEventListener(
+    "touchstart",
+    function(event){
 
-  scratchCtx.clearRect(
-    0,
-    0,
-    coverWidth,
-    coverHeight
-  );
+        scratchDrawing = true;
 
-  document
-    .getElementById("scratchHint")
-    .textContent =
-      "You found it! 💗🦋";
+        scratchAt(event);
+    },
+    {passive:false}
+);
 
-  document
-    .getElementById("scratchContinue")
-    .classList.add("show");
+scratchCanvas.addEventListener(
+    "touchmove",
+    function(event){
 
-}
+        if(scratchDrawing){
+            scratchAt(event);
+        }
 
+    },
+    {passive:false}
+);
 
-window.addEventListener(
-  "resize",
-  ()=>{
-
-    if(currentScene === 4){
-
-      resizeScratchCanvas();
-
+scratchCanvas.addEventListener(
+    "touchend",
+    function(){
+        scratchDrawing = false;
     }
+);
 
-  }
+scratchCanvas.addEventListener(
+    "mousedown",
+    function(event){
+
+        scratchDrawing = true;
+
+        scratchAt(event);
+    }
+);
+
+scratchCanvas.addEventListener(
+    "mousemove",
+    function(event){
+
+        if(scratchDrawing){
+            scratchAt(event);
+        }
+    }
+);
+
+document.addEventListener(
+    "mouseup",
+    function(){
+        scratchDrawing = false;
+    }
 );
 
 
-/* =========================
+/* =====================================================
    LETTER
-========================= */
+===================================================== */
 
-const letterContent =
-`Dear Chiku, 💗🦋
+const letterContent = `Dear Chiku, 💗🦋
 
 Happy Birthday to my favourite person. 🎂💕
 
-You know, sometimes I wonder how we can talk so much and still somehow have something new to talk about every day. 😌💗🫂 From the most random conversations to the things that actually matter, I love all those little moments we share. 😹💖💗🫂
+You know, sometimes I wonder how we can talk so much and still somehow have something new to talk about every day. 😌💗🫂 From the most random conversations to the things that actually matter, I love all those little moments we share.😹💖💗🫂
 
-You're not just someone I wish a happy birthday today. 🧸💗
+You're not just someone I wish a happy birthday today.🧸💗
 
-You're someone I genuinely care about. 💖🫂
+You're someone I genuinely care about.💖🫂
 
-I want to see you happy. I want to see you achieve the things you dream about. I want to be there when you're excited about something, when you're proud of yourself, and even when you're having one of those days when everything feels a little too much. 🫂💖
+I want to see you happy. I want to see you achieve the things you dream about. I want to be there when you're excited about something, when you're proud of yourself, and even when you're having one of those days when everything feels a little too much.🫂💖
 
-If you're happy, I'll be happy seeing you happy. 😁💕
+If you're happy, I'll be happy seeing you happy.😁💕
 
 And if you're having a difficult day, you don't have to pretend everything is okay. Take your time, tell me what's bothering you, complain about everything if you want 😌💗🫂—I'll listen.
 
-Because caring about someone isn't only about being there for the good moments. 💗🧸
+Because caring about someone isn't only about being there for the good moments.💗🧸
 
 It's also about staying beside them when things aren't so easy. 💗
 
-We've already given each other those funny little titles—
-you calling me your husband, piyari, Chinu 💗✨ and me calling you my wife, pagli, piyari, Chiku 🤭🫂💗
+We've already given each other those funny little titles— you calling me your husband,piyari,Chinu💗✨ and me calling you my wife,pagli,piyari,Chiku 🤭🫂💗
 
-And honestly, it's one of those silly things between us that makes me smile. 😌💕🫂
+And honestly, it's one of those silly things between us that makes me smile.😌💕🫂
 
-But beyond all the teasing and all our endless conversations, what matters to me most is that we care about each other. 😌💗✨
+But beyond all the teasing and all our endless conversations, what matters to me most is that we care about each other.😌💗✨
 
 So on your birthday, I want to make one simple wish for you:
 
-May you always have reasons to smile. 🦋💗
-May you have the courage to chase your dreams. 😌
-May you never feel alone when life gets difficult. 💕💐
-And may you always remember that someone is cheering for you. 🦋✨
+May you always have reasons to smile. 🦋 💗 May you have the courage to chase your dreams.😌 May you never feel alone when life gets difficult.💕💐 And may you always remember that someone is cheering for you. 🦋✨
 
-Please take care of yourself, Chiku. 💕🫂
+Please take care of yourself, Chiku.💕🫂
 
-Eat properly, drink water, and rest when you're tired. Don't overthink everything 😌💗💐, and most importantly, don't forget to be proud of yourself. ✨
+Eat properly, Drink water and rest when you're tired, don't overthink everytime 😌💗💐, and most importantly, don't forget to be proud of yourself.✨
 
 You've got someone here who's going to keep annoying you, listening to your endless stories, laughing at your random jokes, and caring about you. 😹🫂💗💐
 
 And yes...
 
-Someday, I want to marry you and make you my real wife. 😌💗
+I am marrying you in the future and make you my real wife. 😌💗
 
 Happy Birthday, Chiku. 🎂🦋
 
-I hope this year brings you beautiful moments, peaceful days, lots of laughter, and memories that we'll look back on and smile about. ✨🫂
+I hope this year brings you beautiful moments, peaceful days, lots of laughter, and memories that we'll look back on and smile about.✨🫂
 
-Stay happy. Stay yourself.
-And keep talking to me like there's no tomorrow. ✨🦋
+Stay happy. Stay yourself. And keep talking to me like there's no tomorrow. ✨🦋
 
 With love, care, and a million little wishes,
 
 Your Chinu 💗🦋`;
 
 
-let letterTimer = null;
+let letterOpened = false;
+let letterStarted = false;
+let typingTimer = null;
+
+
+function resetLetter(){
+
+    clearInterval(typingTimer);
+
+    letterOpened = false;
+    letterStarted = false;
+
+    document.getElementById("envelope")
+        .classList.remove("hide");
+
+    document.getElementById("paper")
+        .classList.remove("show");
+
+    document.getElementById("letterText")
+        .textContent = "";
+
+    document.getElementById("letterBottom")
+        .classList.remove("ready");
+}
 
 
 function openLetter(){
 
-  document
-    .getElementById("envelope")
-    .classList.add("hide");
-
-  const paper =
-    document.getElementById("paper");
-
-  setTimeout(()=>{
-
-    paper.classList.add("show");
-
-    startLetter();
-
-  },650);
-
-}
-
-
-function startLetter(){
-
-  clearInterval(letterTimer);
-
-  const textBox =
-    document.getElementById("letterText");
-
-  textBox.innerHTML = "";
-
-  const paper =
-    document.getElementById("paper");
-
-  paper.scrollTop = 0;
-
-  let index = 0;
-
-  letterTimer =
-    setInterval(()=>{
-
-      if(index >= letterContent.length){
-
-        clearInterval(letterTimer);
-
+    if(letterOpened){
         return;
+    }
 
-      }
+    letterOpened = true;
 
-      textBox.textContent =
-        letterContent.slice(
-          0,
-          index + 1
-        );
+    const envelope =
+        document.getElementById("envelope");
 
-      paper.scrollTop =
-        paper.scrollHeight;
+    const paper =
+        document.getElementById("paper");
 
-      index++;
+    envelope.classList.add("hide");
 
-    },22);
+    setTimeout(function(){
 
+        paper.classList.add("show");
+
+        setTimeout(function(){
+            startLetterTyping();
+        },500);
+
+    },500);
 }
 
 
-/* INITIAL */
+function startLetterTyping(){
 
-window.addEventListener(
-  "load",
-  ()=>{
+    if(letterStarted){
+        return;
+    }
 
-    setTimeout(()=>{
-      resizeScratchCanvas();
-    },300);
+    letterStarted = true;
 
-  }
-);
+    const textElement =
+        document.getElementById("letterText");
+
+    const bottom =
+        document.getElementById("letterBottom");
+
+    textElement.textContent = "";
+
+    let index = 0;
+
+    /*
+       Simple writing animation.
+       The paper itself remains scrollable.
+    */
+
+    typingTimer =
+        setInterval(function(){
+
+            if(index >= letterContent.length){
+
+                clearInterval(typingTimer);
+
+                bottom.classList.add("ready");
+
+                return;
+            }
+
+            textElement.textContent +=
+                letterContent.charAt(index);
+
+            index++;
+
+            /*
+               Automatically keep the newest
+               written text visible without
+               preventing manual scrolling.
+            */
+
+            const paper =
+                document.getElementById("paper");
+
+            if(
+                paper.scrollHeight -
+                paper.scrollTop -
+                paper.clientHeight
+                < 100
+            ){
+
+                paper.scrollTop =
+                    paper.scrollHeight;
+            }
+
+        },18);
+}
+
+
+/* =====================================================
+   INITIAL SETUP
+===================================================== */
+
+showQuestion();
 
 </script>
 
