@@ -65,7 +65,6 @@ button{
     opacity:0;
     transform:scale(1.025);
   }
-
   to{
     opacity:1;
     transform:scale(1);
@@ -958,7 +957,10 @@ h2{
   transform:translateX(-50%) translateY(0);
 }
 
-/* MUSIC BUTTON */
+
+/* =========================================
+   MUSIC BUTTON
+========================================= */
 
 .music-toggle{
   position:fixed;
@@ -968,7 +970,7 @@ h2{
   padding:9px 14px;
   border-radius:999px;
   color:white;
-  background:rgba(15,9,22,.75);
+  background:rgba(15,9,22,.78);
   border:1px solid rgba(255,255,255,.18);
   backdrop-filter:blur(12px);
   font-size:12px;
@@ -980,7 +982,10 @@ h2{
   transform:scale(.95);
 }
 
-/* PHOTO VIEWER */
+
+/* =========================================
+   PHOTO VIEWER
+========================================= */
 
 .photo-viewer{
   position:fixed;
@@ -1035,6 +1040,7 @@ h2{
   padding:8px 14px;
   border-radius:999px;
 }
+
 
 @media(max-width:520px){
 
@@ -1109,27 +1115,34 @@ h2{
     padding:8px 12px;
     font-size:11px;
   }
+
 }
 
 </style>
 </head>
 
+
 <body>
 
-<!-- BACKGROUND MUSIC -->
+
+<!-- =========================================
+     BIRTHDAY MUSIC
+========================================= -->
 
 <audio
   id="bgMusic"
   src="birthday.mp3"
   loop
+  autoplay
   preload="auto">
 </audio>
+
 
 <button
   class="music-toggle"
   id="musicButton"
   onclick="toggleMusic(event)">
-  🎵 Music: Off
+  🎵 Music: On
 </button>
 
 
@@ -1138,10 +1151,16 @@ h2{
 <div class="butterfly b3">🦋</div>
 <div class="butterfly b4">🦋</div>
 
-<div class="toast" id="toast"></div>
+
+<div
+  class="toast"
+  id="toast">
+</div>
 
 
-<!-- PHOTO VIEWER -->
+<!-- =========================================
+     PHOTO VIEWER
+========================================= -->
 
 <div
   class="photo-viewer"
@@ -1167,7 +1186,9 @@ h2{
 </div>
 
 
-<!-- INTRO -->
+<!-- =========================================
+     INTRO
+========================================= -->
 
 <section
   class="scene active"
@@ -1192,9 +1213,13 @@ h2{
     </h1>
 
     <p class="subtitle">
+
       Chiku.... I made this little world just for you.
+
       <br>
+
       So take a breath, tap below, and let the surprise begin. ✨
+
     </p>
 
     <button
@@ -1208,7 +1233,9 @@ h2{
 </section>
 
 
-<!-- QUESTIONS -->
+<!-- =========================================
+     QUESTIONS
+========================================= -->
 
 <section
   class="scene"
@@ -1228,7 +1255,9 @@ h2{
     <div
       class="question-text"
       id="questionText">
+
       Are you ready for your birthday surprise? 🦋
+
     </div>
 
     <div class="question-buttons">
@@ -1253,7 +1282,9 @@ h2{
 </section>
 
 
-<!-- CAKE -->
+<!-- =========================================
+     CAKE
+========================================= -->
 
 <section
   class="scene"
@@ -1332,7 +1363,9 @@ h2{
 </section>
 
 
-<!-- MEMORIES -->
+<!-- =========================================
+     MEMORIES
+========================================= -->
 
 <section
   class="scene"
@@ -1354,11 +1387,14 @@ h2{
     <p
       class="subtitle"
       style="margin-left:auto;margin-right:auto;">
+
       Some moments are too special to fit into words.
       So here, we'll keep them as memories. 🦋
+
     </p>
 
     <div class="memory-grid">
+
 
       <div
         class="photo-slot"
@@ -1370,6 +1406,7 @@ h2{
 
       </div>
 
+
       <div
         class="photo-slot"
         onclick="openPhoto('her2.jpg','Chiku — Photo 2')">
@@ -1379,6 +1416,7 @@ h2{
           alt="Chiku — Photo 2">
 
       </div>
+
 
       <div
         class="photo-slot"
@@ -1390,6 +1428,7 @@ h2{
 
       </div>
 
+
       <div
         class="photo-slot"
         onclick="openPhoto('her4.jpg','Chiku — Photo 4')">
@@ -1399,6 +1438,7 @@ h2{
           alt="Chiku — Photo 4">
 
       </div>
+
 
       <div
         class="photo-slot"
@@ -1410,6 +1450,7 @@ h2{
 
       </div>
 
+
       <div
         class="photo-slot"
         onclick="openPhoto('comment2.jpg','Comment — Photo 2')">
@@ -1419,6 +1460,7 @@ h2{
           alt="Comment — Photo 2">
 
       </div>
+
 
       <div
         class="photo-slot"
@@ -1430,6 +1472,7 @@ h2{
 
       </div>
 
+
       <div
         class="photo-slot"
         onclick="openPhoto('together2.jpg','Together — Photo 2')">
@@ -1439,6 +1482,7 @@ h2{
           alt="Together — Photo 2">
 
       </div>
+
 
       <div
         class="photo-slot"
@@ -1450,6 +1494,7 @@ h2{
 
       </div>
 
+
       <div
         class="photo-slot"
         onclick="openPhoto('together4.jpg','Together — Photo 4')">
@@ -1460,7 +1505,9 @@ h2{
 
       </div>
 
+
     </div>
+
 
     <div class="memory-note">
 
@@ -1471,6 +1518,7 @@ h2{
       Tap any photo to view it ✨
 
     </div>
+
 
     <button
       class="main-btn"
@@ -1483,7 +1531,9 @@ h2{
 </section>
 
 
-<!-- WHEEL -->
+<!-- =========================================
+     WHEEL
+========================================= -->
 
 <section
   class="scene"
@@ -1510,11 +1560,13 @@ h2{
         class="wheel"
         id="wheel">
 
+
         <div
           class="wheel-label"
           style="--r:22.5deg">
           Smile 💗
         </div>
+
 
         <div
           class="wheel-label"
@@ -1522,11 +1574,13 @@ h2{
           Happiness 🦋
         </div>
 
+
         <div
           class="wheel-label"
           style="--r:112.5deg">
           Dreams ✨
         </div>
+
 
         <div
           class="wheel-label"
@@ -1534,11 +1588,13 @@ h2{
           Laughter 😹
         </div>
 
+
         <div
           class="wheel-label"
           style="--r:202.5deg">
           Peace 🌸
         </div>
+
 
         <div
           class="wheel-label"
@@ -1546,11 +1602,13 @@ h2{
           Memories 💕
         </div>
 
+
         <div
           class="wheel-label"
           style="--r:292.5deg">
           Magic ✨
         </div>
+
 
         <div
           class="wheel-label"
@@ -1558,9 +1616,11 @@ h2{
           Love 🦋
         </div>
 
+
       </div>
 
     </div>
+
 
     <button
       class="spin-btn"
@@ -1569,18 +1629,24 @@ h2{
       SPIN ✨
     </button>
 
+
     <div
       class="wheel-result"
       id="wheelResult">
+
       Your little wish is waiting...
+
     </div>
+
 
     <button
       class="main-btn"
       id="wheelNext"
       style="display:none"
       onclick="goTo(5)">
+
       See Your Wish 💌
+
     </button>
 
   </div>
@@ -1588,7 +1654,9 @@ h2{
 </section>
 
 
-<!-- WISH -->
+<!-- =========================================
+     WISH
+========================================= -->
 
 <section
   class="scene"
@@ -1611,7 +1679,9 @@ h2{
       class="subtitle"
       id="wishText"
       style="margin-left:auto;margin-right:auto;">
+
       May your days always have something beautiful waiting for you.
+
     </p>
 
     <div class="wish-from">
@@ -1621,7 +1691,9 @@ h2{
     <button
       class="main-btn"
       onclick="goTo(6)">
+
       One More Little Surprise ✨
+
     </button>
 
   </div>
@@ -1629,7 +1701,9 @@ h2{
 </section>
 
 
-<!-- SCRATCH -->
+<!-- =========================================
+     SCRATCH
+========================================= -->
 
 <section
   class="scene"
@@ -1651,16 +1725,22 @@ h2{
     <p
       class="subtitle"
       style="margin-left:auto;margin-right:auto;">
+
       Scratch the card gently to reveal what's hiding underneath.
+
     </p>
+
 
     <div
       class="scratch-card"
       id="scratchCard">
 
       <div class="scratch-message">
+
         Chiku, you are one of the most beautiful parts of my little world. 💗🦋
+
       </div>
+
 
       <canvas
         id="scratchCanvas">
@@ -1668,12 +1748,15 @@ h2{
 
     </div>
 
+
     <button
       class="main-btn"
       id="scratchNext"
       style="display:none"
       onclick="goTo(7)">
+
       Open The Letter 💌
+
     </button>
 
   </div>
@@ -1681,7 +1764,9 @@ h2{
 </section>
 
 
-<!-- LETTER -->
+<!-- =========================================
+     LETTER
+========================================= -->
 
 <section
   class="scene letter-scene"
@@ -1691,6 +1776,7 @@ h2{
   <div class="glow two"></div>
 
   <div class="letter-wrap">
+
 
     <div
       class="envelope"
@@ -1703,33 +1789,41 @@ h2{
 
     </div>
 
+
     <div
       class="paper"
       id="paper">
 
       <div class="letter-scroll">
 
+
         <div class="letter-heading">
           💌 A Birthday Letter From Chinu
         </div>
+
 
         <div
           class="letter-text"
           id="letterText">
         </div>
 
+
         <div
           class="letter-sign"
           id="letterSign">
         </div>
+
 
         <button
           class="letter-next"
           id="letterNext"
           style="display:none"
           onclick="goTo(8)">
+
           Next ✨
+
         </button>
+
 
       </div>
 
@@ -1740,7 +1834,9 @@ h2{
 </section>
 
 
-<!-- ENDING -->
+<!-- =========================================
+     FINAL
+========================================= -->
 
 <section
   class="scene"
@@ -1760,9 +1856,12 @@ h2{
     </div>
 
     <h1 class="final-title">
+
       Happy Birthday,<br>
       Chiku 🦋
+
     </h1>
+
 
     <p class="final-message">
 
@@ -1786,6 +1885,7 @@ h2{
 
   </div>
 
+
   <div class="firework fw1"></div>
   <div class="firework fw2"></div>
   <div class="firework fw3"></div>
@@ -1793,68 +1893,27 @@ h2{
 </section>
 
 
-<!-- NAVIGATION -->
+<!-- =========================================
+     NAVIGATION
+========================================= -->
 
 <div class="nav">
 
-  <button
-    onclick="goTo(0)"
-    id="nav0">
-    ✦
-  </button>
-
-  <button
-    onclick="goTo(1)"
-    id="nav1">
-    ♡
-  </button>
-
-  <button
-    onclick="goTo(2)"
-    id="nav2">
-    🎂
-  </button>
-
-  <button
-    onclick="goTo(3)"
-    id="nav3">
-    📸
-  </button>
-
-  <button
-    onclick="goTo(4)"
-    id="nav4">
-    🎡
-  </button>
-
-  <button
-    onclick="goTo(5)"
-    id="nav5">
-    💗
-  </button>
-
-  <button
-    onclick="goTo(6)"
-    id="nav6">
-    🎟️
-  </button>
-
-  <button
-    onclick="goTo(7)"
-    id="nav7">
-    💌
-  </button>
-
-  <button
-    onclick="goTo(8)"
-    id="nav8">
-    🦋
-  </button>
+  <button onclick="goTo(0)" id="nav0">✦</button>
+  <button onclick="goTo(1)" id="nav1">♡</button>
+  <button onclick="goTo(2)" id="nav2">🎂</button>
+  <button onclick="goTo(3)" id="nav3">📸</button>
+  <button onclick="goTo(4)" id="nav4">🎡</button>
+  <button onclick="goTo(5)" id="nav5">💗</button>
+  <button onclick="goTo(6)" id="nav6">🎟️</button>
+  <button onclick="goTo(7)" id="nav7">💌</button>
+  <button onclick="goTo(8)" id="nav8">🦋</button>
 
 </div>
 
 
 <script>
+
 
 /* =========================================
    BACKGROUND MUSIC
@@ -1868,15 +1927,30 @@ const musicButton =
 
 let musicStarted = false;
 
+
+/* Soft volume so it stays in the background */
+
 bgMusic.volume = 0.45;
 
 
-/* Start music after the first normal tap */
+/*
+   Try to start immediately.
+   Some mobile browsers may block autoplay.
+*/
 
 function startMusic(){
 
-  if(musicStarted)
+  if(!bgMusic.paused){
+
+    musicStarted = true;
+
+    musicButton.textContent =
+      "🎵 Music: On";
+
     return;
+
+  }
+
 
   bgMusic.play()
     .then(()=>{
@@ -1887,12 +1961,49 @@ function startMusic(){
         "🎵 Music: On";
 
     })
-    .catch(()=>{});
+    .catch(()=>{
+
+      /*
+        Mobile browser blocked autoplay.
+        The next user tap will start it.
+      */
+
+    });
 
 }
 
 
-/* Music ON / OFF button */
+/*
+   Try autoplay when page loads.
+*/
+
+window.addEventListener(
+  "load",
+  ()=>{
+    startMusic();
+  }
+);
+
+
+/*
+   If browser blocks autoplay,
+   first user interaction starts music.
+*/
+
+document.addEventListener(
+  "pointerdown",
+  ()=>{
+    startMusic();
+  },
+  {
+    once:true
+  }
+);
+
+
+/*
+   Music ON/OFF button
+*/
 
 function toggleMusic(event){
 
@@ -1900,9 +2011,8 @@ function toggleMusic(event){
     event.stopPropagation();
   }
 
-  if(bgMusic.paused){
 
-    bgMusic.volume = 0.45;
+  if(bgMusic.paused){
 
     bgMusic.play()
       .then(()=>{
@@ -1927,29 +2037,222 @@ function toggleMusic(event){
 }
 
 
-/*
-  Browsers normally block music autoplay.
-  This starts the music on the first tap,
-  except when the tap is directly on the
-  music button.
-*/
+/* =========================================
+   FIREWORK SOUND
+========================================= */
 
-document.addEventListener(
-  "pointerdown",
-  event=>{
+let fireworksSoundPlayed = false;
+
+let audioContext = null;
+
+
+function createFireworkSound(){
+
+  if(fireworksSoundPlayed)
+    return;
+
+
+  fireworksSoundPlayed = true;
+
+
+  try{
+
+    audioContext =
+      new (
+        window.AudioContext ||
+        window.webkitAudioContext
+      )();
+
 
     if(
-      event.target.closest &&
-      event.target.closest("#musicButton")
+      audioContext.state === "suspended"
     ){
-      return;
+
+      audioContext.resume();
+
     }
 
-    startMusic();
 
-  },
-  {once:true}
-);
+    /*
+      FIREWORK WHOOSH
+    */
+
+    const oscillator =
+      audioContext.createOscillator();
+
+    const gain =
+      audioContext.createGain();
+
+
+    oscillator.type =
+      "sine";
+
+
+    oscillator.frequency.setValueAtTime(
+      220,
+      audioContext.currentTime
+    );
+
+
+    oscillator.frequency.exponentialRampToValueAtTime(
+      900,
+      audioContext.currentTime + 0.55
+    );
+
+
+    gain.gain.setValueAtTime(
+      0.0001,
+      audioContext.currentTime
+    );
+
+
+    gain.gain.exponentialRampToValueAtTime(
+      0.18,
+      audioContext.currentTime + 0.12
+    );
+
+
+    gain.gain.exponentialRampToValueAtTime(
+      0.0001,
+      audioContext.currentTime + 0.6
+    );
+
+
+    oscillator.connect(gain);
+
+    gain.connect(
+      audioContext.destination
+    );
+
+
+    oscillator.start();
+
+    oscillator.stop(
+      audioContext.currentTime + 0.65
+    );
+
+
+    /*
+      FIREWORK POP
+    */
+
+    setTimeout(
+      createFireworkPop,
+      520
+    );
+
+
+  }catch(error){
+
+    console.log(
+      "Firework sound unavailable:",
+      error
+    );
+
+  }
+
+}
+
+
+function createFireworkPop(){
+
+  if(!audioContext)
+    return;
+
+
+  const duration =
+    0.35;
+
+
+  const sampleRate =
+    audioContext.sampleRate;
+
+
+  const buffer =
+    audioContext.createBuffer(
+      1,
+      sampleRate * duration,
+      sampleRate
+    );
+
+
+  const data =
+    buffer.getChannelData(0);
+
+
+  for(
+    let i = 0;
+    i < data.length;
+    i++
+  ){
+
+    const decay =
+      1 - i / data.length;
+
+
+    data[i] =
+      (
+        Math.random() * 2 - 1
+      ) *
+      decay *
+      decay;
+
+  }
+
+
+  const source =
+    audioContext.createBufferSource();
+
+
+  const gain =
+    audioContext.createGain();
+
+
+  const filter =
+    audioContext.createBiquadFilter();
+
+
+  source.buffer =
+    buffer;
+
+
+  filter.type =
+    "lowpass";
+
+
+  filter.frequency.value =
+    1800;
+
+
+  gain.gain.setValueAtTime(
+    0.0001,
+    audioContext.currentTime
+  );
+
+
+  gain.gain.exponentialRampToValueAtTime(
+    0.35,
+    audioContext.currentTime + 0.015
+  );
+
+
+  gain.gain.exponentialRampToValueAtTime(
+    0.0001,
+    audioContext.currentTime + duration
+  );
+
+
+  source
+    .connect(filter)
+    .connect(gain)
+    .connect(
+      audioContext.destination
+    );
+
+
+  source.start();
+
+}
 
 
 /* =========================================
@@ -1958,17 +2261,32 @@ document.addEventListener(
 
 let currentScene = 0;
 
+
 function goTo(number){
 
   const scenes =
-    document.querySelectorAll(".scene");
+    document.querySelectorAll(
+      ".scene"
+    );
+
 
   if(
     number < 0 ||
     number >= scenes.length
   ){
+
     return;
+
   }
+
+
+  /*
+    Start birthday music whenever
+    the user interacts with the site.
+  */
+
+  startMusic();
+
 
   scenes.forEach(
     (scene,index)=>{
@@ -1981,8 +2299,11 @@ function goTo(number){
     }
   );
 
+
   document
-    .querySelectorAll(".nav button")
+    .querySelectorAll(
+      ".nav button"
+    )
     .forEach(
       (button,index)=>{
 
@@ -1994,7 +2315,14 @@ function goTo(number){
       }
     );
 
-  currentScene = number;
+
+  currentScene =
+    number;
+
+
+  /*
+    Reset scratch card
+  */
 
   if(number === 6){
 
@@ -2002,6 +2330,18 @@ function goTo(number){
       resetScratchCard,
       200
     );
+
+  }
+
+
+  /*
+    FINAL STAGE
+    Fireworks + sound
+  */
+
+  if(number === 8){
+
+    createFireworkSound();
 
   }
 
@@ -2015,21 +2355,33 @@ function goTo(number){
 function showToast(message){
 
   const toast =
-    document.getElementById("toast");
+    document.getElementById(
+      "toast"
+    );
+
 
   toast.textContent =
     message;
 
-  toast.classList.add("show");
+
+  toast.classList.add(
+    "show"
+  );
+
 
   clearTimeout(
     window.toastTimer
   );
 
+
   window.toastTimer =
     setTimeout(
       ()=>{
-        toast.classList.remove("show");
+
+        toast.classList.remove(
+          "show"
+        );
+
       },
       2200
     );
@@ -2053,6 +2405,7 @@ const questions = [
 
 ];
 
+
 const noReplies = [
 
   "Hmm... nice try 😌 Try again, birthday girl. 💗",
@@ -2065,14 +2418,21 @@ const noReplies = [
 
 ];
 
+
 let questionIndex = 0;
+
 
 function answerYes(){
 
+  startMusic();
+
+
   questionIndex++;
 
+
   if(
-    questionIndex >= questions.length
+    questionIndex >=
+    questions.length
   ){
 
     goTo(2);
@@ -2081,44 +2441,67 @@ function answerYes(){
 
   }
 
+
   document
-    .getElementById("questionNumber")
+    .getElementById(
+      "questionNumber"
+    )
     .textContent =
       "QUESTION " +
       String(
         questionIndex + 1
       ).padStart(2,"0");
 
+
   document
-    .getElementById("questionText")
+    .getElementById(
+      "questionText"
+    )
     .textContent =
-      questions[questionIndex];
+      questions[
+        questionIndex
+      ];
 
 }
 
+
 function answerNo(){
 
+  startMusic();
+
+
   showToast(
-    noReplies[questionIndex]
+    noReplies[
+      questionIndex
+    ]
   );
 
+
   const button =
-    document.getElementById("noButton");
+    document.getElementById(
+      "noButton"
+    );
+
 
   button.animate(
     [
+
       {
         transform:"translateX(0)"
       },
+
       {
         transform:"translateX(-7px)"
       },
+
       {
         transform:"translateX(7px)"
       },
+
       {
         transform:"translateX(0)"
       }
+
     ],
     {
       duration:350
@@ -2134,27 +2517,44 @@ function answerNo(){
 
 let candlesBlown = false;
 
+
 function blowCandles(){
+
+  startMusic();
+
 
   if(candlesBlown)
     return;
 
-  candlesBlown = true;
+
+  candlesBlown =
+    true;
+
 
   document
-    .querySelectorAll(".candle")
+    .querySelectorAll(
+      ".candle"
+    )
     .forEach(
       candle=>{
-        candle.classList.add("off");
+
+        candle.classList.add(
+          "off"
+        );
+
       }
     );
+
 
   showToast(
     "Wish made! ✨💗"
   );
 
+
   document
-    .getElementById("cakeNext")
+    .getElementById(
+      "cakeNext"
+    )
     .style.display =
       "inline-block";
 
@@ -2169,110 +2569,183 @@ const wishes = [
 
   {
     title:"A Wish For Your Smile 💗",
-    text:"May you always have countless little reasons to smile, laugh and enjoy the beautiful moments around you."
+
+    text:
+      "May you always have countless little reasons to smile, laugh and enjoy the beautiful moments around you."
+
   },
 
   {
     title:"A Wish For Happiness 🦋",
-    text:"May happiness find you in unexpected places and stay with you through every season of life."
+
+    text:
+      "May happiness find you in unexpected places and stay with you through every season of life."
+
   },
 
   {
     title:"A Wish For Your Dreams ✨",
-    text:"May you have the courage to chase your dreams and the confidence to believe in yourself."
+
+    text:
+      "May you have the courage to chase your dreams and the confidence to believe in yourself."
+
   },
 
   {
     title:"A Wish For Laughter 😹",
-    text:"May your life always be filled with silly conversations, unforgettable jokes and moments that make you laugh."
+
+    text:
+      "May your life always be filled with silly conversations, unforgettable jokes and moments that make you laugh."
+
   },
 
   {
     title:"A Wish For Peace 🌸",
-    text:"May your heart have peaceful days, calm moments and the comfort of knowing that you are cared for."
+
+    text:
+      "May your heart have peaceful days, calm moments and the comfort of knowing that you are cared for."
+
   },
 
   {
     title:"A Wish For Memories 💕",
-    text:"May this year bring you beautiful memories that you'll look back on someday and smile about."
+
+    text:
+      "May this year bring you beautiful memories that you'll look back on someday and smile about."
+
   },
 
   {
     title:"A Wish For Magic ✨",
-    text:"May ordinary days unexpectedly become special and may life surprise you in the sweetest ways."
+
+    text:
+      "May ordinary days unexpectedly become special and may life surprise you in the sweetest ways."
+
   },
 
   {
     title:"A Wish For Love 🦋",
-    text:"May you always be surrounded by genuine care, kindness, laughter and people who truly want to see you happy."
+
+    text:
+      "May you always be surrounded by genuine care, kindness, laughter and people who truly want to see you happy."
+
   }
 
 ];
 
-let wheelSpinning = false;
-let wheelRotation = 0;
-let selectedWish = 0;
+
+let wheelSpinning =
+  false;
+
+let wheelRotation =
+  0;
+
+let selectedWish =
+  0;
+
 
 function spinWheel(){
+
+  startMusic();
+
 
   if(wheelSpinning)
     return;
 
-  wheelSpinning = true;
+
+  wheelSpinning =
+    true;
+
 
   const wheel =
-    document.getElementById("wheel");
+    document.getElementById(
+      "wheel"
+    );
+
 
   const spinButton =
-    document.getElementById("spinButton");
+    document.getElementById(
+      "spinButton"
+    );
 
-  spinButton.disabled = true;
+
+  spinButton.disabled =
+    true;
+
 
   selectedWish =
     Math.floor(
       Math.random() * 8
     );
 
+
   const segmentCenter =
-    selectedWish * 45 + 22.5;
+    selectedWish * 45 +
+    22.5;
+
 
   const target =
     360 * 6 +
     (360 - segmentCenter);
 
-  wheelRotation += target;
+
+  wheelRotation +=
+    target;
+
 
   wheel.style.transform =
     "rotate(" +
     wheelRotation +
     "deg)";
 
+
   setTimeout(
     ()=>{
 
       document
-        .getElementById("wheelResult")
+        .getElementById(
+          "wheelResult"
+        )
         .textContent =
-          wishes[selectedWish].title;
+          wishes[
+            selectedWish
+          ].title;
+
 
       document
-        .getElementById("wishTitle")
+        .getElementById(
+          "wishTitle"
+        )
         .textContent =
-          wishes[selectedWish].title;
+          wishes[
+            selectedWish
+          ].title;
+
 
       document
-        .getElementById("wishText")
+        .getElementById(
+          "wishText"
+        )
         .textContent =
-          wishes[selectedWish].text;
+          wishes[
+            selectedWish
+          ].text;
+
 
       document
-        .getElementById("wheelNext")
+        .getElementById(
+          "wheelNext"
+        )
         .style.display =
           "inline-block";
 
-      wheelSpinning = false;
 
-      spinButton.disabled = false;
+      wheelSpinning =
+        false;
+
+
+      spinButton.disabled =
+        false;
 
     },
     4100
@@ -2290,11 +2763,19 @@ const canvas =
     "scratchCanvas"
   );
 
-const ctx =
-  canvas.getContext("2d");
 
-let scratching = false;
-let scratchedPixels = 0;
+const ctx =
+  canvas.getContext(
+    "2d"
+  );
+
+
+let scratching =
+  false;
+
+let scratchedPixels =
+  0;
+
 
 function setupScratchCanvas(){
 
@@ -2303,23 +2784,31 @@ function setupScratchCanvas(){
       "scratchCard"
     );
 
+
   const rect =
     card.getBoundingClientRect();
 
+
   const ratio =
-    window.devicePixelRatio || 1;
+    window.devicePixelRatio ||
+    1;
+
 
   canvas.width =
     rect.width * ratio;
 
+
   canvas.height =
     rect.height * ratio;
+
 
   canvas.style.width =
     rect.width + "px";
 
+
   canvas.style.height =
     rect.height + "px";
+
 
   ctx.setTransform(
     ratio,
@@ -2330,8 +2819,10 @@ function setupScratchCanvas(){
     0
   );
 
+
   ctx.globalCompositeOperation =
     "source-over";
+
 
   const gradient =
     ctx.createLinearGradient(
@@ -2341,23 +2832,28 @@ function setupScratchCanvas(){
       rect.height
     );
 
+
   gradient.addColorStop(
     0,
     "#d9d9df"
   );
+
 
   gradient.addColorStop(
     .5,
     "#a8a8b2"
   );
 
+
   gradient.addColorStop(
     1,
     "#dedee3"
   );
 
+
   ctx.fillStyle =
     gradient;
+
 
   ctx.fillRect(
     0,
@@ -2366,14 +2862,18 @@ function setupScratchCanvas(){
     rect.height
   );
 
+
   ctx.fillStyle =
     "rgba(40,30,50,.45)";
+
 
   ctx.font =
     "700 18px Nunito";
 
+
   ctx.textAlign =
     "center";
+
 
   ctx.fillText(
     "SCRATCH ME ✨",
@@ -2381,14 +2881,20 @@ function setupScratchCanvas(){
     rect.height / 2
   );
 
-  scratchedPixels = 0;
+
+  scratchedPixels =
+    0;
+
 
   document
-    .getElementById("scratchNext")
+    .getElementById(
+      "scratchNext"
+    )
     .style.display =
       "none";
 
 }
+
 
 function resetScratchCard(){
 
@@ -2396,21 +2902,27 @@ function resetScratchCard(){
 
 }
 
+
 function scratchAt(x,y){
 
   const rect =
     canvas.getBoundingClientRect();
 
+
   const px =
     x - rect.left;
+
 
   const py =
     y - rect.top;
 
+
   ctx.globalCompositeOperation =
     "destination-out";
 
+
   ctx.beginPath();
+
 
   ctx.arc(
     px,
@@ -2420,14 +2932,21 @@ function scratchAt(x,y){
     Math.PI * 2
   );
 
+
   ctx.fill();
+
 
   scratchedPixels++;
 
-  if(scratchedPixels > 55){
+
+  if(
+    scratchedPixels > 55
+  ){
 
     document
-      .getElementById("scratchNext")
+      .getElementById(
+        "scratchNext"
+      )
       .style.display =
         "inline-block";
 
@@ -2435,15 +2954,22 @@ function scratchAt(x,y){
 
 }
 
+
 canvas.addEventListener(
   "pointerdown",
   event=>{
 
-    scratching = true;
+    startMusic();
+
+
+    scratching =
+      true;
+
 
     canvas.setPointerCapture(
       event.pointerId
     );
+
 
     scratchAt(
       event.clientX,
@@ -2452,6 +2978,7 @@ canvas.addEventListener(
 
   }
 );
+
 
 canvas.addEventListener(
   "pointermove",
@@ -2460,6 +2987,7 @@ canvas.addEventListener(
     if(!scratching)
       return;
 
+
     scratchAt(
       event.clientX,
       event.clientY
@@ -2468,12 +2996,14 @@ canvas.addEventListener(
   }
 );
 
+
 canvas.addEventListener(
   "pointerup",
   ()=>{
     scratching = false;
   }
 );
+
 
 canvas.addEventListener(
   "pointercancel",
@@ -2482,11 +3012,14 @@ canvas.addEventListener(
   }
 );
 
+
 window.addEventListener(
   "resize",
   ()=>{
 
-    if(currentScene === 6){
+    if(
+      currentScene === 6
+    ){
 
       setupScratchCanvas();
 
@@ -2504,92 +3037,114 @@ const exactLetter = `Dear Chiku, 💗🦋
 
 Happy Birthday to my favourite person. 🎂💕
 
-You know, sometimes I wonder how we can talk so much and still somehow have something new to talk about every day. 😌💗🫂 From the most random conversations to the things that actually matter, I love all those little moments we share.😹💖💗🫂
+You know, sometimes I wonder how we can talk so much and still somehow have something new to talk about every day. 😌💗🫂
 
-You're not just someone I wish a happy birthday today.🧸💗
+From the most random conversations to the things that actually matter, I love all those little moments we share. 😹💖💗🫂
 
-You're someone I genuinely care about.💖🫂
+You're not just someone I wish a happy birthday to today. 🧸💗
 
-I want to see you happy. I want to see you achieve the things you dream about. I want to be there when you're excited about something, when you're proud of yourself, and even when you're having one of those days when everything feels a little too much.🫂💖
+You're someone I genuinely care about. 💖🫂
 
-If you're happy, I'll be happy seeing you happy.😁💕
+I want to see you happy. I want to see you achieve the things you dream about. I want to be there when you're excited about something, when you're proud of yourself, and even when you're having one of those days when everything feels a little too much. 🫂💖
 
-And if you're having a difficult day, you don't have to pretend everything is okay. Take your time, tell me what's bothering you, complain about everything if you want 😌💗🫂—I'll listen.
+If you're happy, I'll be happy seeing you happy. 😁💕
 
-Because caring about someone isn't only about being there for the good moments.💗🧸
+And if you're having a difficult day, you don't have to pretend everything is okay. Take your time, tell me what's bothering you, complain about everything if you want 😌💗🫂 — I'll listen.
+
+Because caring about someone isn't only about being there for the good moments. 💗🧸
 
 It's also about staying beside them when things aren't so easy. 💗
 
-We've already given each other those funny little titles— you calling me your husband,piyari,Chinu💗✨ and me calling you my wife,pagli,piyari,Chiku 🤭🫂💗
+We've shared so many funny little nicknames and silly conversations, and honestly, those are some of the moments that make me smile. 😌💕🫂
 
-And honestly, it's one of those silly things between us that makes me smile.😌💕🫂
-
-But beyond all the teasing and all our endless conversations, what matters to me most is that we care about each other.😌💗✨
+But beyond all the teasing and all our endless conversations, what matters most is that we care about each other. 😌💗✨
 
 So on your birthday, I want to make one simple wish for you:
 
-May you always have reasons to smile. 🦋 💗 May you have the courage to chase your dreams.😌 May you never feel alone when life gets difficult.💕💐 And may you always remember that someone is cheering for you. 🦋✨
+May you always have reasons to smile. 🦋💗
 
-Please take care of yourself, Chiku.💕🫂
+May you have the courage to chase your dreams. 😌
 
-Eat properly, Drink water and rest when you're tired, don't overthink everytime 😌💗💐, and most importantly, don't forget to be proud of yourself.✨
+May you never feel alone when life gets difficult. 💕💐
+
+And may you always remember that someone is cheering for you. 🦋✨
+
+Please take care of yourself, Chiku. 💕🫂
+
+Eat properly, drink water and rest when you're tired, don't overthink everything 😌💗💐, and most importantly, don't forget to be proud of yourself. ✨
 
 You've got someone here who's going to keep annoying you, listening to your endless stories, laughing at your random jokes, and caring about you. 😹🫂💗💐
 
-And yes...
-
-I am marrying you in the future and make you my real wife. 😌💗
-
 Happy Birthday, Chiku. 🎂🦋
 
-I hope this year brings you beautiful moments, peaceful days, lots of laughter, and memories that we'll look back on and smile about.✨🫂
+I hope this year brings you beautiful moments, peaceful days, lots of laughter, and memories that you'll look back on and smile about. ✨🫂
 
-Stay happy. Stay yourself. And keep talking to me like there's no tomorrow. ✨🦋
+Stay happy. Stay yourself. And keep collecting beautiful memories. ✨🦋
 
-With love, care, and a million little wishes,`;
+With care, kindness, and a million little wishes,`;
 
 
-let letterOpened = false;
+let letterOpened =
+  false;
+
 
 function openLetter(){
+
+  startMusic();
+
 
   if(letterOpened)
     return;
 
-  letterOpened = true;
+
+  letterOpened =
+    true;
+
 
   const envelope =
     document.getElementById(
       "envelope"
     );
 
+
   const paper =
     document.getElementById(
       "paper"
     );
+
 
   const textElement =
     document.getElementById(
       "letterText"
     );
 
+
   const signElement =
     document.getElementById(
       "letterSign"
     );
 
-  envelope.classList.add("open");
+
+  envelope.classList.add(
+    "open"
+  );
+
 
   setTimeout(
     ()=>{
 
-      paper.classList.add("show");
+      paper.classList.add(
+        "show"
+      );
+
 
       textElement.textContent =
         "";
 
+
       signElement.textContent =
         "";
+
 
       typeLetter();
 
@@ -2599,6 +3154,7 @@ function openLetter(){
 
 }
 
+
 function typeLetter(){
 
   const textElement =
@@ -2606,29 +3162,44 @@ function typeLetter(){
       "letterText"
     );
 
-  let index = 0;
+
+  let index =
+    0;
+
 
   const cursor =
-    document.createElement("span");
+    document.createElement(
+      "span"
+    );
+
 
   cursor.className =
     "type-cursor";
+
 
   textElement.appendChild(
     cursor
   );
 
+
   function type(){
 
-    if(index < exactLetter.length){
+    if(
+      index <
+      exactLetter.length
+    ){
 
       cursor.before(
         document.createTextNode(
-          exactLetter.charAt(index)
+          exactLetter.charAt(
+            index
+          )
         )
       );
 
+
       index++;
+
 
       setTimeout(
         type,
@@ -2639,19 +3210,26 @@ function typeLetter(){
 
       cursor.remove();
 
+
       document
-        .getElementById("letterSign")
+        .getElementById(
+          "letterSign"
+        )
         .textContent =
           "Your Chinu 💗🦋";
 
+
       document
-        .getElementById("letterNext")
+        .getElementById(
+          "letterNext"
+        )
         .style.display =
           "block";
 
     }
 
   }
+
 
   type();
 
@@ -2672,24 +3250,30 @@ function openPhoto(
       "photoViewer"
     );
 
+
   const image =
     document.getElementById(
       "viewerImage"
     );
+
 
   const name =
     document.getElementById(
       "viewerName"
     );
 
+
   image.src =
     imagePath;
+
 
   image.alt =
     imageName;
 
+
   name.textContent =
     imageName;
+
 
   viewer.classList.add(
     "show"
@@ -2697,15 +3281,10 @@ function openPhoto(
 
 }
 
+
 function closePhoto(event){
 
   if(event){
-
-    /*
-      Only close when clicking the
-      dark viewer background or
-      the close button.
-    */
 
     if(
       event.target.id !==
@@ -2714,39 +3293,51 @@ function closePhoto(event){
         "photo-close"
       )
     ){
+
       return;
+
     }
 
     event.stopPropagation();
 
   }
 
+
   const viewer =
     document.getElementById(
       "photoViewer"
     );
 
+
   viewer.classList.remove(
     "show"
   );
 
+
   document
-    .getElementById("viewerImage")
+    .getElementById(
+      "viewerImage"
+    )
     .src =
       "";
 
 }
 
+
 document.addEventListener(
   "keydown",
   event=>{
 
-    if(event.key === "Escape"){
+    if(
+      event.key ===
+      "Escape"
+    ){
 
       const viewer =
         document.getElementById(
           "photoViewer"
         );
+
 
       if(
         viewer.classList.contains(
@@ -2757,6 +3348,7 @@ document.addEventListener(
         viewer.classList.remove(
           "show"
         );
+
 
         document
           .getElementById(
@@ -2779,15 +3371,15 @@ document.addEventListener(
 
 function createPetals(){
 
-  const emojis =
-    [
-      "🌸",
-      "💮",
-      "🌷",
-      "✨",
-      "🦋",
-      "💗"
-    ];
+  const emojis = [
+    "🌸",
+    "💮",
+    "🌷",
+    "✨",
+    "🦋",
+    "💗"
+  ];
+
 
   for(
     let i = 0;
@@ -2800,8 +3392,10 @@ function createPetals(){
         "div"
       );
 
+
     petal.className =
       "petal";
+
 
     petal.textContent =
       emojis[
@@ -2811,9 +3405,12 @@ function createPetals(){
         )
       ];
 
+
     petal.style.left =
-      Math.random() * 100 +
+      Math.random() *
+      100 +
       "%";
+
 
     petal.style.animationDuration =
       (
@@ -2822,11 +3419,13 @@ function createPetals(){
       ) +
       "s";
 
+
     petal.style.animationDelay =
       (
         Math.random() * 7
       ) +
       "s";
+
 
     petal.style.fontSize =
       (
@@ -2835,8 +3434,11 @@ function createPetals(){
       ) +
       "px";
 
+
     document
-      .getElementById("scene8")
+      .getElementById(
+        "scene8"
+      )
       .appendChild(
         petal
       );
@@ -2846,13 +3448,25 @@ function createPetals(){
 }
 
 
-/* =========================================
-   START WEBSITE
-========================================= */
-
 createPetals();
 
+
+/* =========================================
+   START
+========================================= */
+
 goTo(0);
+
+
+/*
+   Try music one more time after
+   everything has loaded.
+*/
+
+setTimeout(
+  startMusic,
+  300
+);
 
 </script>
 
