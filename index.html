@@ -1783,6 +1783,13 @@ h2{
   preload="auto">
 </audio>
 
+<!-- ENDING FIREWORKS SOUND -->
+<audio
+  id="fireworksSound"
+  src="fireworks.mp3"
+  preload="auto">
+</audio>
+
 <button
   class="music-toggle"
   id="musicButton"
@@ -2542,7 +2549,12 @@ const bgMusic =
 const musicButton =
   document.getElementById("musicButton");
 
+const fireworksSound =
+  document.getElementById("fireworksSound");
+
 bgMusic.volume = 0.45;
+
+fireworksSound.volume = 1.0;
 
 let musicStarted = false;
 
@@ -2645,6 +2657,63 @@ function toggleMusic(event){
 
 
 /* =====================================================
+   ENDING FIREWORKS SOUND
+===================================================== */
+
+/*
+  fireworks.mp3 is used only on
+  the final Scene 8.
+
+  When the 25-second fireworks
+  sound finishes, it starts again
+  automatically if Scene 8 is
+  still open.
+*/
+
+function startFireworksSound(){
+
+  fireworksSound.pause();
+
+  fireworksSound.currentTime = 0;
+
+  fireworksSound.play()
+    .catch(()=>{});
+
+}
+
+
+function stopFireworksSound(){
+
+  fireworksSound.pause();
+
+  fireworksSound.currentTime = 0;
+
+}
+
+
+/*
+  Repeat fireworks.mp3 whenever
+  it finishes while Scene 8 is open.
+*/
+
+fireworksSound.addEventListener(
+  "ended",
+  ()=>{
+
+    if(currentScene === 8){
+
+      fireworksSound.currentTime = 0;
+
+      fireworksSound.play()
+        .catch(()=>{});
+
+    }
+
+  }
+);
+
+
+/* =====================================================
    SCENE NAVIGATION
 ===================================================== */
 
@@ -2673,6 +2742,10 @@ function goTo(number){
   */
 
   startMusic();
+
+
+  const previousScene =
+    currentScene;
 
 
   scenes.forEach(
@@ -2717,16 +2790,34 @@ function goTo(number){
   /*
     FINAL SCENE
 
-    Start the stronger generated
-    fireworks sound when Scene 8 opens.
+    Start fireworks.mp3 when
+    Scene 8 opens.
   */
 
-  if(number === 8){
+  if(
+    number === 8 &&
+    previousScene !== 8
+  ){
 
     setTimeout(
-      playFireworksShow,
+      startFireworksSound,
       120
     );
+
+  }
+
+
+  /*
+    Stop fireworks.mp3 when
+    leaving Scene 8.
+  */
+
+  if(
+    previousScene === 8 &&
+    number !== 8
+  ){
+
+    stopFireworksSound();
 
   }
 
@@ -3575,543 +3666,6 @@ function typeLetter(){
 
 
   type();
-
-}
-
-
-/* =====================================================
-   STRONG JAVASCRIPT FIREWORK SOUND
-===================================================== */
-
-/*
-  IMPORTANT:
-
-  No fireworks audio file is needed.
-
-  This creates the sound entirely
-  with the Web Audio API.
-
-  It has:
-
-  1. Launch sound
-  2. Deep boom
-  3. Bright crackle
-  4. Multiple smaller pops
-*/
-
-
-let audioContext = null;
-
-
-function getAudioContext(){
-
-  if(!audioContext){
-
-    const AudioContext =
-      window.AudioContext ||
-      window.webkitAudioContext;
-
-
-    if(!AudioContext){
-      return null;
-    }
-
-
-    audioContext =
-      new AudioContext();
-
-  }
-
-
-  if(
-    audioContext.state ===
-    "suspended"
-  ){
-
-    audioContext.resume();
-
-  }
-
-
-  return audioContext;
-
-}
-
-
-/* -------------------------
-   NOISE BUFFER
-------------------------- */
-
-function createNoiseBuffer(
-  duration
-){
-
-  const ac =
-    getAudioContext();
-
-
-  if(!ac){
-    return null;
-  }
-
-
-  const length =
-    Math.floor(
-      ac.sampleRate *
-      duration
-    );
-
-
-  const buffer =
-    ac.createBuffer(
-      1,
-      length,
-      ac.sampleRate
-    );
-
-
-  const data =
-    buffer.getChannelData(0);
-
-
-  for(
-    let i=0;
-    i<length;
-    i++
-  ){
-
-    /*
-      Natural noise decay.
-    */
-
-    const fade =
-      1 -
-      i / length;
-
-
-    data[i] =
-      (
-        Math.random()*2 - 1
-      )
-      *
-      fade;
-
-  }
-
-
-  return buffer;
-
-}
-
-
-/* -------------------------
-   FIREWORK LAUNCH
-------------------------- */
-
-function playLaunchSound(
-  ac,
-  startTime
-){
-
-  const oscillator =
-    ac.createOscillator();
-
-
-  const gain =
-    ac.createGain();
-
-
-  const filter =
-    ac.createBiquadFilter();
-
-
-  oscillator.type =
-    "triangle";
-
-
-  /*
-    Rising pitch = rocket
-    travelling upward.
-  */
-
-  oscillator.frequency
-    .setValueAtTime(
-      85,
-      startTime
-    );
-
-
-  oscillator.frequency
-    .exponentialRampToValueAtTime(
-      720,
-      startTime + .65
-    );
-
-
-  filter.type =
-    "lowpass";
-
-
-  filter.frequency
-    .setValueAtTime(
-      500,
-      startTime
-    );
-
-
-  filter.frequency
-    .exponentialRampToValueAtTime(
-      3200,
-      startTime + .65
-    );
-
-
-  gain.gain
-    .setValueAtTime(
-      .0001,
-      startTime
-    );
-
-
-  gain.gain
-    .exponentialRampToValueAtTime(
-      .20,
-      startTime + .08
-    );
-
-
-  gain.gain
-    .exponentialRampToValueAtTime(
-      .0001,
-      startTime + .72
-    );
-
-
-  oscillator
-    .connect(filter)
-    .connect(gain)
-    .connect(ac.destination);
-
-
-  oscillator.start(
-    startTime
-  );
-
-
-  oscillator.stop(
-    startTime + .75
-  );
-
-}
-
-
-/* -------------------------
-   FIREWORK BOOM
-------------------------- */
-
-function playBoom(
-  ac,
-  startTime
-){
-
-  const buffer =
-    createNoiseBuffer(.65);
-
-
-  if(!buffer){
-    return;
-  }
-
-
-  const source =
-    ac.createBufferSource();
-
-
-  const filter =
-    ac.createBiquadFilter();
-
-
-  const gain =
-    ac.createGain();
-
-
-  source.buffer =
-    buffer;
-
-
-  /*
-    Low frequency gives
-    the sound its big boom.
-  */
-
-  filter.type =
-    "lowpass";
-
-
-  filter.frequency.value =
-    1300;
-
-
-  gain.gain
-    .setValueAtTime(
-      .0001,
-      startTime
-    );
-
-
-  gain.gain
-    .exponentialRampToValueAtTime(
-      .65,
-      startTime + .015
-    );
-
-
-  gain.gain
-    .exponentialRampToValueAtTime(
-      .0001,
-      startTime + .65
-    );
-
-
-  source
-    .connect(filter)
-    .connect(gain)
-    .connect(ac.destination);
-
-
-  source.start(
-    startTime
-  );
-
-}
-
-
-/* -------------------------
-   FIREWORK CRACKLE
-------------------------- */
-
-function playCrackle(
-  ac,
-  startTime
-){
-
-  /*
-    Many tiny pops create
-    the characteristic sparkle.
-  */
-
-  for(
-    let i=0;
-    i<22;
-    i++
-  ){
-
-    const delay =
-      Math.random() * .55;
-
-
-    const duration =
-      .035 +
-      Math.random() * .065;
-
-
-    const buffer =
-      createNoiseBuffer(
-        duration
-      );
-
-
-    if(!buffer){
-      continue;
-    }
-
-
-    const source =
-      ac.createBufferSource();
-
-
-    const filter =
-      ac.createBiquadFilter();
-
-
-    const gain =
-      ac.createGain();
-
-
-    source.buffer =
-      buffer;
-
-
-    filter.type =
-      "bandpass";
-
-
-    filter.frequency.value =
-      1800 +
-      Math.random()*5000;
-
-
-    filter.Q.value =
-      1.2;
-
-
-    const popTime =
-      startTime + delay;
-
-
-    const volume =
-      .08 +
-      Math.random()*.12;
-
-
-    gain.gain
-      .setValueAtTime(
-        .0001,
-        popTime
-      );
-
-
-    gain.gain
-      .exponentialRampToValueAtTime(
-        volume,
-        popTime + .005
-      );
-
-
-    gain.gain
-      .exponentialRampToValueAtTime(
-        .0001,
-        popTime + duration
-      );
-
-
-    source
-      .connect(filter)
-      .connect(gain)
-      .connect(ac.destination);
-
-
-    source.start(
-      popTime
-    );
-
-  }
-
-}
-
-
-/* -------------------------
-   COMPLETE FIREWORK
-------------------------- */
-
-function playFireworkBurst(
-  delay
-){
-
-  const ac =
-    getAudioContext();
-
-
-  if(!ac){
-    return;
-  }
-
-
-  const start =
-    ac.currentTime +
-    delay;
-
-
-  /*
-    Launch
-  */
-
-  playLaunchSound(
-    ac,
-    start
-  );
-
-
-  /*
-    Boom happens after
-    the rocket reaches the sky.
-  */
-
-  const explosion =
-    start + .70;
-
-
-  playBoom(
-    ac,
-    explosion
-  );
-
-
-  playCrackle(
-    ac,
-    explosion
-  );
-
-}
-
-
-/* -------------------------
-   FIREWORK SHOW
-------------------------- */
-
-let lastFireworkShow = 0;
-
-
-function playFireworksShow(){
-
-  const now =
-    Date.now();
-
-
-  /*
-    Prevent accidental
-    double triggering.
-  */
-
-  if(
-    now - lastFireworkShow <
-    900
-  ){
-    return;
-  }
-
-
-  lastFireworkShow =
-    now;
-
-
-  const ac =
-    getAudioContext();
-
-
-  if(!ac){
-    return;
-  }
-
-
-  /*
-    Three visual fireworks
-    = three sound bursts.
-  */
-
-  playFireworkBurst(
-    0
-  );
-
-
-  playFireworkBurst(
-    .85
-  );
-
-
-  playFireworkBurst(
-    1.70
-  );
 
 }
 
