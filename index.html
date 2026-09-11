@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0,
+      maximum-scale=1.0, user-scalable=no">
 
 <title>A Little World Made For Chiku 🦋</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@500;600;700&family=Kalam:wght@300;400;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@500;600;700&family=Kalam:wght@300;400;700&family=Nunito:wght@400;500;600;700&display=swap"
+rel="stylesheet">
+
 
 <style>
 
@@ -38,20 +44,40 @@ button{
   cursor:pointer;
 }
 
+
+/* =========================
+   SCENES
+========================= */
+
 .scene{
   position:fixed;
   inset:0;
   width:100%;
   height:100%;
   overflow:hidden;
+
   display:none;
   align-items:center;
   justify-content:center;
+
   padding:20px;
+
   background:
-    radial-gradient(circle at 20% 20%,rgba(191,76,255,.18),transparent 30%),
-    radial-gradient(circle at 80% 70%,rgba(42,145,255,.13),transparent 30%),
-    radial-gradient(circle at 50% 50%,rgba(255,63,174,.07),transparent 45%),
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(191,76,255,.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(42,145,255,.13),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255,63,174,.07),
+      transparent 45%
+    ),
     #05030a;
 }
 
@@ -65,32 +91,60 @@ button{
     opacity:0;
     transform:scale(1.025);
   }
+
   to{
     opacity:1;
     transform:scale(1);
   }
 }
 
+
 .scene::before{
   content:"";
   position:absolute;
   inset:0;
+
   background-image:
-    radial-gradient(circle,rgba(255,255,255,.8) 1px,transparent 1.5px),
-    radial-gradient(circle,rgba(255,190,245,.45) 1px,transparent 1.5px);
-  background-size:83px 83px,137px 137px;
-  background-position:12px 25px,45px 72px;
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.8) 1px,
+      transparent 1.5px
+    ),
+    radial-gradient(
+      circle,
+      rgba(255,190,245,.45) 1px,
+      transparent 1.5px
+    );
+
+  background-size:
+    83px 83px,
+    137px 137px;
+
+  background-position:
+    12px 25px,
+    45px 72px;
+
   opacity:.35;
   pointer-events:none;
 }
 
+
+/* =========================
+   GLOWS
+========================= */
+
 .glow{
   position:absolute;
+
   width:240px;
   height:240px;
+
   border-radius:50%;
+
   background:rgba(205,73,255,.14);
+
   filter:blur(70px);
+
   pointer-events:none;
 }
 
@@ -102,15 +156,32 @@ button{
 .glow.two{
   right:-100px;
   bottom:-80px;
+
   background:rgba(61,126,255,.15);
 }
 
+
+/* =========================
+   BUTTERFLIES
+========================= */
+
 .butterfly{
   position:absolute;
+
   font-size:25px;
+
   opacity:.7;
-  animation:floatButterfly 7s ease-in-out infinite;
-  filter:drop-shadow(0 0 9px rgba(255,118,232,.8));
+
+  animation:
+    floatButterfly
+    7s ease-in-out infinite;
+
+  filter:
+    drop-shadow(
+      0 0 9px
+      rgba(255,118,232,.8)
+    );
+
   pointer-events:none;
   z-index:2;
 }
@@ -141,20 +212,34 @@ button{
 }
 
 @keyframes floatButterfly{
+
   0%,100%{
-    transform:translateY(0) rotate(-5deg);
+    transform:
+      translateY(0)
+      rotate(-5deg);
   }
 
   50%{
-    transform:translateY(-18px) rotate(7deg);
+    transform:
+      translateY(-18px)
+      rotate(7deg);
   }
 }
 
+
+/* =========================
+   TEXT
+========================= */
+
 .kicker{
   font-size:11px;
+
   letter-spacing:4px;
+
   text-transform:uppercase;
+
   color:#dca9ff;
+
   margin-bottom:13px;
 }
 
@@ -164,33 +249,65 @@ h1,h2{
 }
 
 h1{
-  font-size:clamp(42px,11vw,78px);
+  font-size:
+    clamp(42px,11vw,78px);
+
   line-height:.95;
-  text-shadow:0 0 25px rgba(255,91,215,.4);
+
+  text-shadow:
+    0 0 25px
+    rgba(255,91,215,.4);
 }
 
 h2{
-  font-size:clamp(34px,8vw,58px);
+  font-size:
+    clamp(34px,8vw,58px);
+
   line-height:1;
 }
 
 .subtitle{
   margin-top:18px;
+
   color:#d9cde0;
+
   font-size:14px;
+
   line-height:1.7;
+
   max-width:470px;
 }
 
+
+/* =========================
+   BUTTONS
+========================= */
+
 .main-btn{
   margin-top:27px;
+
   padding:13px 25px;
+
   border-radius:999px;
+
   color:white;
-  background:linear-gradient(100deg,#b84cff,#f64fae,#477dff);
-  box-shadow:0 0 25px rgba(216,65,255,.3);
+
+  background:
+    linear-gradient(
+      100deg,
+      #b84cff,
+      #f64fae,
+      #477dff
+    );
+
+  box-shadow:
+    0 0 25px
+    rgba(216,65,255,.3);
+
   font-size:14px;
+
   font-weight:700;
+
   transition:.25s;
 }
 
@@ -198,20 +315,34 @@ h2{
   transform:scale(.94);
 }
 
+
+/* =========================
+   INTRO
+========================= */
+
 .intro-content{
   position:relative;
+
   z-index:5;
+
   width:min(700px,100%);
+
   text-align:center;
 }
 
 .intro-heart{
   font-size:44px;
+
   margin-bottom:15px;
-  animation:heartbeat 1.8s infinite;
+
+  animation:
+    heartbeat
+    1.8s
+    infinite;
 }
 
 @keyframes heartbeat{
+
   0%,100%{
     transform:scale(1);
   }
@@ -225,60 +356,107 @@ h2{
   }
 }
 
+
+/* =========================
+   QUESTIONS
+========================= */
+
 .question-card{
   position:relative;
+
   z-index:5;
+
   width:min(500px,100%);
+
   text-align:center;
 }
 
 .question-number{
   color:#cba0ff;
+
   font-size:12px;
+
   letter-spacing:3px;
+
   margin-bottom:15px;
 }
 
 .question-text{
-  font-family:"Cormorant Garamond",serif;
-  font-size:clamp(30px,7vw,48px);
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(30px,7vw,48px);
+
   line-height:1.05;
 }
 
 .question-buttons{
   margin-top:30px;
+
   display:flex;
+
   justify-content:center;
+
   gap:14px;
+
   flex-wrap:wrap;
 }
 
 .yes-btn,
 .no-btn{
   padding:12px 28px;
+
   border-radius:999px;
+
   font-weight:700;
 }
 
 .yes-btn{
-  background:linear-gradient(100deg,#e85cff,#ff6fae);
+  background:
+    linear-gradient(
+      100deg,
+      #e85cff,
+      #ff6fae
+    );
+
   color:white;
-  box-shadow:0 0 20px rgba(255,70,200,.3);
+
+  box-shadow:
+    0 0 20px
+    rgba(255,70,200,.3);
 }
 
 .no-btn{
   color:#eee;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.14);
+
+  background:
+    rgba(255,255,255,.08);
+
+  border:
+    1px solid
+    rgba(255,255,255,.14);
 }
+
+
+/* =========================
+   CAKE
+========================= */
 
 .cake-wrap{
   position:relative;
+
   z-index:5;
+
   width:min(600px,100%);
+
   text-align:center;
+
   display:flex;
+
   flex-direction:column;
+
   align-items:center;
 }
 
@@ -288,66 +466,135 @@ h2{
 
 .cake{
   position:relative;
+
   width:245px;
   height:220px;
-  margin:5px auto 0;
+
+  margin:
+    5px auto 0;
 }
 
 .plate{
   position:absolute;
+
   bottom:4px;
+
   left:50%;
-  transform:translateX(-50%);
+
+  transform:
+    translateX(-50%);
+
   width:265px;
   height:24px;
+
   border-radius:50%;
-  background:linear-gradient(#d7a7ff,#7147a0);
-  box-shadow:0 0 30px rgba(196,86,255,.3);
+
+  background:
+    linear-gradient(
+      #d7a7ff,
+      #7147a0
+    );
+
+  box-shadow:
+    0 0 30px
+    rgba(196,86,255,.3);
 }
 
 .cake-bottom{
   position:absolute;
+
   bottom:25px;
+
   left:50%;
-  transform:translateX(-50%);
+
+  transform:
+    translateX(-50%);
+
   width:220px;
   height:75px;
-  border-radius:16px 16px 24px 24px;
-  background:linear-gradient(135deg,#b34dce,#e875ce 50%,#8354c8);
+
+  border-radius:
+    16px 16px
+    24px 24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #b34dce,
+      #e875ce 50%,
+      #8354c8
+    );
+
   box-shadow:
-    inset 0 -12px 0 rgba(65,18,77,.2),
-    0 0 25px rgba(226,86,255,.2);
+    inset 0 -12px 0
+    rgba(65,18,77,.2),
+    0 0 25px
+    rgba(226,86,255,.2);
 }
 
 .cake-middle{
   position:absolute;
+
   bottom:87px;
+
   left:50%;
-  transform:translateX(-50%);
+
+  transform:
+    translateX(-50%);
+
   width:190px;
   height:53px;
+
   border-radius:15px;
-  background:linear-gradient(135deg,#f29be2,#d77dd6,#9c71dc);
+
+  background:
+    linear-gradient(
+      135deg,
+      #f29be2,
+      #d77dd6,
+      #9c71dc
+    );
 }
 
 .frosting{
   position:absolute;
+
   left:50%;
-  transform:translateX(-50%);
+
+  transform:
+    translateX(-50%);
+
   bottom:123px;
+
   width:205px;
   height:35px;
+
   border-radius:50%;
-  background:linear-gradient(90deg,#ffe1f8,#f5a7e9,#d39cf8);
-  box-shadow:0 0 18px rgba(255,161,240,.3);
+
+  background:
+    linear-gradient(
+      90deg,
+      #ffe1f8,
+      #f5a7e9,
+      #d39cf8
+    );
+
+  box-shadow:
+    0 0 18px
+    rgba(255,161,240,.3);
 }
 
 .drip{
   position:absolute;
+
   bottom:105px;
+
   width:20px;
   height:32px;
-  border-radius:0 0 12px 12px;
+
+  border-radius:
+    0 0 12px 12px;
+
   background:#f5b0eb;
 }
 
@@ -367,7 +614,9 @@ h2{
 
 .strawberry{
   position:absolute;
+
   font-size:27px;
+
   z-index:4;
 }
 
@@ -388,17 +637,23 @@ h2{
 
 .candle{
   position:absolute;
+
   bottom:142px;
+
   width:12px;
   height:48px;
+
   border-radius:5px;
-  background:repeating-linear-gradient(
-    45deg,
-    #fff,
-    #fff 6px,
-    #ef80db 6px,
-    #ef80db 11px
-  );
+
+  background:
+    repeating-linear-gradient(
+      45deg,
+      #fff,
+      #fff 6px,
+      #ef80db 6px,
+      #ef80db 11px
+    );
+
   z-index:5;
 }
 
@@ -416,24 +671,48 @@ h2{
 
 .flame{
   position:absolute;
+
   top:-21px;
+
   left:50%;
-  transform:translateX(-50%);
+
+  transform:
+    translateX(-50%);
+
   width:13px;
   height:20px;
+
   border-radius:50%;
-  background:linear-gradient(#fff,#ffcb4d,#ff6b8a);
-  box-shadow:0 0 15px #ffbc5d;
-  animation:flame 1s infinite alternate;
+
+  background:
+    linear-gradient(
+      #fff,
+      #ffcb4d,
+      #ff6b8a
+    );
+
+  box-shadow:
+    0 0 15px
+    #ffbc5d;
+
+  animation:
+    flame
+    1s
+    infinite alternate;
 }
 
 @keyframes flame{
+
   from{
-    transform:translateX(-50%) scale(.9);
+    transform:
+      translateX(-50%)
+      scale(.9);
   }
 
   to{
-    transform:translateX(-50%) scale(1.1);
+    transform:
+      translateX(-50%)
+      scale(1.1);
   }
 }
 
@@ -443,109 +722,162 @@ h2{
 
 .blow-text{
   margin-top:2px;
+
   font-size:13px;
+
   color:#cfc0d8;
 }
 
 .blow-btn{
   margin-top:12px;
+
   padding:11px 24px;
+
   border-radius:999px;
+
   color:#fff;
-  background:rgba(255,255,255,.09);
-  border:1px solid rgba(255,255,255,.2);
+
+  background:
+    rgba(255,255,255,.09);
+
+  border:
+    1px solid
+    rgba(255,255,255,.2);
 }
 
 .next-btn{
   display:none;
+
   margin-top:13px;
 }
 
+
+/* =========================
+   MEMORIES
+========================= */
+
 .memory-wrap{
   position:relative;
+
   z-index:5;
+
   width:min(850px,100%);
+
   text-align:center;
 }
 
 .memory-grid{
   display:flex;
+
   gap:12px;
+
   justify-content:flex-start;
+
   margin-top:24px;
+
   overflow-x:auto;
+
   overflow-y:hidden;
-  padding-bottom:8px;
+
+  padding:
+    0 4px 8px;
+
   scrollbar-width:thin;
-  scrollbar-color:#9f63c8 transparent;
-  -webkit-overflow-scrolling:touch;
-}
 
-.memory-grid::-webkit-scrollbar{
-  height:5px;
-}
-
-.memory-grid::-webkit-scrollbar-thumb{
-  background:#9f63c8;
-  border-radius:10px;
+  scroll-snap-type:
+    x proximity;
 }
 
 .photo-slot{
-  flex:0 0 115px;
   width:115px;
   height:145px;
-  border-radius:12px;
-  padding:6px;
-  background:linear-gradient(145deg,#d967ff,#536cff,#f75dbb);
-  box-shadow:0 0 18px rgba(182,72,255,.2);
-  cursor:pointer;
-  transition:transform .25s,box-shadow .25s;
-}
 
-.photo-slot:hover{
-  transform:translateY(-5px) scale(1.03);
-  box-shadow:0 0 25px rgba(217,103,255,.45);
+  border-radius:12px;
+
+  padding:6px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #d967ff,
+      #536cff,
+      #f75dbb
+    );
+
+  box-shadow:
+    0 0 18px
+    rgba(182,72,255,.2);
+
+  flex:0 0 auto;
+
+  scroll-snap-align:start;
 }
 
 .photo-slot img{
   width:100%;
   height:100%;
+
   object-fit:cover;
+
   border-radius:8px;
+
   background:#111;
-  display:block;
 }
 
 .memory-note{
   margin-top:18px;
+
   font-size:13px;
+
   color:#bfb2c8;
 }
 
+
+/* =========================
+   WHEEL
+========================= */
+
 .wheel-wrap{
   position:relative;
+
   z-index:5;
+
   text-align:center;
+
   width:min(600px,100%);
 }
 
 .wheel-area{
   position:relative;
+
   width:300px;
   height:300px;
-  margin:20px auto 14px;
+
+  margin:
+    20px auto 14px;
 }
 
 .wheel{
   width:300px;
   height:300px;
+
   border-radius:50%;
+
   position:relative;
+
   overflow:hidden;
-  border:6px solid rgba(255,255,255,.25);
+
+  border:
+    6px solid
+    rgba(255,255,255,.25);
+
   box-shadow:
-    0 0 0 2px rgba(205,100,255,.3),
-    0 0 40px rgba(186,69,255,.25);
+    0 0 0 2px
+    rgba(205,100,255,.3),
+
+    0 0 40px
+    rgba(186,69,255,.25);
+
   background:
     conic-gradient(
       #b948ce 0deg 45deg,
@@ -557,199 +889,384 @@ h2{
       #dd67bd 270deg 315deg,
       #624ac0 315deg 360deg
     );
-  transition:transform 4s cubic-bezier(.15,.8,.1,1);
+
+  transition:
+    transform
+    4s
+    cubic-bezier(.15,.8,.1,1);
 }
 
 .wheel-label{
   position:absolute;
+
   left:50%;
   top:50%;
+
   width:80px;
+
   margin-left:-40px;
   margin-top:-11px;
+
   text-align:center;
+
   font-size:11px;
+
   font-weight:700;
+
   color:#fff;
+
   transform:
     rotate(var(--r))
     translateY(-108px)
     rotate(calc(var(--r) * -1));
-  text-shadow:0 1px 4px #000;
+
+  text-shadow:
+    0 1px 4px #000;
 }
 
 .wheel-pointer{
   position:absolute;
+
   top:-7px;
   left:50%;
-  transform:translateX(-50%);
+
+  transform:
+    translateX(-50%);
+
   width:0;
   height:0;
-  border-left:12px solid transparent;
-  border-right:12px solid transparent;
-  border-top:28px solid white;
-  filter:drop-shadow(0 0 6px #ff6ddd);
+
+  border-left:
+    12px solid transparent;
+
+  border-right:
+    12px solid transparent;
+
+  border-top:
+    28px solid white;
+
+  filter:
+    drop-shadow(
+      0 0 6px
+      #ff6ddd
+    );
+
   z-index:10;
 }
 
 .spin-btn{
   padding:12px 28px;
+
   border-radius:999px;
+
   color:white;
-  background:linear-gradient(100deg,#9d55ff,#ec55bb);
+
+  background:
+    linear-gradient(
+      100deg,
+      #9d55ff,
+      #ec55bb
+    );
+
   font-weight:700;
 }
 
 .wheel-result{
   min-height:24px;
+
   margin-top:13px;
+
   color:#ffd9f7;
-  font-family:"Dancing Script",cursive;
+
+  font-family:
+    "Dancing Script",
+    cursive;
+
   font-size:22px;
 }
 
+
+/* =========================
+   WISH
+========================= */
+
 .wish-card{
   position:relative;
+
   z-index:5;
+
   width:min(560px,100%);
+
   text-align:center;
-  padding:30px 23px;
+
+  padding:
+    30px 23px;
+
   border-radius:25px;
-  background:rgba(255,255,255,.055);
-  border:1px solid rgba(255,180,248,.2);
-  box-shadow:0 0 40px rgba(172,71,255,.14);
+
+  background:
+    rgba(255,255,255,.055);
+
+  border:
+    1px solid
+    rgba(255,180,248,.2);
+
+  box-shadow:
+    0 0 40px
+    rgba(172,71,255,.14);
 }
 
 .wish-from{
   margin-top:15px;
+
   color:#c9b7d2;
+
   font-size:13px;
 }
 
+
+/* =========================
+   SCRATCH
+========================= */
+
 .scratch-wrap{
   position:relative;
+
   z-index:5;
+
   width:min(440px,100%);
+
   text-align:center;
 }
 
 .scratch-card{
   position:relative;
+
   width:100%;
+
   height:250px;
-  margin:25px auto 0;
+
+  margin:
+    25px auto 0;
+
   border-radius:22px;
+
   overflow:hidden;
-  border:1px solid rgba(255,255,255,.18);
+
+  border:
+    1px solid
+    rgba(255,255,255,.18);
+
   background:#120d19;
-  box-shadow:0 0 35px rgba(180,74,255,.2);
+
+  box-shadow:
+    0 0 35px
+    rgba(180,74,255,.2);
+
   touch-action:none;
 }
 
 .scratch-message{
   position:absolute;
+
   inset:0;
+
   display:flex;
+
   align-items:center;
+
   justify-content:center;
+
   padding:30px;
+
   text-align:center;
-  font-family:"Dancing Script",cursive;
+
+  font-family:
+    "Dancing Script",
+    cursive;
+
   font-size:27px;
+
   color:#ffd9f7;
+
   background:
-    radial-gradient(circle at 50% 40%,rgba(255,75,207,.25),transparent 45%),
+    radial-gradient(
+      circle at 50% 40%,
+      rgba(255,75,207,.25),
+      transparent 45%
+    ),
     #160c20;
 }
 
 #scratchCanvas{
   position:absolute;
+
   inset:0;
+
   width:100%;
   height:100%;
+
   touch-action:none;
 }
 
+
+/* =========================
+   LETTER
+========================= */
+
 .letter-scene{
   background:
-    radial-gradient(circle at 50% 45%,rgba(213,91,255,.16),transparent 35%),
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(213,91,255,.16),
+      transparent 35%
+    ),
     #05030a;
 }
 
 .letter-wrap{
   position:relative;
+
   z-index:5;
+
   width:min(760px,100%);
+
   height:min(82vh,700px);
+
   display:flex;
+
   align-items:center;
+
   justify-content:center;
 }
 
 .envelope{
   position:absolute;
+
   width:min(330px,80vw);
+
   height:220px;
+
   border-radius:18px;
-  background:linear-gradient(145deg,#6d3c9d,#c957bd,#4b5bb7);
-  box-shadow:0 0 45px rgba(216,83,255,.35);
+
+  background:
+    linear-gradient(
+      145deg,
+      #6d3c9d,
+      #c957bd,
+      #4b5bb7
+    );
+
+  box-shadow:
+    0 0 45px
+    rgba(216,83,255,.35);
+
   display:flex;
+
   align-items:center;
+
   justify-content:center;
+
   cursor:pointer;
+
   transition:.8s;
 }
 
 .envelope::before{
   content:"🦋";
+
   position:absolute;
+
   font-size:60px;
-  filter:drop-shadow(0 0 12px rgba(255,255,255,.6));
+
+  filter:
+    drop-shadow(
+      0 0 12px
+      rgba(255,255,255,.6)
+    );
 }
 
 .envelope-text{
   position:absolute;
+
   bottom:22px;
-  font-family:"Dancing Script",cursive;
+
+  font-family:
+    "Dancing Script",
+    cursive;
+
   font-size:20px;
 }
 
 .envelope.open{
   opacity:0;
-  transform:scale(.65) translateY(20px);
+
+  transform:
+    scale(.65)
+    translateY(20px);
+
   pointer-events:none;
 }
 
 .paper{
   position:absolute;
+
   width:min(680px,94vw);
+
   height:min(76vh,600px);
-  padding:34px 25px;
+
+  padding:
+    34px 25px;
+
   border-radius:22px;
+
   background:
-    linear-gradient(rgba(255,250,255,.98),rgba(248,237,252,.98));
+    linear-gradient(
+      rgba(255,250,255,.98),
+      rgba(248,237,252,.98)
+    );
+
   color:#39273e;
+
   box-shadow:
-    0 0 50px rgba(235,104,255,.28),
-    0 0 0 1px rgba(255,255,255,.25);
+    0 0 50px
+    rgba(235,104,255,.28),
+
+    0 0 0 1px
+    rgba(255,255,255,.25);
+
   opacity:0;
-  transform:translateY(30px) scale(.94);
+
+  transform:
+    translateY(30px)
+    scale(.94);
+
   pointer-events:none;
+
   transition:.8s;
+
   overflow:hidden;
 }
 
 .paper.show{
   opacity:1;
-  transform:translateY(0) scale(1);
+
+  transform:
+    translateY(0)
+    scale(1);
+
   pointer-events:auto;
 }
 
 .letter-scroll{
   width:100%;
   height:100%;
+
   overflow-y:auto;
-  padding:5px 12px 25px 4px;
+
+  padding:
+    5px 12px 25px 4px;
+
   scrollbar-width:thin;
 }
 
@@ -759,53 +1276,98 @@ h2{
 
 .letter-scroll::-webkit-scrollbar-thumb{
   background:#b978bd;
+
   border-radius:10px;
 }
 
 .letter-heading{
   text-align:center;
-  font-family:"Dancing Script",cursive;
+
+  font-family:
+    "Dancing Script",
+    cursive;
+
   font-size:29px;
+
   color:#8c4a91;
+
   margin-bottom:23px;
 }
 
 .letter-text{
-  font-family:"Kalam",cursive;
+  font-family:
+    "Kalam",
+    cursive;
+
   font-weight:400;
+
   font-size:18px;
+
   line-height:1.9;
+
   white-space:pre-line;
+
   letter-spacing:.1px;
 }
 
 .letter-sign{
   margin-top:20px;
+
   text-align:right;
-  font-family:"Dancing Script",cursive;
+
+  font-family:
+    "Dancing Script",
+    cursive;
+
   font-size:24px;
+
   color:#814681;
 }
 
 .letter-next{
   display:block;
-  margin:28px auto 5px;
-  padding:12px 28px;
+
+  margin:
+    28px auto 5px;
+
+  padding:
+    12px 28px;
+
   border-radius:999px;
+
   color:white;
-  background:linear-gradient(100deg,#b84cff,#f64fae,#477dff);
-  box-shadow:0 0 25px rgba(216,65,255,.3);
+
+  background:
+    linear-gradient(
+      100deg,
+      #b84cff,
+      #f64fae,
+      #477dff
+    );
+
+  box-shadow:
+    0 0 25px
+    rgba(216,65,255,.3);
+
   font-size:14px;
+
   font-weight:700;
 }
 
 .type-cursor{
   display:inline-block;
+
   width:2px;
   height:20px;
+
   background:#8c4a91;
+
   margin-left:2px;
-  animation:blink .7s infinite;
+
+  animation:
+    blink
+    .7s
+    infinite;
 }
 
 @keyframes blink{
@@ -814,17 +1376,34 @@ h2{
   }
 }
 
+
+/* =========================
+   FINAL SCENE
+========================= */
+
 .final-content{
   position:relative;
+
   z-index:5;
+
   text-align:center;
+
   width:min(650px,100%);
 }
 
 .final-heart{
   font-size:70px;
-  animation:heartbeat 1.7s infinite;
-  filter:drop-shadow(0 0 22px rgba(255,85,212,.6));
+
+  animation:
+    heartbeat
+    1.7s
+    infinite;
+
+  filter:
+    drop-shadow(
+      0 0 22px
+      rgba(255,85,212,.6)
+    );
 }
 
 .final-title{
@@ -832,23 +1411,41 @@ h2{
 }
 
 .final-message{
-  margin:18px auto 0;
+  margin:
+    18px auto 0;
+
   color:#d9c9df;
+
   line-height:1.8;
+
   max-width:530px;
 }
 
+
+/* =========================
+   FIREWORK VISUALS
+========================= */
+
 .firework{
   position:absolute;
+
   bottom:-30px;
+
   width:8px;
   height:8px;
+
   border-radius:50%;
+
   background:#fff;
+
   box-shadow:
     0 0 10px #fff,
     0 0 25px #ff6bd8;
-  animation:firework 2.7s infinite;
+
+  animation:
+    firework
+    2.7s
+    infinite;
 }
 
 .fw1{
@@ -867,6 +1464,7 @@ h2{
 }
 
 @keyframes firework{
+
   0%{
     transform:translateY(0);
     opacity:0;
@@ -877,170 +1475,210 @@ h2{
   }
 
   60%{
-    transform:translateY(-65vh);
+    transform:
+      translateY(-65vh);
+
     opacity:1;
   }
 
   100%{
-    transform:translateY(-65vh) scale(15);
+    transform:
+      translateY(-65vh)
+      scale(15);
+
     opacity:0;
   }
 }
 
+
+/* =========================
+   FALLING FLOWERS
+========================= */
+
 .petal{
   position:absolute;
+
   top:-30px;
+
   font-size:18px;
-  animation:fall linear infinite;
+
+  animation:
+    fall
+    linear
+    infinite;
+
   pointer-events:none;
 }
 
 @keyframes fall{
+
   from{
-    transform:translateY(-30px) rotate(0);
+    transform:
+      translateY(-30px)
+      rotate(0);
   }
 
   to{
-    transform:translateY(110vh) rotate(360deg);
+    transform:
+      translateY(110vh)
+      rotate(360deg);
   }
 }
 
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+
+.music-toggle{
+  position:fixed;
+
+  top:14px;
+  right:14px;
+
+  z-index:250;
+
+  padding:
+    9px 14px;
+
+  border-radius:999px;
+
+  color:#fff;
+
+  background:
+    rgba(20,12,28,.72);
+
+  border:
+    1px solid
+    rgba(255,255,255,.15);
+
+  backdrop-filter:
+    blur(12px);
+
+  font-size:12px;
+
+  font-weight:700;
+
+  box-shadow:
+    0 0 18px
+    rgba(195,76,255,.2);
+}
+
+
+/* =========================
+   NAV
+========================= */
+
 .nav{
   position:fixed;
+
   z-index:100;
+
   left:50%;
   bottom:12px;
-  transform:translateX(-50%);
+
+  transform:
+    translateX(-50%);
+
   display:flex;
+
   gap:5px;
+
   padding:6px;
+
   border-radius:999px;
-  background:rgba(10,7,16,.7);
-  border:1px solid rgba(255,255,255,.1);
-  backdrop-filter:blur(12px);
+
+  background:
+    rgba(10,7,16,.7);
+
+  border:
+    1px solid
+    rgba(255,255,255,.1);
+
+  backdrop-filter:
+    blur(12px);
 }
 
 .nav button{
   width:31px;
   height:31px;
+
   border-radius:50%;
+
   color:#cdbbd4;
+
   background:transparent;
+
   font-size:12px;
 }
 
 .nav button.active{
   color:#fff;
-  background:linear-gradient(135deg,#bb50ee,#5976e7);
-  box-shadow:0 0 12px rgba(193,76,255,.4);
+
+  background:
+    linear-gradient(
+      135deg,
+      #bb50ee,
+      #5976e7
+    );
+
+  box-shadow:
+    0 0 12px
+    rgba(193,76,255,.4);
 }
+
+
+/* =========================
+   TOAST
+========================= */
 
 .toast{
   position:fixed;
+
   z-index:300;
+
   left:50%;
   top:20px;
-  transform:translateX(-50%) translateY(-20px);
+
+  transform:
+    translateX(-50%)
+    translateY(-20px);
+
   opacity:0;
-  padding:11px 18px;
+
+  padding:
+    11px 18px;
+
   border-radius:999px;
-  background:rgba(22,12,28,.9);
-  border:1px solid rgba(255,175,243,.2);
+
+  background:
+    rgba(22,12,28,.9);
+
+  border:
+    1px solid
+    rgba(255,175,243,.2);
+
   color:#ffe8fb;
+
   font-size:13px;
+
   transition:.35s;
+
   pointer-events:none;
 }
 
 .toast.show{
   opacity:1;
-  transform:translateX(-50%) translateY(0);
+
+  transform:
+    translateX(-50%)
+    translateY(0);
 }
 
 
-/* =========================================
-   MUSIC BUTTON
-========================================= */
-
-.music-toggle{
-  position:fixed;
-  z-index:200;
-  top:14px;
-  right:14px;
-  padding:9px 14px;
-  border-radius:999px;
-  color:white;
-  background:rgba(15,9,22,.78);
-  border:1px solid rgba(255,255,255,.18);
-  backdrop-filter:blur(12px);
-  font-size:12px;
-  box-shadow:0 0 18px rgba(190,75,255,.22);
-  transition:.2s;
-}
-
-.music-toggle:active{
-  transform:scale(.95);
-}
-
-
-/* =========================================
-   PHOTO VIEWER
-========================================= */
-
-.photo-viewer{
-  position:fixed;
-  inset:0;
-  z-index:500;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  background:rgba(3,2,7,.92);
-  backdrop-filter:blur(12px);
-}
-
-.photo-viewer.show{
-  display:flex;
-  animation:sceneIn .3s ease both;
-}
-
-.photo-viewer img{
-  max-width:min(92vw,900px);
-  max-height:82vh;
-  width:auto;
-  height:auto;
-  object-fit:contain;
-  border-radius:16px;
-  border:2px solid rgba(255,190,245,.25);
-  box-shadow:0 0 50px rgba(210,75,255,.35);
-}
-
-.photo-close{
-  position:absolute;
-  top:18px;
-  right:18px;
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  color:white;
-  background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.2);
-  font-size:22px;
-  z-index:501;
-}
-
-.photo-viewer-name{
-  position:absolute;
-  bottom:24px;
-  left:50%;
-  transform:translateX(-50%);
-  color:#ffe8fb;
-  font-size:13px;
-  background:rgba(15,8,20,.75);
-  padding:8px 14px;
-  border-radius:999px;
-}
-
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:520px){
 
@@ -1054,7 +1692,9 @@ h2{
 
   .cake{
     transform:scale(.9);
+
     margin-top:-5px;
+
     margin-bottom:-12px;
   }
 
@@ -1069,6 +1709,7 @@ h2{
       rotate(var(--r))
       translateY(-96px)
       rotate(calc(var(--r) * -1));
+
     font-size:10px;
   }
 
@@ -1077,18 +1718,20 @@ h2{
   }
 
   .photo-slot{
-    flex-basis:90px;
     width:90px;
     height:120px;
   }
 
   .paper{
     height:78vh;
-    padding:25px 18px;
+
+    padding:
+      25px 18px;
   }
 
   .letter-text{
     font-size:17px;
+
     line-height:1.85;
   }
 
@@ -1100,22 +1743,12 @@ h2{
     bottom:9px;
   }
 
-  .photo-viewer{
-    padding:14px;
-  }
-
-  .photo-viewer img{
-    max-width:94vw;
-    max-height:78vh;
-  }
-
   .music-toggle{
     top:10px;
     right:10px;
-    padding:8px 12px;
     font-size:11px;
+    padding:8px 11px;
   }
-
 }
 
 </style>
@@ -1125,9 +1758,22 @@ h2{
 <body>
 
 
-<!-- =========================================
-     BIRTHDAY MUSIC
-========================================= -->
+<!-- =========================
+     FLOATING BUTTERFLIES
+========================= -->
+
+<div class="butterfly b1">🦋</div>
+<div class="butterfly b2">🦋</div>
+<div class="butterfly b3">🦋</div>
+<div class="butterfly b4">🦋</div>
+
+
+<div class="toast" id="toast"></div>
+
+
+<!-- =========================
+     MUSIC
+========================= -->
 
 <audio
   id="bgMusic"
@@ -1137,7 +1783,6 @@ h2{
   preload="auto">
 </audio>
 
-
 <button
   class="music-toggle"
   id="musicButton"
@@ -1146,53 +1791,11 @@ h2{
 </button>
 
 
-<div class="butterfly b1">🦋</div>
-<div class="butterfly b2">🦋</div>
-<div class="butterfly b3">🦋</div>
-<div class="butterfly b4">🦋</div>
+<!-- =========================
+     SCENE 0
+========================= -->
 
-
-<div
-  class="toast"
-  id="toast">
-</div>
-
-
-<!-- =========================================
-     PHOTO VIEWER
-========================================= -->
-
-<div
-  class="photo-viewer"
-  id="photoViewer"
-  onclick="closePhoto(event)">
-
-  <button
-    class="photo-close"
-    onclick="closePhoto(event)">
-    ×
-  </button>
-
-  <img
-    id="viewerImage"
-    src=""
-    alt="Selected memory">
-
-  <div
-    class="photo-viewer-name"
-    id="viewerName">
-  </div>
-
-</div>
-
-
-<!-- =========================================
-     INTRO
-========================================= -->
-
-<section
-  class="scene active"
-  id="scene0">
+<section class="scene active" id="scene0">
 
   <div class="glow one"></div>
   <div class="glow two"></div>
@@ -1218,14 +1821,17 @@ h2{
 
       <br>
 
-      So take a breath, tap below, and let the surprise begin. ✨
+      So take a breath, tap below,
+      and let the surprise begin. ✨
 
     </p>
 
     <button
       class="main-btn"
       onclick="goTo(1)">
+
       Enter Your Little World ✨
+
     </button>
 
   </div>
@@ -1233,13 +1839,11 @@ h2{
 </section>
 
 
-<!-- =========================================
-     QUESTIONS
-========================================= -->
+<!-- =========================
+     SCENE 1
+========================= -->
 
-<section
-  class="scene"
-  id="scene1">
+<section class="scene" id="scene1">
 
   <div class="glow one"></div>
   <div class="glow two"></div>
@@ -1249,7 +1853,9 @@ h2{
     <div
       class="question-number"
       id="questionNumber">
+
       QUESTION 01
+
     </div>
 
     <div
@@ -1265,14 +1871,18 @@ h2{
       <button
         class="yes-btn"
         onclick="answerYes()">
+
         Yes 💗
+
       </button>
 
       <button
         class="no-btn"
         id="noButton"
         onclick="answerNo()">
+
         No 😌
+
       </button>
 
     </div>
@@ -1282,13 +1892,11 @@ h2{
 </section>
 
 
-<!-- =========================================
-     CAKE
-========================================= -->
+<!-- =========================
+     SCENE 2
+========================= -->
 
-<section
-  class="scene"
-  id="scene2">
+<section class="scene" id="scene2">
 
   <div class="glow one"></div>
   <div class="glow two"></div>
@@ -1315,17 +1923,10 @@ h2{
       <div class="drip d2"></div>
       <div class="drip d3"></div>
 
-      <div class="strawberry s1">
-        🍓
-      </div>
+      <div class="strawberry s1">🍓</div>
+      <div class="strawberry s2">🍓</div>
+      <div class="strawberry s3">🍓</div>
 
-      <div class="strawberry s2">
-        🍓
-      </div>
-
-      <div class="strawberry s3">
-        🍓
-      </div>
 
       <div class="candle c1">
         <div class="flame"></div>
@@ -1342,20 +1943,27 @@ h2{
     </div>
 
     <div class="blow-text">
-      Make your birthday wish... then blow the candles 🕯️✨
+
+      Make your birthday wish...
+      then blow the candles 🕯️✨
+
     </div>
 
     <button
       class="blow-btn"
       onclick="blowCandles()">
+
       Blow The Candles 🕯️
+
     </button>
 
     <button
       class="main-btn next-btn"
       id="cakeNext"
       onclick="goTo(3)">
+
       Continue 🦋
+
     </button>
 
   </div>
@@ -1363,13 +1971,11 @@ h2{
 </section>
 
 
-<!-- =========================================
-     MEMORIES
-========================================= -->
+<!-- =========================
+     SCENE 3
+========================= -->
 
-<section
-  class="scene"
-  id="scene3">
+<section class="scene" id="scene3">
 
   <div class="glow one"></div>
   <div class="glow two"></div>
@@ -1389,120 +1995,55 @@ h2{
       style="margin-left:auto;margin-right:auto;">
 
       Some moments are too special to fit into words.
+
+      <br>
+
       So here, we'll keep them as memories. 🦋
 
     </p>
 
+
     <div class="memory-grid">
 
 
-      <div
-        class="photo-slot"
-        onclick="openPhoto('her1.jpg','Chiku — Photo 1')">
-
-        <img
-          src="her1.jpg"
-          alt="Chiku — Photo 1">
-
+      <div class="photo-slot">
+        <img src="her1.jpg" alt="Chiku">
       </div>
 
-
-      <div
-        class="photo-slot"
-        onclick="openPhoto('her2.jpg','Chiku — Photo 2')">
-
-        <img
-          src="her2.jpg"
-          alt="Chiku — Photo 2">
-
+      <div class="photo-slot">
+        <img src="her2.jpg" alt="Chiku">
       </div>
 
-
-      <div
-        class="photo-slot"
-        onclick="openPhoto('her3.jpg','Chiku — Photo 3')">
-
-        <img
-          src="her3.jpg"
-          alt="Chiku — Photo 3">
-
+      <div class="photo-slot">
+        <img src="her3.jpg" alt="Chiku">
       </div>
 
-
-      <div
-        class="photo-slot"
-        onclick="openPhoto('her4.jpg','Chiku — Photo 4')">
-
-        <img
-          src="her4.jpg"
-          alt="Chiku — Photo 4">
-
+      <div class="photo-slot">
+        <img src="her4.jpg" alt="Chiku">
       </div>
 
-
-      <div
-        class="photo-slot"
-        onclick="openPhoto('comment1.jpg','Comment — Photo 1')">
-
-        <img
-          src="comment1.jpg"
-          alt="Comment — Photo 1">
-
+      <div class="photo-slot">
+        <img src="comment1.jpg" alt="Comment">
       </div>
 
-
-      <div
-        class="photo-slot"
-        onclick="openPhoto('comment2.jpg','Comment — Photo 2')">
-
-        <img
-          src="comment2.jpg"
-          alt="Comment — Photo 2">
-
+      <div class="photo-slot">
+        <img src="comment2.jpg" alt="Comment">
       </div>
 
-
-      <div
-        class="photo-slot"
-        onclick="openPhoto('together1.jpg','Together — Photo 1')">
-
-        <img
-          src="together1.jpg"
-          alt="Together — Photo 1">
-
+      <div class="photo-slot">
+        <img src="together1.jpg" alt="Together">
       </div>
 
-
-      <div
-        class="photo-slot"
-        onclick="openPhoto('together2.jpg','Together — Photo 2')">
-
-        <img
-          src="together2.jpg"
-          alt="Together — Photo 2">
-
+      <div class="photo-slot">
+        <img src="together2.jpg" alt="Together">
       </div>
 
-
-      <div
-        class="photo-slot"
-        onclick="openPhoto('together3.jpg','Together — Photo 3')">
-
-        <img
-          src="together3.jpg"
-          alt="Together — Photo 3">
-
+      <div class="photo-slot">
+        <img src="together3.jpg" alt="Together">
       </div>
 
-
-      <div
-        class="photo-slot"
-        onclick="openPhoto('together4.jpg','Together — Photo 4')">
-
-        <img
-          src="together4.jpg"
-          alt="Together — Photo 4">
-
+      <div class="photo-slot">
+        <img src="together4.jpg" alt="Together">
       </div>
 
 
@@ -1511,11 +2052,8 @@ h2{
 
     <div class="memory-note">
 
-      Her photos → old conversations → together memories 💗
-
-      <br>
-
-      Tap any photo to view it ✨
+      Her photos → old conversations
+      → together memories 💗
 
     </div>
 
@@ -1523,7 +2061,9 @@ h2{
     <button
       class="main-btn"
       onclick="goTo(4)">
+
       Continue To The Wheel 🎡
+
     </button>
 
   </div>
@@ -1531,13 +2071,11 @@ h2{
 </section>
 
 
-<!-- =========================================
-     WHEEL
-========================================= -->
+<!-- =========================
+     SCENE 4
+========================= -->
 
-<section
-  class="scene"
-  id="scene4">
+<section class="scene" id="scene4">
 
   <div class="glow one"></div>
   <div class="glow two"></div>
@@ -1552,6 +2090,7 @@ h2{
       Spin The Little Wheel 🎡
     </h2>
 
+
     <div class="wheel-area">
 
       <div class="wheel-pointer"></div>
@@ -1564,56 +2103,72 @@ h2{
         <div
           class="wheel-label"
           style="--r:22.5deg">
+
           Smile 💗
+
         </div>
 
 
         <div
           class="wheel-label"
           style="--r:67.5deg">
+
           Happiness 🦋
+
         </div>
 
 
         <div
           class="wheel-label"
           style="--r:112.5deg">
+
           Dreams ✨
+
         </div>
 
 
         <div
           class="wheel-label"
           style="--r:157.5deg">
+
           Laughter 😹
+
         </div>
 
 
         <div
           class="wheel-label"
           style="--r:202.5deg">
+
           Peace 🌸
+
         </div>
 
 
         <div
           class="wheel-label"
           style="--r:247.5deg">
+
           Memories 💕
+
         </div>
 
 
         <div
           class="wheel-label"
           style="--r:292.5deg">
+
           Magic ✨
+
         </div>
 
 
         <div
           class="wheel-label"
           style="--r:337.5deg">
+
           Love 🦋
+
         </div>
 
 
@@ -1626,7 +2181,9 @@ h2{
       class="spin-btn"
       id="spinButton"
       onclick="spinWheel()">
+
       SPIN ✨
+
     </button>
 
 
@@ -1654,13 +2211,11 @@ h2{
 </section>
 
 
-<!-- =========================================
-     WISH
-========================================= -->
+<!-- =========================
+     SCENE 5
+========================= -->
 
-<section
-  class="scene"
-  id="scene5">
+<section class="scene" id="scene5">
 
   <div class="glow one"></div>
   <div class="glow two"></div>
@@ -1672,7 +2227,9 @@ h2{
     </div>
 
     <h2 id="wishTitle">
+
       A Little Wish For You 🦋
+
     </h2>
 
     <p
@@ -1680,12 +2237,15 @@ h2{
       id="wishText"
       style="margin-left:auto;margin-right:auto;">
 
-      May your days always have something beautiful waiting for you.
+      May your days always have something
+      beautiful waiting for you.
 
     </p>
 
     <div class="wish-from">
+
       — From Chinu 💗
+
     </div>
 
     <button
@@ -1701,13 +2261,11 @@ h2{
 </section>
 
 
-<!-- =========================================
-     SCRATCH
-========================================= -->
+<!-- =========================
+     SCENE 6
+========================= -->
 
-<section
-  class="scene"
-  id="scene6">
+<section class="scene" id="scene6">
 
   <div class="glow one"></div>
   <div class="glow two"></div>
@@ -1726,7 +2284,8 @@ h2{
       class="subtitle"
       style="margin-left:auto;margin-right:auto;">
 
-      Scratch the card gently to reveal what's hiding underneath.
+      Scratch the card gently
+      to reveal what's hiding underneath.
 
     </p>
 
@@ -1737,10 +2296,10 @@ h2{
 
       <div class="scratch-message">
 
-        Chiku, you are one of the most beautiful parts of my little world. 💗🦋
+        Chiku, you are one of the most
+        beautiful parts of my little world. 💗🦋
 
       </div>
-
 
       <canvas
         id="scratchCanvas">
@@ -1764,9 +2323,9 @@ h2{
 </section>
 
 
-<!-- =========================================
-     LETTER
-========================================= -->
+<!-- =========================
+     SCENE 7
+========================= -->
 
 <section
   class="scene letter-scene"
@@ -1774,6 +2333,7 @@ h2{
 
   <div class="glow one"></div>
   <div class="glow two"></div>
+
 
   <div class="letter-wrap">
 
@@ -1784,7 +2344,9 @@ h2{
       onclick="openLetter()">
 
       <div class="envelope-text">
+
         A letter from Chinu 💌
+
       </div>
 
     </div>
@@ -1798,7 +2360,9 @@ h2{
 
 
         <div class="letter-heading">
+
           💌 A Birthday Letter From Chinu
+
         </div>
 
 
@@ -1834,26 +2398,33 @@ h2{
 </section>
 
 
-<!-- =========================================
-     FINAL
-========================================= -->
+<!-- =========================
+     SCENE 8
+========================= -->
 
 <section
   class="scene"
   id="scene8">
 
+
   <div class="glow one"></div>
   <div class="glow two"></div>
 
+
   <div class="final-content">
+
 
     <div class="final-heart">
       💗
     </div>
 
+
     <div class="kicker">
+
       The end... or maybe the beginning
+
     </div>
+
 
     <h1 class="final-title">
 
@@ -1883,6 +2454,7 @@ h2{
 
     </p>
 
+
   </div>
 
 
@@ -1890,24 +2462,69 @@ h2{
   <div class="firework fw2"></div>
   <div class="firework fw3"></div>
 
+
 </section>
 
 
-<!-- =========================================
+<!-- =========================
      NAVIGATION
-========================================= -->
+========================= -->
 
 <div class="nav">
 
-  <button onclick="goTo(0)" id="nav0">✦</button>
-  <button onclick="goTo(1)" id="nav1">♡</button>
-  <button onclick="goTo(2)" id="nav2">🎂</button>
-  <button onclick="goTo(3)" id="nav3">📸</button>
-  <button onclick="goTo(4)" id="nav4">🎡</button>
-  <button onclick="goTo(5)" id="nav5">💗</button>
-  <button onclick="goTo(6)" id="nav6">🎟️</button>
-  <button onclick="goTo(7)" id="nav7">💌</button>
-  <button onclick="goTo(8)" id="nav8">🦋</button>
+  <button
+    onclick="goTo(0)"
+    id="nav0">
+    ✦
+  </button>
+
+  <button
+    onclick="goTo(1)"
+    id="nav1">
+    ♡
+  </button>
+
+  <button
+    onclick="goTo(2)"
+    id="nav2">
+    🎂
+  </button>
+
+  <button
+    onclick="goTo(3)"
+    id="nav3">
+    📸
+  </button>
+
+  <button
+    onclick="goTo(4)"
+    id="nav4">
+    🎡
+  </button>
+
+  <button
+    onclick="goTo(5)"
+    id="nav5">
+    💗
+  </button>
+
+  <button
+    onclick="goTo(6)"
+    id="nav6">
+    🎟️
+  </button>
+
+  <button
+    onclick="goTo(7)"
+    id="nav7">
+    💌
+  </button>
+
+  <button
+    onclick="goTo(8)"
+    id="nav8">
+    🦋
+  </button>
 
 </div>
 
@@ -1915,9 +2532,9 @@ h2{
 <script>
 
 
-/* =========================================
+/* =====================================================
    BACKGROUND MUSIC
-========================================= */
+===================================================== */
 
 const bgMusic =
   document.getElementById("bgMusic");
@@ -1925,18 +2542,10 @@ const bgMusic =
 const musicButton =
   document.getElementById("musicButton");
 
-let musicStarted = false;
-
-
-/* Soft volume so it stays in the background */
-
 bgMusic.volume = 0.45;
 
+let musicStarted = false;
 
-/*
-   Try to start immediately.
-   Some mobile browsers may block autoplay.
-*/
 
 function startMusic(){
 
@@ -1948,7 +2557,6 @@ function startMusic(){
       "🎵 Music: On";
 
     return;
-
   }
 
 
@@ -1964,8 +2572,8 @@ function startMusic(){
     .catch(()=>{
 
       /*
-        Mobile browser blocked autoplay.
-        The next user tap will start it.
+        Mobile browsers may block
+        autoplay until the user taps.
       */
 
     });
@@ -1974,36 +2582,35 @@ function startMusic(){
 
 
 /*
-   Try autoplay when page loads.
+  Try immediately.
 */
-
 window.addEventListener(
   "load",
-  ()=>{
-    startMusic();
-  }
+  startMusic
 );
 
 
 /*
-   If browser blocks autoplay,
-   first user interaction starts music.
+  First user interaction unlocks audio.
 */
-
 document.addEventListener(
   "pointerdown",
-  ()=>{
-    startMusic();
+  event => {
+
+    if(
+      !event.target.closest(
+        "#musicButton"
+      )
+    ){
+
+      startMusic();
+
+    }
+
   },
-  {
-    once:true
-  }
+  {once:true}
 );
 
-
-/*
-   Music ON/OFF button
-*/
 
 function toggleMusic(event){
 
@@ -2037,227 +2644,9 @@ function toggleMusic(event){
 }
 
 
-/* =========================================
-   FIREWORK SOUND
-========================================= */
-
-let fireworksSoundPlayed = false;
-
-let audioContext = null;
-
-
-function createFireworkSound(){
-
-  if(fireworksSoundPlayed)
-    return;
-
-
-  fireworksSoundPlayed = true;
-
-
-  try{
-
-    audioContext =
-      new (
-        window.AudioContext ||
-        window.webkitAudioContext
-      )();
-
-
-    if(
-      audioContext.state === "suspended"
-    ){
-
-      audioContext.resume();
-
-    }
-
-
-    /*
-      FIREWORK WHOOSH
-    */
-
-    const oscillator =
-      audioContext.createOscillator();
-
-    const gain =
-      audioContext.createGain();
-
-
-    oscillator.type =
-      "sine";
-
-
-    oscillator.frequency.setValueAtTime(
-      220,
-      audioContext.currentTime
-    );
-
-
-    oscillator.frequency.exponentialRampToValueAtTime(
-      900,
-      audioContext.currentTime + 0.55
-    );
-
-
-    gain.gain.setValueAtTime(
-      0.0001,
-      audioContext.currentTime
-    );
-
-
-    gain.gain.exponentialRampToValueAtTime(
-      0.18,
-      audioContext.currentTime + 0.12
-    );
-
-
-    gain.gain.exponentialRampToValueAtTime(
-      0.0001,
-      audioContext.currentTime + 0.6
-    );
-
-
-    oscillator.connect(gain);
-
-    gain.connect(
-      audioContext.destination
-    );
-
-
-    oscillator.start();
-
-    oscillator.stop(
-      audioContext.currentTime + 0.65
-    );
-
-
-    /*
-      FIREWORK POP
-    */
-
-    setTimeout(
-      createFireworkPop,
-      520
-    );
-
-
-  }catch(error){
-
-    console.log(
-      "Firework sound unavailable:",
-      error
-    );
-
-  }
-
-}
-
-
-function createFireworkPop(){
-
-  if(!audioContext)
-    return;
-
-
-  const duration =
-    0.35;
-
-
-  const sampleRate =
-    audioContext.sampleRate;
-
-
-  const buffer =
-    audioContext.createBuffer(
-      1,
-      sampleRate * duration,
-      sampleRate
-    );
-
-
-  const data =
-    buffer.getChannelData(0);
-
-
-  for(
-    let i = 0;
-    i < data.length;
-    i++
-  ){
-
-    const decay =
-      1 - i / data.length;
-
-
-    data[i] =
-      (
-        Math.random() * 2 - 1
-      ) *
-      decay *
-      decay;
-
-  }
-
-
-  const source =
-    audioContext.createBufferSource();
-
-
-  const gain =
-    audioContext.createGain();
-
-
-  const filter =
-    audioContext.createBiquadFilter();
-
-
-  source.buffer =
-    buffer;
-
-
-  filter.type =
-    "lowpass";
-
-
-  filter.frequency.value =
-    1800;
-
-
-  gain.gain.setValueAtTime(
-    0.0001,
-    audioContext.currentTime
-  );
-
-
-  gain.gain.exponentialRampToValueAtTime(
-    0.35,
-    audioContext.currentTime + 0.015
-  );
-
-
-  gain.gain.exponentialRampToValueAtTime(
-    0.0001,
-    audioContext.currentTime + duration
-  );
-
-
-  source
-    .connect(filter)
-    .connect(gain)
-    .connect(
-      audioContext.destination
-    );
-
-
-  source.start();
-
-}
-
-
-/* =========================================
+/* =====================================================
    SCENE NAVIGATION
-========================================= */
+===================================================== */
 
 let currentScene = 0;
 
@@ -2274,15 +2663,13 @@ function goTo(number){
     number < 0 ||
     number >= scenes.length
   ){
-
     return;
-
   }
 
 
   /*
-    Start birthday music whenever
-    the user interacts with the site.
+    Make sure music gets another
+    chance after a real user interaction.
   */
 
   startMusic();
@@ -2301,9 +2688,7 @@ function goTo(number){
 
 
   document
-    .querySelectorAll(
-      ".nav button"
-    )
+    .querySelectorAll(".nav button")
     .forEach(
       (button,index)=>{
 
@@ -2316,13 +2701,8 @@ function goTo(number){
     );
 
 
-  currentScene =
-    number;
+  currentScene = number;
 
-
-  /*
-    Reset scratch card
-  */
 
   if(number === 6){
 
@@ -2335,22 +2715,27 @@ function goTo(number){
 
 
   /*
-    FINAL STAGE
-    Fireworks + sound
+    FINAL SCENE
+
+    Start the stronger generated
+    fireworks sound when Scene 8 opens.
   */
 
   if(number === 8){
 
-    createFireworkSound();
+    setTimeout(
+      playFireworksShow,
+      120
+    );
 
   }
 
 }
 
 
-/* =========================================
+/* =====================================================
    TOAST
-========================================= */
+===================================================== */
 
 function showToast(message){
 
@@ -2375,23 +2760,20 @@ function showToast(message){
 
 
   window.toastTimer =
-    setTimeout(
-      ()=>{
+    setTimeout(()=>{
 
-        toast.classList.remove(
-          "show"
-        );
+      toast.classList.remove(
+        "show"
+      );
 
-      },
-      2200
-    );
+    },2200);
 
 }
 
 
-/* =========================================
+/* =====================================================
    QUESTIONS
-========================================= */
+===================================================== */
 
 const questions = [
 
@@ -2423,9 +2805,6 @@ let questionIndex = 0;
 
 
 function answerYes(){
-
-  startMusic();
-
 
   questionIndex++;
 
@@ -2467,9 +2846,6 @@ function answerYes(){
 
 function answerNo(){
 
-  startMusic();
-
-
   showToast(
     noReplies[
       questionIndex
@@ -2484,51 +2860,54 @@ function answerNo(){
 
 
   button.animate(
+
     [
-
       {
-        transform:"translateX(0)"
+        transform:
+          "translateX(0)"
       },
 
       {
-        transform:"translateX(-7px)"
+        transform:
+          "translateX(-7px)"
       },
 
       {
-        transform:"translateX(7px)"
+        transform:
+          "translateX(7px)"
       },
 
       {
-        transform:"translateX(0)"
+        transform:
+          "translateX(0)"
       }
 
     ],
+
     {
       duration:350
     }
+
   );
 
 }
 
 
-/* =========================================
+/* =====================================================
    CAKE
-========================================= */
+===================================================== */
 
 let candlesBlown = false;
 
 
 function blowCandles(){
 
-  startMusic();
-
-
-  if(candlesBlown)
+  if(candlesBlown){
     return;
+  }
 
 
-  candlesBlown =
-    true;
+  candlesBlown = true;
 
 
   document
@@ -2561,100 +2940,94 @@ function blowCandles(){
 }
 
 
-/* =========================================
+/* =====================================================
    WHEEL
-========================================= */
+===================================================== */
 
 const wishes = [
 
   {
-    title:"A Wish For Your Smile 💗",
+    title:
+      "A Wish For Your Smile 💗",
 
     text:
       "May you always have countless little reasons to smile, laugh and enjoy the beautiful moments around you."
-
   },
 
   {
-    title:"A Wish For Happiness 🦋",
+    title:
+      "A Wish For Happiness 🦋",
 
     text:
       "May happiness find you in unexpected places and stay with you through every season of life."
-
   },
 
   {
-    title:"A Wish For Your Dreams ✨",
+    title:
+      "A Wish For Your Dreams ✨",
 
     text:
       "May you have the courage to chase your dreams and the confidence to believe in yourself."
-
   },
 
   {
-    title:"A Wish For Laughter 😹",
+    title:
+      "A Wish For Laughter 😹",
 
     text:
       "May your life always be filled with silly conversations, unforgettable jokes and moments that make you laugh."
-
   },
 
   {
-    title:"A Wish For Peace 🌸",
+    title:
+      "A Wish For Peace 🌸",
 
     text:
       "May your heart have peaceful days, calm moments and the comfort of knowing that you are cared for."
-
   },
 
   {
-    title:"A Wish For Memories 💕",
+    title:
+      "A Wish For Memories 💕",
 
     text:
       "May this year bring you beautiful memories that you'll look back on someday and smile about."
-
   },
 
   {
-    title:"A Wish For Magic ✨",
+    title:
+      "A Wish For Magic ✨",
 
     text:
       "May ordinary days unexpectedly become special and may life surprise you in the sweetest ways."
-
   },
 
   {
-    title:"A Wish For Love 🦋",
+    title:
+      "A Wish For Love 🦋",
 
     text:
       "May you always be surrounded by genuine care, kindness, laughter and people who truly want to see you happy."
-
   }
 
 ];
 
 
-let wheelSpinning =
-  false;
+let wheelSpinning = false;
 
-let wheelRotation =
-  0;
+let wheelRotation = 0;
 
-let selectedWish =
-  0;
+let selectedWish = 0;
 
 
 function spinWheel(){
 
-  startMusic();
-
-
-  if(wheelSpinning)
+  if(wheelSpinning){
     return;
+  }
 
 
-  wheelSpinning =
-    true;
+  wheelSpinning = true;
 
 
   const wheel =
@@ -2669,13 +3042,12 @@ function spinWheel(){
     );
 
 
-  spinButton.disabled =
-    true;
+  spinButton.disabled = true;
 
 
   selectedWish =
     Math.floor(
-      Math.random() * 8
+      Math.random()*8
     );
 
 
@@ -2699,64 +3071,59 @@ function spinWheel(){
     "deg)";
 
 
-  setTimeout(
-    ()=>{
+  setTimeout(()=>{
 
-      document
-        .getElementById(
-          "wheelResult"
-        )
-        .textContent =
-          wishes[
-            selectedWish
-          ].title;
-
-
-      document
-        .getElementById(
-          "wishTitle"
-        )
-        .textContent =
-          wishes[
-            selectedWish
-          ].title;
+    document
+      .getElementById(
+        "wheelResult"
+      )
+      .textContent =
+        wishes[
+          selectedWish
+        ].title;
 
 
-      document
-        .getElementById(
-          "wishText"
-        )
-        .textContent =
-          wishes[
-            selectedWish
-          ].text;
+    document
+      .getElementById(
+        "wishTitle"
+      )
+      .textContent =
+        wishes[
+          selectedWish
+        ].title;
 
 
-      document
-        .getElementById(
-          "wheelNext"
-        )
-        .style.display =
-          "inline-block";
+    document
+      .getElementById(
+        "wishText"
+      )
+      .textContent =
+        wishes[
+          selectedWish
+        ].text;
 
 
-      wheelSpinning =
-        false;
+    document
+      .getElementById(
+        "wheelNext"
+      )
+      .style.display =
+        "inline-block";
 
 
-      spinButton.disabled =
-        false;
+    wheelSpinning = false;
 
-    },
-    4100
-  );
+    spinButton.disabled =
+      false;
+
+  },4100);
 
 }
 
 
-/* =========================================
+/* =====================================================
    SCRATCH CARD
-========================================= */
+===================================================== */
 
 const canvas =
   document.getElementById(
@@ -2770,11 +3137,9 @@ const ctx =
   );
 
 
-let scratching =
-  false;
+let scratching = false;
 
-let scratchedPixels =
-  0;
+let scratchedPixels = 0;
 
 
 function setupScratchCanvas(){
@@ -2838,12 +3203,10 @@ function setupScratchCanvas(){
     "#d9d9df"
   );
 
-
   gradient.addColorStop(
     .5,
     "#a8a8b2"
   );
-
 
   gradient.addColorStop(
     1,
@@ -2877,13 +3240,12 @@ function setupScratchCanvas(){
 
   ctx.fillText(
     "SCRATCH ME ✨",
-    rect.width / 2,
-    rect.height / 2
+    rect.width/2,
+    rect.height/2
   );
 
 
-  scratchedPixels =
-    0;
+  scratchedPixels = 0;
 
 
   document
@@ -2929,7 +3291,7 @@ function scratchAt(x,y){
     py,
     25,
     0,
-    Math.PI * 2
+    Math.PI*2
   );
 
 
@@ -2939,9 +3301,7 @@ function scratchAt(x,y){
   scratchedPixels++;
 
 
-  if(
-    scratchedPixels > 55
-  ){
+  if(scratchedPixels > 55){
 
     document
       .getElementById(
@@ -2959,11 +3319,7 @@ canvas.addEventListener(
   "pointerdown",
   event=>{
 
-    startMusic();
-
-
-    scratching =
-      true;
+    scratching = true;
 
 
     canvas.setPointerCapture(
@@ -2984,8 +3340,9 @@ canvas.addEventListener(
   "pointermove",
   event=>{
 
-    if(!scratching)
+    if(!scratching){
       return;
+    }
 
 
     scratchAt(
@@ -3017,9 +3374,7 @@ window.addEventListener(
   "resize",
   ()=>{
 
-    if(
-      currentScene === 6
-    ){
+    if(currentScene === 6){
 
       setupScratchCanvas();
 
@@ -3029,76 +3384,70 @@ window.addEventListener(
 );
 
 
-/* =========================================
+/* =====================================================
    LETTER
-========================================= */
+===================================================== */
 
 const exactLetter = `Dear Chiku, 💗🦋
 
 Happy Birthday to my favourite person. 🎂💕
 
-You know, sometimes I wonder how we can talk so much and still somehow have something new to talk about every day. 😌💗🫂
+You know, sometimes I wonder how we can talk so much and still somehow have something new to talk about every day. 😌💗🫂 From the most random conversations to the things that actually matter, I love all those little moments we share.😹💖💗🫂
 
-From the most random conversations to the things that actually matter, I love all those little moments we share. 😹💖💗🫂
+You're not just someone I wish a happy birthday today.🧸💗
 
-You're not just someone I wish a happy birthday to today. 🧸💗
+You're someone I genuinely care about.💖🫂
 
-You're someone I genuinely care about. 💖🫂
+I want to see you happy. I want to see you achieve the things you dream about. I want to be there when you're excited about something, when you're proud of yourself, and even when you're having one of those days when everything feels a little too much.🫂💖
 
-I want to see you happy. I want to see you achieve the things you dream about. I want to be there when you're excited about something, when you're proud of yourself, and even when you're having one of those days when everything feels a little too much. 🫂💖
+If you're happy, I'll be happy seeing you happy.😁💕
 
-If you're happy, I'll be happy seeing you happy. 😁💕
+And if you're having a difficult day, you don't have to pretend everything is okay. Take your time, tell me what's bothering you, complain about everything if you want 😌💗🫂—I'll listen.
 
-And if you're having a difficult day, you don't have to pretend everything is okay. Take your time, tell me what's bothering you, complain about everything if you want 😌💗🫂 — I'll listen.
-
-Because caring about someone isn't only about being there for the good moments. 💗🧸
+Because caring about someone isn't only about being there for the good moments.💗🧸
 
 It's also about staying beside them when things aren't so easy. 💗
 
-We've shared so many funny little nicknames and silly conversations, and honestly, those are some of the moments that make me smile. 😌💕🫂
+We've already given each other those funny little titles— you calling me your husband,piyari,Chinu💗✨ and me calling you my wife,pagli,piyari,Chiku 🤭🫂💗
 
-But beyond all the teasing and all our endless conversations, what matters most is that we care about each other. 😌💗✨
+And honestly, it's one of those silly things between us that makes me smile.😌💕🫂
+
+But beyond all the teasing and all our endless conversations, what matters to me most is that we care about each other.😌💗✨
 
 So on your birthday, I want to make one simple wish for you:
 
-May you always have reasons to smile. 🦋💗
+May you always have reasons to smile. 🦋 💗 May you have the courage to chase your dreams.😌 May you never feel alone when life gets difficult.💕💐 And may you always remember that someone is cheering for you. 🦋✨
 
-May you have the courage to chase your dreams. 😌
+Please take care of yourself, Chiku.💕🫂
 
-May you never feel alone when life gets difficult. 💕💐
-
-And may you always remember that someone is cheering for you. 🦋✨
-
-Please take care of yourself, Chiku. 💕🫂
-
-Eat properly, drink water and rest when you're tired, don't overthink everything 😌💗💐, and most importantly, don't forget to be proud of yourself. ✨
+Eat properly, Drink water and rest when you're tired, don't overthink everytime 😌💗💐, and most importantly, don't forget to be proud of yourself.✨
 
 You've got someone here who's going to keep annoying you, listening to your endless stories, laughing at your random jokes, and caring about you. 😹🫂💗💐
 
+And yes...
+
+I'll always be cheering for you and wishing the best for you. 😌💗
+
 Happy Birthday, Chiku. 🎂🦋
 
-I hope this year brings you beautiful moments, peaceful days, lots of laughter, and memories that you'll look back on and smile about. ✨🫂
+I hope this year brings you beautiful moments, peaceful days, lots of laughter, and memories that we'll look back on and smile about.✨🫂
 
-Stay happy. Stay yourself. And keep collecting beautiful memories. ✨🦋
+Stay happy. Stay yourself. And keep talking to me like there's no tomorrow. ✨🦋
 
-With care, kindness, and a million little wishes,`;
+With love, care, and a million little wishes,`;
 
 
-let letterOpened =
-  false;
+let letterOpened = false;
 
 
 function openLetter(){
 
-  startMusic();
-
-
-  if(letterOpened)
+  if(letterOpened){
     return;
+  }
 
 
-  letterOpened =
-    true;
+  letterOpened = true;
 
 
   const envelope =
@@ -3130,27 +3479,24 @@ function openLetter(){
   );
 
 
-  setTimeout(
-    ()=>{
+  setTimeout(()=>{
 
-      paper.classList.add(
-        "show"
-      );
-
-
-      textElement.textContent =
-        "";
+    paper.classList.add(
+      "show"
+    );
 
 
-      signElement.textContent =
-        "";
+    textElement.textContent =
+      "";
 
 
-      typeLetter();
+    signElement.textContent =
+      "";
 
-    },
-    700
-  );
+
+    typeLetter();
+
+  },700);
 
 }
 
@@ -3163,8 +3509,7 @@ function typeLetter(){
     );
 
 
-  let index =
-    0;
+  let index = 0;
 
 
   const cursor =
@@ -3191,9 +3536,7 @@ function typeLetter(){
 
       cursor.before(
         document.createTextNode(
-          exactLetter.charAt(
-            index
-          )
+          exactLetter.charAt(index)
         )
       );
 
@@ -3236,154 +3579,564 @@ function typeLetter(){
 }
 
 
-/* =========================================
-   PHOTO VIEWER
-========================================= */
+/* =====================================================
+   STRONG JAVASCRIPT FIREWORK SOUND
+===================================================== */
 
-function openPhoto(
-  imagePath,
-  imageName
+/*
+  IMPORTANT:
+
+  No fireworks audio file is needed.
+
+  This creates the sound entirely
+  with the Web Audio API.
+
+  It has:
+
+  1. Launch sound
+  2. Deep boom
+  3. Bright crackle
+  4. Multiple smaller pops
+*/
+
+
+let audioContext = null;
+
+
+function getAudioContext(){
+
+  if(!audioContext){
+
+    const AudioContext =
+      window.AudioContext ||
+      window.webkitAudioContext;
+
+
+    if(!AudioContext){
+      return null;
+    }
+
+
+    audioContext =
+      new AudioContext();
+
+  }
+
+
+  if(
+    audioContext.state ===
+    "suspended"
+  ){
+
+    audioContext.resume();
+
+  }
+
+
+  return audioContext;
+
+}
+
+
+/* -------------------------
+   NOISE BUFFER
+------------------------- */
+
+function createNoiseBuffer(
+  duration
 ){
 
-  const viewer =
-    document.getElementById(
-      "photoViewer"
+  const ac =
+    getAudioContext();
+
+
+  if(!ac){
+    return null;
+  }
+
+
+  const length =
+    Math.floor(
+      ac.sampleRate *
+      duration
     );
 
 
-  const image =
-    document.getElementById(
-      "viewerImage"
+  const buffer =
+    ac.createBuffer(
+      1,
+      length,
+      ac.sampleRate
     );
 
 
-  const name =
-    document.getElementById(
-      "viewerName"
-    );
+  const data =
+    buffer.getChannelData(0);
 
 
-  image.src =
-    imagePath;
+  for(
+    let i=0;
+    i<length;
+    i++
+  ){
+
+    /*
+      Natural noise decay.
+    */
+
+    const fade =
+      1 -
+      i / length;
 
 
-  image.alt =
-    imageName;
-
-
-  name.textContent =
-    imageName;
-
-
-  viewer.classList.add(
-    "show"
-  );
-
-}
-
-
-function closePhoto(event){
-
-  if(event){
-
-    if(
-      event.target.id !==
-        "photoViewer" &&
-      !event.target.classList.contains(
-        "photo-close"
+    data[i] =
+      (
+        Math.random()*2 - 1
       )
-    ){
-
-      return;
-
-    }
-
-    event.stopPropagation();
+      *
+      fade;
 
   }
 
 
-  const viewer =
-    document.getElementById(
-      "photoViewer"
-    );
-
-
-  viewer.classList.remove(
-    "show"
-  );
-
-
-  document
-    .getElementById(
-      "viewerImage"
-    )
-    .src =
-      "";
+  return buffer;
 
 }
 
 
-document.addEventListener(
-  "keydown",
-  event=>{
+/* -------------------------
+   FIREWORK LAUNCH
+------------------------- */
 
-    if(
-      event.key ===
-      "Escape"
-    ){
+function playLaunchSound(
+  ac,
+  startTime
+){
 
-      const viewer =
-        document.getElementById(
-          "photoViewer"
-        );
+  const oscillator =
+    ac.createOscillator();
 
 
-      if(
-        viewer.classList.contains(
-          "show"
-        )
-      ){
-
-        viewer.classList.remove(
-          "show"
-        );
+  const gain =
+    ac.createGain();
 
 
-        document
-          .getElementById(
-            "viewerImage"
-          )
-          .src =
-            "";
+  const filter =
+    ac.createBiquadFilter();
 
-      }
 
+  oscillator.type =
+    "triangle";
+
+
+  /*
+    Rising pitch = rocket
+    travelling upward.
+  */
+
+  oscillator.frequency
+    .setValueAtTime(
+      85,
+      startTime
+    );
+
+
+  oscillator.frequency
+    .exponentialRampToValueAtTime(
+      720,
+      startTime + .65
+    );
+
+
+  filter.type =
+    "lowpass";
+
+
+  filter.frequency
+    .setValueAtTime(
+      500,
+      startTime
+    );
+
+
+  filter.frequency
+    .exponentialRampToValueAtTime(
+      3200,
+      startTime + .65
+    );
+
+
+  gain.gain
+    .setValueAtTime(
+      .0001,
+      startTime
+    );
+
+
+  gain.gain
+    .exponentialRampToValueAtTime(
+      .20,
+      startTime + .08
+    );
+
+
+  gain.gain
+    .exponentialRampToValueAtTime(
+      .0001,
+      startTime + .72
+    );
+
+
+  oscillator
+    .connect(filter)
+    .connect(gain)
+    .connect(ac.destination);
+
+
+  oscillator.start(
+    startTime
+  );
+
+
+  oscillator.stop(
+    startTime + .75
+  );
+
+}
+
+
+/* -------------------------
+   FIREWORK BOOM
+------------------------- */
+
+function playBoom(
+  ac,
+  startTime
+){
+
+  const buffer =
+    createNoiseBuffer(.65);
+
+
+  if(!buffer){
+    return;
+  }
+
+
+  const source =
+    ac.createBufferSource();
+
+
+  const filter =
+    ac.createBiquadFilter();
+
+
+  const gain =
+    ac.createGain();
+
+
+  source.buffer =
+    buffer;
+
+
+  /*
+    Low frequency gives
+    the sound its big boom.
+  */
+
+  filter.type =
+    "lowpass";
+
+
+  filter.frequency.value =
+    1300;
+
+
+  gain.gain
+    .setValueAtTime(
+      .0001,
+      startTime
+    );
+
+
+  gain.gain
+    .exponentialRampToValueAtTime(
+      .65,
+      startTime + .015
+    );
+
+
+  gain.gain
+    .exponentialRampToValueAtTime(
+      .0001,
+      startTime + .65
+    );
+
+
+  source
+    .connect(filter)
+    .connect(gain)
+    .connect(ac.destination);
+
+
+  source.start(
+    startTime
+  );
+
+}
+
+
+/* -------------------------
+   FIREWORK CRACKLE
+------------------------- */
+
+function playCrackle(
+  ac,
+  startTime
+){
+
+  /*
+    Many tiny pops create
+    the characteristic sparkle.
+  */
+
+  for(
+    let i=0;
+    i<22;
+    i++
+  ){
+
+    const delay =
+      Math.random() * .55;
+
+
+    const duration =
+      .035 +
+      Math.random() * .065;
+
+
+    const buffer =
+      createNoiseBuffer(
+        duration
+      );
+
+
+    if(!buffer){
+      continue;
     }
 
+
+    const source =
+      ac.createBufferSource();
+
+
+    const filter =
+      ac.createBiquadFilter();
+
+
+    const gain =
+      ac.createGain();
+
+
+    source.buffer =
+      buffer;
+
+
+    filter.type =
+      "bandpass";
+
+
+    filter.frequency.value =
+      1800 +
+      Math.random()*5000;
+
+
+    filter.Q.value =
+      1.2;
+
+
+    const popTime =
+      startTime + delay;
+
+
+    const volume =
+      .08 +
+      Math.random()*.12;
+
+
+    gain.gain
+      .setValueAtTime(
+        .0001,
+        popTime
+      );
+
+
+    gain.gain
+      .exponentialRampToValueAtTime(
+        volume,
+        popTime + .005
+      );
+
+
+    gain.gain
+      .exponentialRampToValueAtTime(
+        .0001,
+        popTime + duration
+      );
+
+
+    source
+      .connect(filter)
+      .connect(gain)
+      .connect(ac.destination);
+
+
+    source.start(
+      popTime
+    );
+
   }
-);
+
+}
 
 
-/* =========================================
-   FALLING FLOWERS
-========================================= */
+/* -------------------------
+   COMPLETE FIREWORK
+------------------------- */
+
+function playFireworkBurst(
+  delay
+){
+
+  const ac =
+    getAudioContext();
+
+
+  if(!ac){
+    return;
+  }
+
+
+  const start =
+    ac.currentTime +
+    delay;
+
+
+  /*
+    Launch
+  */
+
+  playLaunchSound(
+    ac,
+    start
+  );
+
+
+  /*
+    Boom happens after
+    the rocket reaches the sky.
+  */
+
+  const explosion =
+    start + .70;
+
+
+  playBoom(
+    ac,
+    explosion
+  );
+
+
+  playCrackle(
+    ac,
+    explosion
+  );
+
+}
+
+
+/* -------------------------
+   FIREWORK SHOW
+------------------------- */
+
+let lastFireworkShow = 0;
+
+
+function playFireworksShow(){
+
+  const now =
+    Date.now();
+
+
+  /*
+    Prevent accidental
+    double triggering.
+  */
+
+  if(
+    now - lastFireworkShow <
+    900
+  ){
+    return;
+  }
+
+
+  lastFireworkShow =
+    now;
+
+
+  const ac =
+    getAudioContext();
+
+
+  if(!ac){
+    return;
+  }
+
+
+  /*
+    Three visual fireworks
+    = three sound bursts.
+  */
+
+  playFireworkBurst(
+    0
+  );
+
+
+  playFireworkBurst(
+    .85
+  );
+
+
+  playFireworkBurst(
+    1.70
+  );
+
+}
+
+
+/* =====================================================
+   FALLING PETALS
+===================================================== */
 
 function createPetals(){
 
   const emojis = [
+
     "🌸",
     "💮",
     "🌷",
     "✨",
     "🦋",
     "💗"
+
   ];
 
 
   for(
-    let i = 0;
-    i < 22;
+    let i=0;
+    i<22;
     i++
   ){
 
@@ -3407,22 +4160,21 @@ function createPetals(){
 
 
     petal.style.left =
-      Math.random() *
-      100 +
+      Math.random()*100 +
       "%";
 
 
     petal.style.animationDuration =
       (
         5 +
-        Math.random() * 6
+        Math.random()*6
       ) +
       "s";
 
 
     petal.style.animationDelay =
       (
-        Math.random() * 7
+        Math.random()*7
       ) +
       "s";
 
@@ -3430,7 +4182,7 @@ function createPetals(){
     petal.style.fontSize =
       (
         12 +
-        Math.random() * 10
+        Math.random()*10
       ) +
       "px";
 
@@ -3448,25 +4200,14 @@ function createPetals(){
 }
 
 
-createPetals();
-
-
-/* =========================================
+/* =====================================================
    START
-========================================= */
+===================================================== */
+
+createPetals();
 
 goTo(0);
 
-
-/*
-   Try music one more time after
-   everything has loaded.
-*/
-
-setTimeout(
-  startMusic,
-  300
-);
 
 </script>
 
