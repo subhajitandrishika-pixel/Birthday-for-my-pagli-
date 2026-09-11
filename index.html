@@ -519,7 +519,6 @@ h2{
   border-radius:8px;
   background:#111;
 
-  /* PHOTO VIEWER */
   cursor:pointer;
   -webkit-user-select:none;
   user-select:none;
@@ -1375,11 +1374,12 @@ h2{
   id="bgMusic"
   src="birthday.mp3"
   loop
+  autoplay
   preload="auto">
 </audio>
 
 
-<!-- 25-SECOND ENDING FIREWORKS SOUND -->
+<!-- ENDING FIREWORKS SOUND -->
 
 <audio
   id="fireworksSound"
@@ -1391,6 +1391,7 @@ h2{
 <button
   class="music-toggle"
   id="musicButton"
+  type="button"
   onclick="toggleMusic(event)">
 
   🎵 Music: On
@@ -2069,77 +2070,15 @@ h2{
 
 <div class="nav">
 
-  <button
-    onclick="goTo(0)"
-    id="nav0">
-
-    ✦
-
-  </button>
-
-  <button
-    onclick="goTo(1)"
-    id="nav1">
-
-    ♡
-
-  </button>
-
-  <button
-    onclick="goTo(2)"
-    id="nav2">
-
-    🎂
-
-  </button>
-
-  <button
-    onclick="goTo(3)"
-    id="nav3">
-
-    📸
-
-  </button>
-
-  <button
-    onclick="goTo(4)"
-    id="nav4">
-
-    🎡
-
-  </button>
-
-  <button
-    onclick="goTo(5)"
-    id="nav5">
-
-    💗
-
-  </button>
-
-  <button
-    onclick="goTo(6)"
-    id="nav6">
-
-    🎟️
-
-  </button>
-
-  <button
-    onclick="goTo(7)"
-    id="nav7">
-
-    💌
-
-  </button>
-
-  <button
-    onclick="goTo(8)"
-    id="nav8">
-
-    🦋
-
-  </button>
+  <button onclick="goTo(0)" id="nav0">✦</button>
+  <button onclick="goTo(1)" id="nav1">♡</button>
+  <button onclick="goTo(2)" id="nav2">🎂</button>
+  <button onclick="goTo(3)" id="nav3">📸</button>
+  <button onclick="goTo(4)" id="nav4">🎡</button>
+  <button onclick="goTo(5)" id="nav5">💗</button>
+  <button onclick="goTo(6)" id="nav6">🎟️</button>
+  <button onclick="goTo(7)" id="nav7">💌</button>
+  <button onclick="goTo(8)" id="nav8">🦋</button>
 
 </div>
 
@@ -2147,7 +2086,9 @@ h2{
 <script>
 
 
-/* MEMORY PHOTO VIEWER */
+/* =========================================================
+   MEMORY PHOTO VIEWER
+========================================================= */
 
 const photoViewer =
   document.getElementById("photoViewer");
@@ -2210,14 +2151,9 @@ document.addEventListener(
 );
 
 
-/* AUDIO
-
-   Birthday music remembers the user's choice.
-
-   Fireworks sound plays only on the ending page
-   and restarts after it ends.
-*/
-
+/* =========================================================
+   AUDIO SYSTEM
+========================================================= */
 
 const bgMusic =
   document.getElementById("bgMusic");
@@ -2232,6 +2168,11 @@ const fireworksSound =
 let musicEnabled =
   localStorage.getItem("birthdayMusicEnabled");
 
+
+/*
+   First-time visitors get music ON.
+   Returning visitors keep their previous choice.
+*/
 
 if(musicEnabled === null){
 
@@ -2250,6 +2191,11 @@ bgMusic.volume = 0.45;
 fireworksSound.volume = 1.0;
 
 
+/* Keep audio ready */
+
+bgMusic.preload = "auto";
+
+
 function updateMusicButton(){
 
   musicButton.textContent =
@@ -2260,19 +2206,55 @@ function updateMusicButton(){
 }
 
 
+/*
+   Main birthday music starter.
+
+   IMPORTANT:
+   The browser may reject play() during page load.
+   That rejection is normal on browsers that block
+   audible autoplay.
+
+   We do NOT change the user's ON/OFF choice here.
+*/
+
 function startBirthdayMusic(){
 
   if(!musicEnabled)
     return;
 
-  bgMusic
-    .play()
-    .catch(()=>{});
+  if(
+    bgMusic.readyState === 0
+  ){
+
+    bgMusic.load();
+
+  }
+
+  const playPromise =
+    bgMusic.play();
+
+  if(playPromise){
+
+    playPromise.catch(()=>{
+
+      /*
+         Autoplay was blocked.
+         The first real user interaction will
+         call this function again.
+      */
+
+    });
+
+  }
 
   updateMusicButton();
 
 }
 
+
+/*
+   Stop birthday music completely.
+*/
 
 function stopBirthdayMusic(){
 
@@ -2283,12 +2265,21 @@ function stopBirthdayMusic(){
 }
 
 
+/*
+   Music button.
+*/
+
 function toggleMusic(event){
 
-  if(event)
+  if(event){
+
+    event.preventDefault();
     event.stopPropagation();
 
-  musicEnabled = !musicEnabled;
+  }
+
+  musicEnabled =
+    !musicEnabled;
 
   localStorage.setItem(
     "birthdayMusicEnabled",
@@ -2308,14 +2299,39 @@ function toggleMusic(event){
 }
 
 
-/* Try autoplay on load.
+/*
+   ========================================================
+   AUTOPLAY ATTEMPT
+   ========================================================
 
-   Browsers may block it until the first tap.
-
-   The first tap only starts music if
-   the user has left it ON.
+   Try immediately as soon as the page is loaded.
 */
 
+window.addEventListener(
+  "DOMContentLoaded",
+  ()=>{
+
+    updateMusicButton();
+
+    /*
+       Give the browser a tiny moment to finish
+       loading the audio element before play().
+    */
+
+    setTimeout(
+      ()=>{
+        startBirthdayMusic();
+      },
+      100
+    );
+
+  }
+);
+
+
+/*
+   Also try once after the complete page loads.
+*/
 
 window.addEventListener(
   "load",
@@ -2329,21 +2345,103 @@ window.addEventListener(
 );
 
 
-document.addEventListener(
-  "pointerdown",
-  event=>{
+/*
+   ========================================================
+   FIRST USER INTERACTION FALLBACK
+   ========================================================
 
-    if(
-      event.target.closest("#musicButton")
-    )
-      return;
+   This is the important part.
+
+   If Chrome/Android blocks audible autoplay,
+   the first tap anywhere on the page is treated
+   as the user's permission to start the music.
+
+   It happens BEFORE the button's normal click action.
+*/
+
+let musicInteractionHandled = false;
+
+
+function handleFirstInteraction(event){
+
+  /*
+     Do not interfere with the Music button itself.
+     Its own click handler controls music.
+  */
+
+  if(
+    event.target &&
+    event.target.closest &&
+    event.target.closest("#musicButton")
+  ){
+
+    return;
+
+  }
+
+
+  if(!musicInteractionHandled){
+
+    musicInteractionHandled = true;
 
     startBirthdayMusic();
 
-  },
-  {once:true}
+  }
+
+}
+
+
+/*
+   pointerdown works for Android touch screens
+   and also for mouse input.
+*/
+
+document.addEventListener(
+  "pointerdown",
+  handleFirstInteraction,
+  {
+    passive:true
+  }
 );
 
+
+/*
+   Extra fallback for browsers that behave differently
+   with touch events.
+*/
+
+document.addEventListener(
+  "touchstart",
+  handleFirstInteraction,
+  {
+    passive:true
+  }
+);
+
+
+/*
+   Keyboard fallback for desktop visitors.
+*/
+
+document.addEventListener(
+  "keydown",
+  event=>{
+
+    if(!musicInteractionHandled){
+
+      musicInteractionHandled = true;
+
+      startBirthdayMusic();
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   FIREWORKS SOUND
+========================================================= */
 
 function startFireworksSound(){
 
@@ -2351,9 +2449,14 @@ function startFireworksSound(){
 
   fireworksSound.currentTime = 0;
 
-  fireworksSound
-    .play()
-    .catch(()=>{});
+  const playPromise =
+    fireworksSound.play();
+
+  if(playPromise){
+
+    playPromise.catch(()=>{});
+
+  }
 
 }
 
@@ -2367,10 +2470,10 @@ function stopFireworksSound(){
 }
 
 
-/* If the 25-second file finishes while scene 8
-   is still open, start it again from the beginning.
+/*
+   If fireworks.mp3 finishes while scene 8 is open,
+   start it again.
 */
-
 
 fireworksSound.addEventListener(
   "ended",
@@ -2380,9 +2483,14 @@ fireworksSound.addEventListener(
 
       fireworksSound.currentTime = 0;
 
-      fireworksSound
-        .play()
-        .catch(()=>{});
+      const playPromise =
+        fireworksSound.play();
+
+      if(playPromise){
+
+        playPromise.catch(()=>{});
+
+      }
 
     }
 
@@ -2390,12 +2498,23 @@ fireworksSound.addEventListener(
 );
 
 
-/* SCENE NAVIGATION */
+/* =========================================================
+   SCENE NAVIGATION
+========================================================= */
 
 let currentScene = 0;
 
 
 function goTo(number){
+
+  /*
+     IMPORTANT:
+     Calling this from a real button tap is also
+     a valid user interaction for starting music.
+  */
+
+  startBirthdayMusic();
+
 
   const scenes =
     document.querySelectorAll(".scene");
@@ -2441,12 +2560,9 @@ function goTo(number){
   currentScene = number;
 
 
-  /* NEVER restart birthday music
-     just because the page changed.
-     The user's ON/OFF choice is controlled
-     only by the music button.
+  /*
+     Scratch card.
   */
-
 
   if(number === 6){
 
@@ -2458,10 +2574,9 @@ function goTo(number){
   }
 
 
-  /* Start the 25-second fireworks audio
-     when the ending page opens.
+  /*
+     Start fireworks when ending scene opens.
   */
-
 
   if(
     number === 8 &&
@@ -2473,10 +2588,9 @@ function goTo(number){
   }
 
 
-  /* Stop/reset fireworks whenever
-     the ending page is left.
+  /*
+     Stop fireworks when ending scene is left.
   */
-
 
   if(
     previousScene === 8 &&
@@ -2490,7 +2604,9 @@ function goTo(number){
 }
 
 
-/* TOAST */
+/* =========================================================
+   TOAST
+========================================================= */
 
 function showToast(message){
 
@@ -2523,7 +2639,9 @@ function showToast(message){
 }
 
 
-/* QUESTIONS */
+/* =========================================================
+   QUESTIONS
+========================================================= */
 
 const questions = [
 
@@ -2555,6 +2673,14 @@ let questionIndex = 0;
 
 
 function answerYes(){
+
+  /*
+     The Yes button is a user gesture,
+     so make absolutely sure music starts.
+  */
+
+  startBirthdayMusic();
+
 
   questionIndex++;
 
@@ -2588,6 +2714,9 @@ function answerYes(){
 
 
 function answerNo(){
+
+  startBirthdayMusic();
+
 
   showToast(
     noReplies[questionIndex]
@@ -2625,12 +2754,17 @@ function answerNo(){
 }
 
 
-/* CAKE */
+/* =========================================================
+   CAKE
+========================================================= */
 
 let candlesBlown = false;
 
 
 function blowCandles(){
+
+  startBirthdayMusic();
+
 
   if(candlesBlown)
     return;
@@ -2663,7 +2797,9 @@ function blowCandles(){
 }
 
 
-/* WHEEL */
+/* =========================================================
+   WHEEL
+========================================================= */
 
 const wishes = [
 
@@ -2734,6 +2870,9 @@ let selectedWish = 0;
 
 
 function spinWheel(){
+
+  startBirthdayMusic();
+
 
   if(wheelSpinning)
     return;
@@ -2815,7 +2954,9 @@ function spinWheel(){
 }
 
 
-/* SCRATCH */
+/* =========================================================
+   SCRATCH
+========================================================= */
 
 const canvas =
   document.getElementById(
@@ -3006,6 +3147,8 @@ canvas.addEventListener(
   "pointerdown",
   event=>{
 
+    startBirthdayMusic();
+
     scratching = true;
 
 
@@ -3070,7 +3213,9 @@ window.addEventListener(
 );
 
 
-/* LETTER */
+/* =========================================================
+   LETTER
+========================================================= */
 
 const exactLetter = `Dear Chiku, 💗🦋
 
@@ -3117,6 +3262,9 @@ let letterOpened = false;
 
 
 function openLetter(){
+
+  startBirthdayMusic();
+
 
   if(letterOpened)
     return;
@@ -3243,7 +3391,9 @@ function typeLetter(){
 }
 
 
-/* FALLING FLOWERS */
+/* =========================================================
+   FALLING FLOWERS
+========================================================= */
 
 function createPetals(){
 
@@ -3322,7 +3472,27 @@ function createPetals(){
 createPetals();
 
 
+/*
+   ========================================================
+   INITIALIZE
+   ========================================================
+*/
+
+updateMusicButton();
+
 goTo(0);
+
+
+/*
+   One final autoplay attempt after initialization.
+*/
+
+setTimeout(
+  ()=>{
+    startBirthdayMusic();
+  },
+  300
+);
 
 </script>
 
