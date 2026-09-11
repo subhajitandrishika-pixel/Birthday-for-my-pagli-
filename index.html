@@ -12,6 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@500;600;700&family=Kalam:wght@300;400;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -60,8 +61,15 @@ button{
 }
 
 @keyframes sceneIn{
-  from{opacity:0;transform:scale(1.025)}
-  to{opacity:1;transform:scale(1)}
+  from{
+    opacity:0;
+    transform:scale(1.025);
+  }
+
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
 }
 
 .scene::before{
@@ -108,14 +116,39 @@ button{
   z-index:2;
 }
 
-.b1{top:12%;left:8%}
-.b2{top:25%;right:9%;animation-delay:2s;font-size:20px}
-.b3{bottom:19%;left:12%;animation-delay:4s;font-size:18px}
-.b4{bottom:12%;right:12%;animation-delay:1.5s}
+.b1{
+  top:12%;
+  left:8%;
+}
+
+.b2{
+  top:25%;
+  right:9%;
+  animation-delay:2s;
+  font-size:20px;
+}
+
+.b3{
+  bottom:19%;
+  left:12%;
+  animation-delay:4s;
+  font-size:18px;
+}
+
+.b4{
+  bottom:12%;
+  right:12%;
+  animation-delay:1.5s;
+}
 
 @keyframes floatButterfly{
-  0%,100%{transform:translateY(0) rotate(-5deg)}
-  50%{transform:translateY(-18px) rotate(7deg)}
+  0%,100%{
+    transform:translateY(0) rotate(-5deg);
+  }
+
+  50%{
+    transform:translateY(-18px) rotate(7deg);
+  }
 }
 
 .kicker{
@@ -180,9 +213,17 @@ h2{
 }
 
 @keyframes heartbeat{
-  0%,100%{transform:scale(1)}
-  15%{transform:scale(1.12)}
-  30%{transform:scale(1)}
+  0%,100%{
+    transform:scale(1);
+  }
+
+  15%{
+    transform:scale(1.12);
+  }
+
+  30%{
+    transform:scale(1);
+  }
 }
 
 .question-card{
@@ -213,7 +254,8 @@ h2{
   flex-wrap:wrap;
 }
 
-.yes-btn,.no-btn{
+.yes-btn,
+.no-btn{
   padding:12px 28px;
   border-radius:999px;
   font-weight:700;
@@ -273,7 +315,9 @@ h2{
   height:75px;
   border-radius:16px 16px 24px 24px;
   background:linear-gradient(135deg,#b34dce,#e875ce 50%,#8354c8);
-  box-shadow:inset 0 -12px 0 rgba(65,18,77,.2),0 0 25px rgba(226,86,255,.2);
+  box-shadow:
+    inset 0 -12px 0 rgba(65,18,77,.2),
+    0 0 25px rgba(226,86,255,.2);
 }
 
 .cake-middle{
@@ -308,9 +352,19 @@ h2{
   background:#f5b0eb;
 }
 
-.d1{left:54px}
-.d2{left:100px;height:25px}
-.d3{right:55px;height:35px}
+.d1{
+  left:54px;
+}
+
+.d2{
+  left:100px;
+  height:25px;
+}
+
+.d3{
+  right:55px;
+  height:35px;
+}
 
 .strawberry{
   position:absolute;
@@ -318,9 +372,20 @@ h2{
   z-index:4;
 }
 
-.s1{left:55px;bottom:45px}
-.s2{right:55px;bottom:48px}
-.s3{left:105px;bottom:55px}
+.s1{
+  left:55px;
+  bottom:45px;
+}
+
+.s2{
+  right:55px;
+  bottom:48px;
+}
+
+.s3{
+  left:105px;
+  bottom:55px;
+}
 
 .candle{
   position:absolute;
@@ -338,9 +403,17 @@ h2{
   z-index:5;
 }
 
-.c1{left:84px}
-.c2{left:116px}
-.c3{left:148px}
+.c1{
+  left:84px;
+}
+
+.c2{
+  left:116px;
+}
+
+.c3{
+  left:148px;
+}
 
 .flame{
   position:absolute;
@@ -356,8 +429,13 @@ h2{
 }
 
 @keyframes flame{
-  from{transform:translateX(-50%) scale(.9)}
-  to{transform:translateX(-50%) scale(1.1)}
+  from{
+    transform:translateX(-50%) scale(.9);
+  }
+
+  to{
+    transform:translateX(-50%) scale(1.1);
+  }
 }
 
 .candle.off .flame{
@@ -384,15 +462,10 @@ h2{
   margin-top:13px;
 }
 
-
-/* ============================= */
-/* MEMORIES / PHOTOS */
-/* ============================= */
-
 .memory-wrap{
   position:relative;
   z-index:5;
-  width:min(950px,100%);
+  width:min(850px,100%);
   text-align:center;
 }
 
@@ -403,8 +476,9 @@ h2{
   margin-top:24px;
   overflow-x:auto;
   overflow-y:hidden;
-  padding:5px 4px 15px;
-  scroll-behavior:smooth;
+  padding-bottom:8px;
+  scrollbar-width:thin;
+  scrollbar-color:#9f63c8 transparent;
   -webkit-overflow-scrolling:touch;
 }
 
@@ -412,13 +486,8 @@ h2{
   height:5px;
 }
 
-.memory-grid::-webkit-scrollbar-track{
-  background:rgba(255,255,255,.06);
-  border-radius:10px;
-}
-
 .memory-grid::-webkit-scrollbar-thumb{
-  background:rgba(211,120,255,.55);
+  background:#9f63c8;
   border-radius:10px;
 }
 
@@ -434,13 +503,9 @@ h2{
   transition:transform .25s,box-shadow .25s;
 }
 
-.photo-slot:active{
-  transform:scale(.94);
-}
-
 .photo-slot:hover{
-  transform:translateY(-4px);
-  box-shadow:0 0 25px rgba(210,80,255,.45);
+  transform:translateY(-5px) scale(1.03);
+  box-shadow:0 0 25px rgba(217,103,255,.45);
 }
 
 .photo-slot img{
@@ -450,74 +515,6 @@ h2{
   border-radius:8px;
   background:#111;
   display:block;
-}
-
-
-/* ============================= */
-/* PHOTO VIEWER */
-/* ============================= */
-
-.photo-viewer{
-  position:fixed;
-  inset:0;
-  z-index:500;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:25px;
-  background:rgba(3,1,8,.92);
-  backdrop-filter:blur(12px);
-}
-
-.photo-viewer.show{
-  display:flex;
-  animation:viewerIn .3s ease both;
-}
-
-@keyframes viewerIn{
-  from{opacity:0}
-  to{opacity:1}
-}
-
-.photo-viewer img{
-  max-width:92vw;
-  max-height:82vh;
-  width:auto;
-  height:auto;
-  object-fit:contain;
-  border-radius:16px;
-  border:2px solid rgba(255,255,255,.2);
-  box-shadow:
-    0 0 40px rgba(211,83,255,.4),
-    0 0 90px rgba(82,103,255,.18);
-}
-
-.photo-close{
-  position:absolute;
-  top:18px;
-  right:18px;
-  width:44px;
-  height:44px;
-  border-radius:50%;
-  color:white;
-  background:rgba(255,255,255,.1);
-  border:1px solid rgba(255,255,255,.2);
-  font-size:24px;
-  line-height:44px;
-  text-align:center;
-}
-
-.photo-counter{
-  position:absolute;
-  bottom:25px;
-  left:50%;
-  transform:translateX(-50%);
-  padding:8px 15px;
-  border-radius:999px;
-  color:#fff;
-  background:rgba(20,10,28,.75);
-  border:1px solid rgba(255,255,255,.15);
-  font-size:12px;
 }
 
 .memory-note{
@@ -813,7 +810,9 @@ h2{
 }
 
 @keyframes blink{
-  50%{opacity:0}
+  50%{
+    opacity:0;
+  }
 }
 
 .final-content{
@@ -853,15 +852,40 @@ h2{
   animation:firework 2.7s infinite;
 }
 
-.fw1{left:18%;animation-delay:.3s}
-.fw2{left:48%;animation-delay:1s}
-.fw3{right:20%;animation-delay:1.6s}
+.fw1{
+  left:18%;
+  animation-delay:.3s;
+}
+
+.fw2{
+  left:48%;
+  animation-delay:1s;
+}
+
+.fw3{
+  right:20%;
+  animation-delay:1.6s;
+}
 
 @keyframes firework{
-  0%{transform:translateY(0);opacity:0}
-  15%{opacity:1}
-  60%{transform:translateY(-65vh);opacity:1}
-  100%{transform:translateY(-65vh) scale(15);opacity:0}
+  0%{
+    transform:translateY(0);
+    opacity:0;
+  }
+
+  15%{
+    opacity:1;
+  }
+
+  60%{
+    transform:translateY(-65vh);
+    opacity:1;
+  }
+
+  100%{
+    transform:translateY(-65vh) scale(15);
+    opacity:0;
+  }
 }
 
 .petal{
@@ -873,8 +897,13 @@ h2{
 }
 
 @keyframes fall{
-  from{transform:translateY(-30px) rotate(0)}
-  to{transform:translateY(110vh) rotate(360deg)}
+  from{
+    transform:translateY(-30px) rotate(0);
+  }
+
+  to{
+    transform:translateY(110vh) rotate(360deg);
+  }
 }
 
 .nav{
@@ -929,6 +958,84 @@ h2{
   transform:translateX(-50%) translateY(0);
 }
 
+/* MUSIC BUTTON */
+
+.music-toggle{
+  position:fixed;
+  z-index:200;
+  top:14px;
+  right:14px;
+  padding:9px 14px;
+  border-radius:999px;
+  color:white;
+  background:rgba(15,9,22,.75);
+  border:1px solid rgba(255,255,255,.18);
+  backdrop-filter:blur(12px);
+  font-size:12px;
+  box-shadow:0 0 18px rgba(190,75,255,.22);
+  transition:.2s;
+}
+
+.music-toggle:active{
+  transform:scale(.95);
+}
+
+/* PHOTO VIEWER */
+
+.photo-viewer{
+  position:fixed;
+  inset:0;
+  z-index:500;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:rgba(3,2,7,.92);
+  backdrop-filter:blur(12px);
+}
+
+.photo-viewer.show{
+  display:flex;
+  animation:sceneIn .3s ease both;
+}
+
+.photo-viewer img{
+  max-width:min(92vw,900px);
+  max-height:82vh;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  border-radius:16px;
+  border:2px solid rgba(255,190,245,.25);
+  box-shadow:0 0 50px rgba(210,75,255,.35);
+}
+
+.photo-close{
+  position:absolute;
+  top:18px;
+  right:18px;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  color:white;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.2);
+  font-size:22px;
+  z-index:501;
+}
+
+.photo-viewer-name{
+  position:absolute;
+  bottom:24px;
+  left:50%;
+  transform:translateX(-50%);
+  color:#ffe8fb;
+  font-size:13px;
+  background:rgba(15,8,20,.75);
+  padding:8px 14px;
+  border-radius:999px;
+}
+
 @media(max-width:520px){
 
   .scene{
@@ -959,8 +1066,12 @@ h2{
     font-size:10px;
   }
 
+  .memory-grid{
+    gap:7px;
+  }
+
   .photo-slot{
-    flex:0 0 90px;
+    flex-basis:90px;
     width:90px;
     height:120px;
   }
@@ -982,11 +1093,45 @@ h2{
   .nav{
     bottom:9px;
   }
+
+  .photo-viewer{
+    padding:14px;
+  }
+
+  .photo-viewer img{
+    max-width:94vw;
+    max-height:78vh;
+  }
+
+  .music-toggle{
+    top:10px;
+    right:10px;
+    padding:8px 12px;
+    font-size:11px;
+  }
 }
+
 </style>
 </head>
 
 <body>
+
+<!-- BACKGROUND MUSIC -->
+
+<audio
+  id="bgMusic"
+  src="birthday.mp3"
+  loop
+  preload="auto">
+</audio>
+
+<button
+  class="music-toggle"
+  id="musicButton"
+  onclick="toggleMusic(event)">
+  🎵 Music: Off
+</button>
+
 
 <div class="butterfly b1">🦋</div>
 <div class="butterfly b2">🦋</div>
@@ -998,16 +1143,25 @@ h2{
 
 <!-- PHOTO VIEWER -->
 
-<div class="photo-viewer" id="photoViewer">
+<div
+  class="photo-viewer"
+  id="photoViewer"
+  onclick="closePhoto(event)">
 
-  <button class="photo-close" onclick="closePhoto()">
+  <button
+    class="photo-close"
+    onclick="closePhoto(event)">
     ×
   </button>
 
-  <img id="viewerImage" src="" alt="Memory">
+  <img
+    id="viewerImage"
+    src=""
+    alt="Selected memory">
 
-  <div class="photo-counter" id="photoCounter">
-    1 / 10
+  <div
+    class="photo-viewer-name"
+    id="viewerName">
   </div>
 
 </div>
@@ -1015,18 +1169,27 @@ h2{
 
 <!-- INTRO -->
 
-<section class="scene active" id="scene0">
+<section
+  class="scene active"
+  id="scene0">
 
   <div class="glow one"></div>
   <div class="glow two"></div>
 
   <div class="intro-content">
 
-    <div class="intro-heart">💗</div>
+    <div class="intro-heart">
+      💗
+    </div>
 
-    <div class="kicker">A tiny universe made with love</div>
+    <div class="kicker">
+      A tiny universe made with love
+    </div>
 
-    <h1>A Little World<br>Made For Chiku 🦋</h1>
+    <h1>
+      A Little World<br>
+      Made For Chiku 🦋
+    </h1>
 
     <p class="subtitle">
       Chiku.... I made this little world just for you.
@@ -1034,57 +1197,76 @@ h2{
       So take a breath, tap below, and let the surprise begin. ✨
     </p>
 
-    <button class="main-btn" onclick="goTo(1)">
+    <button
+      class="main-btn"
+      onclick="goTo(1)">
       Enter Your Little World ✨
     </button>
 
   </div>
+
 </section>
 
 
 <!-- QUESTIONS -->
 
-<section class="scene" id="scene1">
+<section
+  class="scene"
+  id="scene1">
 
   <div class="glow one"></div>
   <div class="glow two"></div>
 
   <div class="question-card">
 
-    <div class="question-number" id="questionNumber">
+    <div
+      class="question-number"
+      id="questionNumber">
       QUESTION 01
     </div>
 
-    <div class="question-text" id="questionText">
+    <div
+      class="question-text"
+      id="questionText">
       Are you ready for your birthday surprise? 🦋
     </div>
 
     <div class="question-buttons">
 
-      <button class="yes-btn" onclick="answerYes()">
+      <button
+        class="yes-btn"
+        onclick="answerYes()">
         Yes 💗
       </button>
 
-      <button class="no-btn" id="noButton" onclick="answerNo()">
+      <button
+        class="no-btn"
+        id="noButton"
+        onclick="answerNo()">
         No 😌
       </button>
 
     </div>
 
   </div>
+
 </section>
 
 
 <!-- CAKE -->
 
-<section class="scene" id="scene2">
+<section
+  class="scene"
+  id="scene2">
 
   <div class="glow one"></div>
   <div class="glow two"></div>
 
   <div class="cake-wrap">
 
-    <div class="kicker">Make a wish</div>
+    <div class="kicker">
+      Make a wish
+    </div>
 
     <h2 class="cake-title">
       Happy Birthday, Chiku 🎂
@@ -1102,9 +1284,17 @@ h2{
       <div class="drip d2"></div>
       <div class="drip d3"></div>
 
-      <div class="strawberry s1">🍓</div>
-      <div class="strawberry s2">🍓</div>
-      <div class="strawberry s3">🍓</div>
+      <div class="strawberry s1">
+        🍓
+      </div>
+
+      <div class="strawberry s2">
+        🍓
+      </div>
+
+      <div class="strawberry s3">
+        🍓
+      </div>
 
       <div class="candle c1">
         <div class="flame"></div>
@@ -1124,182 +1314,303 @@ h2{
       Make your birthday wish... then blow the candles 🕯️✨
     </div>
 
-    <button class="blow-btn" onclick="blowCandles()">
+    <button
+      class="blow-btn"
+      onclick="blowCandles()">
       Blow The Candles 🕯️
     </button>
 
-    <button class="main-btn next-btn" id="cakeNext" onclick="goTo(3)">
+    <button
+      class="main-btn next-btn"
+      id="cakeNext"
+      onclick="goTo(3)">
       Continue 🦋
     </button>
 
   </div>
+
 </section>
 
 
 <!-- MEMORIES -->
 
-<section class="scene" id="scene3">
+<section
+  class="scene"
+  id="scene3">
 
   <div class="glow one"></div>
   <div class="glow two"></div>
 
   <div class="memory-wrap">
 
-    <div class="kicker">Our little memories</div>
+    <div class="kicker">
+      Our little memories
+    </div>
 
-    <h2>Moments With Chiku 💗</h2>
+    <h2>
+      Moments With Chiku 💗
+    </h2>
 
-    <p class="subtitle" style="margin-left:auto;margin-right:auto;">
+    <p
+      class="subtitle"
+      style="margin-left:auto;margin-right:auto;">
       Some moments are too special to fit into words.
       So here, we'll keep them as memories. 🦋
     </p>
 
-    <div class="memory-grid" id="memoryGrid">
+    <div class="memory-grid">
 
-      <div class="photo-slot" onclick="openPhoto(0)">
-        <img src="her1.jpg" alt="Chiku">
+      <div
+        class="photo-slot"
+        onclick="openPhoto('her1.jpg','Chiku — Photo 1')">
+
+        <img
+          src="her1.jpg"
+          alt="Chiku — Photo 1">
+
       </div>
 
-      <div class="photo-slot" onclick="openPhoto(1)">
-        <img src="her2.jpg" alt="Chiku">
+      <div
+        class="photo-slot"
+        onclick="openPhoto('her2.jpg','Chiku — Photo 2')">
+
+        <img
+          src="her2.jpg"
+          alt="Chiku — Photo 2">
+
       </div>
 
-      <div class="photo-slot" onclick="openPhoto(2)">
-        <img src="her3.jpg" alt="Chiku">
+      <div
+        class="photo-slot"
+        onclick="openPhoto('her3.jpg','Chiku — Photo 3')">
+
+        <img
+          src="her3.jpg"
+          alt="Chiku — Photo 3">
+
       </div>
 
-      <div class="photo-slot" onclick="openPhoto(3)">
-        <img src="her4.jpg" alt="Chiku">
+      <div
+        class="photo-slot"
+        onclick="openPhoto('her4.jpg','Chiku — Photo 4')">
+
+        <img
+          src="her4.jpg"
+          alt="Chiku — Photo 4">
+
       </div>
 
-      <div class="photo-slot" onclick="openPhoto(4)">
-        <img src="comment1.jpg" alt="Comment">
+      <div
+        class="photo-slot"
+        onclick="openPhoto('comment1.jpg','Comment — Photo 1')">
+
+        <img
+          src="comment1.jpg"
+          alt="Comment — Photo 1">
+
       </div>
 
-      <div class="photo-slot" onclick="openPhoto(5)">
-        <img src="comment2.jpg" alt="Comment">
+      <div
+        class="photo-slot"
+        onclick="openPhoto('comment2.jpg','Comment — Photo 2')">
+
+        <img
+          src="comment2.jpg"
+          alt="Comment — Photo 2">
+
       </div>
 
-      <div class="photo-slot" onclick="openPhoto(6)">
-        <img src="together1.jpg" alt="Together">
+      <div
+        class="photo-slot"
+        onclick="openPhoto('together1.jpg','Together — Photo 1')">
+
+        <img
+          src="together1.jpg"
+          alt="Together — Photo 1">
+
       </div>
 
-      <div class="photo-slot" onclick="openPhoto(7)">
-        <img src="together2.jpg" alt="Together">
+      <div
+        class="photo-slot"
+        onclick="openPhoto('together2.jpg','Together — Photo 2')">
+
+        <img
+          src="together2.jpg"
+          alt="Together — Photo 2">
+
       </div>
 
-      <div class="photo-slot" onclick="openPhoto(8)">
-        <img src="together3.jpg" alt="Together">
+      <div
+        class="photo-slot"
+        onclick="openPhoto('together3.jpg','Together — Photo 3')">
+
+        <img
+          src="together3.jpg"
+          alt="Together — Photo 3">
+
       </div>
 
-      <div class="photo-slot" onclick="openPhoto(9)">
-        <img src="together4.jpg" alt="Together">
+      <div
+        class="photo-slot"
+        onclick="openPhoto('together4.jpg','Together — Photo 4')">
+
+        <img
+          src="together4.jpg"
+          alt="Together — Photo 4">
+
       </div>
 
     </div>
 
     <div class="memory-note">
+
       Her photos → old conversations → together memories 💗
+
       <br>
-      <span style="font-size:11px;color:#9e8fa8;">
-        Tap any photo to view it ✨
-      </span>
+
+      Tap any photo to view it ✨
+
     </div>
 
-    <button class="main-btn" onclick="goTo(4)">
+    <button
+      class="main-btn"
+      onclick="goTo(4)">
       Continue To The Wheel 🎡
     </button>
 
   </div>
+
 </section>
 
 
 <!-- WHEEL -->
 
-<section class="scene" id="scene4">
+<section
+  class="scene"
+  id="scene4">
 
   <div class="glow one"></div>
   <div class="glow two"></div>
 
   <div class="wheel-wrap">
 
-    <div class="kicker">Spin your surprise</div>
+    <div class="kicker">
+      Spin your surprise
+    </div>
 
-    <h2>Spin The Little Wheel 🎡</h2>
+    <h2>
+      Spin The Little Wheel 🎡
+    </h2>
 
     <div class="wheel-area">
 
       <div class="wheel-pointer"></div>
 
-      <div class="wheel" id="wheel">
+      <div
+        class="wheel"
+        id="wheel">
 
-        <div class="wheel-label" style="--r:22.5deg">
+        <div
+          class="wheel-label"
+          style="--r:22.5deg">
           Smile 💗
         </div>
 
-        <div class="wheel-label" style="--r:67.5deg">
+        <div
+          class="wheel-label"
+          style="--r:67.5deg">
           Happiness 🦋
         </div>
 
-        <div class="wheel-label" style="--r:112.5deg">
+        <div
+          class="wheel-label"
+          style="--r:112.5deg">
           Dreams ✨
         </div>
 
-        <div class="wheel-label" style="--r:157.5deg">
+        <div
+          class="wheel-label"
+          style="--r:157.5deg">
           Laughter 😹
         </div>
 
-        <div class="wheel-label" style="--r:202.5deg">
+        <div
+          class="wheel-label"
+          style="--r:202.5deg">
           Peace 🌸
         </div>
 
-        <div class="wheel-label" style="--r:247.5deg">
+        <div
+          class="wheel-label"
+          style="--r:247.5deg">
           Memories 💕
         </div>
 
-        <div class="wheel-label" style="--r:292.5deg">
+        <div
+          class="wheel-label"
+          style="--r:292.5deg">
           Magic ✨
         </div>
 
-        <div class="wheel-label" style="--r:337.5deg">
+        <div
+          class="wheel-label"
+          style="--r:337.5deg">
           Love 🦋
         </div>
 
       </div>
+
     </div>
 
-    <button class="spin-btn" id="spinButton" onclick="spinWheel()">
+    <button
+      class="spin-btn"
+      id="spinButton"
+      onclick="spinWheel()">
       SPIN ✨
     </button>
 
-    <div class="wheel-result" id="wheelResult">
+    <div
+      class="wheel-result"
+      id="wheelResult">
       Your little wish is waiting...
     </div>
 
-    <button class="main-btn" id="wheelNext" style="display:none" onclick="goTo(5)">
+    <button
+      class="main-btn"
+      id="wheelNext"
+      style="display:none"
+      onclick="goTo(5)">
       See Your Wish 💌
     </button>
 
   </div>
+
 </section>
 
 
 <!-- WISH -->
 
-<section class="scene" id="scene5">
+<section
+  class="scene"
+  id="scene5">
 
   <div class="glow one"></div>
   <div class="glow two"></div>
 
   <div class="wish-card">
 
-    <div class="kicker">Your birthday wish</div>
+    <div class="kicker">
+      Your birthday wish
+    </div>
 
     <h2 id="wishTitle">
       A Little Wish For You 🦋
     </h2>
 
-    <p class="subtitle" id="wishText" style="margin-left:auto;margin-right:auto;">
+    <p
+      class="subtitle"
+      id="wishText"
+      style="margin-left:auto;margin-right:auto;">
       May your days always have something beautiful waiting for you.
     </p>
 
@@ -1307,59 +1618,84 @@ h2{
       — From Chinu 💗
     </div>
 
-    <button class="main-btn" onclick="goTo(6)">
+    <button
+      class="main-btn"
+      onclick="goTo(6)">
       One More Little Surprise ✨
     </button>
 
   </div>
+
 </section>
 
 
 <!-- SCRATCH -->
 
-<section class="scene" id="scene6">
+<section
+  class="scene"
+  id="scene6">
 
   <div class="glow one"></div>
   <div class="glow two"></div>
 
   <div class="scratch-wrap">
 
-    <div class="kicker">Don't peek 👀</div>
+    <div class="kicker">
+      Don't peek 👀
+    </div>
 
-    <h2>Scratch Your Surprise 🎟️</h2>
+    <h2>
+      Scratch Your Surprise 🎟️
+    </h2>
 
-    <p class="subtitle" style="margin-left:auto;margin-right:auto;">
+    <p
+      class="subtitle"
+      style="margin-left:auto;margin-right:auto;">
       Scratch the card gently to reveal what's hiding underneath.
     </p>
 
-    <div class="scratch-card" id="scratchCard">
+    <div
+      class="scratch-card"
+      id="scratchCard">
 
       <div class="scratch-message">
         Chiku, you are one of the most beautiful parts of my little world. 💗🦋
       </div>
 
-      <canvas id="scratchCanvas"></canvas>
+      <canvas
+        id="scratchCanvas">
+      </canvas>
 
     </div>
 
-    <button class="main-btn" id="scratchNext" style="display:none" onclick="goTo(7)">
+    <button
+      class="main-btn"
+      id="scratchNext"
+      style="display:none"
+      onclick="goTo(7)">
       Open The Letter 💌
     </button>
 
   </div>
+
 </section>
 
 
 <!-- LETTER -->
 
-<section class="scene letter-scene" id="scene7">
+<section
+  class="scene letter-scene"
+  id="scene7">
 
   <div class="glow one"></div>
   <div class="glow two"></div>
 
   <div class="letter-wrap">
 
-    <div class="envelope" id="envelope" onclick="openLetter()">
+    <div
+      class="envelope"
+      id="envelope"
+      onclick="openLetter()">
 
       <div class="envelope-text">
         A letter from Chinu 💌
@@ -1367,8 +1703,9 @@ h2{
 
     </div>
 
-
-    <div class="paper" id="paper">
+    <div
+      class="paper"
+      id="paper">
 
       <div class="letter-scroll">
 
@@ -1376,16 +1713,21 @@ h2{
           💌 A Birthday Letter From Chinu
         </div>
 
-        <div class="letter-text" id="letterText"></div>
+        <div
+          class="letter-text"
+          id="letterText">
+        </div>
 
-        <div class="letter-sign" id="letterSign"></div>
+        <div
+          class="letter-sign"
+          id="letterSign">
+        </div>
 
         <button
           class="letter-next"
           id="letterNext"
           style="display:none"
-          onclick="goTo(8)"
-        >
+          onclick="goTo(8)">
           Next ✨
         </button>
 
@@ -1400,7 +1742,9 @@ h2{
 
 <!-- ENDING -->
 
-<section class="scene" id="scene8">
+<section
+  class="scene"
+  id="scene8">
 
   <div class="glow one"></div>
   <div class="glow two"></div>
@@ -1416,7 +1760,8 @@ h2{
     </div>
 
     <h1 class="final-title">
-      Happy Birthday,<br>Chiku 🦋
+      Happy Birthday,<br>
+      Chiku 🦋
     </h1>
 
     <p class="final-message">
@@ -1448,26 +1793,168 @@ h2{
 </section>
 
 
-<!-- NAV -->
+<!-- NAVIGATION -->
 
 <div class="nav">
 
-  <button onclick="goTo(0)" id="nav0">✦</button>
-  <button onclick="goTo(1)" id="nav1">♡</button>
-  <button onclick="goTo(2)" id="nav2">🎂</button>
-  <button onclick="goTo(3)" id="nav3">📸</button>
-  <button onclick="goTo(4)" id="nav4">🎡</button>
-  <button onclick="goTo(5)" id="nav5">💗</button>
-  <button onclick="goTo(6)" id="nav6">🎟️</button>
-  <button onclick="goTo(7)" id="nav7">💌</button>
-  <button onclick="goTo(8)" id="nav8">🦋</button>
+  <button
+    onclick="goTo(0)"
+    id="nav0">
+    ✦
+  </button>
+
+  <button
+    onclick="goTo(1)"
+    id="nav1">
+    ♡
+  </button>
+
+  <button
+    onclick="goTo(2)"
+    id="nav2">
+    🎂
+  </button>
+
+  <button
+    onclick="goTo(3)"
+    id="nav3">
+    📸
+  </button>
+
+  <button
+    onclick="goTo(4)"
+    id="nav4">
+    🎡
+  </button>
+
+  <button
+    onclick="goTo(5)"
+    id="nav5">
+    💗
+  </button>
+
+  <button
+    onclick="goTo(6)"
+    id="nav6">
+    🎟️
+  </button>
+
+  <button
+    onclick="goTo(7)"
+    id="nav7">
+    💌
+  </button>
+
+  <button
+    onclick="goTo(8)"
+    id="nav8">
+    🦋
+  </button>
 
 </div>
 
 
 <script>
 
-/* SCENE NAVIGATION */
+/* =========================================
+   BACKGROUND MUSIC
+========================================= */
+
+const bgMusic =
+  document.getElementById("bgMusic");
+
+const musicButton =
+  document.getElementById("musicButton");
+
+let musicStarted = false;
+
+bgMusic.volume = 0.45;
+
+
+/* Start music after the first normal tap */
+
+function startMusic(){
+
+  if(musicStarted)
+    return;
+
+  bgMusic.play()
+    .then(()=>{
+
+      musicStarted = true;
+
+      musicButton.textContent =
+        "🎵 Music: On";
+
+    })
+    .catch(()=>{});
+
+}
+
+
+/* Music ON / OFF button */
+
+function toggleMusic(event){
+
+  if(event){
+    event.stopPropagation();
+  }
+
+  if(bgMusic.paused){
+
+    bgMusic.volume = 0.45;
+
+    bgMusic.play()
+      .then(()=>{
+
+        musicStarted = true;
+
+        musicButton.textContent =
+          "🎵 Music: On";
+
+      })
+      .catch(()=>{});
+
+  }else{
+
+    bgMusic.pause();
+
+    musicButton.textContent =
+      "🎵 Music: Off";
+
+  }
+
+}
+
+
+/*
+  Browsers normally block music autoplay.
+  This starts the music on the first tap,
+  except when the tap is directly on the
+  music button.
+*/
+
+document.addEventListener(
+  "pointerdown",
+  event=>{
+
+    if(
+      event.target.closest &&
+      event.target.closest("#musicButton")
+    ){
+      return;
+    }
+
+    startMusic();
+
+  },
+  {once:true}
+);
+
+
+/* =========================================
+   SCENE NAVIGATION
+========================================= */
 
 let currentScene = 0;
 
@@ -1476,24 +1963,36 @@ function goTo(number){
   const scenes =
     document.querySelectorAll(".scene");
 
-  if(number < 0 || number >= scenes.length)
+  if(
+    number < 0 ||
+    number >= scenes.length
+  ){
     return;
+  }
 
-  scenes.forEach((scene,index)=>{
-    scene.classList.toggle(
-      "active",
-      index === number
-    );
-  });
+  scenes.forEach(
+    (scene,index)=>{
 
-  document
-    .querySelectorAll(".nav button")
-    .forEach((button,index)=>{
-      button.classList.toggle(
+      scene.classList.toggle(
         "active",
         index === number
       );
-    });
+
+    }
+  );
+
+  document
+    .querySelectorAll(".nav button")
+    .forEach(
+      (button,index)=>{
+
+        button.classList.toggle(
+          "active",
+          index === number
+        );
+
+      }
+    );
 
   currentScene = number;
 
@@ -1509,117 +2008,38 @@ function goTo(number){
 }
 
 
-/* TOAST */
+/* =========================================
+   TOAST
+========================================= */
 
 function showToast(message){
 
   const toast =
     document.getElementById("toast");
 
-  toast.textContent = message;
+  toast.textContent =
+    message;
 
   toast.classList.add("show");
 
-  clearTimeout(window.toastTimer);
-
-  window.toastTimer =
-    setTimeout(()=>{
-      toast.classList.remove("show");
-    },2200);
-
-}
-
-
-/* ============================= */
-/* CLICKABLE PHOTOS */
-/* ============================= */
-
-const photoList = [
-
-  "her1.jpg",
-  "her2.jpg",
-  "her3.jpg",
-  "her4.jpg",
-  "comment1.jpg",
-  "comment2.jpg",
-  "together1.jpg",
-  "together2.jpg",
-  "together3.jpg",
-  "together4.jpg"
-
-];
-
-let currentPhoto = 0;
-
-function openPhoto(index){
-
-  currentPhoto = index;
-
-  const viewer =
-    document.getElementById("photoViewer");
-
-  const image =
-    document.getElementById("viewerImage");
-
-  const counter =
-    document.getElementById("photoCounter");
-
-  image.src =
-    photoList[index];
-
-  counter.textContent =
-    (index + 1) +
-    " / " +
-    photoList.length;
-
-  viewer.classList.add("show");
-
-}
-
-function closePhoto(){
-
-  document
-    .getElementById("photoViewer")
-    .classList.remove("show");
-
-}
-
-
-/* CLOSE PHOTO BY TAPPING OUTSIDE */
-
-document
-  .getElementById("photoViewer")
-  .addEventListener(
-    "click",
-    function(event){
-
-      if(event.target === this){
-
-        closePhoto();
-
-      }
-
-    }
+  clearTimeout(
+    window.toastTimer
   );
 
+  window.toastTimer =
+    setTimeout(
+      ()=>{
+        toast.classList.remove("show");
+      },
+      2200
+    );
 
-/* CLOSE PHOTO WITH ESCAPE */
-
-document.addEventListener(
-  "keydown",
-  function(event){
-
-    if(event.key === "Escape"){
-
-      closePhoto();
-
-    }
-
-  }
-);
+}
 
 
-/* QUESTIONS */
+/* =========================================
+   QUESTIONS
+========================================= */
 
 const questions = [
 
@@ -1651,7 +2071,9 @@ function answerYes(){
 
   questionIndex++;
 
-  if(questionIndex >= questions.length){
+  if(
+    questionIndex >= questions.length
+  ){
 
     goTo(2);
 
@@ -1659,12 +2081,18 @@ function answerYes(){
 
   }
 
-  document.getElementById("questionNumber").textContent =
-    "QUESTION " +
-    String(questionIndex + 1).padStart(2,"0");
+  document
+    .getElementById("questionNumber")
+    .textContent =
+      "QUESTION " +
+      String(
+        questionIndex + 1
+      ).padStart(2,"0");
 
-  document.getElementById("questionText").textContent =
-    questions[questionIndex];
+  document
+    .getElementById("questionText")
+    .textContent =
+      questions[questionIndex];
 
 }
 
@@ -1679,10 +2107,18 @@ function answerNo(){
 
   button.animate(
     [
-      {transform:"translateX(0)"},
-      {transform:"translateX(-7px)"},
-      {transform:"translateX(7px)"},
-      {transform:"translateX(0)"}
+      {
+        transform:"translateX(0)"
+      },
+      {
+        transform:"translateX(-7px)"
+      },
+      {
+        transform:"translateX(7px)"
+      },
+      {
+        transform:"translateX(0)"
+      }
     ],
     {
       duration:350
@@ -1692,7 +2128,9 @@ function answerNo(){
 }
 
 
-/* CAKE */
+/* =========================================
+   CAKE
+========================================= */
 
 let candlesBlown = false;
 
@@ -1705,21 +2143,27 @@ function blowCandles(){
 
   document
     .querySelectorAll(".candle")
-    .forEach(candle=>{
-      candle.classList.add("off");
-    });
+    .forEach(
+      candle=>{
+        candle.classList.add("off");
+      }
+    );
 
   showToast(
     "Wish made! ✨💗"
   );
 
-  document.getElementById("cakeNext")
-    .style.display="inline-block";
+  document
+    .getElementById("cakeNext")
+    .style.display =
+      "inline-block";
 
 }
 
 
-/* WHEEL */
+/* =========================================
+   WHEEL
+========================================= */
 
 const wishes = [
 
@@ -1785,7 +2229,9 @@ function spinWheel(){
   spinButton.disabled = true;
 
   selectedWish =
-    Math.floor(Math.random()*8);
+    Math.floor(
+      Math.random() * 8
+    );
 
   const segmentCenter =
     selectedWish * 45 + 22.5;
@@ -1801,37 +2247,48 @@ function spinWheel(){
     wheelRotation +
     "deg)";
 
-  setTimeout(()=>{
+  setTimeout(
+    ()=>{
 
-    document.getElementById("wheelResult")
-      .textContent =
-      wishes[selectedWish].title;
+      document
+        .getElementById("wheelResult")
+        .textContent =
+          wishes[selectedWish].title;
 
-    document.getElementById("wishTitle")
-      .textContent =
-      wishes[selectedWish].title;
+      document
+        .getElementById("wishTitle")
+        .textContent =
+          wishes[selectedWish].title;
 
-    document.getElementById("wishText")
-      .textContent =
-      wishes[selectedWish].text;
+      document
+        .getElementById("wishText")
+        .textContent =
+          wishes[selectedWish].text;
 
-    document.getElementById("wheelNext")
-      .style.display =
-      "inline-block";
+      document
+        .getElementById("wheelNext")
+        .style.display =
+          "inline-block";
 
-    wheelSpinning = false;
+      wheelSpinning = false;
 
-    spinButton.disabled = false;
+      spinButton.disabled = false;
 
-  },4100);
+    },
+    4100
+  );
 
 }
 
 
-/* SCRATCH */
+/* =========================================
+   SCRATCH CARD
+========================================= */
 
 const canvas =
-  document.getElementById("scratchCanvas");
+  document.getElementById(
+    "scratchCanvas"
+  );
 
 const ctx =
   canvas.getContext("2d");
@@ -1842,7 +2299,9 @@ let scratchedPixels = 0;
 function setupScratchCanvas(){
 
   const card =
-    document.getElementById("scratchCard");
+    document.getElementById(
+      "scratchCard"
+    );
 
   const rect =
     card.getBoundingClientRect();
@@ -1863,7 +2322,12 @@ function setupScratchCanvas(){
     rect.height + "px";
 
   ctx.setTransform(
-    ratio,0,0,ratio,0,0
+    ratio,
+    0,
+    0,
+    ratio,
+    0,
+    0
   );
 
   ctx.globalCompositeOperation =
@@ -1871,7 +2335,8 @@ function setupScratchCanvas(){
 
   const gradient =
     ctx.createLinearGradient(
-      0,0,
+      0,
+      0,
       rect.width,
       rect.height
     );
@@ -1912,14 +2377,16 @@ function setupScratchCanvas(){
 
   ctx.fillText(
     "SCRATCH ME ✨",
-    rect.width/2,
-    rect.height/2
+    rect.width / 2,
+    rect.height / 2
   );
 
   scratchedPixels = 0;
 
-  document.getElementById("scratchNext")
-    .style.display="none";
+  document
+    .getElementById("scratchNext")
+    .style.display =
+      "none";
 
 }
 
@@ -1950,7 +2417,7 @@ function scratchAt(x,y){
     py,
     25,
     0,
-    Math.PI*2
+    Math.PI * 2
   );
 
   ctx.fill();
@@ -1959,9 +2426,10 @@ function scratchAt(x,y){
 
   if(scratchedPixels > 55){
 
-    document.getElementById("scratchNext")
+    document
+      .getElementById("scratchNext")
       .style.display =
-      "inline-block";
+        "inline-block";
 
   }
 
@@ -2003,14 +2471,14 @@ canvas.addEventListener(
 canvas.addEventListener(
   "pointerup",
   ()=>{
-    scratching=false;
+    scratching = false;
   }
 );
 
 canvas.addEventListener(
   "pointercancel",
   ()=>{
-    scratching=false;
+    scratching = false;
   }
 );
 
@@ -2028,7 +2496,9 @@ window.addEventListener(
 );
 
 
-/* LETTER */
+/* =========================================
+   LETTER
+========================================= */
 
 const exactLetter = `Dear Chiku, 💗🦋
 
@@ -2089,39 +2559,54 @@ function openLetter(){
   letterOpened = true;
 
   const envelope =
-    document.getElementById("envelope");
+    document.getElementById(
+      "envelope"
+    );
 
   const paper =
-    document.getElementById("paper");
+    document.getElementById(
+      "paper"
+    );
 
   const textElement =
-    document.getElementById("letterText");
+    document.getElementById(
+      "letterText"
+    );
 
   const signElement =
-    document.getElementById("letterSign");
+    document.getElementById(
+      "letterSign"
+    );
 
   envelope.classList.add("open");
 
-  setTimeout(()=>{
+  setTimeout(
+    ()=>{
 
-    paper.classList.add("show");
+      paper.classList.add("show");
 
-    textElement.textContent="";
-    signElement.textContent="";
+      textElement.textContent =
+        "";
 
-    typeLetter();
+      signElement.textContent =
+        "";
 
-  },700);
+      typeLetter();
+
+    },
+    700
+  );
 
 }
-
 
 function typeLetter(){
 
   const textElement =
-    document.getElementById("letterText");
+    document.getElementById(
+      "letterText"
+    );
 
-  let index=0;
+  let index = 0;
 
   const cursor =
     document.createElement("span");
@@ -2129,7 +2614,9 @@ function typeLetter(){
   cursor.className =
     "type-cursor";
 
-  textElement.appendChild(cursor);
+  textElement.appendChild(
+    cursor
+  );
 
   function type(){
 
@@ -2152,13 +2639,15 @@ function typeLetter(){
 
       cursor.remove();
 
-      document.getElementById("letterSign")
+      document
+        .getElementById("letterSign")
         .textContent =
-        "Your Chinu 💗🦋";
+          "Your Chinu 💗🦋";
 
-      document.getElementById("letterNext")
+      document
+        .getElementById("letterNext")
         .style.display =
-        "block";
+          "block";
 
     }
 
@@ -2169,17 +2658,147 @@ function typeLetter(){
 }
 
 
-/* FALLING FLOWERS */
+/* =========================================
+   PHOTO VIEWER
+========================================= */
+
+function openPhoto(
+  imagePath,
+  imageName
+){
+
+  const viewer =
+    document.getElementById(
+      "photoViewer"
+    );
+
+  const image =
+    document.getElementById(
+      "viewerImage"
+    );
+
+  const name =
+    document.getElementById(
+      "viewerName"
+    );
+
+  image.src =
+    imagePath;
+
+  image.alt =
+    imageName;
+
+  name.textContent =
+    imageName;
+
+  viewer.classList.add(
+    "show"
+  );
+
+}
+
+function closePhoto(event){
+
+  if(event){
+
+    /*
+      Only close when clicking the
+      dark viewer background or
+      the close button.
+    */
+
+    if(
+      event.target.id !==
+        "photoViewer" &&
+      !event.target.classList.contains(
+        "photo-close"
+      )
+    ){
+      return;
+    }
+
+    event.stopPropagation();
+
+  }
+
+  const viewer =
+    document.getElementById(
+      "photoViewer"
+    );
+
+  viewer.classList.remove(
+    "show"
+  );
+
+  document
+    .getElementById("viewerImage")
+    .src =
+      "";
+
+}
+
+document.addEventListener(
+  "keydown",
+  event=>{
+
+    if(event.key === "Escape"){
+
+      const viewer =
+        document.getElementById(
+          "photoViewer"
+        );
+
+      if(
+        viewer.classList.contains(
+          "show"
+        )
+      ){
+
+        viewer.classList.remove(
+          "show"
+        );
+
+        document
+          .getElementById(
+            "viewerImage"
+          )
+          .src =
+            "";
+
+      }
+
+    }
+
+  }
+);
+
+
+/* =========================================
+   FALLING FLOWERS
+========================================= */
 
 function createPetals(){
 
   const emojis =
-    ["🌸","💮","🌷","✨","🦋","💗"];
+    [
+      "🌸",
+      "💮",
+      "🌷",
+      "✨",
+      "🦋",
+      "💗"
+    ];
 
-  for(let i=0;i<22;i++){
+  for(
+    let i = 0;
+    i < 22;
+    i++
+  ){
 
     const petal =
-      document.createElement("div");
+      document.createElement(
+        "div"
+      );
 
     petal.className =
       "petal";
@@ -2187,28 +2806,49 @@ function createPetals(){
     petal.textContent =
       emojis[
         Math.floor(
-          Math.random()*emojis.length
+          Math.random() *
+          emojis.length
         )
       ];
 
     petal.style.left =
-      Math.random()*100 + "%";
+      Math.random() * 100 +
+      "%";
 
     petal.style.animationDuration =
-      (5 + Math.random()*6) + "s";
+      (
+        5 +
+        Math.random() * 6
+      ) +
+      "s";
 
     petal.style.animationDelay =
-      (Math.random()*7) + "s";
+      (
+        Math.random() * 7
+      ) +
+      "s";
 
     petal.style.fontSize =
-      (12 + Math.random()*10) + "px";
+      (
+        12 +
+        Math.random() * 10
+      ) +
+      "px";
 
-    document.getElementById("scene8")
-      .appendChild(petal);
+    document
+      .getElementById("scene8")
+      .appendChild(
+        petal
+      );
 
   }
 
 }
+
+
+/* =========================================
+   START WEBSITE
+========================================= */
 
 createPetals();
 
