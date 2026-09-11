@@ -13,9 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@500;600;700&family=Kalam:wght@300;400;700&family=Nunito:wght@400;500;600;700&display=swap"
-rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@500;600;700&family=Kalam:wght@300;400;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -44,40 +42,21 @@ button{
   cursor:pointer;
 }
 
-
-/* =========================
-   SCENES
-========================= */
-
 .scene{
   position:fixed;
   inset:0;
   width:100%;
   height:100%;
   overflow:hidden;
-
   display:none;
   align-items:center;
   justify-content:center;
-
   padding:20px;
 
   background:
-    radial-gradient(
-      circle at 20% 20%,
-      rgba(191,76,255,.18),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 80% 70%,
-      rgba(42,145,255,.13),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 50% 50%,
-      rgba(255,63,174,.07),
-      transparent 45%
-    ),
+    radial-gradient(circle at 20% 20%,rgba(191,76,255,.18),transparent 30%),
+    radial-gradient(circle at 80% 70%,rgba(42,145,255,.13),transparent 30%),
+    radial-gradient(circle at 50% 50%,rgba(255,63,174,.07),transparent 45%),
     #05030a;
 }
 
@@ -89,15 +68,14 @@ button{
 @keyframes sceneIn{
   from{
     opacity:0;
-    transform:scale(1.025);
+    transform:scale(1.025)
   }
 
   to{
     opacity:1;
-    transform:scale(1);
+    transform:scale(1)
   }
 }
-
 
 .scene::before{
   content:"";
@@ -105,46 +83,23 @@ button{
   inset:0;
 
   background-image:
-    radial-gradient(
-      circle,
-      rgba(255,255,255,.8) 1px,
-      transparent 1.5px
-    ),
-    radial-gradient(
-      circle,
-      rgba(255,190,245,.45) 1px,
-      transparent 1.5px
-    );
+    radial-gradient(circle,rgba(255,255,255,.8) 1px,transparent 1.5px),
+    radial-gradient(circle,rgba(255,190,245,.45) 1px,transparent 1.5px);
 
-  background-size:
-    83px 83px,
-    137px 137px;
-
-  background-position:
-    12px 25px,
-    45px 72px;
+  background-size:83px 83px,137px 137px;
+  background-position:12px 25px,45px 72px;
 
   opacity:.35;
   pointer-events:none;
 }
 
-
-/* =========================
-   GLOWS
-========================= */
-
 .glow{
   position:absolute;
-
   width:240px;
   height:240px;
-
   border-radius:50%;
-
   background:rgba(205,73,255,.14);
-
   filter:blur(70px);
-
   pointer-events:none;
 }
 
@@ -156,32 +111,15 @@ button{
 .glow.two{
   right:-100px;
   bottom:-80px;
-
   background:rgba(61,126,255,.15);
 }
 
-
-/* =========================
-   BUTTERFLIES
-========================= */
-
 .butterfly{
   position:absolute;
-
   font-size:25px;
-
   opacity:.7;
-
-  animation:
-    floatButterfly
-    7s ease-in-out infinite;
-
-  filter:
-    drop-shadow(
-      0 0 9px
-      rgba(255,118,232,.8)
-    );
-
+  animation:floatButterfly 7s ease-in-out infinite;
+  filter:drop-shadow(0 0 9px rgba(255,118,232,.8));
   pointer-events:none;
   z-index:2;
 }
@@ -212,34 +150,20 @@ button{
 }
 
 @keyframes floatButterfly{
-
   0%,100%{
-    transform:
-      translateY(0)
-      rotate(-5deg);
+    transform:translateY(0) rotate(-5deg)
   }
 
   50%{
-    transform:
-      translateY(-18px)
-      rotate(7deg);
+    transform:translateY(-18px) rotate(7deg)
   }
 }
 
-
-/* =========================
-   TEXT
-========================= */
-
 .kicker{
   font-size:11px;
-
   letter-spacing:4px;
-
   text-transform:uppercase;
-
   color:#dca9ff;
-
   margin-bottom:13px;
 }
 
@@ -249,65 +173,36 @@ h1,h2{
 }
 
 h1{
-  font-size:
-    clamp(42px,11vw,78px);
-
+  font-size:clamp(42px,11vw,78px);
   line-height:.95;
-
-  text-shadow:
-    0 0 25px
-    rgba(255,91,215,.4);
+  text-shadow:0 0 25px rgba(255,91,215,.4);
 }
 
 h2{
-  font-size:
-    clamp(34px,8vw,58px);
-
+  font-size:clamp(34px,8vw,58px);
   line-height:1;
 }
 
 .subtitle{
   margin-top:18px;
-
   color:#d9cde0;
-
   font-size:14px;
-
   line-height:1.7;
-
   max-width:470px;
 }
 
-
-/* =========================
-   BUTTONS
-========================= */
-
 .main-btn{
   margin-top:27px;
-
   padding:13px 25px;
-
   border-radius:999px;
-
   color:white;
 
   background:
-    linear-gradient(
-      100deg,
-      #b84cff,
-      #f64fae,
-      #477dff
-    );
+    linear-gradient(100deg,#b84cff,#f64fae,#477dff);
 
-  box-shadow:
-    0 0 25px
-    rgba(216,65,255,.3);
-
+  box-shadow:0 0 25px rgba(216,65,255,.3);
   font-size:14px;
-
   font-weight:700;
-
   transition:.25s;
 }
 
@@ -315,148 +210,90 @@ h2{
   transform:scale(.94);
 }
 
-
-/* =========================
-   INTRO
-========================= */
-
 .intro-content{
   position:relative;
-
   z-index:5;
-
   width:min(700px,100%);
-
   text-align:center;
 }
 
 .intro-heart{
   font-size:44px;
-
   margin-bottom:15px;
-
-  animation:
-    heartbeat
-    1.8s
-    infinite;
+  animation:heartbeat 1.8s infinite;
 }
 
 @keyframes heartbeat{
-
   0%,100%{
-    transform:scale(1);
+    transform:scale(1)
   }
 
   15%{
-    transform:scale(1.12);
+    transform:scale(1.12)
   }
 
   30%{
-    transform:scale(1);
+    transform:scale(1)
   }
 }
 
-
-/* =========================
-   QUESTIONS
-========================= */
-
 .question-card{
   position:relative;
-
   z-index:5;
-
   width:min(500px,100%);
-
   text-align:center;
 }
 
 .question-number{
   color:#cba0ff;
-
   font-size:12px;
-
   letter-spacing:3px;
-
   margin-bottom:15px;
 }
 
 .question-text{
-  font-family:
-    "Cormorant Garamond",
-    serif;
-
-  font-size:
-    clamp(30px,7vw,48px);
-
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(30px,7vw,48px);
   line-height:1.05;
 }
 
 .question-buttons{
   margin-top:30px;
-
   display:flex;
-
   justify-content:center;
-
   gap:14px;
-
   flex-wrap:wrap;
 }
 
 .yes-btn,
 .no-btn{
   padding:12px 28px;
-
   border-radius:999px;
-
   font-weight:700;
 }
 
 .yes-btn{
-  background:
-    linear-gradient(
-      100deg,
-      #e85cff,
-      #ff6fae
-    );
-
+  background:linear-gradient(100deg,#e85cff,#ff6fae);
   color:white;
-
-  box-shadow:
-    0 0 20px
-    rgba(255,70,200,.3);
+  box-shadow:0 0 20px rgba(255,70,200,.3);
 }
 
 .no-btn{
   color:#eee;
-
-  background:
-    rgba(255,255,255,.08);
-
-  border:
-    1px solid
-    rgba(255,255,255,.14);
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.14);
 }
 
 
-/* =========================
-   CAKE
-========================= */
+/* CAKE */
 
 .cake-wrap{
   position:relative;
-
   z-index:5;
-
   width:min(600px,100%);
-
   text-align:center;
-
   display:flex;
-
   flex-direction:column;
-
   align-items:center;
 }
 
@@ -466,135 +303,66 @@ h2{
 
 .cake{
   position:relative;
-
   width:245px;
   height:220px;
-
-  margin:
-    5px auto 0;
+  margin:5px auto 0;
 }
 
 .plate{
   position:absolute;
-
   bottom:4px;
-
   left:50%;
-
-  transform:
-    translateX(-50%);
-
+  transform:translateX(-50%);
   width:265px;
   height:24px;
-
   border-radius:50%;
-
-  background:
-    linear-gradient(
-      #d7a7ff,
-      #7147a0
-    );
-
-  box-shadow:
-    0 0 30px
-    rgba(196,86,255,.3);
+  background:linear-gradient(#d7a7ff,#7147a0);
+  box-shadow:0 0 30px rgba(196,86,255,.3);
 }
 
 .cake-bottom{
   position:absolute;
-
   bottom:25px;
-
   left:50%;
-
-  transform:
-    translateX(-50%);
-
+  transform:translateX(-50%);
   width:220px;
   height:75px;
-
-  border-radius:
-    16px 16px
-    24px 24px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #b34dce,
-      #e875ce 50%,
-      #8354c8
-    );
-
+  border-radius:16px 16px 24px 24px;
+  background:linear-gradient(135deg,#b34dce,#e875ce 50%,#8354c8);
   box-shadow:
-    inset 0 -12px 0
-    rgba(65,18,77,.2),
-    0 0 25px
-    rgba(226,86,255,.2);
+    inset 0 -12px 0 rgba(65,18,77,.2),
+    0 0 25px rgba(226,86,255,.2);
 }
 
 .cake-middle{
   position:absolute;
-
   bottom:87px;
-
   left:50%;
-
-  transform:
-    translateX(-50%);
-
+  transform:translateX(-50%);
   width:190px;
   height:53px;
-
   border-radius:15px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #f29be2,
-      #d77dd6,
-      #9c71dc
-    );
+  background:linear-gradient(135deg,#f29be2,#d77dd6,#9c71dc);
 }
 
 .frosting{
   position:absolute;
-
   left:50%;
-
-  transform:
-    translateX(-50%);
-
+  transform:translateX(-50%);
   bottom:123px;
-
   width:205px;
   height:35px;
-
   border-radius:50%;
-
-  background:
-    linear-gradient(
-      90deg,
-      #ffe1f8,
-      #f5a7e9,
-      #d39cf8
-    );
-
-  box-shadow:
-    0 0 18px
-    rgba(255,161,240,.3);
+  background:linear-gradient(90deg,#ffe1f8,#f5a7e9,#d39cf8);
+  box-shadow:0 0 18px rgba(255,161,240,.3);
 }
 
 .drip{
   position:absolute;
-
   bottom:105px;
-
   width:20px;
   height:32px;
-
-  border-radius:
-    0 0 12px 12px;
-
+  border-radius:0 0 12px 12px;
   background:#f5b0eb;
 }
 
@@ -614,9 +382,7 @@ h2{
 
 .strawberry{
   position:absolute;
-
   font-size:27px;
-
   z-index:4;
 }
 
@@ -637,12 +403,9 @@ h2{
 
 .candle{
   position:absolute;
-
   bottom:142px;
-
   width:12px;
   height:48px;
-
   border-radius:5px;
 
   background:
@@ -671,48 +434,24 @@ h2{
 
 .flame{
   position:absolute;
-
   top:-21px;
-
   left:50%;
-
-  transform:
-    translateX(-50%);
-
+  transform:translateX(-50%);
   width:13px;
   height:20px;
-
   border-radius:50%;
-
-  background:
-    linear-gradient(
-      #fff,
-      #ffcb4d,
-      #ff6b8a
-    );
-
-  box-shadow:
-    0 0 15px
-    #ffbc5d;
-
-  animation:
-    flame
-    1s
-    infinite alternate;
+  background:linear-gradient(#fff,#ffcb4d,#ff6b8a);
+  box-shadow:0 0 15px #ffbc5d;
+  animation:flame 1s infinite alternate;
 }
 
 @keyframes flame{
-
   from{
-    transform:
-      translateX(-50%)
-      scale(.9);
+    transform:translateX(-50%) scale(.9)
   }
 
   to{
-    transform:
-      translateX(-50%)
-      scale(1.1);
+    transform:translateX(-50%) scale(1.1)
   }
 }
 
@@ -722,161 +461,197 @@ h2{
 
 .blow-text{
   margin-top:2px;
-
   font-size:13px;
-
   color:#cfc0d8;
 }
 
 .blow-btn{
   margin-top:12px;
-
   padding:11px 24px;
-
   border-radius:999px;
-
   color:#fff;
-
-  background:
-    rgba(255,255,255,.09);
-
-  border:
-    1px solid
-    rgba(255,255,255,.2);
+  background:rgba(255,255,255,.09);
+  border:1px solid rgba(255,255,255,.2);
 }
 
 .next-btn{
   display:none;
-
   margin-top:13px;
 }
 
 
-/* =========================
-   MEMORIES
-========================= */
+/* MEMORIES */
 
 .memory-wrap{
   position:relative;
-
   z-index:5;
-
   width:min(850px,100%);
-
   text-align:center;
 }
 
 .memory-grid{
   display:flex;
-
   gap:12px;
-
   justify-content:flex-start;
-
   margin-top:24px;
-
   overflow-x:auto;
-
   overflow-y:hidden;
-
-  padding:
-    0 4px 8px;
-
+  padding:0 4px 8px;
   scrollbar-width:thin;
-
-  scroll-snap-type:
-    x proximity;
+  scroll-snap-type:x proximity;
 }
 
 .photo-slot{
   width:115px;
   height:145px;
-
   border-radius:12px;
-
   padding:6px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #d967ff,
-      #536cff,
-      #f75dbb
-    );
-
-  box-shadow:
-    0 0 18px
-    rgba(182,72,255,.2);
-
+  background:linear-gradient(145deg,#d967ff,#536cff,#f75dbb);
+  box-shadow:0 0 18px rgba(182,72,255,.2);
   flex:0 0 auto;
-
   scroll-snap-align:start;
 }
 
 .photo-slot img{
   width:100%;
   height:100%;
-
   object-fit:cover;
-
   border-radius:8px;
-
   background:#111;
+
+  /* PHOTO VIEWER */
+  cursor:pointer;
+  -webkit-user-select:none;
+  user-select:none;
 }
 
 .memory-note{
   margin-top:18px;
-
   font-size:13px;
-
   color:#bfb2c8;
 }
 
 
-/* =========================
-   WHEEL
-========================= */
+/* FULL-SCREEN MEMORY PHOTO VIEWER */
+
+.photo-viewer{
+  position:fixed;
+  inset:0;
+  z-index:500;
+
+  display:none;
+  align-items:center;
+  justify-content:center;
+
+  padding:20px;
+
+  background:rgba(0,0,0,.9);
+
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+
+.photo-viewer.show{
+  display:flex;
+  animation:photoViewerIn .25s ease both;
+}
+
+@keyframes photoViewerIn{
+  from{
+    opacity:0
+  }
+
+  to{
+    opacity:1
+  }
+}
+
+.photo-viewer img{
+  display:block;
+
+  max-width:94vw;
+  max-height:84vh;
+
+  width:auto;
+  height:auto;
+
+  object-fit:contain;
+
+  border-radius:14px;
+
+  box-shadow:
+    0 0 45px rgba(214,86,255,.35);
+
+  animation:photoZoomIn .3s ease both;
+}
+
+@keyframes photoZoomIn{
+  from{
+    transform:scale(.92)
+  }
+
+  to{
+    transform:scale(1)
+  }
+}
+
+.photo-close{
+  position:absolute;
+  top:16px;
+  right:16px;
+
+  z-index:2;
+
+  width:42px;
+  height:42px;
+
+  border-radius:50%;
+
+  color:white;
+  background:rgba(255,255,255,.1);
+
+  border:1px solid rgba(255,255,255,.22);
+
+  font-size:20px;
+  line-height:1;
+
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+
+.photo-close:active{
+  transform:scale(.92);
+}
+
+
+/* WHEEL */
 
 .wheel-wrap{
   position:relative;
-
   z-index:5;
-
   text-align:center;
-
   width:min(600px,100%);
 }
 
 .wheel-area{
   position:relative;
-
   width:300px;
   height:300px;
-
-  margin:
-    20px auto 14px;
+  margin:20px auto 14px;
 }
 
 .wheel{
   width:300px;
   height:300px;
-
   border-radius:50%;
-
   position:relative;
-
   overflow:hidden;
 
-  border:
-    6px solid
-    rgba(255,255,255,.25);
+  border:6px solid rgba(255,255,255,.25);
 
   box-shadow:
-    0 0 0 2px
-    rgba(205,100,255,.3),
-
-    0 0 40px
-    rgba(186,69,255,.25);
+    0 0 0 2px rgba(205,100,255,.3),
+    0 0 40px rgba(186,69,255,.25);
 
   background:
     conic-gradient(
@@ -890,15 +665,11 @@ h2{
       #624ac0 315deg 360deg
     );
 
-  transition:
-    transform
-    4s
-    cubic-bezier(.15,.8,.1,1);
+  transition:transform 4s cubic-bezier(.15,.8,.1,1);
 }
 
 .wheel-label{
   position:absolute;
-
   left:50%;
   top:50%;
 
@@ -910,7 +681,6 @@ h2{
   text-align:center;
 
   font-size:11px;
-
   font-weight:700;
 
   color:#fff;
@@ -920,122 +690,76 @@ h2{
     translateY(-108px)
     rotate(calc(var(--r) * -1));
 
-  text-shadow:
-    0 1px 4px #000;
+  text-shadow:0 1px 4px #000;
 }
 
 .wheel-pointer{
   position:absolute;
-
   top:-7px;
   left:50%;
-
-  transform:
-    translateX(-50%);
+  transform:translateX(-50%);
 
   width:0;
   height:0;
 
-  border-left:
-    12px solid transparent;
+  border-left:12px solid transparent;
+  border-right:12px solid transparent;
+  border-top:28px solid white;
 
-  border-right:
-    12px solid transparent;
-
-  border-top:
-    28px solid white;
-
-  filter:
-    drop-shadow(
-      0 0 6px
-      #ff6ddd
-    );
+  filter:drop-shadow(0 0 6px #ff6ddd);
 
   z-index:10;
 }
 
 .spin-btn{
   padding:12px 28px;
-
   border-radius:999px;
-
   color:white;
-
-  background:
-    linear-gradient(
-      100deg,
-      #9d55ff,
-      #ec55bb
-    );
-
+  background:linear-gradient(100deg,#9d55ff,#ec55bb);
   font-weight:700;
 }
 
 .wheel-result{
   min-height:24px;
-
   margin-top:13px;
-
   color:#ffd9f7;
-
-  font-family:
-    "Dancing Script",
-    cursive;
-
+  font-family:"Dancing Script",cursive;
   font-size:22px;
 }
 
 
-/* =========================
-   WISH
-========================= */
+/* WISH */
 
 .wish-card{
   position:relative;
-
   z-index:5;
-
   width:min(560px,100%);
-
   text-align:center;
 
-  padding:
-    30px 23px;
+  padding:30px 23px;
 
   border-radius:25px;
 
-  background:
-    rgba(255,255,255,.055);
+  background:rgba(255,255,255,.055);
 
-  border:
-    1px solid
-    rgba(255,180,248,.2);
+  border:1px solid rgba(255,180,248,.2);
 
-  box-shadow:
-    0 0 40px
-    rgba(172,71,255,.14);
+  box-shadow:0 0 40px rgba(172,71,255,.14);
 }
 
 .wish-from{
   margin-top:15px;
-
   color:#c9b7d2;
-
   font-size:13px;
 }
 
 
-/* =========================
-   SCRATCH
-========================= */
+/* SCRATCH */
 
 .scratch-wrap{
   position:relative;
-
   z-index:5;
-
   width:min(440px,100%);
-
   text-align:center;
 }
 
@@ -1043,50 +767,37 @@ h2{
   position:relative;
 
   width:100%;
-
   height:250px;
 
-  margin:
-    25px auto 0;
+  margin:25px auto 0;
 
   border-radius:22px;
 
   overflow:hidden;
 
-  border:
-    1px solid
-    rgba(255,255,255,.18);
+  border:1px solid rgba(255,255,255,.18);
 
   background:#120d19;
 
-  box-shadow:
-    0 0 35px
-    rgba(180,74,255,.2);
+  box-shadow:0 0 35px rgba(180,74,255,.2);
 
   touch-action:none;
 }
 
 .scratch-message{
   position:absolute;
-
   inset:0;
 
   display:flex;
-
   align-items:center;
-
   justify-content:center;
 
   padding:30px;
 
   text-align:center;
 
-  font-family:
-    "Dancing Script",
-    cursive;
-
+  font-family:"Dancing Script",cursive;
   font-size:27px;
-
   color:#ffd9f7;
 
   background:
@@ -1100,7 +811,6 @@ h2{
 
 #scratchCanvas{
   position:absolute;
-
   inset:0;
 
   width:100%;
@@ -1110,9 +820,7 @@ h2{
 }
 
 
-/* =========================
-   LETTER
-========================= */
+/* LETTER */
 
 .letter-scene{
   background:
@@ -1126,17 +834,13 @@ h2{
 
 .letter-wrap{
   position:relative;
-
   z-index:5;
 
   width:min(760px,100%);
-
   height:min(82vh,700px);
 
   display:flex;
-
   align-items:center;
-
   justify-content:center;
 }
 
@@ -1144,27 +848,17 @@ h2{
   position:absolute;
 
   width:min(330px,80vw);
-
   height:220px;
 
   border-radius:18px;
 
   background:
-    linear-gradient(
-      145deg,
-      #6d3c9d,
-      #c957bd,
-      #4b5bb7
-    );
+    linear-gradient(145deg,#6d3c9d,#c957bd,#4b5bb7);
 
-  box-shadow:
-    0 0 45px
-    rgba(216,83,255,.35);
+  box-shadow:0 0 45px rgba(216,83,255,.35);
 
   display:flex;
-
   align-items:center;
-
   justify-content:center;
 
   cursor:pointer;
@@ -1181,30 +875,22 @@ h2{
 
   filter:
     drop-shadow(
-      0 0 12px
-      rgba(255,255,255,.6)
+      0 0 12px rgba(255,255,255,.6)
     );
 }
 
 .envelope-text{
   position:absolute;
-
   bottom:22px;
 
-  font-family:
-    "Dancing Script",
-    cursive;
+  font-family:"Dancing Script",cursive;
 
   font-size:20px;
 }
 
 .envelope.open{
   opacity:0;
-
-  transform:
-    scale(.65)
-    translateY(20px);
-
+  transform:scale(.65) translateY(20px);
   pointer-events:none;
 }
 
@@ -1212,11 +898,9 @@ h2{
   position:absolute;
 
   width:min(680px,94vw);
-
   height:min(76vh,600px);
 
-  padding:
-    34px 25px;
+  padding:34px 25px;
 
   border-radius:22px;
 
@@ -1229,17 +913,12 @@ h2{
   color:#39273e;
 
   box-shadow:
-    0 0 50px
-    rgba(235,104,255,.28),
-
-    0 0 0 1px
-    rgba(255,255,255,.25);
+    0 0 50px rgba(235,104,255,.28),
+    0 0 0 1px rgba(255,255,255,.25);
 
   opacity:0;
 
-  transform:
-    translateY(30px)
-    scale(.94);
+  transform:translateY(30px) scale(.94);
 
   pointer-events:none;
 
@@ -1250,11 +929,7 @@ h2{
 
 .paper.show{
   opacity:1;
-
-  transform:
-    translateY(0)
-    scale(1);
-
+  transform:translateY(0) scale(1);
   pointer-events:auto;
 }
 
@@ -1264,8 +939,7 @@ h2{
 
   overflow-y:auto;
 
-  padding:
-    5px 12px 25px 4px;
+  padding:5px 12px 25px 4px;
 
   scrollbar-width:thin;
 }
@@ -1276,16 +950,13 @@ h2{
 
 .letter-scroll::-webkit-scrollbar-thumb{
   background:#b978bd;
-
   border-radius:10px;
 }
 
 .letter-heading{
   text-align:center;
 
-  font-family:
-    "Dancing Script",
-    cursive;
+  font-family:"Dancing Script",cursive;
 
   font-size:29px;
 
@@ -1295,9 +966,7 @@ h2{
 }
 
 .letter-text{
-  font-family:
-    "Kalam",
-    cursive;
+  font-family:"Kalam",cursive;
 
   font-weight:400;
 
@@ -1315,9 +984,7 @@ h2{
 
   text-align:right;
 
-  font-family:
-    "Dancing Script",
-    cursive;
+  font-family:"Dancing Script",cursive;
 
   font-size:24px;
 
@@ -1327,27 +994,18 @@ h2{
 .letter-next{
   display:block;
 
-  margin:
-    28px auto 5px;
+  margin:28px auto 5px;
 
-  padding:
-    12px 28px;
+  padding:12px 28px;
 
   border-radius:999px;
 
   color:white;
 
   background:
-    linear-gradient(
-      100deg,
-      #b84cff,
-      #f64fae,
-      #477dff
-    );
+    linear-gradient(100deg,#b84cff,#f64fae,#477dff);
 
-  box-shadow:
-    0 0 25px
-    rgba(216,65,255,.3);
+  box-shadow:0 0 25px rgba(216,65,255,.3);
 
   font-size:14px;
 
@@ -1364,26 +1022,20 @@ h2{
 
   margin-left:2px;
 
-  animation:
-    blink
-    .7s
-    infinite;
+  animation:blink .7s infinite;
 }
 
 @keyframes blink{
   50%{
-    opacity:0;
+    opacity:0
   }
 }
 
 
-/* =========================
-   FINAL SCENE
-========================= */
+/* FINAL */
 
 .final-content{
   position:relative;
-
   z-index:5;
 
   text-align:center;
@@ -1394,15 +1046,11 @@ h2{
 .final-heart{
   font-size:70px;
 
-  animation:
-    heartbeat
-    1.7s
-    infinite;
+  animation:heartbeat 1.7s infinite;
 
   filter:
     drop-shadow(
-      0 0 22px
-      rgba(255,85,212,.6)
+      0 0 22px rgba(255,85,212,.6)
     );
 }
 
@@ -1411,8 +1059,7 @@ h2{
 }
 
 .final-message{
-  margin:
-    18px auto 0;
+  margin:18px auto 0;
 
   color:#d9c9df;
 
@@ -1420,11 +1067,6 @@ h2{
 
   max-width:530px;
 }
-
-
-/* =========================
-   FIREWORK VISUALS
-========================= */
 
 .firework{
   position:absolute;
@@ -1442,10 +1084,7 @@ h2{
     0 0 10px #fff,
     0 0 25px #ff6bd8;
 
-  animation:
-    firework
-    2.7s
-    infinite;
+  animation:firework 2.7s infinite;
 }
 
 .fw1{
@@ -1464,110 +1103,83 @@ h2{
 }
 
 @keyframes firework{
-
   0%{
     transform:translateY(0);
-    opacity:0;
+    opacity:0
   }
 
   15%{
-    opacity:1;
+    opacity:1
   }
 
   60%{
-    transform:
-      translateY(-65vh);
-
-    opacity:1;
+    transform:translateY(-65vh);
+    opacity:1
   }
 
   100%{
-    transform:
-      translateY(-65vh)
-      scale(15);
-
-    opacity:0;
+    transform:translateY(-65vh) scale(15);
+    opacity:0
   }
 }
 
-
-/* =========================
-   FALLING FLOWERS
-========================= */
-
 .petal{
   position:absolute;
-
   top:-30px;
 
   font-size:18px;
 
-  animation:
-    fall
-    linear
-    infinite;
+  animation:fall linear infinite;
 
   pointer-events:none;
 }
 
 @keyframes fall{
-
   from{
-    transform:
-      translateY(-30px)
-      rotate(0);
+    transform:translateY(-30px) rotate(0)
   }
 
   to{
-    transform:
-      translateY(110vh)
-      rotate(360deg);
+    transform:translateY(110vh) rotate(360deg)
   }
 }
 
 
-/* =========================
-   MUSIC BUTTON
-========================= */
+/* AUDIO CONTROLS */
 
 .music-toggle{
   position:fixed;
 
-  top:14px;
-  right:14px;
-
   z-index:250;
 
-  padding:
-    9px 14px;
+  top:12px;
+  right:12px;
+
+  padding:9px 13px;
 
   border-radius:999px;
 
   color:#fff;
 
-  background:
-    rgba(20,12,28,.72);
+  background:rgba(10,7,16,.72);
 
-  border:
-    1px solid
-    rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.14);
 
-  backdrop-filter:
-    blur(12px);
-
-  font-size:12px;
-
-  font-weight:700;
+  backdrop-filter:blur(12px);
 
   box-shadow:
-    0 0 18px
-    rgba(195,76,255,.2);
+    0 0 18px rgba(190,75,255,.16);
+
+  font-size:12px;
+  font-weight:700;
+}
+
+.music-toggle:active{
+  transform:scale(.95);
 }
 
 
-/* =========================
-   NAV
-========================= */
+/* NAV */
 
 .nav{
   position:fixed;
@@ -1577,8 +1189,7 @@ h2{
   left:50%;
   bottom:12px;
 
-  transform:
-    translateX(-50%);
+  transform:translateX(-50%);
 
   display:flex;
 
@@ -1588,15 +1199,11 @@ h2{
 
   border-radius:999px;
 
-  background:
-    rgba(10,7,16,.7);
+  background:rgba(10,7,16,.7);
 
-  border:
-    1px solid
-    rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.1);
 
-  backdrop-filter:
-    blur(12px);
+  backdrop-filter:blur(12px);
 }
 
 .nav button{
@@ -1616,21 +1223,14 @@ h2{
   color:#fff;
 
   background:
-    linear-gradient(
-      135deg,
-      #bb50ee,
-      #5976e7
-    );
+    linear-gradient(135deg,#bb50ee,#5976e7);
 
   box-shadow:
-    0 0 12px
-    rgba(193,76,255,.4);
+    0 0 12px rgba(193,76,255,.4);
 }
 
 
-/* =========================
-   TOAST
-========================= */
+/* TOAST */
 
 .toast{
   position:fixed;
@@ -1646,17 +1246,13 @@ h2{
 
   opacity:0;
 
-  padding:
-    11px 18px;
+  padding:11px 18px;
 
   border-radius:999px;
 
-  background:
-    rgba(22,12,28,.9);
+  background:rgba(22,12,28,.9);
 
-  border:
-    1px solid
-    rgba(255,175,243,.2);
+  border:1px solid rgba(255,175,243,.2);
 
   color:#ffe8fb;
 
@@ -1676,10 +1272,6 @@ h2{
 }
 
 
-/* =========================
-   MOBILE
-========================= */
-
 @media(max-width:520px){
 
   .scene{
@@ -1692,9 +1284,7 @@ h2{
 
   .cake{
     transform:scale(.9);
-
     margin-top:-5px;
-
     margin-bottom:-12px;
   }
 
@@ -1724,14 +1314,11 @@ h2{
 
   .paper{
     height:78vh;
-
-    padding:
-      25px 18px;
+    padding:25px 18px;
   }
 
   .letter-text{
     font-size:17px;
-
     line-height:1.85;
   }
 
@@ -1744,65 +1331,78 @@ h2{
   }
 
   .music-toggle{
-    top:10px;
-    right:10px;
+    top:9px;
+    right:9px;
     font-size:11px;
     padding:8px 11px;
   }
+
+  .photo-viewer{
+    padding:12px;
+  }
+
+  .photo-viewer img{
+    max-width:96vw;
+    max-height:82vh;
+    border-radius:12px;
+  }
+
+  .photo-close{
+    top:12px;
+    right:12px;
+    width:40px;
+    height:40px;
+  }
+
 }
 
 </style>
 </head>
 
-
 <body>
-
-
-<!-- =========================
-     FLOATING BUTTERFLIES
-========================= -->
 
 <div class="butterfly b1">🦋</div>
 <div class="butterfly b2">🦋</div>
 <div class="butterfly b3">🦋</div>
 <div class="butterfly b4">🦋</div>
 
-
 <div class="toast" id="toast"></div>
 
 
-<!-- =========================
-     MUSIC
-========================= -->
+<!-- BIRTHDAY THEME MUSIC -->
 
 <audio
   id="bgMusic"
   src="birthday.mp3"
   loop
-  autoplay
   preload="auto">
 </audio>
 
-<!-- ENDING FIREWORKS SOUND -->
+
+<!-- 25-SECOND ENDING FIREWORKS SOUND -->
+
 <audio
   id="fireworksSound"
   src="fireworks.mp3"
   preload="auto">
 </audio>
 
+
 <button
   class="music-toggle"
   id="musicButton"
   onclick="toggleMusic(event)">
+
   🎵 Music: On
+
 </button>
 
 
-<!-- =========================
-     SCENE 0
-========================= -->
+<!-- INTRO -->
 
-<section class="scene active" id="scene0">
+<section
+  class="scene active"
+  id="scene0">
 
   <div class="glow one"></div>
   <div class="glow two"></div>
@@ -1828,8 +1428,7 @@ h2{
 
       <br>
 
-      So take a breath, tap below,
-      and let the surprise begin. ✨
+      So take a breath, tap below, and let the surprise begin. ✨
 
     </p>
 
@@ -1846,11 +1445,11 @@ h2{
 </section>
 
 
-<!-- =========================
-     SCENE 1
-========================= -->
+<!-- QUESTIONS -->
 
-<section class="scene" id="scene1">
+<section
+  class="scene"
+  id="scene1">
 
   <div class="glow one"></div>
   <div class="glow two"></div>
@@ -1899,11 +1498,11 @@ h2{
 </section>
 
 
-<!-- =========================
-     SCENE 2
-========================= -->
+<!-- CAKE -->
 
-<section class="scene" id="scene2">
+<section
+  class="scene"
+  id="scene2">
 
   <div class="glow one"></div>
   <div class="glow two"></div>
@@ -1930,10 +1529,17 @@ h2{
       <div class="drip d2"></div>
       <div class="drip d3"></div>
 
-      <div class="strawberry s1">🍓</div>
-      <div class="strawberry s2">🍓</div>
-      <div class="strawberry s3">🍓</div>
+      <div class="strawberry s1">
+        🍓
+      </div>
 
+      <div class="strawberry s2">
+        🍓
+      </div>
+
+      <div class="strawberry s3">
+        🍓
+      </div>
 
       <div class="candle c1">
         <div class="flame"></div>
@@ -1950,10 +1556,7 @@ h2{
     </div>
 
     <div class="blow-text">
-
-      Make your birthday wish...
-      then blow the candles 🕯️✨
-
+      Make your birthday wish... then blow the candles 🕯️✨
     </div>
 
     <button
@@ -1978,11 +1581,11 @@ h2{
 </section>
 
 
-<!-- =========================
-     SCENE 3
-========================= -->
+<!-- MEMORIES -->
 
-<section class="scene" id="scene3">
+<section
+  class="scene"
+  id="scene3">
 
   <div class="glow one"></div>
   <div class="glow two"></div>
@@ -2009,61 +1612,75 @@ h2{
 
     </p>
 
-
     <div class="memory-grid">
 
-
       <div class="photo-slot">
-        <img src="her1.jpg" alt="Chiku">
+        <img
+          src="her1.jpg"
+          alt="Chiku">
       </div>
 
       <div class="photo-slot">
-        <img src="her2.jpg" alt="Chiku">
+        <img
+          src="her2.jpg"
+          alt="Chiku">
       </div>
 
       <div class="photo-slot">
-        <img src="her3.jpg" alt="Chiku">
+        <img
+          src="her3.jpg"
+          alt="Chiku">
       </div>
 
       <div class="photo-slot">
-        <img src="her4.jpg" alt="Chiku">
+        <img
+          src="her4.jpg"
+          alt="Chiku">
       </div>
 
       <div class="photo-slot">
-        <img src="comment1.jpg" alt="Comment">
+        <img
+          src="comment1.jpg"
+          alt="Comment">
       </div>
 
       <div class="photo-slot">
-        <img src="comment2.jpg" alt="Comment">
+        <img
+          src="comment2.jpg"
+          alt="Comment">
       </div>
 
       <div class="photo-slot">
-        <img src="together1.jpg" alt="Together">
+        <img
+          src="together1.jpg"
+          alt="Together">
       </div>
 
       <div class="photo-slot">
-        <img src="together2.jpg" alt="Together">
+        <img
+          src="together2.jpg"
+          alt="Together">
       </div>
 
       <div class="photo-slot">
-        <img src="together3.jpg" alt="Together">
+        <img
+          src="together3.jpg"
+          alt="Together">
       </div>
 
       <div class="photo-slot">
-        <img src="together4.jpg" alt="Together">
+        <img
+          src="together4.jpg"
+          alt="Together">
       </div>
-
 
     </div>
-
 
     <div class="memory-note">
 
-      Her photos → old conversations
-      → together memories 💗
+      Her photos → old conversations → together memories 💗
 
     </div>
-
 
     <button
       class="main-btn"
@@ -2078,11 +1695,11 @@ h2{
 </section>
 
 
-<!-- =========================
-     SCENE 4
-========================= -->
+<!-- WHEEL -->
 
-<section class="scene" id="scene4">
+<section
+  class="scene"
+  id="scene4">
 
   <div class="glow one"></div>
   <div class="glow two"></div>
@@ -2097,7 +1714,6 @@ h2{
       Spin The Little Wheel 🎡
     </h2>
 
-
     <div class="wheel-area">
 
       <div class="wheel-pointer"></div>
@@ -2105,7 +1721,6 @@ h2{
       <div
         class="wheel"
         id="wheel">
-
 
         <div
           class="wheel-label"
@@ -2115,7 +1730,6 @@ h2{
 
         </div>
 
-
         <div
           class="wheel-label"
           style="--r:67.5deg">
@@ -2123,7 +1737,6 @@ h2{
           Happiness 🦋
 
         </div>
-
 
         <div
           class="wheel-label"
@@ -2133,7 +1746,6 @@ h2{
 
         </div>
 
-
         <div
           class="wheel-label"
           style="--r:157.5deg">
@@ -2141,7 +1753,6 @@ h2{
           Laughter 😹
 
         </div>
-
 
         <div
           class="wheel-label"
@@ -2151,7 +1762,6 @@ h2{
 
         </div>
 
-
         <div
           class="wheel-label"
           style="--r:247.5deg">
@@ -2159,7 +1769,6 @@ h2{
           Memories 💕
 
         </div>
-
 
         <div
           class="wheel-label"
@@ -2169,7 +1778,6 @@ h2{
 
         </div>
 
-
         <div
           class="wheel-label"
           style="--r:337.5deg">
@@ -2178,11 +1786,9 @@ h2{
 
         </div>
 
-
       </div>
 
     </div>
-
 
     <button
       class="spin-btn"
@@ -2193,7 +1799,6 @@ h2{
 
     </button>
 
-
     <div
       class="wheel-result"
       id="wheelResult">
@@ -2201,7 +1806,6 @@ h2{
       Your little wish is waiting...
 
     </div>
-
 
     <button
       class="main-btn"
@@ -2218,11 +1822,11 @@ h2{
 </section>
 
 
-<!-- =========================
-     SCENE 5
-========================= -->
+<!-- WISH -->
 
-<section class="scene" id="scene5">
+<section
+  class="scene"
+  id="scene5">
 
   <div class="glow one"></div>
   <div class="glow two"></div>
@@ -2234,9 +1838,7 @@ h2{
     </div>
 
     <h2 id="wishTitle">
-
       A Little Wish For You 🦋
-
     </h2>
 
     <p
@@ -2244,15 +1846,12 @@ h2{
       id="wishText"
       style="margin-left:auto;margin-right:auto;">
 
-      May your days always have something
-      beautiful waiting for you.
+      May your days always have something beautiful waiting for you.
 
     </p>
 
     <div class="wish-from">
-
       — From Chinu 💗
-
     </div>
 
     <button
@@ -2268,11 +1867,11 @@ h2{
 </section>
 
 
-<!-- =========================
-     SCENE 6
-========================= -->
+<!-- SCRATCH -->
 
-<section class="scene" id="scene6">
+<section
+  class="scene"
+  id="scene6">
 
   <div class="glow one"></div>
   <div class="glow two"></div>
@@ -2291,11 +1890,9 @@ h2{
       class="subtitle"
       style="margin-left:auto;margin-right:auto;">
 
-      Scratch the card gently
-      to reveal what's hiding underneath.
+      Scratch the card gently to reveal what's hiding underneath.
 
     </p>
-
 
     <div
       class="scratch-card"
@@ -2303,17 +1900,13 @@ h2{
 
       <div class="scratch-message">
 
-        Chiku, you are one of the most
-        beautiful parts of my little world. 💗🦋
+        Chiku, you are one of the most beautiful parts of my little world. 💗🦋
 
       </div>
 
-      <canvas
-        id="scratchCanvas">
-      </canvas>
+      <canvas id="scratchCanvas"></canvas>
 
     </div>
-
 
     <button
       class="main-btn"
@@ -2330,9 +1923,7 @@ h2{
 </section>
 
 
-<!-- =========================
-     SCENE 7
-========================= -->
+<!-- LETTER -->
 
 <section
   class="scene letter-scene"
@@ -2341,9 +1932,7 @@ h2{
   <div class="glow one"></div>
   <div class="glow two"></div>
 
-
   <div class="letter-wrap">
-
 
     <div
       class="envelope"
@@ -2351,9 +1940,7 @@ h2{
       onclick="openLetter()">
 
       <div class="envelope-text">
-
         A letter from Chinu 💌
-
       </div>
 
     </div>
@@ -2365,25 +1952,19 @@ h2{
 
       <div class="letter-scroll">
 
-
         <div class="letter-heading">
-
           💌 A Birthday Letter From Chinu
-
         </div>
-
 
         <div
           class="letter-text"
           id="letterText">
         </div>
 
-
         <div
           class="letter-sign"
           id="letterSign">
         </div>
-
 
         <button
           class="letter-next"
@@ -2395,7 +1976,6 @@ h2{
 
         </button>
 
-
       </div>
 
     </div>
@@ -2405,33 +1985,24 @@ h2{
 </section>
 
 
-<!-- =========================
-     SCENE 8
-========================= -->
+<!-- ENDING -->
 
 <section
   class="scene"
   id="scene8">
 
-
   <div class="glow one"></div>
   <div class="glow two"></div>
 
-
   <div class="final-content">
-
 
     <div class="final-heart">
       💗
     </div>
 
-
     <div class="kicker">
-
       The end... or maybe the beginning
-
     </div>
-
 
     <h1 class="final-title">
 
@@ -2439,7 +2010,6 @@ h2{
       Chiku 🦋
 
     </h1>
-
 
     <p class="final-message">
 
@@ -2461,76 +2031,114 @@ h2{
 
     </p>
 
-
   </div>
-
 
   <div class="firework fw1"></div>
   <div class="firework fw2"></div>
   <div class="firework fw3"></div>
 
-
 </section>
 
 
-<!-- =========================
-     NAVIGATION
-========================= -->
+<!-- FULL-SCREEN MEMORY PHOTO VIEWER -->
+
+<div
+  class="photo-viewer"
+  id="photoViewer"
+  onclick="closePhotoViewer(event)">
+
+  <button
+    class="photo-close"
+    type="button"
+    onclick="closePhotoViewer(event)"
+    aria-label="Close photo">
+
+    ✕
+
+  </button>
+
+  <img
+    id="viewerImage"
+    src=""
+    alt="Memory">
+
+</div>
+
+
+<!-- NAV -->
 
 <div class="nav">
 
   <button
     onclick="goTo(0)"
     id="nav0">
+
     ✦
+
   </button>
 
   <button
     onclick="goTo(1)"
     id="nav1">
+
     ♡
+
   </button>
 
   <button
     onclick="goTo(2)"
     id="nav2">
+
     🎂
+
   </button>
 
   <button
     onclick="goTo(3)"
     id="nav3">
+
     📸
+
   </button>
 
   <button
     onclick="goTo(4)"
     id="nav4">
+
     🎡
+
   </button>
 
   <button
     onclick="goTo(5)"
     id="nav5">
+
     💗
+
   </button>
 
   <button
     onclick="goTo(6)"
     id="nav6">
+
     🎟️
+
   </button>
 
   <button
     onclick="goTo(7)"
     id="nav7">
+
     💌
+
   </button>
 
   <button
     onclick="goTo(8)"
     id="nav8">
+
     🦋
+
   </button>
 
 </div>
@@ -2539,9 +2147,77 @@ h2{
 <script>
 
 
-/* =====================================================
-   BACKGROUND MUSIC
-===================================================== */
+/* MEMORY PHOTO VIEWER */
+
+const photoViewer =
+  document.getElementById("photoViewer");
+
+const viewerImage =
+  document.getElementById("viewerImage");
+
+
+document
+  .querySelectorAll(".photo-slot img")
+  .forEach(img=>{
+
+    img.addEventListener("click",event=>{
+
+      event.stopPropagation();
+
+      viewerImage.src = img.src;
+
+      viewerImage.alt =
+        img.alt || "Memory";
+
+      photoViewer.classList.add("show");
+
+    });
+
+  });
+
+
+function closePhotoViewer(event){
+
+  if(
+    event &&
+    event.target !== photoViewer &&
+    !event.target.classList.contains("photo-close")
+  ){
+    return;
+  }
+
+  photoViewer.classList.remove("show");
+
+  viewerImage.src = "";
+
+}
+
+
+document.addEventListener(
+  "keydown",
+  event=>{
+
+    if(
+      event.key === "Escape" &&
+      photoViewer.classList.contains("show")
+    ){
+
+      closePhotoViewer();
+
+    }
+
+  }
+);
+
+
+/* AUDIO
+
+   Birthday music remembers the user's choice.
+
+   Fireworks sound plays only on the ending page
+   and restarts after it ends.
+*/
+
 
 const bgMusic =
   document.getElementById("bgMusic");
@@ -2552,123 +2228,122 @@ const musicButton =
 const fireworksSound =
   document.getElementById("fireworksSound");
 
-bgMusic.volume = 0.45;
 
-fireworksSound.volume = 1.0;
-
-let musicStarted = false;
+let musicEnabled =
+  localStorage.getItem("birthdayMusicEnabled");
 
 
-function startMusic(){
+if(musicEnabled === null){
 
-  if(!bgMusic.paused){
+  musicEnabled = true;
 
-    musicStarted = true;
+}else{
 
-    musicButton.textContent =
-      "🎵 Music: On";
-
-    return;
-  }
-
-
-  bgMusic.play()
-    .then(()=>{
-
-      musicStarted = true;
-
-      musicButton.textContent =
-        "🎵 Music: On";
-
-    })
-    .catch(()=>{
-
-      /*
-        Mobile browsers may block
-        autoplay until the user taps.
-      */
-
-    });
+  musicEnabled =
+    musicEnabled === "true";
 
 }
 
 
-/*
-  Try immediately.
+bgMusic.volume = 0.45;
+
+fireworksSound.volume = 1.0;
+
+
+function updateMusicButton(){
+
+  musicButton.textContent =
+    musicEnabled
+      ? "🎵 Music: On"
+      : "🎵 Music: Off";
+
+}
+
+
+function startBirthdayMusic(){
+
+  if(!musicEnabled)
+    return;
+
+  bgMusic
+    .play()
+    .catch(()=>{});
+
+  updateMusicButton();
+
+}
+
+
+function stopBirthdayMusic(){
+
+  bgMusic.pause();
+
+  updateMusicButton();
+
+}
+
+
+function toggleMusic(event){
+
+  if(event)
+    event.stopPropagation();
+
+  musicEnabled = !musicEnabled;
+
+  localStorage.setItem(
+    "birthdayMusicEnabled",
+    String(musicEnabled)
+  );
+
+  if(musicEnabled){
+
+    startBirthdayMusic();
+
+  }else{
+
+    stopBirthdayMusic();
+
+  }
+
+}
+
+
+/* Try autoplay on load.
+
+   Browsers may block it until the first tap.
+
+   The first tap only starts music if
+   the user has left it ON.
 */
+
+
 window.addEventListener(
   "load",
-  startMusic
+  ()=>{
+
+    updateMusicButton();
+
+    startBirthdayMusic();
+
+  }
 );
 
 
-/*
-  First user interaction unlocks audio.
-*/
 document.addEventListener(
   "pointerdown",
-  event => {
+  event=>{
 
     if(
-      !event.target.closest(
-        "#musicButton"
-      )
-    ){
+      event.target.closest("#musicButton")
+    )
+      return;
 
-      startMusic();
-
-    }
+    startBirthdayMusic();
 
   },
   {once:true}
 );
 
-
-function toggleMusic(event){
-
-  if(event){
-    event.stopPropagation();
-  }
-
-
-  if(bgMusic.paused){
-
-    bgMusic.play()
-      .then(()=>{
-
-        musicStarted = true;
-
-        musicButton.textContent =
-          "🎵 Music: On";
-
-      })
-      .catch(()=>{});
-
-  }else{
-
-    bgMusic.pause();
-
-    musicButton.textContent =
-      "🎵 Music: Off";
-
-  }
-
-}
-
-
-/* =====================================================
-   ENDING FIREWORKS SOUND
-===================================================== */
-
-/*
-  fireworks.mp3 is used only on
-  the final Scene 8.
-
-  When the 25-second fireworks
-  sound finishes, it starts again
-  automatically if Scene 8 is
-  still open.
-*/
 
 function startFireworksSound(){
 
@@ -2676,7 +2351,8 @@ function startFireworksSound(){
 
   fireworksSound.currentTime = 0;
 
-  fireworksSound.play()
+  fireworksSound
+    .play()
     .catch(()=>{});
 
 }
@@ -2691,10 +2367,10 @@ function stopFireworksSound(){
 }
 
 
-/*
-  Repeat fireworks.mp3 whenever
-  it finishes while Scene 8 is open.
+/* If the 25-second file finishes while scene 8
+   is still open, start it again from the beginning.
 */
+
 
 fireworksSound.addEventListener(
   "ended",
@@ -2704,7 +2380,8 @@ fireworksSound.addEventListener(
 
       fireworksSound.currentTime = 0;
 
-      fireworksSound.play()
+      fireworksSound
+        .play()
         .catch(()=>{});
 
     }
@@ -2713,9 +2390,7 @@ fireworksSound.addEventListener(
 );
 
 
-/* =====================================================
-   SCENE NAVIGATION
-===================================================== */
+/* SCENE NAVIGATION */
 
 let currentScene = 0;
 
@@ -2723,25 +2398,14 @@ let currentScene = 0;
 function goTo(number){
 
   const scenes =
-    document.querySelectorAll(
-      ".scene"
-    );
+    document.querySelectorAll(".scene");
 
 
   if(
     number < 0 ||
     number >= scenes.length
-  ){
+  )
     return;
-  }
-
-
-  /*
-    Make sure music gets another
-    chance after a real user interaction.
-  */
-
-  startMusic();
 
 
   const previousScene =
@@ -2777,6 +2441,13 @@ function goTo(number){
   currentScene = number;
 
 
+  /* NEVER restart birthday music
+     just because the page changed.
+     The user's ON/OFF choice is controlled
+     only by the music button.
+  */
+
+
   if(number === 6){
 
     setTimeout(
@@ -2787,30 +2458,25 @@ function goTo(number){
   }
 
 
-  /*
-    FINAL SCENE
-
-    Start fireworks.mp3 when
-    Scene 8 opens.
+  /* Start the 25-second fireworks audio
+     when the ending page opens.
   */
+
 
   if(
     number === 8 &&
     previousScene !== 8
   ){
 
-    setTimeout(
-      startFireworksSound,
-      120
-    );
+    startFireworksSound();
 
   }
 
 
-  /*
-    Stop fireworks.mp3 when
-    leaving Scene 8.
+  /* Stop/reset fireworks whenever
+     the ending page is left.
   */
+
 
   if(
     previousScene === 8 &&
@@ -2824,25 +2490,19 @@ function goTo(number){
 }
 
 
-/* =====================================================
-   TOAST
-===================================================== */
+/* TOAST */
 
 function showToast(message){
 
   const toast =
-    document.getElementById(
-      "toast"
-    );
+    document.getElementById("toast");
 
 
   toast.textContent =
     message;
 
 
-  toast.classList.add(
-    "show"
-  );
+  toast.classList.add("show");
 
 
   clearTimeout(
@@ -2851,20 +2511,19 @@ function showToast(message){
 
 
   window.toastTimer =
-    setTimeout(()=>{
+    setTimeout(
+      ()=>{
 
-      toast.classList.remove(
-        "show"
-      );
+        toast.classList.remove("show");
 
-    },2200);
+      },
+      2200
+    );
 
 }
 
 
-/* =====================================================
-   QUESTIONS
-===================================================== */
+/* QUESTIONS */
 
 const questions = [
 
@@ -2901,8 +2560,7 @@ function answerYes(){
 
 
   if(
-    questionIndex >=
-    questions.length
+    questionIndex >= questions.length
   ){
 
     goTo(2);
@@ -2913,9 +2571,7 @@ function answerYes(){
 
 
   document
-    .getElementById(
-      "questionNumber"
-    )
+    .getElementById("questionNumber")
     .textContent =
       "QUESTION " +
       String(
@@ -2924,13 +2580,9 @@ function answerYes(){
 
 
   document
-    .getElementById(
-      "questionText"
-    )
+    .getElementById("questionText")
     .textContent =
-      questions[
-        questionIndex
-      ];
+      questions[questionIndex];
 
 }
 
@@ -2938,79 +2590,61 @@ function answerYes(){
 function answerNo(){
 
   showToast(
-    noReplies[
-      questionIndex
-    ]
+    noReplies[questionIndex]
   );
 
 
   const button =
-    document.getElementById(
-      "noButton"
-    );
+    document.getElementById("noButton");
 
 
   button.animate(
-
     [
       {
-        transform:
-          "translateX(0)"
+        transform:"translateX(0)"
       },
 
       {
-        transform:
-          "translateX(-7px)"
+        transform:"translateX(-7px)"
       },
 
       {
-        transform:
-          "translateX(7px)"
+        transform:"translateX(7px)"
       },
 
       {
-        transform:
-          "translateX(0)"
+        transform:"translateX(0)"
       }
 
     ],
-
     {
       duration:350
     }
-
   );
 
 }
 
 
-/* =====================================================
-   CAKE
-===================================================== */
+/* CAKE */
 
 let candlesBlown = false;
 
 
 function blowCandles(){
 
-  if(candlesBlown){
+  if(candlesBlown)
     return;
-  }
 
 
   candlesBlown = true;
 
 
   document
-    .querySelectorAll(
-      ".candle"
-    )
+    .querySelectorAll(".candle")
     .forEach(
       candle=>{
 
-        candle.classList.add(
-          "off"
-        );
+        candle.classList.add("off");
 
       }
     );
@@ -3022,80 +2656,68 @@ function blowCandles(){
 
 
   document
-    .getElementById(
-      "cakeNext"
-    )
+    .getElementById("cakeNext")
     .style.display =
       "inline-block";
 
 }
 
 
-/* =====================================================
-   WHEEL
-===================================================== */
+/* WHEEL */
 
 const wishes = [
 
   {
-    title:
-      "A Wish For Your Smile 💗",
+    title:"A Wish For Your Smile 💗",
 
     text:
       "May you always have countless little reasons to smile, laugh and enjoy the beautiful moments around you."
   },
 
   {
-    title:
-      "A Wish For Happiness 🦋",
+    title:"A Wish For Happiness 🦋",
 
     text:
       "May happiness find you in unexpected places and stay with you through every season of life."
   },
 
   {
-    title:
-      "A Wish For Your Dreams ✨",
+    title:"A Wish For Your Dreams ✨",
 
     text:
       "May you have the courage to chase your dreams and the confidence to believe in yourself."
   },
 
   {
-    title:
-      "A Wish For Laughter 😹",
+    title:"A Wish For Laughter 😹",
 
     text:
       "May your life always be filled with silly conversations, unforgettable jokes and moments that make you laugh."
   },
 
   {
-    title:
-      "A Wish For Peace 🌸",
+    title:"A Wish For Peace 🌸",
 
     text:
       "May your heart have peaceful days, calm moments and the comfort of knowing that you are cared for."
   },
 
   {
-    title:
-      "A Wish For Memories 💕",
+    title:"A Wish For Memories 💕",
 
     text:
       "May this year bring you beautiful memories that you'll look back on someday and smile about."
   },
 
   {
-    title:
-      "A Wish For Magic ✨",
+    title:"A Wish For Magic ✨",
 
     text:
       "May ordinary days unexpectedly become special and may life surprise you in the sweetest ways."
   },
 
   {
-    title:
-      "A Wish For Love 🦋",
+    title:"A Wish For Love 🦋",
 
     text:
       "May you always be surrounded by genuine care, kindness, laughter and people who truly want to see you happy."
@@ -3113,24 +2735,19 @@ let selectedWish = 0;
 
 function spinWheel(){
 
-  if(wheelSpinning){
+  if(wheelSpinning)
     return;
-  }
 
 
   wheelSpinning = true;
 
 
   const wheel =
-    document.getElementById(
-      "wheel"
-    );
+    document.getElementById("wheel");
 
 
   const spinButton =
-    document.getElementById(
-      "spinButton"
-    );
+    document.getElementById("spinButton");
 
 
   spinButton.disabled = true;
@@ -3143,8 +2760,7 @@ function spinWheel(){
 
 
   const segmentCenter =
-    selectedWish * 45 +
-    22.5;
+    selectedWish * 45 + 22.5;
 
 
   const target =
@@ -3152,8 +2768,7 @@ function spinWheel(){
     (360 - segmentCenter);
 
 
-  wheelRotation +=
-    target;
+  wheelRotation += target;
 
 
   wheel.style.transform =
@@ -3162,59 +2777,45 @@ function spinWheel(){
     "deg)";
 
 
-  setTimeout(()=>{
+  setTimeout(
+    ()=>{
 
-    document
-      .getElementById(
-        "wheelResult"
-      )
-      .textContent =
-        wishes[
-          selectedWish
-        ].title;
+      document
+        .getElementById("wheelResult")
+        .textContent =
+          wishes[selectedWish].title;
 
 
-    document
-      .getElementById(
-        "wishTitle"
-      )
-      .textContent =
-        wishes[
-          selectedWish
-        ].title;
+      document
+        .getElementById("wishTitle")
+        .textContent =
+          wishes[selectedWish].title;
 
 
-    document
-      .getElementById(
-        "wishText"
-      )
-      .textContent =
-        wishes[
-          selectedWish
-        ].text;
+      document
+        .getElementById("wishText")
+        .textContent =
+          wishes[selectedWish].text;
 
 
-    document
-      .getElementById(
-        "wheelNext"
-      )
-      .style.display =
-        "inline-block";
+      document
+        .getElementById("wheelNext")
+        .style.display =
+          "inline-block";
 
 
-    wheelSpinning = false;
+      wheelSpinning = false;
 
-    spinButton.disabled =
-      false;
+      spinButton.disabled = false;
 
-  },4100);
+    },
+    4100
+  );
 
 }
 
 
-/* =====================================================
-   SCRATCH CARD
-===================================================== */
+/* SCRATCH */
 
 const canvas =
   document.getElementById(
@@ -3223,9 +2824,7 @@ const canvas =
 
 
 const ctx =
-  canvas.getContext(
-    "2d"
-  );
+  canvas.getContext("2d");
 
 
 let scratching = false;
@@ -3246,8 +2845,7 @@ function setupScratchCanvas(){
 
 
   const ratio =
-    window.devicePixelRatio ||
-    1;
+    window.devicePixelRatio || 1;
 
 
   canvas.width =
@@ -3294,10 +2892,12 @@ function setupScratchCanvas(){
     "#d9d9df"
   );
 
+
   gradient.addColorStop(
     .5,
     "#a8a8b2"
   );
+
 
   gradient.addColorStop(
     1,
@@ -3340,9 +2940,7 @@ function setupScratchCanvas(){
 
 
   document
-    .getElementById(
-      "scratchNext"
-    )
+    .getElementById("scratchNext")
     .style.display =
       "none";
 
@@ -3395,9 +2993,7 @@ function scratchAt(x,y){
   if(scratchedPixels > 55){
 
     document
-      .getElementById(
-        "scratchNext"
-      )
+      .getElementById("scratchNext")
       .style.display =
         "inline-block";
 
@@ -3431,9 +3027,8 @@ canvas.addEventListener(
   "pointermove",
   event=>{
 
-    if(!scratching){
+    if(!scratching)
       return;
-    }
 
 
     scratchAt(
@@ -3475,28 +3070,21 @@ window.addEventListener(
 );
 
 
-/* =====================================================
-   LETTER
-===================================================== */
+/* LETTER */
 
 const exactLetter = `Dear Chiku, 💗🦋
 
 Happy Birthday to my favourite person. 🎂💕
-
 You know, sometimes I wonder how we can talk so much and still somehow have something new to talk about every day. 😌💗🫂 From the most random conversations to the things that actually matter, I love all those little moments we share.😹💖💗🫂
 
 You're not just someone I wish a happy birthday today.🧸💗
-
 You're someone I genuinely care about.💖🫂
-
 I want to see you happy. I want to see you achieve the things you dream about. I want to be there when you're excited about something, when you're proud of yourself, and even when you're having one of those days when everything feels a little too much.🫂💖
 
 If you're happy, I'll be happy seeing you happy.😁💕
-
 And if you're having a difficult day, you don't have to pretend everything is okay. Take your time, tell me what's bothering you, complain about everything if you want 😌💗🫂—I'll listen.
 
 Because caring about someone isn't only about being there for the good moments.💗🧸
-
 It's also about staying beside them when things aren't so easy. 💗
 
 We've already given each other those funny little titles— you calling me your husband,piyari,Chinu💗✨ and me calling you my wife,pagli,piyari,Chiku 🤭🫂💗
@@ -3510,14 +3098,11 @@ So on your birthday, I want to make one simple wish for you:
 May you always have reasons to smile. 🦋 💗 May you have the courage to chase your dreams.😌 May you never feel alone when life gets difficult.💕💐 And may you always remember that someone is cheering for you. 🦋✨
 
 Please take care of yourself, Chiku.💕🫂
-
 Eat properly, Drink water and rest when you're tired, don't overthink everytime 😌💗💐, and most importantly, don't forget to be proud of yourself.✨
 
 You've got someone here who's going to keep annoying you, listening to your endless stories, laughing at your random jokes, and caring about you. 😹🫂💗💐
 
-And yes...
-
-I'll always be cheering for you and wishing the best for you. 😌💗
+And yes... I am marrying you in the future and make you my real wife. 😌💗
 
 Happy Birthday, Chiku. 🎂🦋
 
@@ -3533,9 +3118,8 @@ let letterOpened = false;
 
 function openLetter(){
 
-  if(letterOpened){
+  if(letterOpened)
     return;
-  }
 
 
   letterOpened = true;
@@ -3565,29 +3149,23 @@ function openLetter(){
     );
 
 
-  envelope.classList.add(
-    "open"
+  envelope.classList.add("open");
+
+
+  setTimeout(
+    ()=>{
+
+      paper.classList.add("show");
+
+      textElement.textContent="";
+
+      signElement.textContent="";
+
+      typeLetter();
+
+    },
+    700
   );
-
-
-  setTimeout(()=>{
-
-    paper.classList.add(
-      "show"
-    );
-
-
-    textElement.textContent =
-      "";
-
-
-    signElement.textContent =
-      "";
-
-
-    typeLetter();
-
-  },700);
 
 }
 
@@ -3600,7 +3178,7 @@ function typeLetter(){
     );
 
 
-  let index = 0;
+  let index=0;
 
 
   const cursor =
@@ -3621,8 +3199,7 @@ function typeLetter(){
   function type(){
 
     if(
-      index <
-      exactLetter.length
+      index < exactLetter.length
     ){
 
       cursor.before(
@@ -3646,17 +3223,13 @@ function typeLetter(){
 
 
       document
-        .getElementById(
-          "letterSign"
-        )
+        .getElementById("letterSign")
         .textContent =
           "Your Chinu 💗🦋";
 
 
       document
-        .getElementById(
-          "letterNext"
-        )
+        .getElementById("letterNext")
         .style.display =
           "block";
 
@@ -3670,22 +3243,19 @@ function typeLetter(){
 }
 
 
-/* =====================================================
-   FALLING PETALS
-===================================================== */
+/* FALLING FLOWERS */
 
 function createPetals(){
 
-  const emojis = [
-
-    "🌸",
-    "💮",
-    "🌷",
-    "✨",
-    "🦋",
-    "💗"
-
-  ];
+  const emojis =
+    [
+      "🌸",
+      "💮",
+      "🌷",
+      "✨",
+      "🦋",
+      "💗"
+    ];
 
 
   for(
@@ -3722,29 +3292,24 @@ function createPetals(){
       (
         5 +
         Math.random()*6
-      ) +
-      "s";
+      ) + "s";
 
 
     petal.style.animationDelay =
       (
         Math.random()*7
-      ) +
-      "s";
+      ) + "s";
 
 
     petal.style.fontSize =
       (
         12 +
         Math.random()*10
-      ) +
-      "px";
+      ) + "px";
 
 
     document
-      .getElementById(
-        "scene8"
-      )
+      .getElementById("scene8")
       .appendChild(
         petal
       );
@@ -3754,14 +3319,10 @@ function createPetals(){
 }
 
 
-/* =====================================================
-   START
-===================================================== */
-
 createPetals();
 
-goTo(0);
 
+goTo(0);
 
 </script>
 
