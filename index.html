@@ -384,10 +384,15 @@ h2{
   margin-top:13px;
 }
 
+
+/* ============================= */
+/* MEMORIES / PHOTOS */
+/* ============================= */
+
 .memory-wrap{
   position:relative;
   z-index:5;
-  width:min(850px,100%);
+  width:min(950px,100%);
   text-align:center;
 }
 
@@ -398,17 +403,22 @@ h2{
   margin-top:24px;
   overflow-x:auto;
   overflow-y:hidden;
-  padding:4px 2px 12px;
+  padding:5px 4px 15px;
   scroll-behavior:smooth;
   -webkit-overflow-scrolling:touch;
 }
 
 .memory-grid::-webkit-scrollbar{
-  height:4px;
+  height:5px;
+}
+
+.memory-grid::-webkit-scrollbar-track{
+  background:rgba(255,255,255,.06);
+  border-radius:10px;
 }
 
 .memory-grid::-webkit-scrollbar-thumb{
-  background:rgba(255,255,255,.25);
+  background:rgba(211,120,255,.55);
   border-radius:10px;
 }
 
@@ -420,6 +430,17 @@ h2{
   padding:6px;
   background:linear-gradient(145deg,#d967ff,#536cff,#f75dbb);
   box-shadow:0 0 18px rgba(182,72,255,.2);
+  cursor:pointer;
+  transition:transform .25s,box-shadow .25s;
+}
+
+.photo-slot:active{
+  transform:scale(.94);
+}
+
+.photo-slot:hover{
+  transform:translateY(-4px);
+  box-shadow:0 0 25px rgba(210,80,255,.45);
 }
 
 .photo-slot img{
@@ -429,6 +450,74 @@ h2{
   border-radius:8px;
   background:#111;
   display:block;
+}
+
+
+/* ============================= */
+/* PHOTO VIEWER */
+/* ============================= */
+
+.photo-viewer{
+  position:fixed;
+  inset:0;
+  z-index:500;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:25px;
+  background:rgba(3,1,8,.92);
+  backdrop-filter:blur(12px);
+}
+
+.photo-viewer.show{
+  display:flex;
+  animation:viewerIn .3s ease both;
+}
+
+@keyframes viewerIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+.photo-viewer img{
+  max-width:92vw;
+  max-height:82vh;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  border-radius:16px;
+  border:2px solid rgba(255,255,255,.2);
+  box-shadow:
+    0 0 40px rgba(211,83,255,.4),
+    0 0 90px rgba(82,103,255,.18);
+}
+
+.photo-close{
+  position:absolute;
+  top:18px;
+  right:18px;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  color:white;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.2);
+  font-size:24px;
+  line-height:44px;
+  text-align:center;
+}
+
+.photo-counter{
+  position:absolute;
+  bottom:25px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:8px 15px;
+  border-radius:999px;
+  color:#fff;
+  background:rgba(20,10,28,.75);
+  border:1px solid rgba(255,255,255,.15);
+  font-size:12px;
 }
 
 .memory-note{
@@ -702,8 +791,6 @@ h2{
   color:#814681;
 }
 
-/* ONLY NEW LETTER NEXT BUTTON */
-
 .letter-next{
   display:block;
   margin:28px auto 5px;
@@ -872,10 +959,6 @@ h2{
     font-size:10px;
   }
 
-  .memory-grid{
-    gap:7px;
-  }
-
   .photo-slot{
     flex:0 0 90px;
     width:90px;
@@ -911,6 +994,23 @@ h2{
 <div class="butterfly b4">🦋</div>
 
 <div class="toast" id="toast"></div>
+
+
+<!-- PHOTO VIEWER -->
+
+<div class="photo-viewer" id="photoViewer">
+
+  <button class="photo-close" onclick="closePhoto()">
+    ×
+  </button>
+
+  <img id="viewerImage" src="" alt="Memory">
+
+  <div class="photo-counter" id="photoCounter">
+    1 / 10
+  </div>
+
+</div>
 
 
 <!-- INTRO -->
@@ -1054,45 +1154,45 @@ h2{
       So here, we'll keep them as memories. 🦋
     </p>
 
-    <div class="memory-grid">
+    <div class="memory-grid" id="memoryGrid">
 
-      <div class="photo-slot">
+      <div class="photo-slot" onclick="openPhoto(0)">
         <img src="her1.jpg" alt="Chiku">
       </div>
 
-      <div class="photo-slot">
+      <div class="photo-slot" onclick="openPhoto(1)">
         <img src="her2.jpg" alt="Chiku">
       </div>
 
-      <div class="photo-slot">
+      <div class="photo-slot" onclick="openPhoto(2)">
         <img src="her3.jpg" alt="Chiku">
       </div>
 
-      <div class="photo-slot">
+      <div class="photo-slot" onclick="openPhoto(3)">
         <img src="her4.jpg" alt="Chiku">
       </div>
 
-      <div class="photo-slot">
+      <div class="photo-slot" onclick="openPhoto(4)">
         <img src="comment1.jpg" alt="Comment">
       </div>
 
-      <div class="photo-slot">
+      <div class="photo-slot" onclick="openPhoto(5)">
         <img src="comment2.jpg" alt="Comment">
       </div>
 
-      <div class="photo-slot">
+      <div class="photo-slot" onclick="openPhoto(6)">
         <img src="together1.jpg" alt="Together">
       </div>
 
-      <div class="photo-slot">
+      <div class="photo-slot" onclick="openPhoto(7)">
         <img src="together2.jpg" alt="Together">
       </div>
 
-      <div class="photo-slot">
+      <div class="photo-slot" onclick="openPhoto(8)">
         <img src="together3.jpg" alt="Together">
       </div>
 
-      <div class="photo-slot">
+      <div class="photo-slot" onclick="openPhoto(9)">
         <img src="together4.jpg" alt="Together">
       </div>
 
@@ -1100,6 +1200,10 @@ h2{
 
     <div class="memory-note">
       Her photos → old conversations → together memories 💗
+      <br>
+      <span style="font-size:11px;color:#9e8fa8;">
+        Tap any photo to view it ✨
+      </span>
     </div>
 
     <button class="main-btn" onclick="goTo(4)">
@@ -1276,8 +1380,6 @@ h2{
 
         <div class="letter-sign" id="letterSign"></div>
 
-        <!-- ONLY ADDED BUTTON -->
-
         <button
           class="letter-next"
           id="letterNext"
@@ -1426,6 +1528,95 @@ function showToast(message){
     },2200);
 
 }
+
+
+/* ============================= */
+/* CLICKABLE PHOTOS */
+/* ============================= */
+
+const photoList = [
+
+  "her1.jpg",
+  "her2.jpg",
+  "her3.jpg",
+  "her4.jpg",
+  "comment1.jpg",
+  "comment2.jpg",
+  "together1.jpg",
+  "together2.jpg",
+  "together3.jpg",
+  "together4.jpg"
+
+];
+
+let currentPhoto = 0;
+
+function openPhoto(index){
+
+  currentPhoto = index;
+
+  const viewer =
+    document.getElementById("photoViewer");
+
+  const image =
+    document.getElementById("viewerImage");
+
+  const counter =
+    document.getElementById("photoCounter");
+
+  image.src =
+    photoList[index];
+
+  counter.textContent =
+    (index + 1) +
+    " / " +
+    photoList.length;
+
+  viewer.classList.add("show");
+
+}
+
+function closePhoto(){
+
+  document
+    .getElementById("photoViewer")
+    .classList.remove("show");
+
+}
+
+
+/* CLOSE PHOTO BY TAPPING OUTSIDE */
+
+document
+  .getElementById("photoViewer")
+  .addEventListener(
+    "click",
+    function(event){
+
+      if(event.target === this){
+
+        closePhoto();
+
+      }
+
+    }
+  );
+
+
+/* CLOSE PHOTO WITH ESCAPE */
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(event.key === "Escape"){
+
+      closePhoto();
+
+    }
+
+  }
+);
 
 
 /* QUESTIONS */
@@ -1964,8 +2155,6 @@ function typeLetter(){
       document.getElementById("letterSign")
         .textContent =
         "Your Chinu 💗🦋";
-
-      /* SHOW NEXT BUTTON ONLY AFTER LETTER FINISHES */
 
       document.getElementById("letterNext")
         .style.display =
