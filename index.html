@@ -394,9 +394,13 @@ h2{
 .memory-grid{
   display:flex;
   gap:12px;
-  justify-content:center;
+  justify-content:flex-start;
   margin-top:24px;
-  overflow:hidden;
+  overflow-x:auto;
+  overflow-y:hidden;
+  padding:0 4px 8px;
+  scrollbar-width:thin;
+  scroll-snap-type:x proximity;
 }
 
 .photo-slot{
@@ -406,6 +410,8 @@ h2{
   padding:6px;
   background:linear-gradient(145deg,#d967ff,#536cff,#f75dbb);
   box-shadow:0 0 18px rgba(182,72,255,.2);
+  flex:0 0 auto;
+  scroll-snap-align:start;
 }
 
 .photo-slot img{
@@ -1041,15 +1047,43 @@ h2{
     <div class="memory-grid">
 
       <div class="photo-slot">
-        <img src="her1.png" alt="Chiku">
+        <img src="photos/her1.jpg" alt="Chiku">
       </div>
 
       <div class="photo-slot">
-        <img src="her2.jpg" alt="Chiku">
+        <img src="photos/her2.jpg" alt="Chiku">
       </div>
 
       <div class="photo-slot">
-        <img src="together1.jpg" alt="Together">
+        <img src="photos/her3.jpg" alt="Chiku">
+      </div>
+
+      <div class="photo-slot">
+        <img src="photos/her4.jpg" alt="Chiku">
+      </div>
+
+      <div class="photo-slot">
+        <img src="photos/comment1.jpg" alt="Comment">
+      </div>
+
+      <div class="photo-slot">
+        <img src="photos/comment2.jpg" alt="Comment">
+      </div>
+
+      <div class="photo-slot">
+        <img src="photos/together1.jpg" alt="Together">
+      </div>
+
+      <div class="photo-slot">
+        <img src="photos/together2.jpg" alt="Together">
+      </div>
+
+      <div class="photo-slot">
+        <img src="photos/together3.jpg" alt="Together">
+      </div>
+
+      <div class="photo-slot">
+        <img src="photos/together4.jpg" alt="Together">
       </div>
 
     </div>
