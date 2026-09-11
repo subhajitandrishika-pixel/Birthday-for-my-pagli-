@@ -398,20 +398,28 @@ h2{
   margin-top:24px;
   overflow-x:auto;
   overflow-y:hidden;
-  padding:0 4px 8px;
-  scrollbar-width:thin;
-  scroll-snap-type:x proximity;
+  padding:4px 2px 12px;
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+}
+
+.memory-grid::-webkit-scrollbar{
+  height:4px;
+}
+
+.memory-grid::-webkit-scrollbar-thumb{
+  background:rgba(255,255,255,.25);
+  border-radius:10px;
 }
 
 .photo-slot{
+  flex:0 0 115px;
   width:115px;
   height:145px;
   border-radius:12px;
   padding:6px;
   background:linear-gradient(145deg,#d967ff,#536cff,#f75dbb);
   box-shadow:0 0 18px rgba(182,72,255,.2);
-  flex:0 0 auto;
-  scroll-snap-align:start;
 }
 
 .photo-slot img{
@@ -420,6 +428,7 @@ h2{
   object-fit:cover;
   border-radius:8px;
   background:#111;
+  display:block;
 }
 
 .memory-note{
@@ -868,6 +877,7 @@ h2{
   }
 
   .photo-slot{
+    flex:0 0 90px;
     width:90px;
     height:120px;
   }
@@ -1047,43 +1057,43 @@ h2{
     <div class="memory-grid">
 
       <div class="photo-slot">
-        <img src="photos/her1.jpg" alt="Chiku">
+        <img src="her1.jpg" alt="Chiku">
       </div>
 
       <div class="photo-slot">
-        <img src="photos/her2.jpg" alt="Chiku">
+        <img src="her2.jpg" alt="Chiku">
       </div>
 
       <div class="photo-slot">
-        <img src="photos/her3.jpg" alt="Chiku">
+        <img src="her3.jpg" alt="Chiku">
       </div>
 
       <div class="photo-slot">
-        <img src="photos/her4.jpg" alt="Chiku">
+        <img src="her4.jpg" alt="Chiku">
       </div>
 
       <div class="photo-slot">
-        <img src="photos/comment1.jpg" alt="Comment">
+        <img src="comment1.jpg" alt="Comment">
       </div>
 
       <div class="photo-slot">
-        <img src="photos/comment2.jpg" alt="Comment">
+        <img src="comment2.jpg" alt="Comment">
       </div>
 
       <div class="photo-slot">
-        <img src="photos/together1.jpg" alt="Together">
+        <img src="together1.jpg" alt="Together">
       </div>
 
       <div class="photo-slot">
-        <img src="photos/together2.jpg" alt="Together">
+        <img src="together2.jpg" alt="Together">
       </div>
 
       <div class="photo-slot">
-        <img src="photos/together3.jpg" alt="Together">
+        <img src="together3.jpg" alt="Together">
       </div>
 
       <div class="photo-slot">
-        <img src="photos/together4.jpg" alt="Together">
+        <img src="together4.jpg" alt="Together">
       </div>
 
     </div>
